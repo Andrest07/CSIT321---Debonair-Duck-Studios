@@ -1,1 +1,1 @@
-# CSIT321-DebonairDuckStudios
+# CSCI321-DebonairDuckStudios
