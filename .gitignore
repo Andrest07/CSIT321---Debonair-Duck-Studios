@@ -6,6 +6,8 @@
 [Bb]uilds/
 UnityGenerated/
 Assets/AssetStoreTools*
+Logs
+UserSettings
 
 # --- Potential OS generated files --- #
 .DS_Store*
