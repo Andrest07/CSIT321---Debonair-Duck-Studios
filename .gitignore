@@ -4,10 +4,10 @@
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
 UnityGenerated/
 Assets/AssetStoreTools*
-Logs
-UserSettings
 .vscode
 
 # --- Potential OS generated files --- #
