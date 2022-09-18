@@ -1,120 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputSystem : MonoBehaviour
 {
-    public void W()
+    private Rigidbody2D playerBody;
+    private PlayerInput playerInput;
+
+    private void Awake()
+    {
+        playerBody = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
+
+        PlayerInputActions playerInputActions = new PlayerInputActions();
+    }
+
+    //For Movement
+    private void FixedUpdate()
     {
 
     }
 
-    public void A()
+    public void PauseMenu()
     {
 
     }
 
-    public void S()
+    public void GameMenu()
     {
 
     }
 
-    public void D()
+    public void Attack()
     {
 
     }
 
-    public void Esc()
+    public void SpellcastMode()
     {
 
     }
 
-    public void Tab()
+    public void Interact()
     {
 
     }
 
-    public void LeftMouse()
+    public void Sprint()
     {
 
     }
 
-    public void RightMouse()
+    public void CaptureMode()
     {
 
     }
 
-    public void Q()
+    public void MonsterSwitch()
     {
 
     }
 
-    public void E()
+    public void MonsterSelect()
     {
 
     }
 
-    public void Numpad1()
-    {
-
-    }
-
-    public void Numpad2()
-    {
-
-    }
-
-    public void Numpad3()
-    {
-
-    }
-
-    public void Numpad4()
-    {
-
-    }
-
-    public void Numpad5()
-    {
-
-    }
-
-    public void Numpad6()
-    {
-
-    }
-
-    public void Numpad7()
-    {
-
-    }
-
-    public void Numpad8()
-    {
-
-    }
-
-    public void Numpad9()
-    {
-
-    }
-
-    public void Numpad0()
-    {
-
-    }
-
-    public void F()
-    {
-
-    }
-
-    public void Shift()
-    {
-
-    }
-
-    public void C()
+    public void Mobility()
     {
 
     }
