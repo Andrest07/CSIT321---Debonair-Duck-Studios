@@ -65,7 +65,6 @@ public class InputSystem : MonoBehaviour
             playerStamina.isSprinting = true;
         else
             playerStamina.isSprinting = false;
-
     }
 
     public void CaptureMode()
