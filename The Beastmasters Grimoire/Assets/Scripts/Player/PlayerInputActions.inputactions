@@ -6,7 +6,7 @@
             "id": "a6b40a50-24e9-433f-88ea-980fc02e9976",
             "actions": [
                 {
-                    "name": "Esc",
+                    "name": "PauseMenu",
                     "type": "Button",
                     "id": "561479d5-2216-4bb6-a5cc-1a3994a582ea",
                     "expectedControlType": "Button",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Tab",
+                    "name": "GameMenu",
                     "type": "Button",
                     "id": "5b617571-927d-490a-95c1-c4b76f5b50f3",
                     "expectedControlType": "Button",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Left Mouse",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "7e7833ef-6293-4f89-8731-ba5ece4daeb5",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Right Mouse",
+                    "name": "SpellcastMode",
                     "type": "Button",
                     "id": "c875e3c1-e491-49b8-970c-5c0c42157217",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "F",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "c72d9ea6-b202-4475-98d4-37599ceacd02",
                     "expectedControlType": "Button",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shift",
+                    "name": "Sprint",
                     "type": "Button",
                     "id": "b71ffa58-6d0d-4734-9a84-936cd1446caa",
                     "expectedControlType": "Button",
@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "C",
+                    "name": "CaptureMode",
                     "type": "Button",
                     "id": "8594e4cb-f502-4852-b486-5cefdf18393b",
                     "expectedControlType": "Button",
@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "WASD",
+                    "name": "Movement",
                     "type": "Value",
                     "id": "bbbadf05-f360-4c8b-b11d-222d36ee2547",
                     "expectedControlType": "Vector2",
@@ -78,7 +78,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Q/E",
+                    "name": "MonsterSwitch",
                     "type": "Button",
                     "id": "d5aba842-56aa-47ef-a34b-b82591be351f",
                     "expectedControlType": "Button",
@@ -87,7 +87,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Numkey",
+                    "name": "MonsterSelect",
                     "type": "Value",
                     "id": "4864c6e0-9613-4153-9aa0-3db5c696664b",
                     "expectedControlType": "Button",
@@ -96,7 +96,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Space",
+                    "name": "Mobility",
                     "type": "Button",
                     "id": "8dce4ef2-a600-46b6-9a5f-e6fc5fbad601",
                     "expectedControlType": "Button",
@@ -113,7 +113,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Esc",
+                    "action": "PauseMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -124,7 +124,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Tab",
+                    "action": "GameMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -135,7 +135,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Left Mouse",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -146,7 +146,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Right Mouse",
+                    "action": "SpellcastMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -157,7 +157,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "F",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -168,7 +168,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Shift",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -179,7 +179,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "C",
+                    "action": "CaptureMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -190,7 +190,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "WASD",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -201,7 +201,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "WASD",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -212,7 +212,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "WASD",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -223,7 +223,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "WASD",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -234,7 +234,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "WASD",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -245,7 +245,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Q/E",
+                    "action": "MonsterSwitch",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -256,7 +256,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Q/E",
+                    "action": "MonsterSwitch",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -267,7 +267,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Q/E",
+                    "action": "MonsterSwitch",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -278,7 +278,7 @@
                     "interactions": "Press",
                     "processors": "Scale",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -289,7 +289,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=2)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -300,7 +300,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=3)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -311,7 +311,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=4)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -322,7 +322,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=5)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -333,7 +333,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=6)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -344,7 +344,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=7)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -355,7 +355,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=8)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -366,7 +366,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=9)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -377,7 +377,7 @@
                     "interactions": "Press",
                     "processors": "Scale(factor=10)",
                     "groups": "Keyboard",
-                    "action": "Numkey",
+                    "action": "MonsterSelect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -388,7 +388,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Space",
+                    "action": "Mobility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

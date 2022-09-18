@@ -28,7 +28,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""id"": ""a6b40a50-24e9-433f-88ea-980fc02e9976"",
             ""actions"": [
                 {
-                    ""name"": ""Esc"",
+                    ""name"": ""PauseMenu"",
                     ""type"": ""Button"",
                     ""id"": ""561479d5-2216-4bb6-a5cc-1a3994a582ea"",
                     ""expectedControlType"": ""Button"",
@@ -37,7 +37,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Tab"",
+                    ""name"": ""GameMenu"",
                     ""type"": ""Button"",
                     ""id"": ""5b617571-927d-490a-95c1-c4b76f5b50f3"",
                     ""expectedControlType"": ""Button"",
@@ -46,7 +46,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Left Mouse"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""7e7833ef-6293-4f89-8731-ba5ece4daeb5"",
                     ""expectedControlType"": ""Button"",
@@ -55,7 +55,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Right Mouse"",
+                    ""name"": ""SpellcastMode"",
                     ""type"": ""Button"",
                     ""id"": ""c875e3c1-e491-49b8-970c-5c0c42157217"",
                     ""expectedControlType"": ""Button"",
@@ -64,7 +64,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""F"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""c72d9ea6-b202-4475-98d4-37599ceacd02"",
                     ""expectedControlType"": ""Button"",
@@ -73,7 +73,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shift"",
+                    ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""b71ffa58-6d0d-4734-9a84-936cd1446caa"",
                     ""expectedControlType"": ""Button"",
@@ -82,7 +82,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""C"",
+                    ""name"": ""CaptureMode"",
                     ""type"": ""Button"",
                     ""id"": ""8594e4cb-f502-4852-b486-5cefdf18393b"",
                     ""expectedControlType"": ""Button"",
@@ -91,7 +91,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""WASD"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""bbbadf05-f360-4c8b-b11d-222d36ee2547"",
                     ""expectedControlType"": ""Vector2"",
@@ -100,7 +100,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Q/E"",
+                    ""name"": ""MonsterSwitch"",
                     ""type"": ""Button"",
                     ""id"": ""d5aba842-56aa-47ef-a34b-b82591be351f"",
                     ""expectedControlType"": ""Button"",
@@ -109,7 +109,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Numkey"",
+                    ""name"": ""MonsterSelect"",
                     ""type"": ""Value"",
                     ""id"": ""4864c6e0-9613-4153-9aa0-3db5c696664b"",
                     ""expectedControlType"": ""Button"",
@@ -118,7 +118,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Space"",
+                    ""name"": ""Mobility"",
                     ""type"": ""Button"",
                     ""id"": ""8dce4ef2-a600-46b6-9a5f-e6fc5fbad601"",
                     ""expectedControlType"": ""Button"",
@@ -135,7 +135,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Esc"",
+                    ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -146,7 +146,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Tab"",
+                    ""action"": ""GameMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -157,7 +157,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Left Mouse"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -168,7 +168,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Right Mouse"",
+                    ""action"": ""SpellcastMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -179,7 +179,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""F"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -190,7 +190,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Shift"",
+                    ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -201,7 +201,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""C"",
+                    ""action"": ""CaptureMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -212,7 +212,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -223,7 +223,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -234,7 +234,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -245,7 +245,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -256,7 +256,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -267,7 +267,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Q/E"",
+                    ""action"": ""MonsterSwitch"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -278,7 +278,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Q/E"",
+                    ""action"": ""MonsterSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -289,7 +289,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Q/E"",
+                    ""action"": ""MonsterSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -300,7 +300,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -311,7 +311,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=2)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -322,7 +322,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=3)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -333,7 +333,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=4)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -344,7 +344,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=5)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -355,7 +355,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=6)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -366,7 +366,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=7)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -377,7 +377,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=8)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -388,7 +388,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=9)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -399,7 +399,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": ""Scale(factor=10)"",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Numkey"",
+                    ""action"": ""MonsterSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -410,7 +410,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Space"",
+                    ""action"": ""Mobility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -433,17 +433,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Esc = m_Player.FindAction("Esc", throwIfNotFound: true);
-        m_Player_Tab = m_Player.FindAction("Tab", throwIfNotFound: true);
-        m_Player_LeftMouse = m_Player.FindAction("Left Mouse", throwIfNotFound: true);
-        m_Player_RightMouse = m_Player.FindAction("Right Mouse", throwIfNotFound: true);
-        m_Player_F = m_Player.FindAction("F", throwIfNotFound: true);
-        m_Player_Shift = m_Player.FindAction("Shift", throwIfNotFound: true);
-        m_Player_C = m_Player.FindAction("C", throwIfNotFound: true);
-        m_Player_WASD = m_Player.FindAction("WASD", throwIfNotFound: true);
-        m_Player_QE = m_Player.FindAction("Q/E", throwIfNotFound: true);
-        m_Player_Numkey = m_Player.FindAction("Numkey", throwIfNotFound: true);
-        m_Player_Space = m_Player.FindAction("Space", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_GameMenu = m_Player.FindAction("GameMenu", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_SpellcastMode = m_Player.FindAction("SpellcastMode", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_CaptureMode = m_Player.FindAction("CaptureMode", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_MonsterSwitch = m_Player.FindAction("MonsterSwitch", throwIfNotFound: true);
+        m_Player_MonsterSelect = m_Player.FindAction("MonsterSelect", throwIfNotFound: true);
+        m_Player_Mobility = m_Player.FindAction("Mobility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -503,32 +503,32 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Esc;
-    private readonly InputAction m_Player_Tab;
-    private readonly InputAction m_Player_LeftMouse;
-    private readonly InputAction m_Player_RightMouse;
-    private readonly InputAction m_Player_F;
-    private readonly InputAction m_Player_Shift;
-    private readonly InputAction m_Player_C;
-    private readonly InputAction m_Player_WASD;
-    private readonly InputAction m_Player_QE;
-    private readonly InputAction m_Player_Numkey;
-    private readonly InputAction m_Player_Space;
+    private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_GameMenu;
+    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_SpellcastMode;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_CaptureMode;
+    private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_MonsterSwitch;
+    private readonly InputAction m_Player_MonsterSelect;
+    private readonly InputAction m_Player_Mobility;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Esc => m_Wrapper.m_Player_Esc;
-        public InputAction @Tab => m_Wrapper.m_Player_Tab;
-        public InputAction @LeftMouse => m_Wrapper.m_Player_LeftMouse;
-        public InputAction @RightMouse => m_Wrapper.m_Player_RightMouse;
-        public InputAction @F => m_Wrapper.m_Player_F;
-        public InputAction @Shift => m_Wrapper.m_Player_Shift;
-        public InputAction @C => m_Wrapper.m_Player_C;
-        public InputAction @WASD => m_Wrapper.m_Player_WASD;
-        public InputAction @QE => m_Wrapper.m_Player_QE;
-        public InputAction @Numkey => m_Wrapper.m_Player_Numkey;
-        public InputAction @Space => m_Wrapper.m_Player_Space;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @GameMenu => m_Wrapper.m_Player_GameMenu;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @SpellcastMode => m_Wrapper.m_Player_SpellcastMode;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @CaptureMode => m_Wrapper.m_Player_CaptureMode;
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @MonsterSwitch => m_Wrapper.m_Player_MonsterSwitch;
+        public InputAction @MonsterSelect => m_Wrapper.m_Player_MonsterSelect;
+        public InputAction @Mobility => m_Wrapper.m_Player_Mobility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -538,76 +538,76 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Esc.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEsc;
-                @Esc.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEsc;
-                @Esc.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEsc;
-                @Tab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTab;
-                @Tab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTab;
-                @Tab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTab;
-                @LeftMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouse;
-                @LeftMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouse;
-                @LeftMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftMouse;
-                @RightMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightMouse;
-                @RightMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightMouse;
-                @RightMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightMouse;
-                @F.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnF;
-                @F.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnF;
-                @F.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnF;
-                @Shift.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShift;
-                @Shift.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShift;
-                @Shift.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShift;
-                @C.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnC;
-                @C.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnC;
-                @C.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnC;
-                @WASD.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASD;
-                @WASD.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASD;
-                @WASD.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASD;
-                @QE.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQE;
-                @QE.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQE;
-                @QE.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQE;
-                @Numkey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNumkey;
-                @Numkey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNumkey;
-                @Numkey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNumkey;
-                @Space.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpace;
-                @Space.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpace;
-                @Space.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpace;
+                @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @GameMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGameMenu;
+                @GameMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGameMenu;
+                @GameMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGameMenu;
+                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @SpellcastMode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpellcastMode;
+                @SpellcastMode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpellcastMode;
+                @SpellcastMode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpellcastMode;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @CaptureMode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCaptureMode;
+                @CaptureMode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCaptureMode;
+                @CaptureMode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCaptureMode;
+                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @MonsterSwitch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMonsterSwitch;
+                @MonsterSwitch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMonsterSwitch;
+                @MonsterSwitch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMonsterSwitch;
+                @MonsterSelect.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMonsterSelect;
+                @MonsterSelect.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMonsterSelect;
+                @MonsterSelect.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMonsterSelect;
+                @Mobility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMobility;
+                @Mobility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMobility;
+                @Mobility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMobility;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Esc.started += instance.OnEsc;
-                @Esc.performed += instance.OnEsc;
-                @Esc.canceled += instance.OnEsc;
-                @Tab.started += instance.OnTab;
-                @Tab.performed += instance.OnTab;
-                @Tab.canceled += instance.OnTab;
-                @LeftMouse.started += instance.OnLeftMouse;
-                @LeftMouse.performed += instance.OnLeftMouse;
-                @LeftMouse.canceled += instance.OnLeftMouse;
-                @RightMouse.started += instance.OnRightMouse;
-                @RightMouse.performed += instance.OnRightMouse;
-                @RightMouse.canceled += instance.OnRightMouse;
-                @F.started += instance.OnF;
-                @F.performed += instance.OnF;
-                @F.canceled += instance.OnF;
-                @Shift.started += instance.OnShift;
-                @Shift.performed += instance.OnShift;
-                @Shift.canceled += instance.OnShift;
-                @C.started += instance.OnC;
-                @C.performed += instance.OnC;
-                @C.canceled += instance.OnC;
-                @WASD.started += instance.OnWASD;
-                @WASD.performed += instance.OnWASD;
-                @WASD.canceled += instance.OnWASD;
-                @QE.started += instance.OnQE;
-                @QE.performed += instance.OnQE;
-                @QE.canceled += instance.OnQE;
-                @Numkey.started += instance.OnNumkey;
-                @Numkey.performed += instance.OnNumkey;
-                @Numkey.canceled += instance.OnNumkey;
-                @Space.started += instance.OnSpace;
-                @Space.performed += instance.OnSpace;
-                @Space.canceled += instance.OnSpace;
+                @PauseMenu.started += instance.OnPauseMenu;
+                @PauseMenu.performed += instance.OnPauseMenu;
+                @PauseMenu.canceled += instance.OnPauseMenu;
+                @GameMenu.started += instance.OnGameMenu;
+                @GameMenu.performed += instance.OnGameMenu;
+                @GameMenu.canceled += instance.OnGameMenu;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @SpellcastMode.started += instance.OnSpellcastMode;
+                @SpellcastMode.performed += instance.OnSpellcastMode;
+                @SpellcastMode.canceled += instance.OnSpellcastMode;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
+                @CaptureMode.started += instance.OnCaptureMode;
+                @CaptureMode.performed += instance.OnCaptureMode;
+                @CaptureMode.canceled += instance.OnCaptureMode;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+                @MonsterSwitch.started += instance.OnMonsterSwitch;
+                @MonsterSwitch.performed += instance.OnMonsterSwitch;
+                @MonsterSwitch.canceled += instance.OnMonsterSwitch;
+                @MonsterSelect.started += instance.OnMonsterSelect;
+                @MonsterSelect.performed += instance.OnMonsterSelect;
+                @MonsterSelect.canceled += instance.OnMonsterSelect;
+                @Mobility.started += instance.OnMobility;
+                @Mobility.performed += instance.OnMobility;
+                @Mobility.canceled += instance.OnMobility;
             }
         }
     }
@@ -623,16 +623,16 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnEsc(InputAction.CallbackContext context);
-        void OnTab(InputAction.CallbackContext context);
-        void OnLeftMouse(InputAction.CallbackContext context);
-        void OnRightMouse(InputAction.CallbackContext context);
-        void OnF(InputAction.CallbackContext context);
-        void OnShift(InputAction.CallbackContext context);
-        void OnC(InputAction.CallbackContext context);
-        void OnWASD(InputAction.CallbackContext context);
-        void OnQE(InputAction.CallbackContext context);
-        void OnNumkey(InputAction.CallbackContext context);
-        void OnSpace(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
+        void OnGameMenu(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnSpellcastMode(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
+        void OnCaptureMode(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
+        void OnMonsterSwitch(InputAction.CallbackContext context);
+        void OnMonsterSelect(InputAction.CallbackContext context);
+        void OnMobility(InputAction.CallbackContext context);
     }
 }

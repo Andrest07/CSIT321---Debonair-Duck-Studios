@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Kaleb 15/09/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Andreas 18/09/22: Modified PlayerControls to InputSystem.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using UnityEngine;
 
 public class PlayerStamina : MonoBehaviour
 {
-    private PlayerControls playerControls;
+    private InputSystem inputSystem;
     public float totalStamina; //The players total staminas in seconds 
     public float currentStamina; //The players current stamina
     public float sprintSpeed; //The speed of sprinting
@@ -27,7 +28,7 @@ public class PlayerStamina : MonoBehaviour
         //Initializing values
         currentStamina = totalStamina;
         currentRegenDelay = totalRegenDelay;
-        playerControls = gameObject.GetComponent<PlayerControls>();
+        inputSystem = gameObject.GetComponent<InputSystem>();
         updateSpeed();
     }
 
@@ -56,7 +57,7 @@ public class PlayerStamina : MonoBehaviour
         else //Otherwise they are sprinting and increase player speed and drain stamina
         {
             currentStamina -= Time.deltaTime * drainRate;
-            playerControls.playerSpeed = sprintSpeed;
+            inputSystem.playerSpeed = sprintSpeed;
             currentRegenDelay = totalRegenDelay;
             isRegening = true;
         }
@@ -68,7 +69,7 @@ public class PlayerStamina : MonoBehaviour
         if (currentRegenDelay > 0) //If there is a regeneration delay, count down the delay and reset player speed.
         {
             currentRegenDelay -= Time.deltaTime;
-            playerControls.playerSpeed = walkSpeed;
+            inputSystem.playerSpeed = walkSpeed;
         }
 
         else
@@ -88,7 +89,7 @@ public class PlayerStamina : MonoBehaviour
 
     void updateSpeed() //Useful for whenever gear updates the sprint rate or playerspeed is updated
     {
-        sprintSpeed = playerControls.playerSpeed * sprintRate;
-        walkSpeed = playerControls.playerSpeed;
+        sprintSpeed = inputSystem.playerSpeed * sprintRate;
+        walkSpeed = inputSystem.playerSpeed;
     }
 }
