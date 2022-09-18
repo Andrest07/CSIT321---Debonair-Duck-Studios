@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ad8c3eb73515b834b8b4a70d9786b250, type: 3}
+  m_Sprite: {fileID: -1257048632, guid: 83f7fcc5826ab9749a7defa8cb7ec32e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.47, y: 1.27}
+    oldSize: {x: 0.57, y: 1.33}
     newSize: {x: 0.47, y: 1.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845c2fc4b0991ba438d5d5c53aa1dcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpeed: 0
 --- !u!114 &3318873043491234562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +195,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb86adf2fdb5b44b83502e97022a8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalStamina: 0
+  currentStamina: 0
+  sprintSpeed: 0
+  sprintRate: 0
+  walkSpeed: 0
+  drainRate: 0
+  regenRate: 0
+  totalRegenDelay: 0
+  currentRegenDelay: 0
+  isSprinting: 0
+  isRegening: 0
 --- !u!114 &7083514175328161317
 MonoBehaviour:
   m_ObjectHideFlags: 0
