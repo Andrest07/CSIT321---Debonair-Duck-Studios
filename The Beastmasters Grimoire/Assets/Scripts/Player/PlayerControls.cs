@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+    [Header("Speed Settings")]
     public float playerSpeed;
     private PlayerStamina playerStamina;
 

@@ -10,15 +10,23 @@ using UnityEngine;
 public class PlayerStamina : MonoBehaviour
 {
     private PlayerControls playerControls;
+
+    [Header("Stamina settings")]
     public float totalStamina; //The players total staminas in seconds 
     public float currentStamina; //The players current stamina
+
+    [Header("Speed settings")]
     public float sprintSpeed; //The speed of sprinting
     public float sprintRate; //The rate sprinting multiplies the players speed
     public float walkSpeed; //The players default / non-sprint speed
+
+    [Header("Stamina Regen Settings")]
     public float drainRate; //The rate at which stamina decays when sprinting
     public float regenRate; //The rate at which stamina regenerates
     public float totalRegenDelay; //The total delay in seconds before stamina regenerates
     public float currentRegenDelay; //The current delay in seconds before stamina regenerates
+
+    [Header("Boolean Settings")]
     public bool isSprinting; //Boolean for whether the player is sprinting or not
     public bool isRegening; //Boolean for whether the player is regenerating or not
 
