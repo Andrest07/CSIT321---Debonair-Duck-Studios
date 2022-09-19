@@ -2,10 +2,9 @@
 AUTHOR DD/MM/YY: Andreas 18/09/22
 z
 	- EDITOR DD/MM/YY CHANGES:
-    - Andreas 18/09/22: Ported over Quentin's PlayerControls script.
-    - Andreas 18/09/22: Ported over Kaleb's input for sprinting.
-    - Kaleb 19/09/22: Added monster swapping input and functionality. Modified variables and awake method also.
-    - Kaleb 19/09/22: Input recognition added for most controls.
+    - Andreas 18/09/22: Ported over Quentin's PlayerControls script. Ported over Kaleb's input for sprinting.
+    - Kaleb 19/09/22: Added monster swapping input and functionality. Modified variables and awake method also. Input recognition added for most controls.
+    - Kaleb 20/09/22: Fixed sprint button up bug and added comments for clarity.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +14,7 @@ using UnityEngine.InputSystem;
 
 public class InputSystem : MonoBehaviour
 {
+    //Private variables
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
@@ -33,6 +33,7 @@ public class InputSystem : MonoBehaviour
 
     private void Awake()
     {
+        //Private variables initialization
         playerBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerStamina = gameObject.GetComponent<PlayerStamina>();
@@ -42,6 +43,7 @@ public class InputSystem : MonoBehaviour
             availableBeasts.RemoveAt(availableBeasts.Count - 1);
         }
 
+        //Initialize player controls and input system
         PlayerInputActions playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.PauseMenu.performed += PauseMenu;
@@ -50,6 +52,7 @@ public class InputSystem : MonoBehaviour
         playerInputActions.Player.SpellcastMode.performed += SpellcastMode;
         playerInputActions.Player.Interact.performed += Interact;
         playerInputActions.Player.Sprint.performed += Sprint;
+        playerInputActions.Player.Sprint.canceled += Sprint;
         playerInputActions.Player.CaptureMode.performed += CaptureMode;
         playerInputActions.Player.MonsterSwitch.performed += MonsterSwitch;
         playerInputActions.Player.MonsterSelect.performed += MonsterSelect;
@@ -88,7 +91,7 @@ public class InputSystem : MonoBehaviour
 
     }
 
-    public void Sprint(InputAction.CallbackContext context)
+    public void Sprint(InputAction.CallbackContext context) //Button down and up sets sprinting to true and false respectively
     {
         if (context.performed)
             playerStamina.isSprinting = true;
