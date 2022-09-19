@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class InputSystem : MonoBehaviour
 {
     private Rigidbody2D playerBody;
@@ -34,6 +35,11 @@ public class InputSystem : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerStamina = gameObject.GetComponent<PlayerStamina>();
+
+        while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
+        {
+            availableBeasts.RemoveAt(availableBeasts.Count - 1);
+        }
 
         PlayerInputActions playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
