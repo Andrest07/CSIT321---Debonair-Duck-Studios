@@ -5,6 +5,7 @@ z
     - Andreas 18/09/22: Ported over Quentin's PlayerControls script.
     - Andreas 18/09/22: Ported over Kaleb's input for sprinting.
     - Kaleb 19/09/22: Added monster swapping input and functionality. Modified variables and awake method also.
+    - Kaleb 19/09/22: Input recognition added for most controls.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -43,9 +44,16 @@ public class InputSystem : MonoBehaviour
 
         PlayerInputActions playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+        playerInputActions.Player.PauseMenu.performed += PauseMenu;
+        playerInputActions.Player.GameMenu.performed += GameMenu;
+        playerInputActions.Player.Attack.performed += Attack;
+        playerInputActions.Player.SpellcastMode.performed += SpellcastMode;
+        playerInputActions.Player.Interact.performed += Interact;
         playerInputActions.Player.Sprint.performed += Sprint;
+        playerInputActions.Player.CaptureMode.performed += CaptureMode;
         playerInputActions.Player.MonsterSwitch.performed += MonsterSwitch;
         playerInputActions.Player.MonsterSelect.performed += MonsterSelect;
+        playerInputActions.Player.Mobility.performed += Mobility;
 
     }
 
@@ -55,27 +63,27 @@ public class InputSystem : MonoBehaviour
 
     }
 
-    public void PauseMenu()
+    public void PauseMenu(InputAction.CallbackContext context)
     {
 
     }
 
-    public void GameMenu()
+    public void GameMenu(InputAction.CallbackContext context)
     {
 
     }
 
-    public void Attack()
+    public void Attack(InputAction.CallbackContext context)
     {
 
     }
 
-    public void SpellcastMode()
+    public void SpellcastMode(InputAction.CallbackContext context)
     {
 
     }
 
-    public void Interact()
+    public void Interact(InputAction.CallbackContext context)
     {
 
     }
@@ -88,7 +96,7 @@ public class InputSystem : MonoBehaviour
             playerStamina.isSprinting = false;
     }
 
-    public void CaptureMode()
+    public void CaptureMode(InputAction.CallbackContext context)
     {
 
     }
@@ -119,7 +127,7 @@ public class InputSystem : MonoBehaviour
         }
     }
 
-    public void Mobility()
+    public void Mobility(InputAction.CallbackContext context)
     {
 
     }
