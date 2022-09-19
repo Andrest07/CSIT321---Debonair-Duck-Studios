@@ -37,7 +37,7 @@ public class PlayerStamina : MonoBehaviour
         currentStamina = totalStamina;
         currentRegenDelay = totalRegenDelay;
         inputSystem = gameObject.GetComponent<InputSystem>();
-        updateSpeed();
+        UpdateSpeed();
     }
 
     void Update()
@@ -95,7 +95,7 @@ public class PlayerStamina : MonoBehaviour
         }
     }
 
-    void updateSpeed() //Useful for whenever gear updates the sprint rate or playerspeed is updated
+    void UpdateSpeed() //Useful for whenever gear updates the sprint rate or playerspeed is updated
     {
         sprintSpeed = inputSystem.playerSpeed * sprintRate;
         walkSpeed = inputSystem.playerSpeed;
