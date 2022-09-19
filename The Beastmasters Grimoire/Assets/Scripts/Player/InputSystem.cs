@@ -14,8 +14,6 @@ public class InputSystem : MonoBehaviour
 {
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
-
-    [Header("Speed Settings")]
     public float playerSpeed;
     private PlayerStamina playerStamina;
 
