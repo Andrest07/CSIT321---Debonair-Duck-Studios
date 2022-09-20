@@ -234,7 +234,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 390
-        y: 378
+        y: 379
         width: 86
         height: 133
       alignment: 0
@@ -259,7 +259,7 @@ TextureImporter:
         width: 64
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,6 +267,69 @@ TextureImporter:
       bones: []
       spriteID: e587d7463cc1041429a17995e88d7408
       internalID: -239836615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 246
+        width: 103
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e903a296de8f06499296037840a2e52
+      internalID: -833924890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 246
+        width: 85
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef882ee3884d00849a239ae15fed7d2b
+      internalID: 1386584134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 246
+        width: 73
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a53ecc18fc23d548b3e450b40da4c8a
+      internalID: -447381039
       vertices: []
       indices: 
       edges: []
@@ -282,12 +345,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      PlayerSpriteSheet_9: 1386584134
       PlayerSpriteSheet_6: -761835885
       PlayerSpriteSheet_3: 1015807049
       PlayerSpriteSheet_1: -1361096417
       PlayerSpriteSheet_2: 1719815078
       PlayerSpriteSheet_4: 1748557148
       PlayerSpriteSheet_7: -239836615
+      PlayerSpriteSheet_8: -833924890
+      PlayerSpriteSheet_10: -447381039
       PlayerSpriteSheet_0: -1257048632
       PlayerSpriteSheet_5: -1032784497
   spritePackingTag: 
