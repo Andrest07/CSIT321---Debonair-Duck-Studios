@@ -5,6 +5,7 @@ z
     - Andreas 18/09/22: Ported over Quentin's PlayerControls script. Ported over Kaleb's input for sprinting.
     - Kaleb 19/09/22: Added monster swapping input and functionality. Modified variables and awake method also. Input recognition added for most controls.
     - Kaleb 20/09/22: Fixed sprint button up bug and added comments for clarity.
+    - Nick 20/09/22: Added player movement. Under FixedUpdate.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ public class InputSystem : MonoBehaviour
     public List<GameObject> availableBeasts; //All the beasts the player currently has equipped
     public int totalBeasts; //The total number of beasts the player can store
     public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
-
 
 
 
@@ -67,7 +67,11 @@ public class InputSystem : MonoBehaviour
     //For Movement
     private void FixedUpdate()
     {
+        float dirX = Input.GetAxisRaw("Horizontal");
+        playerBody.velocity = new Vector2(dirX * playerSpeed, playerBody.velocity.y);
 
+        float dirY = Input.GetAxisRaw("Vertical");
+        playerBody.velocity = new Vector2(playerBody.velocity.x, dirY * playerSpeed);
     }
 
     public void PauseMenu(InputAction.CallbackContext context)
