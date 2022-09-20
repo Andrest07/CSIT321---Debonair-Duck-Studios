@@ -3,6 +3,7 @@ AUTHOR DD/MM/YY: Kaleb 15/09/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Andreas 18/09/22: Modified PlayerControls to InputSystem.
+    - Kaleb 20/09/22: Modified InputSystem back to PlayerControls. Peak Development.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using UnityEngine;
 
 public class PlayerStamina : MonoBehaviour
 {
-    private InputSystem inputSystem;
+    private PlayerControls playerControls;
 
     [Header("Stamina settings")]
     public float totalStamina; //The players total staminas in seconds 
@@ -36,7 +37,7 @@ public class PlayerStamina : MonoBehaviour
         //Initializing values
         currentStamina = totalStamina;
         currentRegenDelay = totalRegenDelay;
-        inputSystem = gameObject.GetComponent<InputSystem>();
+        playerControls = gameObject.GetComponent<PlayerControls>();
         updateSpeed();
     }
 
@@ -65,7 +66,7 @@ public class PlayerStamina : MonoBehaviour
         else //Otherwise they are sprinting and increase player speed and drain stamina
         {
             currentStamina -= Time.deltaTime * drainRate;
-            inputSystem.playerSpeed = sprintSpeed;
+            playerControls.playerSpeed = sprintSpeed;
             currentRegenDelay = totalRegenDelay;
             isRegening = true;
         }
@@ -77,7 +78,7 @@ public class PlayerStamina : MonoBehaviour
         if (currentRegenDelay > 0) //If there is a regeneration delay, count down the delay and reset player speed.
         {
             currentRegenDelay -= Time.deltaTime;
-            inputSystem.playerSpeed = walkSpeed;
+            playerControls.playerSpeed = walkSpeed;
         }
 
         else
@@ -97,7 +98,7 @@ public class PlayerStamina : MonoBehaviour
 
     void updateSpeed() //Useful for whenever gear updates the sprint rate or playerspeed is updated
     {
-        sprintSpeed = inputSystem.playerSpeed * sprintRate;
-        walkSpeed = inputSystem.playerSpeed;
+        sprintSpeed = playerControls.playerSpeed * sprintRate;
+        walkSpeed = playerControls.playerSpeed;
     }
 }

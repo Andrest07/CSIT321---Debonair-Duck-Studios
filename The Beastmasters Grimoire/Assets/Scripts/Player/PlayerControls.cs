@@ -6,6 +6,7 @@ z
     - Kaleb 19/09/22: Added monster swapping input and functionality. Modified variables and awake method also. Input recognition added for most controls.
     - Kaleb 20/09/22: Fixed sprint button up bug and added comments for clarity.
     - Nick 20/09/22: Added player movement. Under FixedUpdate.
+    - Kaleb 20/09/22: Renamed back to PlayerControls and modifed player movement.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -13,17 +14,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class InputSystem : MonoBehaviour
+public class PlayerControls : MonoBehaviour
 {
     //Private variables
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
+    private Vector2 movementVector;
 
     [Header("Player Variables")]
     public float playerSpeed;
 
-    public Vector2 movementVector;
+    
 
     [Header("Beast Management")]
     public GameObject currentBeast; //The beast the player currently has selected
@@ -67,11 +69,7 @@ public class InputSystem : MonoBehaviour
     //For Movement
     private void FixedUpdate()
     {
-        float dirX = Input.GetAxisRaw("Horizontal");
-        playerBody.velocity = new Vector2(dirX * playerSpeed, playerBody.velocity.y);
-
-        float dirY = Input.GetAxisRaw("Vertical");
-        playerBody.velocity = new Vector2(playerBody.velocity.x, dirY * playerSpeed);
+        playerBody.velocity = movementVector*playerSpeed;
     }
 
     public void PauseMenu(InputAction.CallbackContext context)
