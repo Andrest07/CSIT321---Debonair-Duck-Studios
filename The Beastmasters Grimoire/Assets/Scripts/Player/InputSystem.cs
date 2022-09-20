@@ -22,6 +22,8 @@ public class InputSystem : MonoBehaviour
     [Header("Player Variables")]
     public float playerSpeed;
 
+    public Vector2 movementVector;
+
     [Header("Beast Management")]
     public GameObject currentBeast; //The beast the player currently has selected
     public List<GameObject> availableBeasts; //All the beasts the player currently has equipped
@@ -54,6 +56,8 @@ public class InputSystem : MonoBehaviour
         playerInputActions.Player.Sprint.performed += Sprint;
         playerInputActions.Player.Sprint.canceled += Sprint;
         playerInputActions.Player.CaptureMode.performed += CaptureMode;
+        playerInputActions.Player.Movement.performed += Movement;
+        playerInputActions.Player.Movement.canceled += Movement;
         playerInputActions.Player.MonsterSwitch.performed += MonsterSwitch;
         playerInputActions.Player.MonsterSelect.performed += MonsterSelect;
         playerInputActions.Player.Mobility.performed += Mobility;
@@ -102,6 +106,11 @@ public class InputSystem : MonoBehaviour
     public void CaptureMode(InputAction.CallbackContext context)
     {
 
+    }
+
+    public void Movement(InputAction.CallbackContext context)
+    {
+        movementVector = context.ReadValue<Vector2>();
     }
 
     public void MonsterSwitch(InputAction.CallbackContext context)
