@@ -21,11 +21,12 @@ public class PlayerHealth : MonoBehaviour
     public float healthRegenDelayCurrent; // Time delay remaining
     public float healthRegenMultiplier; // Player's health regen if buffed
 
-    [Header("Regen Booleans")]
-    public bool isTakingDamage; // "Is player currently taking damage?"
+    [Header("Damage Resistance Settings")]
+    public float damageMultiplier; // Damage resist (can be positive or negative)
 
-    // Dummy Variables
-    private float damageFromEnemy;
+    [Header("Health Booleans")]
+    public bool isTakingDamage; // "Is player currently taking damage?"
+    public bool healthRegening;
     
     void Start()
     {
@@ -35,15 +36,24 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // Regen Delay Timer
-        healthRegenDelayCurrent -= Time.deltaTime;
-
         // Regen Trigger
-        if (isTakingDamage == false && healthRegenDelayCurrent <= 0)
+        if (healthRegening)
         {
             RegenHealth();
         }
+        else if (healthRegenDelayCurrent > 0)
+        {
+            // Regen Delay Timer
+            healthRegenDelayCurrent -= Time.deltaTime;
+        }
+    }
 
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage; // Take damage
+        healthRegenDelayCurrent = healthRegenDelay; // Set regen delay to max
+        healthRegening = true; 
+    
         // Death Trigger
         if (currentHealth <= 0)
         {
@@ -51,25 +61,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage()
-    {
-        isTakingDamage = true; // Flagged for taking damage
-        currentHealth -= damageFromEnemy; // Take damage
-        healthRegenDelayCurrent = healthRegenDelay; // Set regen delay to max
-    }
-
     void RegenHealth()
     {
-        // If no delay and health less than total
-        if (healthRegenDelayCurrent <= 0 && currentHealth < totalHealth) 
+        // If current health less than max health
+        if (currentHealth < totalHealth) 
         {
             currentHealth += (healthRegenRate * Time.deltaTime);
         }
         
-        // Set delay to max to reset and prevent getting overhealed
+        // Prevent overhealing and set regen delay to max
         else
         {
-            healthRegenDelayCurrent = healthRegenDelay;
+            currentHealth = totalHealth;
+            healthRegening = false;      
         }
     }
 
