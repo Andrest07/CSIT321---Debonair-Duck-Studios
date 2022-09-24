@@ -52,18 +52,11 @@ public class PlayerStamina : MonoBehaviour
         {
             RegenStamina();
         }
-
     }
 
     void DrainStamina()
     {
-        if (currentStamina <= 0) //If the player has run out of stamina set their stamina to 0 and they are no longer sprinting
-        {
-            currentStamina = 0;
-            isSprinting = false;
-        }
-
-        else //Otherwise they are sprinting and increase player speed and drain stamina
+        if (currentStamina >= 0) //If the player still has stamina, they are sprinting. increase player speed and drain stamina
         {
             currentStamina -= Time.deltaTime * drainRate;
             playerControls.playerSpeed = sprintSpeed;
@@ -71,6 +64,11 @@ public class PlayerStamina : MonoBehaviour
             isRegening = true;
         }
 
+        else //If the player has run out of stamina set their stamina to 0 and they are no longer sprinting
+        {
+            currentStamina = 0;
+            isSprinting = false;
+        }
     }
 
     void RegenStamina()
@@ -83,15 +81,16 @@ public class PlayerStamina : MonoBehaviour
 
         else
         {
-            if (currentStamina > totalStamina) //Upper bound for stamina
+            if (currentStamina < totalStamina) //if the players stamina is not full, regen their stamina
+            {
+                currentStamina += Time.deltaTime * regenRate;
+
+            }
+
+            else //Otherwise the player is full and set current to max and stop regening
             {
                 currentStamina = totalStamina;
                 isRegening = false;
-            }
-
-            else //Otherwise regen stamina
-            {
-                currentStamina += Time.deltaTime * regenRate;
             }
         }
     }
