@@ -3,6 +3,7 @@ AUTHOR DD/MM/YY: Nick 22/09/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Nick 22/09/22: Added TakeDamage and Death methods. Updated Regen methods.
+    - Kaleb 28/09/22: Bug fixes
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -25,8 +26,7 @@ public class PlayerHealth : MonoBehaviour
     public float damageMultiplier; // Damage resist (can be positive or negative)
 
     [Header("Health Booleans")]
-    public bool isTakingDamage; // "Is player currently taking damage?"
-    public bool healthRegening;
+    public bool healthRegening; // "Is player currently regenerating health?"
     
     void Start()
     {
@@ -36,15 +36,16 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // Regen Trigger
-        if (healthRegening)
-        {
-            RegenHealth();
-        }
-        else if (healthRegenDelayCurrent > 0)
+
+        if (healthRegenDelayCurrent > 0)
         {
             // Regen Delay Timer
             healthRegenDelayCurrent -= Time.deltaTime;
+        }
+        // Regen Trigger
+        else if (healthRegening)
+        {
+            RegenHealth();
         }
     }
 

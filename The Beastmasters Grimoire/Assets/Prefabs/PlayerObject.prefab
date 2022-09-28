@@ -171,6 +171,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7183aa0ec3ea6734dbf74a107dd451e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalHealth: 25
+  currentHealth: 0
+  totalHealthMultiplier: 1
+  healthRegenRate: 1
+  healthRegenDelay: 10
+  healthRegenDelayCurrent: 0
+  healthRegenMultiplier: 1
+  damageMultiplier: 1
+  healthRegening: 0
 --- !u!114 &3063347449660883088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
+  canMove: 1
+  playerMode: 0
   currentBeast: {fileID: 0}
   availableBeasts:
   - {fileID: 0}

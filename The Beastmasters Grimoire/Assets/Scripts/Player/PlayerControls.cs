@@ -7,6 +7,7 @@ z
     - Kaleb 20/09/22: Fixed sprint button up bug and added comments for clarity.
     - Nick 20/09/22: Added player movement. Under FixedUpdate.
     - Kaleb 20/09/22: Renamed back to PlayerControls and modifed player movement.
+    - Kaleb 28/09/22: Added player modes and tidied some code.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -24,8 +25,10 @@ public class PlayerControls : MonoBehaviour
 
     [Header("Player Variables")]
     public float playerSpeed;
+    public bool canMove; //Bool for whether the player can currently move
+    public int playerMode; // 0 - Basic Attack, 1 - Spellcasting, 2 - Capture Mode
 
-    
+
 
     [Header("Beast Management")]
     public GameObject currentBeast; //The beast the player currently has selected
@@ -54,10 +57,10 @@ public class PlayerControls : MonoBehaviour
         playerInputActions.Player.GameMenu.performed += GameMenu;
         playerInputActions.Player.Attack.performed += Attack;
         playerInputActions.Player.SpellcastMode.performed += SpellcastMode;
+        playerInputActions.Player.CaptureMode.performed += CaptureMode;
         playerInputActions.Player.Interact.performed += Interact;
         playerInputActions.Player.Sprint.performed += Sprint;
         playerInputActions.Player.Sprint.canceled += Sprint;
-        playerInputActions.Player.CaptureMode.performed += CaptureMode;
         playerInputActions.Player.Movement.performed += Movement;
         playerInputActions.Player.Movement.canceled += Movement;
         playerInputActions.Player.MonsterSwitch.performed += MonsterSwitch;
@@ -69,7 +72,10 @@ public class PlayerControls : MonoBehaviour
     //For Movement
     private void FixedUpdate()
     {
-        playerBody.velocity = movementVector*playerSpeed;
+        if (canMove)
+        {
+            playerBody.velocity = movementVector * playerSpeed;
+        }
     }
 
     public void PauseMenu(InputAction.CallbackContext context)
@@ -84,12 +90,50 @@ public class PlayerControls : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-
+        switch (playerMode) //Decide which attack is used based on player mode
+        {
+            case 0:
+                //Basic attack code goes here
+                break;
+            case 1:
+                //Spellcasting code goes here
+                break;
+            case 2:
+                //Capture code goes here
+                break;
+        }
     }
 
     public void SpellcastMode(InputAction.CallbackContext context)
     {
+        if (playerMode == 1) //If the player is spellcasting, return to basic attacks
+        {
+            playerMode = 0;
+            canMove = true;
+        }
 
+        else //Otherwise go to spellcasting mode and stop the player from moving
+        {
+            playerMode = 1;
+            canMove = false;
+            playerBody.velocity = Vector2.zero;
+        }
+    }
+
+    public void CaptureMode(InputAction.CallbackContext context)
+    {
+        if (playerMode == 2) //If the player is capturing, return to basic attacks
+        {
+            playerMode = 0;
+            canMove = true;
+        }
+
+        else //Otherwise go to capture mode and stop the player from moving
+        {
+            playerMode = 2;
+            canMove = false;
+            playerBody.velocity = Vector2.zero;
+        }
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -105,10 +149,7 @@ public class PlayerControls : MonoBehaviour
             playerStamina.isSprinting = false;
     }
 
-    public void CaptureMode(InputAction.CallbackContext context)
-    {
 
-    }
 
     public void Movement(InputAction.CallbackContext context)
     {
