@@ -2,6 +2,7 @@
     AUTHOR DD/MM/YY: Quentin 27/09/22
 
     - EDITOR DD/MM/YY CHANGES:
+    - Kaleb 28/09/22: Fixed FacePlayer()
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -46,8 +47,8 @@ public class EnemyStateMachine : StateMachineBehaviour
     // Flip sprite to face player
     protected void FacePlayer()
     {
-        // Dot product for positions
-        float dir = -transform.position.x * controller.player.position.y + transform.position.y * controller.player.position.x;
+        // Calculate whether the player is left or right of the enemy, left is negative, right is positive
+        float dir =  controller.player.position.x - transform.position.x;
 
         // if player <- enemy then -1, 1 if enemy <- player
         if (dir < 0 && controller.facingRight || dir > 0 && !controller.facingRight)
