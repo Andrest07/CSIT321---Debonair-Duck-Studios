@@ -966,6 +966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305302783}
   - component: {fileID: 305302784}
+  - component: {fileID: 305302785}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1040,12 +1041,26 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 25
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 25
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &305302785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305302782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3127c2eba0893224c8b25961ea459bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 2109881430}
+  fillImage: {fileID: 337565570}
 --- !u!1 &337565568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0, b: 0.05512853, a: 1}
+  m_Color: {r: 0.20289597, g: 0.509434, b: 0.11774654, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3155,9 +3170,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: playerMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_Name
       value: PlayerObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318873043491234562, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: totalHealth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318873043491234562, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: currentHealth
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4495194794552010770, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_Interpolate
@@ -5735,7 +5762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.83137256, b: 0.6662387, a: 1}
+  m_Color: {r: 0.021537915, g: 0.035881694, b: 0.41509432, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5760,6 +5787,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100611305}
   m_CullTransparentMesh: 1
+--- !u!114 &2109881430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3318873043491234562, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+  m_PrefabInstance: {fileID: 1120830318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7183aa0ec3ea6734dbf74a107dd451e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2128075926
 GameObject:
   m_ObjectHideFlags: 0
