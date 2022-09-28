@@ -29,8 +29,7 @@ public class EnemyChaseState : EnemyStateMachine
     // Follow player
     public void Chase(Animator animator)
     {
-        if(Vector3.Distance(controller.transform.position, playerObject.transform.position) >= controller.data.AttackDistance)
-            controller.transform.position = Vector2.MoveTowards(controller.transform.position, playerObject.transform.position, controller.data.Speed * Time.deltaTime);
+        controller.transform.position = Vector2.MoveTowards(controller.transform.position, playerObject.transform.position, controller.data.Speed * Time.deltaTime);
     }
 
 }

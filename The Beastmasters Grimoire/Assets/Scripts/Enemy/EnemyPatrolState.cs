@@ -60,11 +60,11 @@ public class EnemyPatrolState : EnemyStateMachine
             prevPosition = transform.position;
 
             yield return new WaitForSeconds(time);
-            if (controller.animator.GetCurrentAnimatorStateInfo(0).IsName("Patrol"))
+            if (!inChaseRange  && controller.animator.GetCurrentAnimatorStateInfo(0).IsName("Patrol"))
                 controller.animator.SetTrigger("idle");
 
             yield return new WaitForSeconds(time);
-            if (controller.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            if (!inChaseRange && controller.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                 controller.animator.SetTrigger("patrol");
         }
     }
