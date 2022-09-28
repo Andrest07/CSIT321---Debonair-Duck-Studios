@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 177
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,10 +107,10 @@ TextureImporter:
       name: PlayerSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 378
-        width: 57
-        height: 133
+        x: 0
+        y: 281
+        width: 100
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: PlayerSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 57
-        y: 378
-        width: 57
-        height: 133
+        x: 107
+        y: 282
+        width: 100
+        height: 230
       alignment: 9
       pivot: {x: 0.48418266, y: 0.5542318}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: PlayerSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 114
-        y: 378
-        width: 38
-        height: 133
+        x: 216
+        y: 282
+        width: 77
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: PlayerSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 152
-        y: 378
-        width: 38
-        height: 133
+        x: 314
+        y: 282
+        width: 77
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: PlayerSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 190
-        y: 378
-        width: 100
-        height: 133
+        x: 424
+        y: 281
+        width: 180
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: PlayerSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 290
-        y: 378
-        width: 100
-        height: 133
+        x: 610
+        y: 281
+        width: 180
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: PlayerSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 390
-        y: 379
-        width: 86
-        height: 133
+        x: 842
+        y: 281
+        width: 159
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: PlayerSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 246
-        width: 64
-        height: 133
+        x: 3
+        y: 30
+        width: 112
+        height: 230
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,12 +275,12 @@ TextureImporter:
       name: PlayerSpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 64
-        y: 246
-        width: 103
-        height: 133
+        x: 118
+        y: 32
+        width: 173
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,12 +296,12 @@ TextureImporter:
       name: PlayerSpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 175
-        y: 246
-        width: 85
-        height: 133
+        x: 316
+        y: 31
+        width: 142
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -317,12 +317,12 @@ TextureImporter:
       name: PlayerSpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 267
-        y: 246
-        width: 73
-        height: 133
+        x: 488
+        y: 31
+        width: 117
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

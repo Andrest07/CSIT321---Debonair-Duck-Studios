@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   enemyType: 
+  isRanged: 0
   health: 10
   speed: 1
   damage: 0
+  visibilityRange: 2
+  visibilityAngle: 30
+  attackDistance: 1
+  attackCooldown: 2
   artwork: {fileID: 0}

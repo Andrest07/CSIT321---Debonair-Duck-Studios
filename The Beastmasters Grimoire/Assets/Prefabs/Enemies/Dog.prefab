@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9199076015307893471}
   - component: {fileID: -1219673447699428805}
   - component: {fileID: 421932099504563183}
+  - component: {fileID: 7165090324213308041}
   - component: {fileID: -1247577486561172794}
   m_Layer: 0
   m_Name: Dog
@@ -95,19 +96,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459143488756774989}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 200
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &421932099504563183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 0.96}
+    oldSize: {x: 1.0056497, y: 1.299435}
     newSize: {x: 0.77, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -134,6 +135,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &7165090324213308041
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459143488756774989}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: a2820f9b37d796846acd25cca4909bad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-1247577486561172794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,3 +169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d2231f4b930c787458f90e90e9e2e371, type: 2}
   health: 0
+  wanderRadius: 3
+  drawGizmos: 1
+  player: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
+  rig: {fileID: 0}
+  collisionPosition: {x: 0, y: 0, z: 0}
+  isColliding: 0
+  facingRight: 1
+  text: {fileID: 0}

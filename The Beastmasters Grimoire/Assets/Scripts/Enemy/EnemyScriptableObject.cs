@@ -3,6 +3,7 @@
 
     - EDITOR DD/MM/YY CHANGES:
     - Quentin 22/09/22: Changed variables to private, added get methods, changed menu path
+    - Quentin 27/09/22: New variables for chasing etc
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -16,21 +17,27 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private string enemyType;
 
     [Header("Enemy Stats")]
+    [SerializeField] private bool isRanged = false;
     [SerializeField] private float health = 10f;
     [SerializeField] private float speed = 1f;
-    [SerializeField] private float damage;
+    [SerializeField] private float damage = 1f;
 
-    public Sprite artwork;
+    [Header("Visibility Range (Blue Gizmo)")]
+    [SerializeField] private float visibilityRange = 10.0f;
 
-    public string EnemyName { get { return enemyName; } }
+    [Header("Attack Range (Yellow Gizmo)")]
+    [SerializeField] private float attackDistance = 7.0f;
+    [SerializeField] private float attackCooldown = 1.0f;
 
-    public string EnemyType { get { return enemyType; } }
-
-    public float Health { get { return health; } }
-
-    public float Speed { get { return speed; } }
-
-    public float Damage { get { return damage; } }
+    public string EnemyName { get => enemyName; }
+    public string EnemyType { get => enemyType; }
+    public bool IsRanged { get => isRanged; }
+    public float Health { get => health; }
+    public float Speed { get => speed; }
+    public float Damage { get => damage; }
+    public float VisibilityRange { get => visibilityRange; }
+    public float AttackDistance { get => attackDistance; } 
+    public float AttackCooldown { get => attackCooldown; }
 
     public void Attack(){
 
