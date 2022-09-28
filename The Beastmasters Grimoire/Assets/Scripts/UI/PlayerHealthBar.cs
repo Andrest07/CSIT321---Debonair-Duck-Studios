@@ -2,7 +2,7 @@
     AUTHOR DD/MM/YY: Nabin 29/09/22
 
     - EDITOR DD/MM/YY CHANGES:
-    -
+    - Nabin 29/09/22  Removed the critical condition of player health. Will use other indicator instead in future.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -37,14 +37,6 @@ public class PlayerHealthBar : MonoBehaviour
 
         // Changing the health bar colour when the player's current health decreases.
         float fillValue = (playerHealth.currentHealth / playerHealth.totalHealth) * 25 ;
-
-        // When the players current health is critical the health bar changes to red and stays green above that.
-        if(fillValue <= slider.maxValue / 3){
-            fillImage.color = Color.red;
-        }
-        else if(fillValue > slider.maxValue /3 ){
-            fillImage.color = Color.green;
-        }
         slider.value = fillValue;
     }
 }
