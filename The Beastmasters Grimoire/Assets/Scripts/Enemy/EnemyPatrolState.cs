@@ -11,6 +11,7 @@ public class EnemyPatrolState : EnemyStateMachine
 {
     private Vector3 movementVector;
     private Vector3 prevPosition;
+    private bool isMoving = true;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -24,7 +25,7 @@ public class EnemyPatrolState : EnemyStateMachine
     {
         TrackPlayer();
         UpdateAnimatorProperties(animator);
-        UpdateMovement();
+        if(isMoving) UpdateMovement();
     }
 
     private void UpdateMovement()
@@ -60,12 +61,10 @@ public class EnemyPatrolState : EnemyStateMachine
             prevPosition = transform.position;
 
             yield return new WaitForSeconds(time);
-            if (!inChaseRange  && controller.animator.GetCurrentAnimatorStateInfo(0).IsName("Patrol"))
-                controller.animator.SetTrigger("idle");
+            isMoving = false;
 
             yield return new WaitForSeconds(time);
-            if (!inChaseRange && controller.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-                controller.animator.SetTrigger("patrol");
+            isMoving = true;
         }
     }
 }
