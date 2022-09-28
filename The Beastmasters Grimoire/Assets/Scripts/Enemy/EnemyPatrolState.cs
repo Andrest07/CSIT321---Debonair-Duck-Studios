@@ -28,6 +28,11 @@ public class EnemyPatrolState : EnemyStateMachine
         if(isMoving) UpdateMovement();
     }
 
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        controller.StopAllCoroutines();
+    }
+
     private void UpdateMovement()
     {
         // move
