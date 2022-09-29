@@ -31,7 +31,7 @@ public class EnemyStateMachine : StateMachineBehaviour
     // Check for player
     protected void TrackPlayer()
     {
-        float playerDistance = Vector3.Distance(controller.player.position, controller.transform.position);
+        float playerDistance = Vector3.Distance(controller.playerT.position, controller.transform.position);
 
         // see if player within attacking distance
         inAttackRange = playerDistance <= controller.data.AttackDistance;
@@ -48,7 +48,7 @@ public class EnemyStateMachine : StateMachineBehaviour
     protected void FacePlayer()
     {
         // Calculate whether the player is left or right of the enemy, left is negative, right is positive
-        float dir =  controller.player.position.x - transform.position.x;
+        float dir =  controller.playerT.position.x - transform.position.x;
 
         // if player <- enemy then -1, 1 if enemy <- player
         if (dir < 0 && controller.facingRight || dir > 0 && !controller.facingRight)

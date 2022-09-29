@@ -1,34 +1,33 @@
 /*
-AUTHOR DD/MM/YY: Nick 22/09/22
+AUTHOR DD/MM/YY: Andreas 29/09/22
 
 	- EDITOR DD/MM/YY CHANGES:
-    - Nick 22/09/22: Added TakeDamage and Death methods. Updated Regen methods.
-    - Kaleb 28/09/22: Bug fixes
+    - Andreas 29/09/22: Repurposed Nick's script to the enemy
     - Andreas 29/09/22: Made TakeDamage public so that we can actually use it outside of the script
 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [Header("Health Settings")]
-    public float totalHealth; // Player's total health points
-    public float currentHealth; // Player's current health points
-    public float totalHealthMultiplier; // Player's health points if buffed
+    public float totalHealth; // Enemy's total health points
+    public float currentHealth; // Enemy's current health points
+    public float totalHealthMultiplier; // Enemy's health points if buffed
 
     [Header("Health Regen Settings")]
-    public float healthRegenRate; // Rate at which player regains health
+    public float healthRegenRate; // Rate at which enemy regains health
     public float healthRegenDelay; // Time before health regen kicks back in
     public float healthRegenDelayCurrent; // Time delay remaining
-    public float healthRegenMultiplier; // Player's health regen if buffed
+    public float healthRegenMultiplier; // Enemy's health regen if buffed
 
     [Header("Damage Resistance Settings")]
     public float damageMultiplier; // Damage resist (can be positive or negative)
 
     [Header("Health Booleans")]
-    public bool healthRegening; // "Is player currently regenerating health?"
-    
+    public bool healthRegening; // "Is enemy currently regenerating health?"
+
     void Start()
     {
         currentHealth = totalHealth; // Initial Health
@@ -54,8 +53,8 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage; // Take damage
         healthRegenDelayCurrent = healthRegenDelay; // Set regen delay to max
-        healthRegening = true; 
-    
+        healthRegening = true;
+
         // Death Trigger
         if (currentHealth <= 0)
         {
@@ -66,16 +65,16 @@ public class PlayerHealth : MonoBehaviour
     void RegenHealth()
     {
         // If current health less than max health
-        if (currentHealth < totalHealth) 
+        if (currentHealth < totalHealth)
         {
             currentHealth += (healthRegenRate * Time.deltaTime);
         }
-        
+
         // Prevent overhealing and set regen delay to max
         else
         {
             currentHealth = totalHealth;
-            healthRegening = false;      
+            healthRegening = false;
         }
     }
 

@@ -4,6 +4,7 @@
     - EDITOR DD/MM/YY CHANGES:
     - Quentin 22/09/22: Added health
     - Quentin 27/09/22: added blank attack function, gizmos
+    - Andreas 20/08/22: Added melee damage
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -16,14 +17,16 @@ public class EnemyController : MonoBehaviour
     public EnemyScriptableObject data;
 
     [Header("Enemy Stats")]
-    public float health;
+    public int meleeAttack;
     public float wanderRadius = 3.0f;
 
     [Header("Gizmos")]
     public bool drawGizmos = true;
 
     // externals
-    [HideInInspector] public Transform player;
+    public GameObject PlayerObject;
+    [HideInInspector] public Transform playerT;
+    [HideInInspector] public PlayerHealth playerH;
 
     // Internals
     [HideInInspector] public Vector3 origin;
@@ -31,11 +34,13 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public bool facingRight = true;
     [HideInInspector] public bool isColliding = false;
     [HideInInspector] public Vector3 collisionPosition;
+    [HideInInspector] public float damageTimeout = 1f;
+    [HideInInspector] private bool canTakeDamage = true;
 
     private void Awake()
     {
-        health = data.Health;
-        player = GameObject.FindWithTag("Player").transform;
+        playerT = PlayerObject.GetComponent<Transform>();
+        playerH = PlayerObject.GetComponent<PlayerHealth>();
         origin = transform.position;
         animator = GetComponent<Animator>();
 
@@ -47,7 +52,7 @@ public class EnemyController : MonoBehaviour
     {
         if (data.IsRanged)
         {
-            if (Vector3.Distance(transform.position, player.position) <= data.AttackDistance)
+            if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
                 Debug.Log("Ranged Attack");
                 // do projectile
@@ -55,10 +60,16 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(transform.position, player.position) <= data.AttackDistance)
+            if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
                 Debug.Log("melee attack");
                 // damage player
+                if (canTakeDamage)
+                {
+                    playerH.TakeDamage(meleeAttack);
+
+                    StartCoroutine(damageTimer());
+                }
             }
         }
     }
@@ -86,6 +97,13 @@ public class EnemyController : MonoBehaviour
     {
         facingRight = !facingRight;
         GetComponent<SpriteRenderer>().flipX = !facingRight;
+    }
+
+    private IEnumerator damageTimer()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(damageTimeout);
+        canTakeDamage = true;
     }
 
 
