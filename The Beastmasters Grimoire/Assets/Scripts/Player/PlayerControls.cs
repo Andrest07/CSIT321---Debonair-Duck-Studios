@@ -26,7 +26,8 @@ public class PlayerControls : MonoBehaviour
     [Header("Player Variables")]
     public float playerSpeed;
     public bool canMove; //Bool for whether the player can currently move
-    public int playerMode; // 0 - Basic Attack, 1 - Spellcasting, 2 - Capture Mode
+    public enum PlayerMode {Basic,Spellcast,Capture}
+    public PlayerMode playerMode;
 
 
 
@@ -92,13 +93,13 @@ public class PlayerControls : MonoBehaviour
     {
         switch (playerMode) //Decide which attack is used based on player mode
         {
-            case 0:
+            case PlayerMode.Basic:
                 //Basic attack code goes here
                 break;
-            case 1:
+            case PlayerMode.Spellcast:
                 //Spellcasting code goes here
                 break;
-            case 2:
+            case PlayerMode.Capture:
                 //Capture code goes here
                 break;
         }
@@ -106,15 +107,15 @@ public class PlayerControls : MonoBehaviour
 
     public void SpellcastMode(InputAction.CallbackContext context)
     {
-        if (playerMode == 1) //If the player is spellcasting, return to basic attacks
+        if (playerMode == PlayerMode.Spellcast) //If the player is spellcasting, return to basic attacks
         {
-            playerMode = 0;
+            playerMode = PlayerMode.Basic;
             canMove = true;
         }
 
         else //Otherwise go to spellcasting mode and stop the player from moving
         {
-            playerMode = 1;
+            playerMode = PlayerMode.Spellcast;
             canMove = false;
             playerBody.velocity = Vector2.zero;
         }
@@ -122,15 +123,15 @@ public class PlayerControls : MonoBehaviour
 
     public void CaptureMode(InputAction.CallbackContext context)
     {
-        if (playerMode == 2) //If the player is capturing, return to basic attacks
+        if (playerMode == PlayerMode.Capture) //If the player is capturing, return to basic attacks
         {
-            playerMode = 0;
+            playerMode = PlayerMode.Basic;
             canMove = true;
         }
 
         else //Otherwise go to capture mode and stop the player from moving
         {
-            playerMode = 2;
+            playerMode = PlayerMode.Capture;
             canMove = false;
             playerBody.velocity = Vector2.zero;
         }
