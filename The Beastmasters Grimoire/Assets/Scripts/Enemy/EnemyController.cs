@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        PlayerObject = GameObject.FindWithTag("Player");
         playerT = PlayerObject.GetComponent<Transform>();
         playerH = PlayerObject.GetComponent<PlayerHealth>();
         origin = transform.position;
