@@ -81,5 +81,6 @@ public class EnemyHealth : MonoBehaviour
     void Death()
     {
         // Death Event
+        Destroy(this.gameObject);
     }
 }
