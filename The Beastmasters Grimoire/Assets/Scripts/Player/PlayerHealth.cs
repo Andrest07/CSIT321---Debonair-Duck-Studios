@@ -5,6 +5,7 @@ AUTHOR DD/MM/YY: Nick 22/09/22
     - Nick 22/09/22: Added TakeDamage and Death methods. Updated Regen methods.
     - Kaleb 28/09/22: Bug fixes
     - Andreas 29/09/22: Made TakeDamage public so that we can actually use it outside of the script
+    - Kaleb 04/10/22: Added Invuln for dash
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -25,10 +26,11 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Damage Resistance Settings")]
     public float damageMultiplier; // Damage resist (can be positive or negative)
+    public bool isInvulnerable; //Wheter the player is or isn't immune to all damage;
 
     [Header("Health Booleans")]
     public bool healthRegening; // "Is player currently regenerating health?"
-    
+
     void Start()
     {
         currentHealth = totalHealth; // Initial Health
@@ -52,30 +54,33 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage; // Take damage
-        healthRegenDelayCurrent = healthRegenDelay; // Set regen delay to max
-        healthRegening = true; 
-    
-        // Death Trigger
-        if (currentHealth <= 0)
+        if (!isInvulnerable)
         {
-            Death();
+            currentHealth -= damage; // Take damage
+            healthRegenDelayCurrent = healthRegenDelay; // Set regen delay to max
+            healthRegening = true;
+
+            // Death Trigger
+            if (currentHealth <= 0)
+            {
+                Death();
+            }
         }
     }
 
     void RegenHealth()
     {
         // If current health less than max health
-        if (currentHealth < totalHealth) 
+        if (currentHealth < totalHealth)
         {
             currentHealth += (healthRegenRate * Time.deltaTime);
         }
-        
+
         // Prevent overhealing and set regen delay to max
         else
         {
             currentHealth = totalHealth;
-            healthRegening = false;      
+            healthRegening = false;
         }
     }
 
