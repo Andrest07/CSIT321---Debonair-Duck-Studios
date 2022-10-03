@@ -8,6 +8,7 @@ z
     - Nick 20/09/22: Added player movement. Under FixedUpdate.
     - Kaleb 20/09/22: Renamed back to PlayerControls and modifed player movement.
     - Kaleb 28/09/22: Added player modes and tidied some code.
+    - Kaleb 03/10/22: Dash fixes
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ public class PlayerControls : MonoBehaviour
     [Header("Player Variables")]
     public float playerSpeed;
     public bool canMove; //Bool for whether the player can currently move
-    public enum PlayerMode {Basic,Spellcast,Capture}
+    public enum PlayerMode { Basic, Spellcast, Capture }
     public PlayerMode playerMode;
 
 
@@ -45,8 +46,8 @@ public class PlayerControls : MonoBehaviour
         //Private variables initialization
         playerBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-        playerStamina = gameObject.GetComponent<PlayerStamina>();
-        playerDash = gameObject.GetComponent<PlayerDash>();
+        playerStamina = GetComponent<PlayerStamina>();
+        playerDash = GetComponent<PlayerDash>();
 
         while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -152,20 +153,6 @@ public class PlayerControls : MonoBehaviour
             playerStamina.isSprinting = false;
     }
 
-    public void Dash(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            playerDash.isDashing = true;
-        }
-        else
-        {
-            playerDash.isDashing = false;
-        }
-
-    }
-
-
     public void Movement(InputAction.CallbackContext context)
     {
         movementVector = context.ReadValue<Vector2>();
@@ -200,6 +187,9 @@ public class PlayerControls : MonoBehaviour
     public void Mobility(InputAction.CallbackContext context)
     {
         if (context.performed)
-            playerDash.isDashing = true;
+        {
+            playerDash.Dash();
+            canMove = false;
+        }
     }
 }

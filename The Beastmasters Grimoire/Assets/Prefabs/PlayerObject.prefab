@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3050752328913644532}
   - component: {fileID: 3318873043491234562}
   - component: {fileID: 3063347449660883088}
+  - component: {fileID: 5480006108857693111}
   - component: {fileID: 7083514175328161317}
   - component: {fileID: 1695965317}
   - component: {fileID: 1695965318}
@@ -130,7 +131,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.57, y: 1.33}
+    oldSize: {x: 0.56497175, y: 1.299435}
     newSize: {x: 0.47, y: 1.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -203,6 +204,20 @@ MonoBehaviour:
   currentRegenDelay: 0
   isSprinting: 0
   isRegening: 0
+--- !u!114 &5480006108857693111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338222291938608896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b3da49ec24d8451d9b839d59d18476f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDash: 1
+  isDashing: 0
 --- !u!114 &7083514175328161317
 MonoBehaviour:
   m_ObjectHideFlags: 0
