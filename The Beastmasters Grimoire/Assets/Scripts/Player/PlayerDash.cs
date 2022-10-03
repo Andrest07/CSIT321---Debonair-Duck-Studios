@@ -18,31 +18,35 @@ public class PlayerDash : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space) && canDash == true){
+    {   
+        if(isDashing == true){
+            /*
             if(dashCoroutine != null){
                 StopCoroutine(dashCoroutine);
             }
             dashCoroutine = Dash(1f,5);
             StartCoroutine(dashCoroutine);
-        }
-    }
-    private void FixedUpdate() {
-        if(isDashing){
+            */
+            Debug.Log("Dash");
             rb.AddForce(new Vector2(100,0),ForceMode2D.Impulse);
+            isDashing = false;
         }
+        
+
     }
 
     IEnumerator Dash(float dashDuration, float dashCooldown){
         isDashing = true;
         canDash = false;
         Debug.Log("Start");
-        yield return new WaitForSeconds(dashDuration);
+        rb.AddForce(new Vector2(100,0),ForceMode2D.Impulse);
+        isDashing = false;
+        yield return new WaitForSeconds(2f);
 
         isDashing = false;
         rb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(dashCooldown);
+        yield return new WaitForSeconds(5f);
         canDash = true;
-
+        Debug.Log("Stop");
     }
 }

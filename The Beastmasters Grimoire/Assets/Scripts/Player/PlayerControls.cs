@@ -21,6 +21,7 @@ public class PlayerControls : MonoBehaviour
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
+    private PlayerDash playerDash;
     private Vector2 movementVector;
 
     [Header("Player Variables")]
@@ -45,6 +46,7 @@ public class PlayerControls : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerStamina = gameObject.GetComponent<PlayerStamina>();
+        playerDash = gameObject.GetComponent<PlayerDash>();
 
         while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -150,6 +152,18 @@ public class PlayerControls : MonoBehaviour
             playerStamina.isSprinting = false;
     }
 
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            playerDash.isDashing = true;
+        }
+        else
+        {
+            playerDash.isDashing = false;
+        }
+
+    }
 
 
     public void Movement(InputAction.CallbackContext context)
@@ -185,6 +199,7 @@ public class PlayerControls : MonoBehaviour
 
     public void Mobility(InputAction.CallbackContext context)
     {
-
+        if (context.performed)
+            playerDash.isDashing = true;
     }
 }
