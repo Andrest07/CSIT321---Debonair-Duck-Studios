@@ -186,9 +186,9 @@ public class PlayerControls : MonoBehaviour
 
     public void Mobility(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && playerDash.canDash)
         {
-            playerDash.Dash();
+            playerDash.Dash(movementVector);
             canMove = false;
         }
     }

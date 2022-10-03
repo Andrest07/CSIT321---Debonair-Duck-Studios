@@ -14,40 +14,46 @@ public class PlayerDash : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D rb;
     private PlayerControls playerControls;
+    private PlayerHealth playerH ;
     public bool canDash = true;
     public bool isDashing = false;
+    public Vector2 dashForce = new Vector2(15,15);
+    public float dashDuration = 0.15f;
+    public float dashCooldown = 1.5f;
     IEnumerator dashCoroutine;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerControls = GetComponent<PlayerControls>();
+        playerH = GetComponent<PlayerHealth>();
     }
 
-    public void Dash()
+    public void Dash(Vector2 movementVector)
     {
         if (dashCoroutine != null)
         {
             StopCoroutine(dashCoroutine);
         }
-        dashCoroutine = Dash(1f, 5);
+        dashCoroutine = Dash(dashDuration, dashCooldown, movementVector);
         StartCoroutine(dashCoroutine);
     }
 
-    IEnumerator Dash(float dashDuration, float dashCooldown)
-    {
+    IEnumerator Dash(float dashDuration, float dashCooldown, Vector2 movementVector)
+    {   
+        Debug.Log("Dash");
         isDashing = true;
         canDash = false;
-        Debug.Log("Start");
-        rb.AddForce(new Vector2(100, 0), ForceMode2D.Impulse);
-        isDashing = false;
-        yield return new WaitForSeconds(2f);
+        rb.AddForce(dashForce * movementVector, ForceMode2D.Impulse);
+
+        float currentHealth = playerH.currentHealth;
+        yield return new WaitForSeconds(dashDuration);
+        playerH.currentHealth = currentHealth;
 
         isDashing = false;
         rb.velocity = Vector2.zero;
         playerControls.canMove = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(dashCooldown);
         canDash = true;
-        Debug.Log("Stop");
     }
 }
