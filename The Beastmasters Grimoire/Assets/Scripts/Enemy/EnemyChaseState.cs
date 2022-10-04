@@ -16,6 +16,7 @@ public class EnemyChaseState : EnemyStateMachine
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         playerObject = GameObject.FindGameObjectWithTag("Player");
+        controller.isMoving = true;
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -24,6 +25,11 @@ public class EnemyChaseState : EnemyStateMachine
         UpdateAnimatorProperties(animator);
         Chase(animator);
         FacePlayer();
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        controller.isMoving = false;
     }
 
     // Follow player

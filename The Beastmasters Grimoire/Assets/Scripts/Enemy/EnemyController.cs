@@ -5,6 +5,7 @@
     - Quentin 22/09/22: Added health
     - Quentin 27/09/22: added blank attack function, gizmos
     - Andreas 20/08/22: Added melee damage
+	- Quentin 4/10/22: changes to stop sliding
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ public class EnemyController : MonoBehaviour
     [Header("Gizmos")]
     public bool drawGizmos = true;
 
-    // externals
+    // Externals
     public GameObject PlayerObject;
     [HideInInspector] public Transform playerT;
     [HideInInspector] public PlayerHealth playerH;
@@ -35,7 +36,9 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public bool isColliding = false;
     [HideInInspector] public Vector3 collisionPosition;
     [HideInInspector] public float damageTimeout = 1f;
-    [HideInInspector] private bool canTakeDamage = true;
+    [HideInInspector] public bool isMoving = false;
+    private bool canTakeDamage = true;
+    private Rigidbody2D rigidBody2D;
 
     private void Awake()
     {
@@ -44,8 +47,15 @@ public class EnemyController : MonoBehaviour
         playerH = PlayerObject.GetComponent<PlayerHealth>();
         origin = transform.position;
         animator = GetComponent<Animator>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
 
         animator.SetTrigger("patrol");
+    }
+	
+    private void FixedUpdate()
+    {
+        // stop sliding
+        if(!isMoving) rigidBody2D.MovePosition(rigidBody2D.position);
     }
 
     // Enemy attack
@@ -69,7 +79,7 @@ public class EnemyController : MonoBehaviour
                 {
                     playerH.TakeDamage(meleeAttack);
 
-                    StartCoroutine(damageTimer());
+                    StartCoroutine(DamageTimer());
                 }
             }
         }
@@ -100,7 +110,7 @@ public class EnemyController : MonoBehaviour
         GetComponent<SpriteRenderer>().flipX = !facingRight;
     }
 
-    private IEnumerator damageTimer()
+    private IEnumerator DamageTimer()
     {
         canTakeDamage = false;
         yield return new WaitForSeconds(damageTimeout);

@@ -1188,10 +1188,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4005076493178990962, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7917238221559215613, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
       propertyPath: m_Name
       value: Frog
@@ -6626,18 +6622,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1247577486561172794, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
-      propertyPath: meleeAttack
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -1247577486561172794, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
-      propertyPath: PlayerObject
-      value: 
-      objectReference: {fileID: 2099405999}
-    - target: {fileID: -1219673447699428805, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_Name
       value: Dog
@@ -6688,32 +6672,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
---- !u!1 &1873445874 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1459143488756774989, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
-  m_PrefabInstance: {fileID: 1873445873}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1873445875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873445874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25269a779254174fa0ec49e82660667, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalHealth: 10
-  currentHealth: 10
-  totalHealthMultiplier: 1
-  healthRegenRate: 0
-  healthRegenDelay: 0
-  healthRegenDelayCurrent: 0
-  healthRegenMultiplier: 0
-  damageMultiplier: 1
-  healthRegening: 0
 --- !u!1 &1907281256
 GameObject:
   m_ObjectHideFlags: 0
@@ -7257,11 +7215,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087660002}
   m_CullTransparentMesh: 1
---- !u!1 &2099405999 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
-  m_PrefabInstance: {fileID: 1120830318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2100611305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7343,7 +7296,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3318873043491234562, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
   m_PrefabInstance: {fileID: 1120830318}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099405999}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7183aa0ec3ea6734dbf74a107dd451e8, type: 3}
