@@ -89,6 +89,7 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isColliding = true;
+        isMoving = false;
         collisionPosition = collision.transform.position;
     }
 

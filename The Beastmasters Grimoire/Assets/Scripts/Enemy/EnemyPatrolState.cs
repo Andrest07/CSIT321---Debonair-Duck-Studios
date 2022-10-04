@@ -72,7 +72,11 @@ public class EnemyPatrolState : EnemyStateMachine
             }
 
             // wait for (time) and pick a direction to walk in
-            if (Vector3.Distance(controller.origin, transform.position) > controller.wanderRadius)
+            if (controller.isColliding)
+            {
+                movementVector *= -1;
+            }
+            else if (Vector3.Distance(controller.origin, transform.position) > controller.wanderRadius)
             {
                 movementVector = controller.origin;
             }
