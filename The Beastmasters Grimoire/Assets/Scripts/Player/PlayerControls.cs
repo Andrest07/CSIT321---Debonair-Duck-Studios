@@ -9,6 +9,7 @@ z
     - Kaleb 20/09/22: Renamed back to PlayerControls and modifed player movement.
     - Kaleb 28/09/22: Added player modes and tidied some code.
     - Kaleb 03/10/22: Dash fixes
+    - Kaleb 04/10/22: GameManager setup
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ using UnityEngine.InputSystem;
 public class PlayerControls : MonoBehaviour
 {
     //Private variables
+    private GameManager gameManager;
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
@@ -71,6 +73,12 @@ public class PlayerControls : MonoBehaviour
         playerInputActions.Player.MonsterSelect.performed += MonsterSelect;
         playerInputActions.Player.Mobility.performed += Mobility;
 
+    }
+
+    //Delay setting gameManager by 1 frame for gameManager setup.
+    private void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     //For Movement
@@ -173,6 +181,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         currentBeast = availableBeasts[currentBeastIndex]; //Change the currently selected beast
+        gameManager.UpdateDisplayedSpell(currentBeastIndex);
     }
 
     public void MonsterSelect(InputAction.CallbackContext context)
@@ -181,6 +190,7 @@ public class PlayerControls : MonoBehaviour
         { //If the selected beast is not out of bounds change the selected beast
             currentBeastIndex = (int)context.ReadValue<float>();
             currentBeast = availableBeasts[currentBeastIndex];
+            gameManager.UpdateDisplayedSpell(currentBeastIndex);
         }
     }
 
