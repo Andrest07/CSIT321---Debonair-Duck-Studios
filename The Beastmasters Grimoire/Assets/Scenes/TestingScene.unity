@@ -5228,6 +5228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328954640}
   - component: {fileID: 1328954641}
+  - component: {fileID: 1328954642}
   m_Layer: 5
   m_Name: StaminaBar
   m_TagString: Untagged
@@ -5302,12 +5303,26 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 5
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1328954642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328954639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6c94665b709e74188bcb82f1b78d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: {fileID: 2109881435}
+  fillImage: {fileID: 2100611307}
 --- !u!1 &1336094038
 GameObject:
   m_ObjectHideFlags: 0
@@ -7373,6 +7388,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7183aa0ec3ea6734dbf74a107dd451e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2109881435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3063347449660883088, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+  m_PrefabInstance: {fileID: 1120830318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb86adf2fdb5b44b83502e97022a8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2128075926
