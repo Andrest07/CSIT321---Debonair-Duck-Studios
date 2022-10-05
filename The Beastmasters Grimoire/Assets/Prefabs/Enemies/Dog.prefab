@@ -97,7 +97,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459143488756774989}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   isColliding: 0
   collisionPosition: {x: 0, y: 0, z: 0}
   damageTimeout: 1
+  isMoving: 0
 --- !u!114 &1873445875
 MonoBehaviour:
   m_ObjectHideFlags: 0

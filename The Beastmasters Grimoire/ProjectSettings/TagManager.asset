@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameManager
   - SpellSlot
+  - SaveBeacon
   layers:
   - Default
   - TransparentFX
