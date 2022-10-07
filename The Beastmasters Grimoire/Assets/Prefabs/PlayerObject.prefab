@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3063347449660883088}
   - component: {fileID: 5480006108857693111}
   - component: {fileID: 7083514175328161317}
+  - component: {fileID: 7286641169873635502}
   - component: {fileID: 1695965317}
   - component: {fileID: 1695965318}
   m_Layer: 0
@@ -234,6 +235,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4d112a89e273646bee5067d6bf6b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7286641169873635502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338222291938608896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617ccae888a7e78488c4ec85a287913b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: {x: 0.7, y: 0.5}
+  attackDamage: 2
+  attackCooldown: 1
+  drawGizmos: 1
 --- !u!114 &1695965317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,8 +263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0037ceb8b580b4ab6f49d5cfdb4649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   playerSpeed: 5
   canMove: 1
+  canAttack: 1
   playerMode: 0
   currentBeast: {fileID: 0}
   availableBeasts:

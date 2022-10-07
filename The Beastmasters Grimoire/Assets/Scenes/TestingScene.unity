@@ -1789,10 +1789,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4005076493178990962, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7917238221559215613, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
       propertyPath: m_Name
       value: Frog
@@ -9386,18 +9382,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1219673447699428805, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1219673447699428805, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1219673447699428805, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_Name
       value: Dog

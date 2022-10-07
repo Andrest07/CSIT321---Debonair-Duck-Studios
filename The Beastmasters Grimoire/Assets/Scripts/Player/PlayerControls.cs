@@ -25,11 +25,14 @@ public class PlayerControls : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
     private PlayerDash playerDash;
+    private PlayerBasicAttack playerBasicAttack;
     private Vector2 movementVector;
+    [HideInInspector]public Animator animator;
 
     [Header("Player Variables")]
     public float playerSpeed;
     public bool canMove; //Bool for whether the player can currently move
+    public bool canAttack = true;
     public enum PlayerMode { Basic, Spellcast, Capture }
     public PlayerMode playerMode;
 
@@ -50,6 +53,8 @@ public class PlayerControls : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerStamina = GetComponent<PlayerStamina>();
         playerDash = GetComponent<PlayerDash>();
+        playerBasicAttack = GetComponent<PlayerBasicAttack>();
+        animator = GetComponent<Animator>();
 
         while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -79,6 +84,7 @@ public class PlayerControls : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        animator.SetBool("isIdle", true);
     }
 
     //For Movement
@@ -87,6 +93,11 @@ public class PlayerControls : MonoBehaviour
         if (canMove)
         {
             playerBody.velocity = movementVector * playerSpeed;
+        }
+        if (animator.GetBool("isWalking") || animator.GetBool("isSprinting"))
+        {
+            animator.SetFloat("Move X", movementVector.x);
+            animator.SetFloat("Move Y", movementVector.y);
         }
     }
 
@@ -105,7 +116,13 @@ public class PlayerControls : MonoBehaviour
         switch (playerMode) //Decide which attack is used based on player mode
         {
             case PlayerMode.Basic:
-                //Basic attack code goes here
+                if (context.performed && canAttack)
+                {
+                    canAttack = false;
+                    canMove = false;
+                    animator.SetTrigger("basicAttack");
+                    playerBasicAttack.BasicAttack();
+                }
                 break;
             case PlayerMode.Spellcast:
                 //Spellcasting code goes here
@@ -120,12 +137,14 @@ public class PlayerControls : MonoBehaviour
     {
         if (playerMode == PlayerMode.Spellcast) //If the player is spellcasting, return to basic attacks
         {
+            animator.SetBool("isCasting", false);
             playerMode = PlayerMode.Basic;
             canMove = true;
         }
 
         else //Otherwise go to spellcasting mode and stop the player from moving
         {
+            animator.SetBool("isCasting", true);
             playerMode = PlayerMode.Spellcast;
             canMove = false;
             playerBody.velocity = Vector2.zero;
@@ -136,12 +155,14 @@ public class PlayerControls : MonoBehaviour
     {
         if (playerMode == PlayerMode.Capture) //If the player is capturing, return to basic attacks
         {
+            animator.SetBool("isCapturing", false);
             playerMode = PlayerMode.Basic;
             canMove = true;
         }
 
         else //Otherwise go to capture mode and stop the player from moving
         {
+            animator.SetBool("isCapturing", true);
             playerMode = PlayerMode.Capture;
             canMove = false;
             playerBody.velocity = Vector2.zero;
@@ -156,13 +177,24 @@ public class PlayerControls : MonoBehaviour
     public void Sprint(InputAction.CallbackContext context) //Button down and up sets sprinting to true and false respectively
     {
         if (context.performed)
+        {
+            animator.SetBool("isSprinting", true);
             playerStamina.isSprinting = true;
+        }
         else
+        {
+            animator.SetBool("isSprinting", false);
             playerStamina.isSprinting = false;
+        }
     }
 
     public void Movement(InputAction.CallbackContext context)
     {
+        if (context.performed && canMove)
+            animator.SetBool("isWalking", true);
+        else
+            animator.SetBool("isWalking", false);
+
         movementVector = context.ReadValue<Vector2>();
     }
 

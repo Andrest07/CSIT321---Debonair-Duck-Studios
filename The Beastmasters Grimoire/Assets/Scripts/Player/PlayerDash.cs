@@ -4,6 +4,7 @@ AUTHOR DD/MM/YY: Kunal 03/10/22
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 03/10/22: Dash fixes
     - Kaleb 04/10/22: Minor fixes and tidying
+    - Quentin 07/10/22: Minor tidying
 */
 
 using System.Collections;
@@ -36,11 +37,11 @@ public class PlayerDash : MonoBehaviour
         {
             StopCoroutine(dashCoroutine);
         }
-        dashCoroutine = Dash(dashDuration, dashCooldown, movementVector);
+        dashCoroutine = DashCoroutine(movementVector);
         StartCoroutine(dashCoroutine);
     }
 
-    IEnumerator Dash(float dashDuration, float dashCooldown, Vector2 movementVector)
+    IEnumerator DashCoroutine(Vector2 movementVector)
     {
         isDashing = true;
         canDash = false;

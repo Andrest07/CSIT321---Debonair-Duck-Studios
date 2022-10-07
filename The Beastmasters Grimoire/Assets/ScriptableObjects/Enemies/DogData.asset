@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   enemyType: 
-  isRanged: 0
+  isRanged: 1
   health: 20
   speed: 2
   damage: 5

@@ -49,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage; // Take damage
         healthRegenDelayCurrent = healthRegenDelay; // Set regen delay to max
