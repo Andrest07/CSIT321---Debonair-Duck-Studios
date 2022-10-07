@@ -10,6 +10,8 @@ z
     - Kaleb 28/09/22: Added player modes and tidied some code.
     - Kaleb 03/10/22: Dash fixes
     - Kaleb 04/10/22: GameManager setup
+    - Quentin 07/10/22: Added animation
+    - Kaleb 08/10/22: Anim Fixes
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -144,7 +146,7 @@ public class PlayerControls : MonoBehaviour
 
         else //Otherwise go to spellcasting mode and stop the player from moving
         {
-            animator.SetBool("isCasting", true);
+            animator.SetBool("isCasting", true); animator.SetBool("isCapturing", false); animator.SetBool("isWalking", false);
             playerMode = PlayerMode.Spellcast;
             canMove = false;
             playerBody.velocity = Vector2.zero;
@@ -162,7 +164,7 @@ public class PlayerControls : MonoBehaviour
 
         else //Otherwise go to capture mode and stop the player from moving
         {
-            animator.SetBool("isCapturing", true);
+            animator.SetBool("isCapturing", true); animator.SetBool("isCasting", false); animator.SetBool("isWalking", false);
             playerMode = PlayerMode.Capture;
             canMove = false;
             playerBody.velocity = Vector2.zero;
