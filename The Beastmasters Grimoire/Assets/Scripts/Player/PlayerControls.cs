@@ -95,6 +95,8 @@ public class PlayerControls : MonoBehaviour
         if (canMove)
         {
             playerBody.velocity = movementVector * playerSpeed;
+            //Z sorting
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
         }
         if (animator.GetBool("isWalking") || animator.GetBool("isSprinting"))
         {

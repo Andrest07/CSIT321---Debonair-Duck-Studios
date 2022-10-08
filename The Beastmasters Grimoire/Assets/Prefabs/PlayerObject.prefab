@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7342188552462242031}
   - component: {fileID: 9183235391351313799}
   - component: {fileID: 4495194794552010770}
-  - component: {fileID: 3012761112598144150}
+  - component: {fileID: 3155322573152117181}
+  - component: {fileID: 3926062141928990054}
   - component: {fileID: 3050752328913644532}
   - component: {fileID: 3318873043491234562}
   - component: {fileID: 3063347449660883088}
@@ -115,7 +116,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3012761112598144150
+--- !u!70 &3155322573152117181
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338222291938608896}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Size: {x: 0.525, y: 0.3}
+  m_Direction: 1
+--- !u!61 &3926062141928990054
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 1.255}
+  m_Size: {x: 0.55, y: 1.325}
   m_EdgeRadius: 0
 --- !u!95 &3050752328913644532
 Animator:

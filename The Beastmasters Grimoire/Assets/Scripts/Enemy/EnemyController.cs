@@ -6,6 +6,7 @@
     - Quentin 27/09/22: added blank attack function, gizmos
     - Andreas 20/08/22: Added melee damage
 	- Quentin 4/10/22: changes to stop sliding
+    - Kaleb 08/10/22: Added z sorting
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -56,6 +57,8 @@ public class EnemyController : MonoBehaviour
     {
         // stop sliding
         if(!isMoving) rigidBody2D.MovePosition(rigidBody2D.position);
+        //Set z position
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
 
     // Enemy attack
