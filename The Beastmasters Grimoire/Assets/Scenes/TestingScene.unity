@@ -9455,6 +9455,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1247577486561172794, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
+    - target: {fileID: -1247577486561172794, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
+      propertyPath: ranged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1247577486561172794, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1247577486561172794, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
+      propertyPath: rangedAttack
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -1219673447699428805, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_Constraints
       value: 4

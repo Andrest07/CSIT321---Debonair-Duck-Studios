@@ -6,6 +6,7 @@
     - Quentin 27/09/22: added blank attack function, gizmos
     - Andreas 20/08/22: Added melee damage
 	- Quentin 4/10/22: changes to stop sliding
+    - Andreas 10/10/22: Added ranged attack
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -16,9 +17,13 @@ public class EnemyController : MonoBehaviour
 {   
     [Header("Scriptable Object")]
     public EnemyScriptableObject data;
+    public GameObject bullet;
 
     [Header("Enemy Stats")]
-    public int meleeAttack;
+    public bool ranged;
+    public float rangedAttack;
+    /*public float firerate = 1f;*/
+    public float meleeAttack;
     public float wanderRadius = 3.0f;
 
     [Header("Gizmos")]
@@ -66,7 +71,13 @@ public class EnemyController : MonoBehaviour
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
                 Debug.Log("Ranged Attack");
-                // do projectile
+                // do bullet
+                if (canTakeDamage && ranged)
+                {
+                    Instantiate(bullet, transform.position, Quaternion.identity);
+
+                    StartCoroutine(DamageTimer());
+                }
             }
         }
         else
@@ -75,7 +86,7 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.Log("melee attack");
                 // damage player
-                if (canTakeDamage)
+                if (canTakeDamage && !ranged)
                 {
                     playerH.TakeDamage(meleeAttack);
 
