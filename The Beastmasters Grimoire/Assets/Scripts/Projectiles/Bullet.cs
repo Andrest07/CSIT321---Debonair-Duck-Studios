@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     private GameObject PlayerObject;
     [HideInInspector] public Transform playerT;
     [HideInInspector] public PlayerHealth playerH;
-    public EnemyController parentController;
+    [HideInInspector] public EnemyController parentController;
     [HideInInspector] public EnemyController EnemyC;
     Vector2 moveDirection;
 
