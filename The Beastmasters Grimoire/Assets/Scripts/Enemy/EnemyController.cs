@@ -7,6 +7,7 @@
     - Andreas 20/08/22: Added melee damage
 	- Quentin 4/10/22: changes to stop sliding
     - Andreas 10/10/22: Added ranged attack
+    - Kaleb 10/10/22: Bullet fixes
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -75,7 +76,8 @@ public class EnemyController : MonoBehaviour
                 // do bullet
                 if (canTakeDamage && ranged)
                 {
-                    Instantiate(bullet, transform.position, Quaternion.identity);
+                    GameObject tempBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                    tempBullet.GetComponent<Bullet>().parentController = this.GetComponent<EnemyController>();
 
                     StartCoroutine(DamageTimer());
                 }
