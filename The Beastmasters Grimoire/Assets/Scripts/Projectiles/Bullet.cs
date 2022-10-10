@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     public GameObject PlayerObject;
     [HideInInspector] public Transform playerT;
     [HideInInspector] public PlayerHealth playerH;
+    public GameObject DogObject;
     [HideInInspector] public EnemyController EnemyC;
     Vector2 moveDirection;
 
@@ -23,8 +24,9 @@ public class Bullet : MonoBehaviour
         PlayerObject = GameObject.FindWithTag("Player");
         playerT = PlayerObject.GetComponent<Transform>();
         playerH = PlayerObject.GetComponent<PlayerHealth>();
-        EnemyController EnemyC = GetComponentInParent<EnemyController>();
         rb  = GetComponent<Rigidbody2D>();
+        DogObject = GameObject.Find("Dog");
+        EnemyC = DogObject.GetComponent<EnemyController>();
         moveDirection = (playerT.position - transform.position).normalized * moveSpeed;
         rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
         Destroy(gameObject, 3f);
@@ -32,11 +34,8 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Detecting Collision");
         if (col.gameObject.name.Equals("PlayerObject")){
             Debug.Log ("Hit!");
-            Debug.Log (playerH);
-            Debug.Log (EnemyC);
             playerH.TakeDamage(EnemyC.rangedAttack);
             Destroy (gameObject);
         }

@@ -50,6 +50,7 @@ public class EnemyController : MonoBehaviour
         PlayerObject = GameObject.FindWithTag("Player");
         playerT = PlayerObject.GetComponent<Transform>();
         playerH = PlayerObject.GetComponent<PlayerHealth>();
+
         origin = transform.position;
         animator = GetComponent<Animator>();
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -84,7 +85,7 @@ public class EnemyController : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
-                Debug.Log("melee attack");
+                Debug.Log("Melee attack");
                 // damage player
                 if (canTakeDamage && !ranged)
                 {
