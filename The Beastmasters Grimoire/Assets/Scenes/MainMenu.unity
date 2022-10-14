@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 26865937}
   - component: {fileID: 26865936}
   - component: {fileID: 26865939}
+  - component: {fileID: 26865940}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -270,13 +271,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4284734956
+--- !u!114 &26865940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26865934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 26865939}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: EnterHover
           m_Mode: 1
           m_Arguments:
@@ -292,7 +308,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 26865939}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: ExitHover
           m_Mode: 1
           m_Arguments:
@@ -715,8 +731,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: b246c4190f4e46ec9352fe15a7b09ce0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
+  m_sharedMaterial: {fileID: -3407092568973194432, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -724,7 +740,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4285258188
   m_fontColor: {r: 0.8000814, g: 0.8490566, b: 0.42052332, a: 1}
-  m_enableVertexGradient: 1
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -746,9 +762,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 17
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -803,6 +819,7 @@ GameObject:
   - component: {fileID: 240587655}
   - component: {fileID: 240587654}
   - component: {fileID: 240587657}
+  - component: {fileID: 240587658}
   m_Layer: 5
   m_Name: SettingButton
   m_TagString: Untagged
@@ -937,13 +954,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4284734956
+--- !u!114 &240587658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240587652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 240587657}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: EnterHover
           m_Mode: 1
           m_Arguments:
@@ -959,7 +991,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 240587657}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: ExitHover
           m_Mode: 1
           m_Arguments:
@@ -1302,6 +1334,8 @@ GameObject:
   - component: {fileID: 739330499}
   - component: {fileID: 739330498}
   - component: {fileID: 739330497}
+  - component: {fileID: 739330501}
+  - component: {fileID: 739330500}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1424,6 +1458,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739330495}
   m_CullTransparentMesh: 1
+--- !u!114 &739330500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739330495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 739330501}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: EnterHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 739330501}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: ExitHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &739330501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739330495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4291559379
 --- !u!1 &1128511639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1877,8 @@ GameObject:
   - component: {fileID: 1241320802}
   - component: {fileID: 1241320801}
   - component: {fileID: 1241320800}
+  - component: {fileID: 1241320804}
+  - component: {fileID: 1241320803}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -1905,6 +2001,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241320798}
   m_CullTransparentMesh: 1
+--- !u!114 &1241320803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241320798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1241320804}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: EnterHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1241320804}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: ExitHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1241320804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241320798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4290165759
 --- !u!1 &1249152653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,6 +2074,7 @@ GameObject:
   - component: {fileID: 1249152656}
   - component: {fileID: 1249152655}
   - component: {fileID: 1249152658}
+  - component: {fileID: 1249152659}
   m_Layer: 5
   m_Name: NewGameButton
   m_TagString: Untagged
@@ -2052,13 +2209,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4284734956
+--- !u!114 &1249152659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249152653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1249152658}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: EnterHover
           m_Mode: 1
           m_Arguments:
@@ -2074,7 +2246,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1249152658}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: ExitHover
           m_Mode: 1
           m_Arguments:
@@ -2145,8 +2317,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BACK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
+  m_sharedMaterial: {fileID: -3407092568973194432, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2154,7 +2326,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4286244720
   m_fontColor: {r: 0.44001427, g: 0.9056604, b: 0.47917044, a: 1}
-  m_enableVertexGradient: 1
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -2170,7 +2342,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.95
+  m_fontSize: 80
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2398,8 +2570,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DISPLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
+  m_sharedMaterial: {fileID: -3407092568973194432, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2407,7 +2579,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4293707149
   m_fontColor: {r: 0.5538448, g: 0.7721925, b: 0.9245283, a: 1}
-  m_enableVertexGradient: 1
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -2423,7 +2595,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.95
+  m_fontSize: 80
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2620,6 +2792,8 @@ GameObject:
   - component: {fileID: 1320172677}
   - component: {fileID: 1320172676}
   - component: {fileID: 1320172675}
+  - component: {fileID: 1320172679}
+  - component: {fileID: 1320172678}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -2742,6 +2916,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320172673}
   m_CullTransparentMesh: 1
+--- !u!114 &1320172678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320172673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1320172679}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: EnterHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1320172679}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: ExitHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1320172679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320172673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4289855420
 --- !u!1 &1329265138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,7 +3012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 178.6074, y: 91.799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329265140
@@ -3026,8 +3260,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' AUDIO'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
+  m_sharedMaterial: {fileID: -3407092568973194432, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3035,7 +3269,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294959530
   m_fontColor: {r: 0.6650944, g: 0.8821281, b: 1, a: 1}
-  m_enableVertexGradient: 1
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -3051,7 +3285,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.95
+  m_fontSize: 80
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3113,6 +3347,8 @@ GameObject:
   - component: {fileID: 1400293090}
   - component: {fileID: 1400293089}
   - component: {fileID: 1400293088}
+  - component: {fileID: 1400293092}
+  - component: {fileID: 1400293091}
   m_Layer: 5
   m_Name: AudioButton
   m_TagString: Untagged
@@ -3235,6 +3471,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400293086}
   m_CullTransparentMesh: 1
+--- !u!114 &1400293091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400293086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1400293092}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: EnterHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1400293092}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: ExitHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1400293092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400293086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4294964183
 --- !u!1 &1424723680
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,8 +3726,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CONTROLS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
+  m_sharedMaterial: {fileID: -3407092568973194432, guid: 4942c153fd6294a44b59a385549b8175, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3439,7 +3735,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4292262794
   m_fontColor: {r: 0.5425863, g: 0.7332161, b: 0.8396226, a: 1}
-  m_enableVertexGradient: 1
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -3455,7 +3751,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.95
+  m_fontSize: 80
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3709,6 +4005,8 @@ GameObject:
   - component: {fileID: 1606127996}
   - component: {fileID: 1606127995}
   - component: {fileID: 1606127994}
+  - component: {fileID: 1606127998}
+  - component: {fileID: 1606127997}
   m_Layer: 5
   m_Name: ControlsButton
   m_TagString: Untagged
@@ -3819,6 +4117,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606127992}
   m_CullTransparentMesh: 1
+--- !u!114 &1606127997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606127992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1606127998}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: EnterHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1606127998}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: ExitHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1606127998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606127992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4294964183
 --- !u!1 &1737643342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,6 +4265,8 @@ GameObject:
   - component: {fileID: 1806178097}
   - component: {fileID: 1806178096}
   - component: {fileID: 1806178095}
+  - component: {fileID: 1806178099}
+  - component: {fileID: 1806178098}
   m_Layer: 5
   m_Name: DisplayButton
   m_TagString: Untagged
@@ -4017,6 +4377,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806178093}
   m_CullTransparentMesh: 1
+--- !u!114 &1806178098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806178093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1806178099}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: EnterHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1806178099}
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+          m_MethodName: ExitHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1806178099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806178093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4294964183
 --- !u!1 &1966302920
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,6 +4450,7 @@ GameObject:
   - component: {fileID: 1966302923}
   - component: {fileID: 1966302922}
   - component: {fileID: 1966302925}
+  - component: {fileID: 1966302926}
   m_Layer: 5
   m_Name: CreateProfileButton
   m_TagString: Untagged
@@ -4152,13 +4573,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4284734956
+--- !u!114 &1966302926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966302920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Delegates:
   - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1966302925}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: EnterHover
           m_Mode: 1
           m_Arguments:
@@ -4174,7 +4610,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1966302925}
-          m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+          m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
           m_MethodName: ExitHover
           m_Mode: 1
           m_Arguments:
@@ -4198,6 +4634,7 @@ GameObject:
   - component: {fileID: 2027781620}
   - component: {fileID: 2027781619}
   - component: {fileID: 2027781622}
+  - component: {fileID: 2027781623}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -4330,6 +4767,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c75eb9ec3e995742898a3e1f8cac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColour:
+    serializedVersion: 2
+    rgba: 4284734956
+--- !u!114 &2027781623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027781617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
