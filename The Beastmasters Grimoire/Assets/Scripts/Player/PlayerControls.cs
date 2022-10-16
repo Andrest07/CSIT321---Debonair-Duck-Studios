@@ -23,13 +23,13 @@ public class PlayerControls : MonoBehaviour
 {
     //Private variables
     private GameManager gameManager;
+    private PauseMenuScript pauseFunction;
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
     private Vector2 movementVector;
-    private PauseMenuScript pauseFunction;
     [HideInInspector]public Animator animator;
 
     [Header("Player Variables")]
@@ -58,7 +58,6 @@ public class PlayerControls : MonoBehaviour
         playerDash = GetComponent<PlayerDash>();
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         animator = GetComponent<Animator>();
-        pauseFunction = GetComponent<PauseMenuScript>();
 
         while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -88,6 +87,7 @@ public class PlayerControls : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        pauseFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PauseMenuScript>();
         animator.SetBool("isIdle", true);
     }
 

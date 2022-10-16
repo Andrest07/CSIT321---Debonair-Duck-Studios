@@ -1,6 +1,8 @@
 /*
 AUTHOR DD/MM/YY: Kunal 05/10/22
 
+    - EDITOR DD/MM/YY CHANGES:
+    - Kaleb 16/10/22: PauseGame() Fixes
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -9,39 +11,28 @@ using UnityEngine.SceneManagement;
 
 
 public class PauseMenuScript : MonoBehaviour
-{   
+{
     public GameObject PauseMenu;
+    public GameObject hud;
     public bool isPaused;
+
     // Start is called before the first frame update
     void Start()
-    {   
-        isPaused = false;
-        PauseMenu.SetActive(false);
+    {
+
     }
 
-    // Update is called once per frame
-
-    
-    public void PauseGame(){
-        if(isPaused){
-            /*
-            Debug.Log("Pause");
-            PauseMenu.SetActive(false);
-            Time.timeScale = 1f;
-            isPaused = false;
-            */
-            Debug.Log("Pause");
-        }
-        else{
-            PauseMenu.SetActive(true);
-            Time.timeScale = 0f;
-            isPaused = true;
-        }
-        
+    public void PauseGame()
+    {
+        isPaused = !isPaused;
+        PauseMenu.SetActive(isPaused);
+        hud.SetActive(!isPaused);
+        Time.timeScale = isPaused ? 0 : 1;
     }
 
 
-    public void QuitGame(){
+    public void QuitGame()
+    {
         Application.Quit();
     }
 }
