@@ -29,6 +29,7 @@ public class PlayerControls : MonoBehaviour
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
     private Vector2 movementVector;
+    private PauseMenuScript pauseFunction;
     [HideInInspector]public Animator animator;
 
     [Header("Player Variables")]
@@ -57,6 +58,7 @@ public class PlayerControls : MonoBehaviour
         playerDash = GetComponent<PlayerDash>();
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         animator = GetComponent<Animator>();
+        pauseFunction = GetComponent<PauseMenuScript>();
 
         while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -104,8 +106,11 @@ public class PlayerControls : MonoBehaviour
     }
 
     public void PauseMenu(InputAction.CallbackContext context)
-    {
-
+    {   
+        if(context.performed)
+        {
+            pauseFunction.PauseGame();
+        }
     }
 
     public void GameMenu(InputAction.CallbackContext context)
