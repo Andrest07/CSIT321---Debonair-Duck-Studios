@@ -24,6 +24,8 @@ public class PlayerControls : MonoBehaviour
     //Private variables
     private GameManager gameManager;
     private PauseMenuScript pauseFunction;
+    private GameMenu gameMenuFunction;
+
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
@@ -88,6 +90,7 @@ public class PlayerControls : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         pauseFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PauseMenuScript>();
+        gameMenuFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMenu>();
         animator.SetBool("isIdle", true);
     }
 
@@ -115,7 +118,10 @@ public class PlayerControls : MonoBehaviour
 
     public void GameMenu(InputAction.CallbackContext context)
     {
-
+         if(context.performed)
+        {
+            gameMenuFunction.PauseGame();
+        }
     }
 
     public void Attack(InputAction.CallbackContext context)
