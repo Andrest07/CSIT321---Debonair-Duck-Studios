@@ -12,6 +12,7 @@ z
     - Kaleb 04/10/22: GameManager setup
     - Quentin 07/10/22: Added animation
     - Kaleb 08/10/22: Anim Fixes
+    - Kaleb 13/11/22: Spellcasting Implementation
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -32,7 +33,8 @@ public class PlayerControls : MonoBehaviour
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
     private Vector2 movementVector;
-    [HideInInspector]public Animator animator;
+    private Vector3 mousePos;
+    [HideInInspector] public Animator animator;
 
     [Header("Player Variables")]
     public float playerSpeed;
@@ -65,6 +67,7 @@ public class PlayerControls : MonoBehaviour
         {
             availableBeasts.RemoveAt(availableBeasts.Count - 1);
         }
+        currentBeast = availableBeasts[0];
 
         //Initialize player controls and input system
         PlayerInputActions playerInputActions = new PlayerInputActions();
@@ -109,8 +112,8 @@ public class PlayerControls : MonoBehaviour
     }
 
     public void PauseMenu(InputAction.CallbackContext context)
-    {   
-        if(context.performed)
+    {
+        if (context.performed)
         {
             pauseFunction.PauseGame();
         }
@@ -118,7 +121,7 @@ public class PlayerControls : MonoBehaviour
 
     public void GameMenu(InputAction.CallbackContext context)
     {
-         if(context.performed)
+        if (context.performed)
         {
             gameMenuFunction.PauseGame();
         }
@@ -138,7 +141,22 @@ public class PlayerControls : MonoBehaviour
                 }
                 break;
             case PlayerMode.Spellcast:
-                //Spellcasting code goes here
+                //NEEDS TO BE IN IF CHECK FOR COOLDOWN <= 0
+                if (true)
+                {
+                    mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                    Instantiate(currentBeast,
+                        transform.position + mousePos.normalized,
+                        Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg + 90f, Vector3.forward));
+                    //Same as exiting spellcasting
+                    animator.SetBool("isCasting", false);
+                    playerMode = PlayerMode.Basic;
+                    canMove = true;
+                }
+                else
+                {
+                    //Something will happen when spells on CD
+                }
                 break;
             case PlayerMode.Capture:
                 //Capture code goes here
