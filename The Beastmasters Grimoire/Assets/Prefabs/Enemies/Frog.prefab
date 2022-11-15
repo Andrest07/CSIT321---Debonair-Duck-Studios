@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 2493044921102178166}
   - component: {fileID: 2180451871644461643}
   - component: {fileID: 6498185047953973294}
+  - component: {fileID: 2557269106343029520}
   m_Layer: 3
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,6 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: be344d1a030a34b46939fbd4c1034514, type: 2}
+  bullet: {fileID: 0}
+  ranged: 0
+  rangedAttack: 0
   meleeAttack: 0
   wanderRadius: 3
   drawGizmos: 1
@@ -234,3 +238,17 @@ MonoBehaviour:
   healthRegenMultiplier: 0
   damageMultiplier: 0
   healthRegening: 0
+--- !u!114 &2557269106343029520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917238221559215613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1ca7cc6bb58064ba72d5ef12b47dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capturePercent: 0
+  captureMultiplyer: 1

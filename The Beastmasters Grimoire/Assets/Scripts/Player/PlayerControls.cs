@@ -14,6 +14,7 @@ z
     - Kaleb 08/10/22: Anim Fixes
     - Kaleb 13/11/22: Spellcasting Implementation
     - Kaleb 15/11/22: Capture Mode Implementation
+    - Kaleb 15/11/22: Capture Mode Fixes
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -34,9 +35,10 @@ public class PlayerControls : MonoBehaviour
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
     private Vector2 movementVector;
-    private Vector3 mousePos;
+    public Vector3 mousePos;
     private LineRenderer line; //Temporary capture mode spell effect
     private RaycastHit2D hit;
+    private IEnumerator capture;
     [HideInInspector] public Animator animator;
 
     [Header("Player Variables")]
@@ -161,24 +163,9 @@ public class PlayerControls : MonoBehaviour
                 }
                 break;
             case PlayerMode.Capture:
-                if (context.started)
-                {
-                    line.enabled = true;
-                    mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-                    hit = Physics2D.Raycast(transform.position + mousePos.normalized, mousePos);
-
-                    line.SetPosition(0, transform.position + mousePos.normalized);
-
-                    if (hit.collider != null)
-
-                        line.SetPosition(1, hit.point);
-                    else
-                        line.SetPosition(1, mousePos.normalized*7.5f);
-                }
-                else
-                {
-                    line.enabled = false;
-                }
+                line.enabled = true;
+                capture = Capture(context);
+                StartCoroutine(capture);
                 break;
         }
     }
@@ -283,5 +270,30 @@ public class PlayerControls : MonoBehaviour
             playerDash.Dash(movementVector);
             canMove = false;
         }
+    }
+    IEnumerator Capture(InputAction.CallbackContext context)
+    {
+        while (context.performed && playerMode == PlayerMode.Capture)
+        {
+            mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+            hit = Physics2D.Raycast(transform.position + mousePos.normalized, mousePos);
+            line.SetPosition(0, transform.position + mousePos.normalized);
+
+            if (hit.collider != null)
+            {
+                line.SetPosition(1, hit.point);
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    hit.collider.gameObject.GetComponent<EnemyCapture>().Capturing(); // Will pass values eventually
+                }
+            }
+            else
+            {
+                line.SetPosition(1, transform.position + mousePos.normalized * 7.5f);
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        line.enabled = false;
+        yield return null;
     }
 }

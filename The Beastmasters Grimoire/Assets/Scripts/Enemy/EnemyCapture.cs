@@ -1,5 +1,5 @@
 /*
-AUTHOR DD/MM/YY:
+AUTHOR DD/MM/YY: Kaleb 16/11/2022
 
 	- EDITOR DD/MM/YY CHANGES:
 */
@@ -15,12 +15,12 @@ public class EnemyCapture : MonoBehaviour
 
     public void Capturing()
     {
-        captureMultiplyer=20; //Will be expanded with calculations later
+        captureMultiplyer=100; //Will be expanded with calculations later
         capturePercent+=captureMultiplyer*Time.deltaTime;
 
         if (capturePercent >= 100)
         {
-
+            Destroy(gameObject);
         }
     }
 }
