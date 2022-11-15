@@ -13,6 +13,7 @@ z
     - Quentin 07/10/22: Added animation
     - Kaleb 08/10/22: Anim Fixes
     - Kaleb 13/11/22: Spellcasting Implementation
+    - Kaleb 15/11/22: Capture Mode Implementation
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -34,6 +35,8 @@ public class PlayerControls : MonoBehaviour
     private PlayerBasicAttack playerBasicAttack;
     private Vector2 movementVector;
     private Vector3 mousePos;
+    private LineRenderer line; //Temporary capture mode spell effect
+    private RaycastHit2D hit;
     [HideInInspector] public Animator animator;
 
     [Header("Player Variables")]
@@ -42,8 +45,6 @@ public class PlayerControls : MonoBehaviour
     public bool canAttack = true;
     public enum PlayerMode { Basic, Spellcast, Capture }
     public PlayerMode playerMode;
-
-
 
     [Header("Beast Management")]
     public GameObject currentBeast; //The beast the player currently has selected
@@ -62,6 +63,7 @@ public class PlayerControls : MonoBehaviour
         playerDash = GetComponent<PlayerDash>();
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         animator = GetComponent<Animator>();
+        line = GetComponent<LineRenderer>();
 
         while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -159,7 +161,24 @@ public class PlayerControls : MonoBehaviour
                 }
                 break;
             case PlayerMode.Capture:
-                //Capture code goes here
+                if (context.started)
+                {
+                    line.enabled = true;
+                    mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                    hit = Physics2D.Raycast(transform.position + mousePos.normalized, mousePos);
+
+                    line.SetPosition(0, transform.position + mousePos.normalized);
+
+                    if (hit.collider != null)
+
+                        line.SetPosition(1, hit.point);
+                    else
+                        line.SetPosition(1, mousePos.normalized*7.5f);
+                }
+                else
+                {
+                    line.enabled = false;
+                }
                 break;
         }
     }
