@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.name.Equals("PlayerObject")){
             Debug.Log ("Hit!");
-            playerH.TakeDamage(parentController.rangedAttack);
+            playerH.TakeDamage(parentController.data.RangedDamage);
             Destroy (gameObject);
         }
     }

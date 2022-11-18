@@ -3,6 +3,7 @@
 
     - EDITOR DD/MM/YY CHANGES:
 	- Quentin 4/10/22: modified how movement is applied, added out of bound check
+    - Kaleb 19/11/22: Added scriptable object data
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ public class EnemyPatrolState : EnemyStateMachine
             prevPosition = transform.position;
 
             // check if moved too far from origin
-            if (Vector3.Distance(controller.origin, transform.position) > controller.wanderRadius + 3.0)
+            if (Vector3.Distance(controller.origin, transform.position) > controller.data.WanderRadius + 3.0)
             {
                 outOfBounds = true;
                 movementVector = controller.origin;
@@ -76,7 +77,7 @@ public class EnemyPatrolState : EnemyStateMachine
             {
                 movementVector *= -1;
             }
-            else if (Vector3.Distance(controller.origin, transform.position) > controller.wanderRadius)
+            else if (Vector3.Distance(controller.origin, transform.position) > controller.data.WanderRadius)
             {
                 movementVector = controller.origin;
             }

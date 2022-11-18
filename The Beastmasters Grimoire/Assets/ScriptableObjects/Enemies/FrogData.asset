@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
   m_Name: FrogData
   m_EditorClassIdentifier: 
-  enemyName: 
-  enemyType: 
+  enemyName: Frog
+  enemyType: 0
+  enemyDescription: 
+  spellName: 
+  spellObject: {fileID: 0}
+  spellType: 0
+  spellDescription: 
   isRanged: 0
   health: 10
   speed: 1
-  damage: 0
+  meleeDamage: 1
+  rangedDamage: 1
+  rangedProjectile: {fileID: 0}
+  wanderRadius: 3
   visibilityRange: 2
-  visibilityAngle: 30
   attackDistance: 1
   attackCooldown: 2
-  artwork: {fileID: 0}

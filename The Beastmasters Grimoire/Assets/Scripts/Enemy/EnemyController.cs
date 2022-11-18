@@ -8,6 +8,7 @@
 	- Quentin 4/10/22: changes to stop sliding
     - Andreas 10/10/22: Added ranged attack
     - Kaleb 10/10/22: Bullet fixes
+    - Kaleb 19/11/22: Added scriptable object data
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -15,17 +16,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
-{   
+{
     [Header("Scriptable Object")]
     public EnemyScriptableObject data;
-    public GameObject bullet;
-
-    [Header("Enemy Stats")]
-    public bool ranged;
-    public float rangedAttack;
-    /*public float firerate = 1f;*/
-    public float meleeAttack;
-    public float wanderRadius = 3.0f;
 
     [Header("Gizmos")]
     public bool drawGizmos = true;
@@ -41,7 +34,6 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public bool facingRight = true;
     [HideInInspector] public bool isColliding = false;
     [HideInInspector] public Vector3 collisionPosition;
-    [HideInInspector] public float damageTimeout = 1f;
     [HideInInspector] public bool isMoving = false;
     private bool canTakeDamage = true;
     private Rigidbody2D rigidBody2D;
@@ -58,11 +50,11 @@ public class EnemyController : MonoBehaviour
 
         animator.SetTrigger("patrol");
     }
-	
+
     private void FixedUpdate()
     {
         // stop sliding
-        if(!isMoving) rigidBody2D.MovePosition(rigidBody2D.position);
+        if (!isMoving) rigidBody2D.MovePosition(rigidBody2D.position);
     }
 
     // Enemy attack
@@ -74,9 +66,9 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.Log("Ranged Attack");
                 // do bullet
-                if (canTakeDamage && ranged)
+                if (canTakeDamage)
                 {
-                    GameObject tempBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                    GameObject tempBullet = Instantiate(data.RangedProjectile, transform.position, Quaternion.identity);
                     tempBullet.GetComponent<Bullet>().parentController = this.GetComponent<EnemyController>();
 
                     StartCoroutine(DamageTimer());
@@ -89,9 +81,9 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.Log("Melee attack");
                 // damage player
-                if (canTakeDamage && !ranged)
+                if (canTakeDamage)
                 {
-                    playerH.TakeDamage(meleeAttack);
+                    playerH.TakeDamage(data.MeleeDamage);
 
                     StartCoroutine(DamageTimer());
                 }
@@ -128,7 +120,7 @@ public class EnemyController : MonoBehaviour
     private IEnumerator DamageTimer()
     {
         canTakeDamage = false;
-        yield return new WaitForSeconds(damageTimeout);
+        yield return new WaitForSeconds(data.AttackCooldown);
         canTakeDamage = true;
     }
 
@@ -139,11 +131,14 @@ public class EnemyController : MonoBehaviour
     {
         if (!drawGizmos) return;
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, data.AttackDistance);
+        if (data != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, data.AttackDistance);
 
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, data.VisibilityRange);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, data.VisibilityRange);
+        }
     }
 #endif
 }
