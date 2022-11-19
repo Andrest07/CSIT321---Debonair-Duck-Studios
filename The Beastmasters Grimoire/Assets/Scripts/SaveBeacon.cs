@@ -10,17 +10,21 @@ using UnityEngine;
 public class SaveBeacon : MonoBehaviour
 {
     private GameObject player;
-
+    private PlayerHealth playerHealth;
+    public string beaconID 
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player"); 
+        playerHealth = player.GetComponent<PlayerHealth>();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.name == "PlayerObject"){
+            playerHealth.currentHealth = playerHealth.totalHealth;
+        }
     }
 }
