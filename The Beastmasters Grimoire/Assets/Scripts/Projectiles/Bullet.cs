@@ -3,6 +3,7 @@
 
     - EDITOR DD/MM/YY CHANGES:
     - Kaleb 10/10/22: Enemy Controller fix
+    - Kaleb 19/11/22: Added scriptable object data
 */
 using System.Collections;
 using System.Collections.Generic;

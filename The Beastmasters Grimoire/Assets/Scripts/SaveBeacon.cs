@@ -11,7 +11,7 @@ public class SaveBeacon : MonoBehaviour
 {
     private GameObject player;
     private PlayerHealth playerHealth;
-    public string beaconID 
+    public string beaconID; 
 
     // Start is called before the first frame update
     void Start()
