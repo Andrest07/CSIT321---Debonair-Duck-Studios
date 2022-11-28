@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 177
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,9 +108,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 281
-        width: 100
-        height: 230
+        y: 1522
+        width: 241
+        height: 524
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: PlayerSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 107
-        y: 282
-        width: 100
-        height: 230
+        x: 1752
+        y: 1513
+        width: 223
+        height: 533
       alignment: 9
       pivot: {x: 0.48418266, y: 0.5542318}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: PlayerSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 216
-        y: 282
-        width: 77
-        height: 230
+        x: 541
+        y: 1524
+        width: 241
+        height: 524
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: PlayerSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 314
-        y: 282
-        width: 77
-        height: 230
+        x: 796
+        y: 1524
+        width: 241
+        height: 524
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: PlayerSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 424
-        y: 281
-        width: 180
-        height: 230
+        x: 1041
+        y: 1524
+        width: 300
+        height: 524
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: PlayerSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 610
-        y: 281
-        width: 180
-        height: 230
+        x: 1393
+        y: 1524
+        width: 300
+        height: 524
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: PlayerSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 842
-        y: 281
-        width: 159
-        height: 230
+        x: 1138
+        y: 955
+        width: 350
+        height: 523
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: PlayerSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 3
-        y: 30
-        width: 112
-        height: 230
+        x: 1540
+        y: 956
+        width: 251
+        height: 524
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: PlayerSpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 118
-        y: 32
-        width: 173
-        height: 230
+        x: 0
+        y: 400
+        width: 395
+        height: 526
       alignment: 9
       pivot: {x: 0.6777498, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,10 +296,10 @@ TextureImporter:
       name: PlayerSpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 317
-        y: 31
-        width: 142
-        height: 230
+        x: 276
+        y: 957
+        width: 415
+        height: 524
       alignment: 9
       pivot: {x: 0.71655446, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: PlayerSpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 488
-        y: 31
-        width: 117
-        height: 230
+        x: 0
+        y: 956
+        width: 258
+        height: 524
       alignment: 9
       pivot: {x: 0.56065226, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +338,10 @@ TextureImporter:
       name: PlayerSpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 639
-        y: 31
-        width: 173
-        height: 230
+        x: 401
+        y: 400
+        width: 395
+        height: 524
       alignment: 9
       pivot: {x: 0.36440563, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +359,10 @@ TextureImporter:
       name: PlayerSpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 834
-        y: 27
-        width: 142
-        height: 230
+        x: 703
+        y: 957
+        width: 415
+        height: 524
       alignment: 9
       pivot: {x: 0.26485732, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,6 +372,27 @@ TextureImporter:
       bones: []
       spriteID: 6d0d68c01e6dfce4fb84c38ee3a33713
       internalID: 455726754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1524
+        width: 241
+        height: 524
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e74b99d097d86f4e89d3b604fb3f4eb
+      internalID: -1059691229
       vertices: []
       indices: 
       edges: []
@@ -395,6 +416,7 @@ TextureImporter:
       PlayerSpriteSheet_1: -1361096417
       PlayerSpriteSheet_2: 1719815078
       PlayerSpriteSheet_4: 1748557148
+      PlayerSpriteSheet_13: 2089182606
       PlayerSpriteSheet_7: -239836615
       PlayerSpriteSheet_8: -833924890
       PlayerSpriteSheet_10: -447381039
