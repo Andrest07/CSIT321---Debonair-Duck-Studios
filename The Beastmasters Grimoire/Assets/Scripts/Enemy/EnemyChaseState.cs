@@ -3,10 +3,12 @@
 
     - EDITOR DD/MM/YY CHANGES:
     - Quentin 27/9/22 Moved Kunal's script to state machine script
+    - Quentin 1/12/22: Changed movement to use navmeshagent
 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyChaseState : EnemyStateMachine
 {
@@ -16,26 +18,26 @@ public class EnemyChaseState : EnemyStateMachine
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         playerObject = GameObject.FindGameObjectWithTag("Player");
-        controller.isMoving = true;
+        controller.agent.isStopped = false;
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         TrackPlayer();
         UpdateAnimatorProperties(animator);
-        Chase(animator);
+        Chase();
         FacePlayer();
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        controller.isMoving = false;
+        controller.agent.destination = controller.origin;
     }
 
     // Follow player
-    public void Chase(Animator animator)
+    public void Chase()
     {
-        controller.transform.position = Vector2.MoveTowards(controller.transform.position, playerObject.transform.position, controller.data.Speed * Time.deltaTime);
+        controller.agent.destination = playerObject.transform.position;
     }
 
 }

@@ -9,6 +9,7 @@
     - Andreas 10/10/22: Added ranged attack
     - Kaleb 10/10/22: Bullet fixes
     - Kaleb 19/11/22: Added scriptable object data
+    - Quentin 1/12/22: Added navmeshagent
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public bool isColliding = false;
     [HideInInspector] public Vector3 collisionPosition;
     [HideInInspector] public bool isMoving = false;
+    [HideInInspector] public NavMeshAgent agent;
     private bool canTakeDamage = true;
     private Rigidbody2D rigidBody2D;
 
@@ -48,13 +50,12 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody2D = GetComponent<Rigidbody2D>();
 
-        animator.SetTrigger("patrol");
-    }
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.speed = data.Speed;
 
-    private void FixedUpdate()
-    {
-        // stop sliding
-        if (!isMoving) rigidBody2D.MovePosition(rigidBody2D.position);
+        animator.SetTrigger("patrol");
     }
 
     // Enemy attack

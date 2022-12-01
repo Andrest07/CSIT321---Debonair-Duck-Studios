@@ -4,6 +4,7 @@
     - EDITOR DD/MM/YY CHANGES:
 	- Quentin 4/10/22: modified how movement is applied, added out of bound check
     - Kaleb 19/11/22: Added scriptable object data
+    - Quentin 1/12/22: Changed movement to use navmeshagent
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +20,8 @@ public class EnemyPatrolState : EnemyStateMachine
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         prevPosition = controller.origin;
-        controller.StartCoroutine(WaitToMove(2.0f));
+        controller.StartCoroutine(WaitToMove(4.0f));
+        controller.agent.destination = controller.origin;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -29,25 +31,17 @@ public class EnemyPatrolState : EnemyStateMachine
 
         if (outOfBounds)
         {
-            outOfBounds = (Vector3.Distance(transform.position, controller.origin) >= 0.5);
-            UpdateMovement();
+            outOfBounds = (Vector3.Distance(transform.position, controller.origin) >= 0.9);
         }
-        else if (controller.isMoving) UpdateMovement();
+
+        if (prevPosition.x < transform.position.x != controller.facingRight)
+            controller.FlipSprite();
+
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         controller.StopAllCoroutines();
-        controller.isMoving = false;
-    }
-
-    private void UpdateMovement()
-    {
-        // move
-        transform.position = Vector3.MoveTowards(transform.position, movementVector, controller.data.Speed * Time.deltaTime);
-
-        // flip sprite in direction it's moving
-        if ( (prevPosition.x < transform.position.x) != controller.facingRight ) controller.FlipSprite();
     }
 
     private IEnumerator WaitToMove(float time)
@@ -62,13 +56,12 @@ public class EnemyPatrolState : EnemyStateMachine
             {
                 outOfBounds = true;
                 movementVector = controller.origin;
+                controller.agent.destination = movementVector;
             }
 
             // pause coroutine while out of bounds
             while (outOfBounds)
             {
-                prevPosition = transform.position;
-                controller.isMoving = true;
                 yield return null;
             }
 
@@ -86,11 +79,9 @@ public class EnemyPatrolState : EnemyStateMachine
                 movementVector = Random.insideUnitSphere + controller.origin;
             }
 
-            yield return new WaitForSeconds(time);
-            controller.isMoving = false;
+            controller.agent.destination = movementVector;
 
             yield return new WaitForSeconds(time);
-            controller.isMoving = true;
         }
     }
 }
