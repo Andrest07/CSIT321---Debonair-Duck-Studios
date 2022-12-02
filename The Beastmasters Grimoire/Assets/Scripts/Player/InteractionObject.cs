@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Kaleb 02/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Kaleb 03/12/22: Minor fixes and changes
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -9,20 +10,32 @@ using UnityEngine;
 
 public class InteractionObject : MonoBehaviour
 {
-    private bool isInteracting = false;
+    private Collider2D collision;
 
     public void Interact()
     {
-        if (!isInteracting)
+        if (collision != null)
         {
-            StartCoroutine(Interaction());
+            switch (collision.tag)
+            {
+                case "Button":
+                    break;
+                case "Door":
+                    break;
+                case "NPC":
+                    break;
+            }
         }
     }
 
-    IEnumerator Interaction()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        isInteracting = true;
-        yield return new WaitForSeconds(0.5f);
-        isInteracting = false;
+        collision = other;
+        //Turn on Interaction text/UI
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        collision = null;
+        //Turn off Interaction text/UI
     }
 }
