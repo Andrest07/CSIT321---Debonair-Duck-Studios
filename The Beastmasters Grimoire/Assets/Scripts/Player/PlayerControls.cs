@@ -15,6 +15,7 @@ z
     - Kaleb 13/11/22: Spellcasting Implementation
     - Kaleb 15/11/22: Capture Mode Implementation
     - Kaleb 15/11/22: Capture Mode Fixes
+    - Kaleb 02/12/22: Interaction system
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +35,9 @@ public class PlayerControls : MonoBehaviour
     private PlayerStamina playerStamina;
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
+    private InteractionObject interactionObject;
     private Vector2 movementVector;
+    private Vector3 directionVector;
     public Vector3 mousePos;
     private LineRenderer line; //Temporary capture mode spell effect
     private RaycastHit2D hit;
@@ -64,6 +67,7 @@ public class PlayerControls : MonoBehaviour
         playerStamina = GetComponent<PlayerStamina>();
         playerDash = GetComponent<PlayerDash>();
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
+        interactionObject = GetComponentInChildren<InteractionObject>();
         animator = GetComponent<Animator>();
         line = GetComponent<LineRenderer>();
 
@@ -208,7 +212,10 @@ public class PlayerControls : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
-
+        if (context.performed)
+        {
+            interactionObject.Interact();
+        }
     }
 
     public void Sprint(InputAction.CallbackContext context) //Button down and up sets sprinting to true and false respectively
@@ -233,6 +240,14 @@ public class PlayerControls : MonoBehaviour
             animator.SetBool("isWalking", false);
 
         movementVector = context.ReadValue<Vector2>();
+
+        if (movementVector.sqrMagnitude == 1) //Reposition the interaction object
+        {
+            directionVector = movementVector;
+            directionVector.x *= 0.55f;
+            directionVector.y *= 0.95f;
+            interactionObject.gameObject.transform.position = (transform.position + directionVector);
+        }
     }
 
     public void MonsterSwitch(InputAction.CallbackContext context)
@@ -265,7 +280,7 @@ public class PlayerControls : MonoBehaviour
 
     public void Mobility(InputAction.CallbackContext context)
     {
-        if (context.performed && playerDash.canDash)
+        if (context.performed && playerDash.canDash && movementVector != Vector2.zero)
         {
             playerDash.Dash(movementVector);
             canMove = false;
