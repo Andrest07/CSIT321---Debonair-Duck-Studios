@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -7328721883734973972}
   - component: {fileID: 388464848}
   - component: {fileID: 428888872}
-  - component: {fileID: 8241646351468876170}
   m_Layer: 0
   m_Name: SaveBeacon
   m_TagString: SaveBeacon
@@ -133,16 +132,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &8241646351468876170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7615432411939865676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9bf892b8133110479f0d24ce4feeb68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beaconID: 

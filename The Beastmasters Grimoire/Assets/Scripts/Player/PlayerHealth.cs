@@ -6,6 +6,7 @@ AUTHOR DD/MM/YY: Nick 22/09/22
     - Kaleb 28/09/22: Bug fixes
     - Andreas 29/09/22: Made TakeDamage public so that we can actually use it outside of the script
     - Kaleb 04/10/22: Added Invuln for dash
+    - Kunal 03/12/22: Added Death Function
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Health Booleans")]
     public bool healthRegening; // "Is player currently regenerating health?"
+
+    public GameObject DeathScreen;
 
     void Start()
     {
@@ -86,6 +89,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
-        // Death Event
+        Time.timeScale = 0;
+        DeathScreen.SetActive(true);
     }
 }
