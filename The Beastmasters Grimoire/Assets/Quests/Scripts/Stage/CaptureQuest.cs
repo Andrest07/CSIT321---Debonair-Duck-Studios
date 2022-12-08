@@ -11,16 +11,26 @@ public class CaptureQuest : Quest.QuestStage
 {
     public string monster;
     public int goal;
+    public string stageDescription;
 
     public override string Description()
     {
-        return $"Capture {goal} {monster}";
+        return stageDescription + '\n' + $"Capture {goal} {monster}.";
+    }
+
+    private void OnCapture(QuestStageCheckEvent eventInfo)
+    {
+        if(eventInfo.identifier == monster)
+        {
+            numericalCurrent++;
+            Evaluate();
+        }
     }
 
     public override void Initialize()
     {
         base.Initialize();
-        
+        EventManager.Instance.AddListener<QuestStageCheckEvent>(OnCapture);
     }
 
 }

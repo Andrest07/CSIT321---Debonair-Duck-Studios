@@ -12,8 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d19ed10878d6b4e8c46b0aad58f2a4, type: 3}
   m_Name: TestQuest2
   m_EditorClassIdentifier: 
-  questId: 1
-  questStatus: 0
-  questType: 1
-  questName: Side Quest Test
-  questDescription: 'asdkasjdhkajsd (:'
+  info:
+    questId: 1
+    questName: test2
+    questDescription: 'asdhaksdhjs (:'
+    questGroup: 1
+  reward:
+    exp: 5
+  stages:
+  - {fileID: 5942627908926736954}
+--- !u!114 &5942627908926736954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f8a3a83cff0704ba1a8640f3171b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numericalGoal: 0
+  numericalCurrent: 0
+  booleanGoal: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  location: Box
+  stageDescription: GO to the box.

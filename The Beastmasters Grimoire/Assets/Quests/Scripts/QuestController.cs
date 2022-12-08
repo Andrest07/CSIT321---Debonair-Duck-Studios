@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Quentin 8/12/22: Added listener, notificaiton events
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ public class QuestController : MonoBehaviour
         foreach(var quest in playerQuests.Values)
         {
             quest.Initialize();
+            quest.questCompleted.AddListener(OnQuestCompleted);
             //TODO set up menu item
         }
     }
@@ -29,12 +31,18 @@ public class QuestController : MonoBehaviour
         menu = viewportContent.GetComponent<QuestMenu>();
     }
 
-    //TODO events
-    //TODO quest completed
-
     public void AddQuest(Quest newQuest)
     {
-        playerQuests.Add(newQuest.QuestId, newQuest);
+        newQuest.Initialize();
+        newQuest.questCompleted.AddListener(OnQuestCompleted);
+        playerQuests.Add(newQuest.info.questId, newQuest);
+
         menu.AddQuest(newQuest);
+    }
+
+    private void OnQuestCompleted(Quest q)
+    {
+        // send notification to canvas
+        EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, "Completed!"));
     }
 }

@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Quentin 8/12/22 Added notification event
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -12,18 +13,28 @@ public class QuestMenu : MonoBehaviour
 {
     public GameObject questItem;
 
-    private void Start()
+    public void Initalize(Quest q)
     {
-    }
-
-    private void OnGUI()
-    {
-        
-    }
-
-    public void AddQuest(Quest q) {
+        // add quest to log
+        TMP_Text[] itemText;
         GameObject newItem = Instantiate(questItem, this.transform, false);
-        newItem.name = q.QuestId.ToString();
-        newItem.GetComponent<TMP_Text>().text = q.QuestName;
+        newItem.name = "Quest " + q.info.questId.ToString();
+        itemText = newItem.GetComponentsInChildren<TMP_Text>();
+        itemText[0].text = q.info.questName;
+        itemText[1].text = q.stages[0].Description();
+    }
+
+    public void AddQuest(Quest q)
+    {
+        // add quest to log
+        TMP_Text[] itemText;
+        GameObject newItem = Instantiate(questItem, this.transform, false);
+        newItem.name = "Quest " + q.info.questId.ToString();
+        itemText = newItem.GetComponentsInChildren<TMP_Text>();
+        itemText[0].text = q.info.questName;
+        itemText[1].text = q.stages[0].Description();
+
+        // send notification
+        EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, q.info.questDescription));
     }
 }

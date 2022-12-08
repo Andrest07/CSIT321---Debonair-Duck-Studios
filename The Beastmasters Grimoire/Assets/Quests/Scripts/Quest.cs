@@ -2,14 +2,15 @@
 AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Quentin 6/12/22: Minor changes, added custom editor
 */
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Quest", menuName="Quests/New Quest")]
 public class Quest : ScriptableObject
 {
     public enum Status
@@ -19,7 +20,7 @@ public class Quest : ScriptableObject
         Failed
     };
 
-    public enum Type
+    public enum Group
     {
         Main,
         Side,
@@ -27,18 +28,26 @@ public class Quest : ScriptableObject
     };
 
     // Quest information
-    [SerializeField] private int questId;
-    [SerializeField] private Status questStatus;
-    [SerializeField] private Type questType;
-    [SerializeField] private string questName;
-    [SerializeField] private string questDescription;
+    [System.Serializable]
+    public struct Info
+    {
+        public int questId;
+        public string questName;
+        public string questDescription;
+        public Group questGroup;
+    }
 
+    [SerializeField] private Status questStatus { get => questStatus; set => questStatus = value; }
 
     // Quest stats/reward
+    [System.Serializable]
     public struct Stats
     {
         public int exp;
     }
+
+    [Header("Information")]
+    public Info info = new Info();
 
     [Header("Reward")]
     public Stats reward = new Stats { exp = 5 };
@@ -53,6 +62,8 @@ public class Quest : ScriptableObject
     public abstract class QuestStage : ScriptableObject
     {
         protected string description;
+
+        [Header("Goal type - use one")]
         public int numericalGoal = 0;
         public int numericalCurrent;
         public bool booleanGoal;
@@ -110,16 +121,111 @@ public class Quest : ScriptableObject
         }
     }
 
-
-    // Quest get/set
-    public string QuestName { get => questName; set => questName = value; }
-    public string QuestDescription { get => questDescription; set => questDescription = value; }
-    public int QuestId { get => questId; set => questId = value; }
-    public Status QuestStatus { get => questStatus; set => questStatus = value; }
-    public Type QuestType { get => questType; set => questType = value; }    
-
 }
 
 public class QuestCompletedEvent : UnityEvent<Quest> { }
 
 
+
+// -------------------------------------------
+// Custom editor
+#if UNITY_EDITOR
+[CustomEditor(typeof(Quest))]
+public class QuestEditor : Editor
+{
+    SerializedProperty m_questInfoPropery;
+    SerializedProperty m_questStatsProperty;
+
+    List<string> m_questStageType;
+    SerializedProperty m_questStageListProperty;
+
+    [MenuItem("Assets/Quest", priority = 0)]
+    public static void CreateQuest()
+    {
+        var newQuest = CreateInstance<Quest>();
+        ProjectWindowUtil.CreateAsset(newQuest, "quest.asset");
+    }
+
+    private void OnEnable()
+    {
+        m_questInfoPropery = serializedObject.FindProperty(nameof(Quest.info));
+        m_questStatsProperty = serializedObject.FindProperty(nameof(Quest.reward));
+        m_questStageListProperty = serializedObject.FindProperty(nameof(Quest.stages));
+
+        var lookup = typeof(Quest.QuestStage);
+        m_questStageType = System.AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(assembly => assembly.GetTypes())
+            .Where(x=>x.IsClass && !x.IsAbstract && x.IsSubclassOf(lookup))
+            .Select(type=>type.Name)
+            .ToList();
+    }
+
+    public override void OnInspectorGUI()
+    {
+        var child = m_questInfoPropery.Copy();
+        var depth = child.depth;
+        child.NextVisible(true);
+
+        EditorGUILayout.LabelField("Quest information", EditorStyles.boldLabel);
+        while(child.depth > depth)
+        {
+            EditorGUILayout.PropertyField(child, true);
+            child.NextVisible(true);
+        }
+
+        child = m_questStatsProperty.Copy();
+        depth = child.depth;
+        child.NextVisible(true);
+
+        EditorGUILayout.LabelField("Quest reward", EditorStyles.boldLabel);
+        while (child.depth > depth)
+        {
+            EditorGUILayout.PropertyField(child, true);
+            child.NextVisible(true);
+        }
+
+        int choice = EditorGUILayout.Popup("Add new quest stage", -1, m_questStageType.ToArray());
+        if (choice != -1)
+        {
+            var newInstance = ScriptableObject.CreateInstance(m_questStageType[choice]);
+            AssetDatabase.AddObjectToAsset(newInstance, target);
+
+            m_questStageListProperty.InsertArrayElementAtIndex(m_questStageListProperty.arraySize);
+            m_questStageListProperty.GetArrayElementAtIndex(m_questStageListProperty.arraySize - 1).objectReferenceValue = newInstance;
+        }
+
+        Editor ed = null;
+        int toDelete = -1;
+        for(int i=0; i<m_questStageListProperty.arraySize; ++i)
+        {
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.BeginVertical();
+            var item = m_questStageListProperty.GetArrayElementAtIndex(i);
+            SerializedObject obj = new SerializedObject(item.objectReferenceValue);
+
+            Editor.CreateCachedEditor(item.objectReferenceValue, null, ref ed);
+
+            ed.OnInspectorGUI();
+            EditorGUILayout.EndVertical();
+
+            if (GUILayout.Button("-", GUILayout.Width(32)))
+            {
+                toDelete = i;
+            }
+            EditorGUILayout.EndHorizontal();
+        }
+
+        if(toDelete != -1)
+        {
+            var item = m_questStageListProperty.GetArrayElementAtIndex(toDelete).objectReferenceValue;
+            DestroyImmediate(item, true);
+
+            m_questStageListProperty.DeleteArrayElementAtIndex(toDelete);
+        }
+
+        // save
+        serializedObject.ApplyModifiedProperties();
+    }
+
+}
+#endif
