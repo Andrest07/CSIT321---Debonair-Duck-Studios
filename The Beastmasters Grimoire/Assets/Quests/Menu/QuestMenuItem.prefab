@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 2161226488415446744}
   - component: {fileID: 6361432744152798844}
   - component: {fileID: 943024901214463866}
+  - component: {fileID: 1181739755439170311}
   m_Layer: 5
   m_Name: QuestMenuItem
   m_TagString: Untagged
@@ -348,3 +349,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1181739755439170311
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8887924739884634596}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

@@ -44,5 +44,6 @@ public class QuestController : MonoBehaviour
     {
         // send notification to canvas
         EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, "Completed!"));
+        menu.FinishQuest(q.info.questId);
     }
 }

@@ -37,7 +37,7 @@ public class Quest : ScriptableObject
         public Group questGroup;
     }
 
-    [SerializeField] private Status questStatus { get => questStatus; set => questStatus = value; }
+    private Status questStatus { get => questStatus; set => questStatus = value; }
 
     // Quest stats/reward
     [System.Serializable]
@@ -109,13 +109,12 @@ public class Quest : ScriptableObject
         }
     }
 
-    // 
+    // Check for remaining stages after stage complete
     private void CheckStage()
     {
         // check if all stages complete
         completed = stages.All(s => s.completed);
         if (completed) {
-            //TODO give reward
             questCompleted.Invoke(this);
             questCompleted.RemoveAllListeners();
         }

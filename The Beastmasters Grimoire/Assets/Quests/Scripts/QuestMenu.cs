@@ -12,6 +12,7 @@ using TMPro;
 public class QuestMenu : MonoBehaviour
 {
     public GameObject questItem;
+    private Dictionary<int, GameObject> itemList = new Dictionary<int, GameObject>();
 
     public void Initalize(Quest q)
     {
@@ -22,6 +23,8 @@ public class QuestMenu : MonoBehaviour
         itemText = newItem.GetComponentsInChildren<TMP_Text>();
         itemText[0].text = q.info.questName;
         itemText[1].text = q.stages[0].Description();
+
+        itemList.Add(q.info.questId, newItem);
     }
 
     public void AddQuest(Quest q)
@@ -34,7 +37,17 @@ public class QuestMenu : MonoBehaviour
         itemText[0].text = q.info.questName;
         itemText[1].text = q.stages[0].Description();
 
+        itemList.Add(q.info.questId, newItem);
+
         // send notification
         EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, q.info.questDescription));
+    }
+
+    public void FinishQuest(int id)
+    {
+        GameObject quest = itemList[id];
+        quest.GetComponent<CanvasGroup>().alpha = 0.5f;
+        TMP_Text[] text = quest.GetComponentsInChildren<TMP_Text>();
+        text[1].text = "Completed";
     }
 }
