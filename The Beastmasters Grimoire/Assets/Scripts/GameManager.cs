@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Kaleb 04/10/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Kaleb 11/12/22 Beastiary Setup
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -17,11 +18,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] spellSlots;
 
+    public EnemyScriptableObject[] beastiaryArray;
+
+    private Dictionary<EnemyScriptableObject, bool> beastiary = new Dictionary<EnemyScriptableObject, bool>();
+
     private int totalBeasts;
 
     void Awake()
     {
-        //If there is no gameManager, set this to the gameManager, otherwise destroy this.
+        //If there is no gameManager, set this to the gameManager, otherwise destroy this
         if (gameManager == null)
         {
             gameManager = gameObject;
@@ -37,7 +42,15 @@ public class GameManager : MonoBehaviour
         UpdateSpellSlots(player.GetComponent<PlayerControls>().totalBeasts);
         UpdateDisplayedSpell(0);
 
+        //Initialise the beastiary if it isn't intialised. Set all beast unlocks to false
+        if (beastiary.Count == 0)
+        {
+            foreach (EnemyScriptableObject enemy in beastiaryArray)
+            {
+                beastiary.Add(enemy, false);
+            }
 
+        }
     }
 
     // Update is called once per frame
@@ -78,5 +91,17 @@ public class GameManager : MonoBehaviour
                 spellSlots[i].GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
             }
         }
+    }
+
+    //Method for setting a beast to be unlocked
+    public void setBeastiary(EnemyScriptableObject enemy)
+    {
+        beastiary[enemy] = true;
+    }
+
+    //Method for getting whether a beast is or is not unlocked
+    public bool getBeastiary(EnemyScriptableObject enemy)
+    {
+        return beastiary[enemy];
     }
 }

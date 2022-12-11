@@ -15513,6 +15513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellSlots: []
+  beastiaryArray: []
 --- !u!4 &1422369573
 Transform:
   m_ObjectHideFlags: 0
@@ -17073,7 +17074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointLocation: {x: 0, y: 0, z: 0}
-  deathMenu: {fileID: 1575406862}
+  DeathScreen: {fileID: 0}
   player: {fileID: 1056504758}
 --- !u!1 &1577175680
 GameObject:
@@ -17373,15 +17374,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
