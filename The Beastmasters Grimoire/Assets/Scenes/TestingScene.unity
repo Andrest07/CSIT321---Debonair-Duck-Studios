@@ -15513,7 +15513,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellSlots: []
-  beastiaryArray: []
+  beastiaryArray:
+  - {fileID: 11400000, guid: d2231f4b930c787458f90e90e9e2e371, type: 2}
+  - {fileID: 11400000, guid: be344d1a030a34b46939fbd4c1034514, type: 2}
 --- !u!4 &1422369573
 Transform:
   m_ObjectHideFlags: 0

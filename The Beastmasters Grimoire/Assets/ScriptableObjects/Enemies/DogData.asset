@@ -26,6 +26,7 @@ MonoBehaviour:
   rangedDamage: 1
   rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3
+  captureSeconds: 10
   visibilityRange: 4
   attackDistance: 2
   attackCooldown: 1
