@@ -8,11 +8,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class QuestMenu : MonoBehaviour
 {
     public GameObject questItem;
-    private Dictionary<int, GameObject> itemList = new Dictionary<int, GameObject>();
+
+    private Dictionary<int, GameObject> questList = new Dictionary<int, GameObject>();
+
+    private Button mainBtn;
+    private Button sideBtn;
+    private Button errandBtn;
+
+    public GameObject mainObject;
+    public GameObject sideObject;
+    public GameObject errandObject;
+
+    private void OnEnable()
+    {
+        Button[] btns = GetComponentsInChildren<Button>();
+        mainBtn = btns[0];
+        sideBtn = btns[1];
+        errandBtn = btns[2];
+
+        mainBtn.interactable = mainObject.transform.childCount > 0;
+        sideBtn.interactable = sideObject.transform.childCount > 0;
+        errandBtn.interactable = errandObject.transform.childCount > 0;
+    }
 
     public void Initalize(Quest q)
     {
@@ -24,7 +46,17 @@ public class QuestMenu : MonoBehaviour
         itemText[0].text = q.info.questName;
         itemText[1].text = q.stages[0].Description();
 
-        itemList.Add(q.info.questId, newItem);
+        questList.Add(q.info.questId, newItem);
+
+        if (q.info.questGroup == Quest.Group.Main)
+            newItem.transform.SetParent(mainObject.transform);
+        
+        else if (q.info.questGroup == Quest.Group.Side)
+            newItem.transform.SetParent(sideObject.transform);
+        
+        else
+            newItem.transform.SetParent(errandObject.transform);
+
     }
 
     public void AddQuest(Quest q)
@@ -37,7 +69,16 @@ public class QuestMenu : MonoBehaviour
         itemText[0].text = q.info.questName;
         itemText[1].text = q.stages[0].Description();
 
-        itemList.Add(q.info.questId, newItem);
+        questList.Add(q.info.questId, newItem);
+
+        if (q.info.questGroup == Quest.Group.Main)
+            newItem.transform.SetParent(mainObject.transform);
+
+        else if (q.info.questGroup == Quest.Group.Side)
+            newItem.transform.SetParent(sideObject.transform);
+
+        else
+            newItem.transform.SetParent(errandObject.transform);
 
         // send notification
         EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, q.info.questDescription));
@@ -45,9 +86,27 @@ public class QuestMenu : MonoBehaviour
 
     public void FinishQuest(int id)
     {
-        GameObject quest = itemList[id];
+        GameObject quest = questList[id];
+               
         quest.GetComponent<CanvasGroup>().alpha = 0.5f;
         TMP_Text[] text = quest.GetComponentsInChildren<TMP_Text>();
         text[1].text = "Completed";
     }
+
+
+    public void ListToggle(string group)
+    {
+        if(group == "Main")
+        {
+            mainObject.SetActive( !mainObject.activeSelf );
+        }
+        else if (group == "Side")
+        {
+            sideObject.SetActive(!sideObject.activeSelf);
+        }
+        else
+        {
+            errandObject.SetActive(!errandObject.activeSelf);
+        }
+    } 
 }

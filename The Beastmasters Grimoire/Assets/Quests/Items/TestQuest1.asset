@@ -56,7 +56,7 @@ MonoBehaviour:
     questId: 0
     questName: Test quest 1
     questDescription: Travel to tree zone and capture (kill) 1 frog
-    questGroup: 2
+    questGroup: 0
   reward:
     exp: 5
   stages:
