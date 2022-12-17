@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1ca7cc6bb58064ba72d5ef12b47dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capturePercent: 0
+  capturedSeconds: 0
   captureMultiplyer: 1
 --- !u!195 &1850450042
 NavMeshAgent:
