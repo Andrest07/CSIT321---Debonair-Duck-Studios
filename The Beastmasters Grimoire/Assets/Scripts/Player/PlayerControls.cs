@@ -42,6 +42,7 @@ public class PlayerControls : MonoBehaviour
     private LineRenderer line; //Temporary capture mode spell effect
     private RaycastHit2D hit;
     private IEnumerator capture;
+    private PlayerInputActions playerInputActions;
     [HideInInspector] public Animator animator;
 
     [Header("Player Variables")]
@@ -78,7 +79,11 @@ public class PlayerControls : MonoBehaviour
         currentBeast = availableBeasts[0];
 
         //Initialize player controls and input system
-        PlayerInputActions playerInputActions = new PlayerInputActions();
+        playerInputActions = new PlayerInputActions();
+    }
+
+    void OnEnable()
+    {
         playerInputActions.Player.Enable();
         playerInputActions.Player.PauseMenu.performed += PauseMenu;
         playerInputActions.Player.GameMenu.performed += GameMenu;
@@ -93,7 +98,24 @@ public class PlayerControls : MonoBehaviour
         playerInputActions.Player.MonsterSwitch.performed += MonsterSwitch;
         playerInputActions.Player.MonsterSelect.performed += MonsterSelect;
         playerInputActions.Player.Mobility.performed += Mobility;
-
+    }
+    
+    void OnDisable()
+    {
+        playerInputActions.Player.Disable();
+        playerInputActions.Player.PauseMenu.performed -= PauseMenu;
+        playerInputActions.Player.GameMenu.performed -= GameMenu;
+        playerInputActions.Player.Attack.performed -= Attack;
+        playerInputActions.Player.SpellcastMode.performed -= SpellcastMode;
+        playerInputActions.Player.CaptureMode.performed -= CaptureMode;
+        playerInputActions.Player.Interact.performed -= Interact;
+        playerInputActions.Player.Sprint.performed -= Sprint;
+        playerInputActions.Player.Sprint.canceled -= Sprint;
+        playerInputActions.Player.Movement.performed -= Movement;
+        playerInputActions.Player.Movement.canceled -= Movement;
+        playerInputActions.Player.MonsterSwitch.performed -= MonsterSwitch;
+        playerInputActions.Player.MonsterSelect.performed -= MonsterSelect;
+        playerInputActions.Player.Mobility.performed -= Mobility;
     }
 
     //Delay setting gameManager by 1 frame for gameManager setup.
