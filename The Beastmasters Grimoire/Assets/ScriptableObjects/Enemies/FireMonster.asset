@@ -24,9 +24,9 @@ MonoBehaviour:
   speed: 1
   meleeDamage: 1
   rangedDamage: 2
-  rangedProjectile: {fileID: 0}
+  rangedProjectile: {fileID: 8168317729838749010, guid: e8e94fc61bc8842c5b2d301981ca0169, type: 3}
   wanderRadius: 3
   captureSeconds: 5
   visibilityRange: 6
-  attackDistance: 5
+  attackDistance: 4
   attackCooldown: 1
