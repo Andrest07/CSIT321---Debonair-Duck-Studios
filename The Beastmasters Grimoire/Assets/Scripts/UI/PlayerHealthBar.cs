@@ -12,7 +12,6 @@ using UnityEngine.UI;
 public class PlayerHealthBar : MonoBehaviour
 {
     //Referencing to the PlayerHealth script.    
-    public PlayerHealth playerHealth;
     public Image fillImage;
     private Slider slider;
 
@@ -36,7 +35,7 @@ public class PlayerHealthBar : MonoBehaviour
         }
 
         // Changing the health bar colour when the player's current health decreases.
-        float fillValue = (playerHealth.currentHealth / playerHealth.totalHealth) * 25 ;
+        float fillValue = (PlayerManager.instance.GetComponent<PlayerHealth>().currentHealth / PlayerManager.instance.GetComponent<PlayerHealth>().totalHealth) * 25 ;
         slider.value = fillValue;
     }
 }

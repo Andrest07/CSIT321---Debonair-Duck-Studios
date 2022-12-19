@@ -11,7 +11,6 @@ using UnityEngine;
 
 public class PlayerStamina : MonoBehaviour
 {
-    private PlayerControls playerControls;
 
     [Header("Stamina settings")]
     public float totalStamina; //The players total staminas in seconds 
@@ -37,7 +36,6 @@ public class PlayerStamina : MonoBehaviour
         //Initializing values
         currentStamina = totalStamina;
         currentRegenDelay = totalRegenDelay;
-        playerControls = gameObject.GetComponent<PlayerControls>();
         updateSpeed();
     }
 
@@ -59,7 +57,7 @@ public class PlayerStamina : MonoBehaviour
         if (currentStamina >= 0) //If the player still has stamina, they are sprinting. increase player speed and drain stamina
         {
             currentStamina -= Time.deltaTime * drainRate;
-            playerControls.playerSpeed = sprintSpeed;
+            PlayerManager.instance.playerSpeed = sprintSpeed;
             currentRegenDelay = totalRegenDelay;
             isRegening = true;
         }
@@ -76,7 +74,7 @@ public class PlayerStamina : MonoBehaviour
         if (currentRegenDelay > 0) //If there is a regeneration delay, count down the delay and reset player speed.
         {
             currentRegenDelay -= Time.deltaTime;
-            playerControls.playerSpeed = walkSpeed;
+            PlayerManager.instance.playerSpeed = walkSpeed;
         }
 
         else
@@ -97,7 +95,7 @@ public class PlayerStamina : MonoBehaviour
 
     void updateSpeed() //Useful for whenever gear updates the sprint rate or playerspeed is updated
     {
-        sprintSpeed = playerControls.playerSpeed * sprintRate;
-        walkSpeed = playerControls.playerSpeed;
+        sprintSpeed = PlayerManager.instance.playerSpeed * sprintRate;
+        walkSpeed = PlayerManager.instance.playerSpeed;
     }
 }

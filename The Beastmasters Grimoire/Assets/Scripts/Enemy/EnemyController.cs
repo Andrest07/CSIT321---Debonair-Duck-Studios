@@ -25,7 +25,6 @@ public class EnemyController : MonoBehaviour
     public bool drawGizmos = true;
 
     // Externals
-    public GameObject PlayerObject;
     [HideInInspector] public Transform playerT;
     [HideInInspector] public PlayerHealth playerH;
 
@@ -42,10 +41,6 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerObject = GameObject.FindWithTag("Player");
-        playerT = PlayerObject.GetComponent<Transform>();
-        playerH = PlayerObject.GetComponent<PlayerHealth>();
-
         origin = transform.position;
         animator = GetComponent<Animator>();
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -56,6 +51,12 @@ public class EnemyController : MonoBehaviour
         agent.speed = data.Speed;
 
         animator.SetTrigger("patrol");
+    }
+
+    private void Start()
+    {
+        playerT = PlayerManager.instance.GetComponent<Transform>();
+        playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
     }
 
     // Enemy attack

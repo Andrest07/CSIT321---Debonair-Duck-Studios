@@ -3015,7 +3015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3127c2eba0893224c8b25961ea459bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 2109881430}
   fillImage: {fileID: 337565570}
 --- !u!1 &308987787
 GameObject:
@@ -5258,7 +5257,7 @@ GameObject:
   - component: {fileID: 597678904}
   m_Layer: 0
   m_Name: CineMachineVirtualCamera1
-  m_TagString: Untagged
+  m_TagString: Cinemachine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15772,7 +15771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6c94665b709e74188bcb82f1b78d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStamina: {fileID: 2109881435}
   fillImage: {fileID: 2100611307}
 --- !u!1 &1352031944
 GameObject:
@@ -21761,28 +21759,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107993083}
   m_CullTransparentMesh: 1
---- !u!114 &2109881430 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3318873043491234562, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
-  m_PrefabInstance: {fileID: 1120830318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056504758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7183aa0ec3ea6734dbf74a107dd451e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2109881435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3063347449660883088, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
-  m_PrefabInstance: {fileID: 1120830318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056504758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eb86adf2fdb5b44b83502e97022a8ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2143891970
 GameObject:
   m_ObjectHideFlags: 0

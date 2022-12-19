@@ -8,6 +8,7 @@ TagManager:
   - SpellSlot
   - SaveBeacon
   - Enemy
+  - Cinemachine
   layers:
   - Default
   - TransparentFX

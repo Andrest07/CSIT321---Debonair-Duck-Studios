@@ -13,7 +13,6 @@ public class EnemyCapture : MonoBehaviour
     private EnemyController enemyController;
     private EnemyScriptableObject enemyScriptableObject;
     private EnemyHealth enemyHealth;
-    private GameManager gameManager;
     public float capturedSeconds = 0;
     public float captureMultiplyer;
     private int hasCaptured;
@@ -26,13 +25,12 @@ public class EnemyCapture : MonoBehaviour
         enemyController = GetComponent<EnemyController>();
         enemyScriptableObject = enemyController.data;
         enemyHealth = enemyController.GetComponent<EnemyHealth>();
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     public void Capturing()
     {
         if (hasCaptured == 0)
         {
-            hasCaptured = gameManager.getBeastiary(enemyScriptableObject) ? 1 : 0;
+            hasCaptured = GameManager.instance.getBeastiary(enemyScriptableObject) ? 1 : 0;
         }
         healthMultiplier = Mathf.Sqrt(enemyHealth.totalHealth/enemyHealth.currentHealth);
 
@@ -41,7 +39,7 @@ public class EnemyCapture : MonoBehaviour
 
         if (capturedSeconds >= enemyScriptableObject.CaptureSeconds)
         {
-            gameManager.setBeastiary(enemyScriptableObject);
+            GameManager.instance.setBeastiary(enemyScriptableObject);
             Destroy(gameObject);
         }
     }

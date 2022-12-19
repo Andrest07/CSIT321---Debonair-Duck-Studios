@@ -12,12 +12,10 @@ using UnityEngine.AI;
 
 public class EnemyChaseState : EnemyStateMachine
 {
-    private GameObject playerObject;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        playerObject = GameObject.FindGameObjectWithTag("Player");
         controller.agent.isStopped = false;
     }
     
@@ -37,7 +35,7 @@ public class EnemyChaseState : EnemyStateMachine
     // Follow player
     public void Chase()
     {
-        controller.agent.destination = playerObject.transform.position;
+        controller.agent.destination = PlayerManager.instance.transform.position;
     }
 
 }

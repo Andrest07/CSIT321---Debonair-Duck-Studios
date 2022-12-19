@@ -16,17 +16,18 @@ z
     - Kaleb 15/11/22: Capture Mode Implementation
     - Kaleb 15/11/22: Capture Mode Fixes
     - Kaleb 02/12/22: Interaction system
+    - Kaleb 19/12/22 Singleton setup
 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-
-public class PlayerControls : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance = null;
     //Private variables
-    private GameManager gameManager;
     private PauseMenuScript pauseFunction;
     private GameMenu gameMenuFunction;
 
@@ -62,6 +63,19 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
+        //Initialize player controls and input system
+
+
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            SetupOnce();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         //Private variables initialization
         playerBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
@@ -77,13 +91,17 @@ public class PlayerControls : MonoBehaviour
             availableBeasts.RemoveAt(availableBeasts.Count - 1);
         }
         currentBeast = availableBeasts[0];
-
-        //Initialize player controls and input system
-        playerInputActions = new PlayerInputActions();
     }
 
-    void OnEnable()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        transform.position = Vector3.zero;
+        GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow=this.transform;
+    }
+
+    void SetupOnce()
+    {
+        playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.PauseMenu.performed += PauseMenu;
         playerInputActions.Player.GameMenu.performed += GameMenu;
@@ -98,30 +116,14 @@ public class PlayerControls : MonoBehaviour
         playerInputActions.Player.MonsterSwitch.performed += MonsterSwitch;
         playerInputActions.Player.MonsterSelect.performed += MonsterSelect;
         playerInputActions.Player.Mobility.performed += Mobility;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    
-    void OnDisable()
-    {
-        playerInputActions.Player.Disable();
-        playerInputActions.Player.PauseMenu.performed -= PauseMenu;
-        playerInputActions.Player.GameMenu.performed -= GameMenu;
-        playerInputActions.Player.Attack.performed -= Attack;
-        playerInputActions.Player.SpellcastMode.performed -= SpellcastMode;
-        playerInputActions.Player.CaptureMode.performed -= CaptureMode;
-        playerInputActions.Player.Interact.performed -= Interact;
-        playerInputActions.Player.Sprint.performed -= Sprint;
-        playerInputActions.Player.Sprint.canceled -= Sprint;
-        playerInputActions.Player.Movement.performed -= Movement;
-        playerInputActions.Player.Movement.canceled -= Movement;
-        playerInputActions.Player.MonsterSwitch.performed -= MonsterSwitch;
-        playerInputActions.Player.MonsterSelect.performed -= MonsterSelect;
-        playerInputActions.Player.Mobility.performed -= Mobility;
-    }
+
+
 
     //Delay setting gameManager by 1 frame for gameManager setup.
     private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         pauseFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PauseMenuScript>();
         gameMenuFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMenu>();
         animator.SetBool("isIdle", true);
@@ -287,7 +289,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         currentBeast = availableBeasts[currentBeastIndex]; //Change the currently selected beast
-        gameManager.UpdateDisplayedSpell(currentBeastIndex);
+        GameManager.instance.UpdateDisplayedSpell(currentBeastIndex);
     }
 
     public void MonsterSelect(InputAction.CallbackContext context)
@@ -296,7 +298,7 @@ public class PlayerControls : MonoBehaviour
         { //If the selected beast is not out of bounds change the selected beast
             currentBeastIndex = (int)context.ReadValue<float>();
             currentBeast = availableBeasts[currentBeastIndex];
-            gameManager.UpdateDisplayedSpell(currentBeastIndex);
+            GameManager.instance.UpdateDisplayedSpell(currentBeastIndex);
         }
     }
 

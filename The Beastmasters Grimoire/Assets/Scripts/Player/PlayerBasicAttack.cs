@@ -18,14 +18,12 @@ public class PlayerBasicAttack : MonoBehaviour
     [Header("Gizmos")]
     public bool drawGizmos = true;
 
-    private PlayerControls playerControls;
     private EnemyHealth enemyHealth;
     private Vector3 offsetVector;
     private readonly int layerMask = 1 << 3;
 
     private void Awake()
     {
-        playerControls = GetComponent<PlayerControls>();
     }
 
     public void BasicAttack()
@@ -39,8 +37,8 @@ public class PlayerBasicAttack : MonoBehaviour
         offsetVector.y *= 0.9f;
 
         // player direction
-        playerControls.animator.SetFloat("Move X", mousePosition.x - playerPosition.x);
-        playerControls.animator.SetFloat("Move Y", mousePosition.y - playerPosition.y);
+        PlayerManager.instance.animator.SetFloat("Move X", mousePosition.x - playerPosition.x);
+        PlayerManager.instance.animator.SetFloat("Move Y", mousePosition.y - playerPosition.y);
 
         // convert mouse coords to world position
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -53,14 +51,14 @@ public class PlayerBasicAttack : MonoBehaviour
             enemyHealth.TakeDamage(attackDamage);
         }
 
-        playerControls.canMove = true;
+        PlayerManager.instance.canMove = true;
         StartCoroutine(WaitAttack());
     }
 
     private IEnumerator WaitAttack()
     {
         yield return new WaitForSeconds(attackCooldown);
-        playerControls.canAttack = true;
+        PlayerManager.instance.canAttack = true;
     }
 
 #if UNITY_EDITOR

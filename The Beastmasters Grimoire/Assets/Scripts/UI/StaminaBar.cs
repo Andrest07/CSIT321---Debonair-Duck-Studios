@@ -12,7 +12,6 @@ using UnityEngine.UI;
 public class StaminaBar : MonoBehaviour
 {
     //Referencing to the PlayerStamina script.    
-    public PlayerStamina playerStamina;
     public Image fillImage;
     private Slider slider;
 
@@ -34,7 +33,7 @@ public class StaminaBar : MonoBehaviour
             fillImage.enabled = true;
         }
 
-        float fillValue = playerStamina.currentStamina/ playerStamina.totalStamina * 5;
+        float fillValue = PlayerManager.instance.GetComponent<PlayerStamina>().currentStamina/ PlayerManager.instance.GetComponent<PlayerStamina>().totalStamina * 5;
         slider.value = fillValue;
 
     }

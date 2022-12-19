@@ -3,6 +3,7 @@ AUTHOR DD/MM/YY: Kaleb 04/10/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 11/12/22 Beastiary Setup
+    - Kaleb 19/12/22 Singleton setup
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -11,10 +12,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject player;
 
     //Variable for ensuring there is only one GameManager
-    private static GameObject gameManager = null;
+    public static GameManager instance = null;
 
     public GameObject[] spellSlots;
 
@@ -27,9 +27,9 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //If there is no gameManager, set this to the gameManager, otherwise destroy this
-        if (gameManager == null)
+        if (instance == null)
         {
-            gameManager = gameObject;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -38,8 +38,7 @@ public class GameManager : MonoBehaviour
         }
         spellSlots = GameObject.FindGameObjectsWithTag("SpellSlot");
 
-        player = GameObject.FindGameObjectWithTag("Player");
-        UpdateSpellSlots(player.GetComponent<PlayerControls>().totalBeasts);
+        UpdateSpellSlots(PlayerManager.instance.totalBeasts);
         UpdateDisplayedSpell(0);
 
         //Initialise the beastiary if it isn't intialised. Set all beast unlocks to false

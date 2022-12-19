@@ -15,7 +15,6 @@ public class PlayerDash : MonoBehaviour
 {
     // Start is called before the first frame update
     private Rigidbody2D rb;
-    private PlayerControls playerControls;
     private PlayerHealth playerHealth;
     public bool canDash = true;
     public bool isDashing = false;
@@ -27,7 +26,6 @@ public class PlayerDash : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerControls = GetComponent<PlayerControls>();
         playerHealth = GetComponent<PlayerHealth>();
     }
 
@@ -52,7 +50,7 @@ public class PlayerDash : MonoBehaviour
 
         isDashing = false;
         rb.velocity = Vector2.zero;
-        playerControls.canMove = true;
+        PlayerManager.instance.canMove = true;
         playerHealth.isInvulnerable = false;
         yield return new WaitForSeconds(dashCooldown);
 
