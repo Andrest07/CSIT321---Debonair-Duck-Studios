@@ -52,6 +52,9 @@ public class PlayerManager : MonoBehaviour
     public bool canAttack = true;
     public enum PlayerMode { Basic, Spellcast, Capture }
     public PlayerMode playerMode;
+    public Vector3 levelSwapPosition; //The position the player will be when they swap levels.
+    public LayerMask captureLayerMask;
+    public float captureRange;
 
     [Header("Beast Management")]
     public GameObject currentBeast; //The beast the player currently has selected
@@ -95,8 +98,8 @@ public class PlayerManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        transform.position = Vector3.zero;
-        GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow=this.transform;
+        transform.position = levelSwapPosition;
+        GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = this.transform;
     }
 
     void SetupOnce()
@@ -238,7 +241,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (context.performed)
         {
-            interactionObject.Interact();
+            StartCoroutine(interactionObject.Interact());
         }
     }
 
@@ -268,8 +271,8 @@ public class PlayerManager : MonoBehaviour
         if (movementVector.sqrMagnitude == 1) //Reposition the interaction object
         {
             directionVector = movementVector;
-            directionVector.x *= 0.55f;
-            directionVector.y *= 0.95f;
+            directionVector.x *= 0.7f;
+            directionVector.y *= 0.7f;
             interactionObject.gameObject.transform.position = (transform.position + directionVector);
         }
     }
@@ -315,11 +318,12 @@ public class PlayerManager : MonoBehaviour
         while (context.performed && playerMode == PlayerMode.Capture)
         {
             mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-            hit = Physics2D.Raycast(transform.position + mousePos.normalized, mousePos);
+            hit = Physics2D.Raycast(transform.position + mousePos.normalized, mousePos,captureRange,captureLayerMask);
             line.SetPosition(0, transform.position + mousePos.normalized);
 
             if (hit.collider != null)
             {
+                Debug.Log(hit.collider.name);
                 line.SetPosition(1, hit.point);
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
@@ -328,7 +332,7 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
-                line.SetPosition(1, transform.position + mousePos.normalized * 7.5f);
+                line.SetPosition(1, transform.position + mousePos.normalized + mousePos.normalized * captureRange);
             }
             yield return new WaitForEndOfFrame();
         }

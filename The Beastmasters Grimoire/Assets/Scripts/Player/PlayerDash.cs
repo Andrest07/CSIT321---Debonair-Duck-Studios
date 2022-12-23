@@ -43,6 +43,7 @@ public class PlayerDash : MonoBehaviour
     {
         isDashing = true;
         canDash = false;
+        GameManager.instance.UpdateSprintCooldown(canDash);
         rb.AddForce(dashForce * movementVector, ForceMode2D.Impulse);
         playerHealth.isInvulnerable = true;
         yield return new WaitForSeconds(dashDuration);
@@ -55,5 +56,6 @@ public class PlayerDash : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
 
         canDash = true;
+        GameManager.instance.UpdateSprintCooldown(canDash);
     }
 }

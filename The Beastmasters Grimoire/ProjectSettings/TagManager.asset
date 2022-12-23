@@ -9,6 +9,7 @@ TagManager:
   - SaveBeacon
   - Enemy
   - Cinemachine
+  - DashCooldown
   layers:
   - Default
   - TransparentFX

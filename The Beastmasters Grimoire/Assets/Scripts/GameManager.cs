@@ -4,6 +4,7 @@ AUTHOR DD/MM/YY: Kaleb 04/10/22
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 11/12/22 Beastiary Setup
     - Kaleb 19/12/22 Singleton setup
+    - Kaleb 23/12/22 Sprint Indicator
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     private Dictionary<EnemyScriptableObject, bool> beastiary = new Dictionary<EnemyScriptableObject, bool>();
 
     private int totalBeasts;
+
+    private GameObject dashIndicator;
 
     void Awake()
     {
@@ -50,6 +53,8 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+        dashIndicator = GameObject.FindGameObjectWithTag("DashCooldown");
     }
 
     // Update is called once per frame
@@ -102,5 +107,10 @@ public class GameManager : MonoBehaviour
     public bool getBeastiary(EnemyScriptableObject enemy)
     {
         return beastiary[enemy];
+    }
+
+    public void UpdateSprintCooldown(bool available)
+    {
+        dashIndicator.SetActive(available);
     }
 }

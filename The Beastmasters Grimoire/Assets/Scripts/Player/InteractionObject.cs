@@ -12,8 +12,9 @@ public class InteractionObject : MonoBehaviour
 {
     private Collider2D collision;
 
-    public void Interact()
+    public IEnumerator Interact()
     {
+        gameObject.GetComponent<BoxCollider2D>().enabled=true;
         if (collision != null)
         {
             switch (collision.tag)
@@ -26,6 +27,8 @@ public class InteractionObject : MonoBehaviour
                     break;
             }
         }
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<BoxCollider2D>().enabled=false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
