@@ -3,6 +3,7 @@ AUTHOR DD/MM/YY: Kaleb 02/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 03/12/22: Minor fixes and changes
+    - Quentin 21/12/22: Added convo event for NPC
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ public class InteractionObject : MonoBehaviour
                 case "Door":
                     break;
                 case "NPC":
+                    PixelCrushers.DialogueSystem.Usable usable = collision.GetComponent<PixelCrushers.DialogueSystem.Usable>();
+                    usable.gameObject.BroadcastMessage("OnUse", this.transform, SendMessageOptions.DontRequireReceiver);
                     break;
             }
         }

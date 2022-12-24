@@ -45,6 +45,7 @@ public class PlayerManager : MonoBehaviour
     private IEnumerator capture;
     private PlayerInputActions playerInputActions;
     [HideInInspector] public Animator animator;
+    [HideInInspector] public bool inDialogue = false;
 
     [Header("Player Variables")]
     public float playerSpeed;
@@ -148,7 +149,7 @@ public class PlayerManager : MonoBehaviour
 
     public void PauseMenu(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !inDialogue)
         {
             pauseFunction.PauseGame();
         }

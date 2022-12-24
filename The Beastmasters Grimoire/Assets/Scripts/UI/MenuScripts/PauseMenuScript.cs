@@ -16,12 +16,6 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject hud;
     public bool isPaused;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void PauseGame()
     {
         isPaused = !isPaused;
