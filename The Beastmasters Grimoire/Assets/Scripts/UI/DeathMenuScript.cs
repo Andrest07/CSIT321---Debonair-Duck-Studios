@@ -13,14 +13,17 @@ public class DeathMenuScript : MonoBehaviour
 {   
     public Vector3 checkpointLocation;
     public GameObject DeathScreen;
-    public GameObject player;
+    private Transform playerT;
 
+    private void Start() {
+        playerT = PlayerManager.instance.GetComponent<Transform>();
+    }
     public void continueFunc()
     {
         Debug.Log("Continue");
         DeathScreen.SetActive(false);
         Time.timeScale = 1;
-        player.transform.position = checkpointLocation;
+        playerT.position = checkpointLocation;
         
 
     }
