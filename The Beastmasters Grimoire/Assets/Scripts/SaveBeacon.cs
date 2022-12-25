@@ -11,7 +11,6 @@ using UnityEngine;
 
 public class SaveBeacon : MonoBehaviour
 {
-    private GameObject player;
     private PlayerHealth playerH;
     public GameObject ContinueButton; 
     private DeathMenuScript DeathScript;
@@ -19,7 +18,6 @@ public class SaveBeacon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player"); 
         //playerHealth = player.GetComponent<PlayerHealth>();
         //DeathScreen = GameObject.Find("DeathScreen");
         DeathScript = ContinueButton.GetComponent<DeathMenuScript>();

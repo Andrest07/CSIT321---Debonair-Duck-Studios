@@ -28,7 +28,6 @@ public class EnemyController : MonoBehaviour
     // Externals
     [HideInInspector] public Transform playerT;
     [HideInInspector] public PlayerHealth playerH;
-    [HideInInspector] public Rigidbody2D playerRigidBody;
 
     // Internals
     [HideInInspector] public Vector3 origin;
@@ -59,7 +58,6 @@ public class EnemyController : MonoBehaviour
     {
         playerT = PlayerManager.instance.GetComponent<Transform>();
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
-        playerRigidBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
     // Enemy attack
@@ -101,11 +99,9 @@ public class EnemyController : MonoBehaviour
     {
         isColliding = true;
         isMoving = false;
-        collisionPosition = collision.transform.position;
         playerH.TakeDamage(1);
-        Vector2 knockbackDirection = (collisionPosition - playerT.position).normalized;
-        
-        playerRigidBody.AddForce(knockbackDirection * 100f, ForceMode2D.Impulse);
+        Vector2 knockbackDirection = (playerT.position - transform.position).normalized;        
+        StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
 
     }
 

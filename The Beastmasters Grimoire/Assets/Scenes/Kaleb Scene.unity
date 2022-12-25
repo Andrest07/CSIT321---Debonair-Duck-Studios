@@ -563,6 +563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSwapper
       objectReference: {fileID: 0}
+    - target: {fileID: 4461073384030386913, guid: bf7261688248df1489d29583656f656b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5641556614216282355, guid: bf7261688248df1489d29583656f656b, type: 3}
       propertyPath: levelSwap
       value: TestingScene 1
@@ -9883,11 +9887,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033087254}
   m_CullTransparentMesh: 1
---- !u!1 &1056504758 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
-  m_PrefabInstance: {fileID: 1120830318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1056743702
 GameObject:
   m_ObjectHideFlags: 0
@@ -17733,7 +17732,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointLocation: {x: 0, y: 0, z: 0}
   DeathScreen: {fileID: 0}
-  player: {fileID: 1056504758}
 --- !u!1 &1577175680
 GameObject:
   m_ObjectHideFlags: 0
@@ -18057,6 +18055,10 @@ PrefabInstance:
     - target: {fileID: 7615432411939865676, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_Name
       value: SaveBeacon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615432411939865676, guid: b7258be7292f86840adb721143ea2b87, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7258be7292f86840adb721143ea2b87, type: 3}

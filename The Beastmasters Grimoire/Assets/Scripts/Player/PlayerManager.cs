@@ -340,4 +340,12 @@ public class PlayerManager : MonoBehaviour
         line.enabled = false;
         yield return null;
     }
+
+    public IEnumerator Stun(Vector2 dir){
+        canMove = false;
+        GetComponent<Rigidbody2D>().AddForce(dir * 10f, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.1f);
+        canMove = true;
+        
+    }
 }
