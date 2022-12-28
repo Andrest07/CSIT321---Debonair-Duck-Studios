@@ -343,7 +343,7 @@ public class PlayerManager : MonoBehaviour
 
     public IEnumerator Stun(Vector2 dir){
         canMove = false;
-        GetComponent<Rigidbody2D>().AddForce(dir * 10f, ForceMode2D.Impulse);
+        GetComponent<Rigidbody2D>().AddForce(dir * 20f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
         canMove = true;
         
