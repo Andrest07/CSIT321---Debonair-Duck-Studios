@@ -2,7 +2,7 @@
 AUTHOR DD/MM/YY: Nabin 13/12/22
 
     - EDITOR DD/MM/YY CHANGES:
-    - 
+    - Nabin  28/12/2022  Added tab style settings script to the menu.
 */
 
 using System.Collections;
@@ -12,6 +12,46 @@ using UnityEngine.Audio;
 
 public class SettingsMenu : MonoBehaviour
 {
+    //Tab system for settings menu. Variables to control button to go to different tab when clicked.
+    public GameObject audioTab;
+    public GameObject videoTab;
+    public GameObject controlsTab;
+    public GameObject extrasTab;
+
+    //Changing the settings menu screen when buttons are clicked.
+    public void whenAudioButtonClicked()
+    {
+        if (audioTab.activeInHierarchy == true)
+            audioTab.SetActive(false);
+        else
+            audioTab.SetActive(true);
+    }
+
+    public void whenVideoButtonClicked()
+    {
+        if (videoTab.activeInHierarchy == true)
+            videoTab.SetActive(false);
+        else
+            videoTab.SetActive(true);
+    }
+
+    public void whenControlsButtonClicked()
+    {
+        if (controlsTab.activeInHierarchy == true)
+            controlsTab.SetActive(false);
+        else
+            controlsTab.SetActive(true);
+    }
+    public void whenExtrasButtonClicked()
+    {
+        if (extrasTab.activeInHierarchy == true)
+            extrasTab.SetActive(false);
+        else
+            extrasTab.SetActive(true);
+    }
+
+
+    // Old settings script below this will chang soon. Please ignore codes below this line.
     // To Control Volume
     public AudioMixer audioMixer;
 
