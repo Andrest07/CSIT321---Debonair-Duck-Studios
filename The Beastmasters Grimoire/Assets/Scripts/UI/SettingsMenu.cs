@@ -21,33 +21,34 @@ public class SettingsMenu : MonoBehaviour
     //Changing the settings menu screen when buttons are clicked.
     public void whenAudioButtonClicked()
     {
-        if (audioTab.activeInHierarchy == true)
-            audioTab.SetActive(false);
-        else
-            audioTab.SetActive(true);
+        audioTab.SetActive(true);
+        videoTab.SetActive(false);
+        controlsTab.SetActive(false);
+        extrasTab.SetActive(false);
+
     }
 
     public void whenVideoButtonClicked()
     {
-        if (videoTab.activeInHierarchy == true)
-            videoTab.SetActive(false);
-        else
-            videoTab.SetActive(true);
+        videoTab.SetActive(true);
+        audioTab.SetActive(false);
+        controlsTab.SetActive(false);
+        extrasTab.SetActive(false);
     }
 
     public void whenControlsButtonClicked()
     {
-        if (controlsTab.activeInHierarchy == true)
-            controlsTab.SetActive(false);
-        else
-            controlsTab.SetActive(true);
+        controlsTab.SetActive(true);
+        videoTab.SetActive(false);
+        audioTab.SetActive(false);
+        extrasTab.SetActive(false);
     }
     public void whenExtrasButtonClicked()
     {
-        if (extrasTab.activeInHierarchy == true)
-            extrasTab.SetActive(false);
-        else
-            extrasTab.SetActive(true);
+        extrasTab.SetActive(true);
+        audioTab.SetActive(false);
+        controlsTab.SetActive(false);
+        videoTab.SetActive(false);
     }
 
 
