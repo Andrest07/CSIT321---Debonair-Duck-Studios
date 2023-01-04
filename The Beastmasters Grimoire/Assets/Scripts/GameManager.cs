@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    void Start(){
         spellSlots = GameObject.FindGameObjectsWithTag("SpellSlot");
 
         UpdateSpellSlots(PlayerManager.instance.totalBeasts);

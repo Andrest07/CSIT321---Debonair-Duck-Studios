@@ -67,7 +67,6 @@ public class EnemyController : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
-                Debug.Log("Ranged Attack");
                 // do bullet
                 if (canTakeDamage)
                 {
@@ -82,7 +81,6 @@ public class EnemyController : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
-                Debug.Log("Melee attack");
                 // damage player
                 if (canTakeDamage)
                 {
@@ -100,7 +98,11 @@ public class EnemyController : MonoBehaviour
         isColliding = true;
         isMoving = false;
         playerH.TakeDamage(1);
-        Vector2 knockbackDirection = (playerT.position - transform.position).normalized;        
+        float yDif = collision.collider.bounds.center.y-this.GetComponent<CapsuleCollider2D>().bounds.center.y;
+        float xDif = playerT.position.x - transform.position.x;
+        Vector2 knockbackDirection = new Vector2 (xDif,yDif).normalized;      
+        Debug.Log(knockbackDirection);
+
         StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
 
     }

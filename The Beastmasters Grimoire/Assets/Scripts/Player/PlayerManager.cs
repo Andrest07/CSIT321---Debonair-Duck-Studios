@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
     private PlayerStamina playerStamina;
+    private PlayerHealth playerHealth;
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
     private InteractionObject interactionObject;
@@ -84,6 +85,7 @@ public class PlayerManager : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerStamina = GetComponent<PlayerStamina>();
+        playerHealth = GetComponent<PlayerHealth>();
         playerDash = GetComponent<PlayerDash>();
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         interactionObject = GetComponentInChildren<InteractionObject>();
@@ -343,9 +345,11 @@ public class PlayerManager : MonoBehaviour
 
     public IEnumerator Stun(Vector2 dir){
         canMove = false;
-        GetComponent<Rigidbody2D>().AddForce(dir * 20f, ForceMode2D.Impulse);
+        playerHealth.isInvulnerable=true;
+        GetComponent<Rigidbody2D>().AddForce(dir * 10f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
         canMove = true;
+        playerHealth.isInvulnerable=false;
         
     }
 }
