@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerObject = GameObject.FindWithTag("Player");
+        PlayerObject = PlayerManager.instance.gameObject;
         playerT = PlayerObject.GetComponent<Transform>();
         playerH = PlayerObject.GetComponent<PlayerHealth>();
         rb  = GetComponent<Rigidbody2D>();

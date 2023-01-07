@@ -32,7 +32,7 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private float rangedDamage = 1f;
     [SerializeField] private GameObject rangedProjectile;
     [SerializeField] private float wanderRadius = 3f;
-    [SerializeField] private float captureSeconds = 5f;
+    [SerializeField] private float captureTotal = 5f;
 
     [Header("Visibility Range (Blue Gizmo)")]
     [SerializeField] private float visibilityRange = 10.0f;
@@ -55,7 +55,7 @@ public class EnemyScriptableObject : ScriptableObject
     public float RangedDamage { get => rangedDamage; }
     public GameObject RangedProjectile { get => rangedProjectile; }
     public float WanderRadius { get => wanderRadius; }
-    public float CaptureSeconds { get => captureSeconds; }
+    public float CaptureTotal { get => captureTotal; }
     public float VisibilityRange { get => visibilityRange; }
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }

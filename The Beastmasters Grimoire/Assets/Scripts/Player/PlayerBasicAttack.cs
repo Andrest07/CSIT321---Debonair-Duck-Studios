@@ -33,7 +33,7 @@ public class PlayerBasicAttack : MonoBehaviour
 
         // attack position relative to player
         offsetVector = (mousePosition - playerPosition).normalized;
-        offsetVector.x *= 0.4f;
+        offsetVector.x *= 0.5f;
         offsetVector.y *= 0.9f;
 
         // player direction

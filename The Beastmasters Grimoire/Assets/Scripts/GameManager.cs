@@ -5,6 +5,7 @@ AUTHOR DD/MM/YY: Kaleb 04/10/22
     - Kaleb 11/12/22 Beastiary Setup
     - Kaleb 19/12/22 Singleton setup
     - Kaleb 23/12/22 Sprint Indicator
+    - Kaleb 07/01/23 Pause Redesign
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject dashIndicator;
 
+    public bool isPaused;
+
     void Awake()
     {
         //If there is no gameManager, set this to the gameManager, otherwise destroy this
@@ -40,7 +43,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start(){
+    void Start()
+    {
         spellSlots = GameObject.FindGameObjectsWithTag("SpellSlot");
 
         UpdateSpellSlots(PlayerManager.instance.totalBeasts);
@@ -114,5 +118,11 @@ public class GameManager : MonoBehaviour
     public void UpdateSprintCooldown(bool available)
     {
         dashIndicator.SetActive(available);
+    }
+
+    public void Pause()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
     }
 }

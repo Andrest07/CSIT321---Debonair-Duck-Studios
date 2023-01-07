@@ -17,6 +17,7 @@ z
     - Kaleb 15/11/22: Capture Mode Fixes
     - Kaleb 02/12/22: Interaction system
     - Kaleb 19/12/22 Singleton setup
+    - Kaleb 07/01/23 Capture Redesign
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -41,8 +42,6 @@ public class PlayerManager : MonoBehaviour
     private Vector2 movementVector;
     private Vector3 directionVector;
     public Vector3 mousePos;
-    private LineRenderer line; //Temporary capture mode spell effect
-    private RaycastHit2D hit;
     private IEnumerator capture;
     private PlayerInputActions playerInputActions;
     [HideInInspector] public Animator animator;
@@ -55,8 +54,10 @@ public class PlayerManager : MonoBehaviour
     public enum PlayerMode { Basic, Spellcast, Capture }
     public PlayerMode playerMode;
     public Vector3 levelSwapPosition; //The position the player will be when they swap levels.
-    public LayerMask captureLayerMask;
-    public float captureRange;
+    [Header("Capture Variables")]
+    public GameObject captureProjectile;
+    public float captureProjectileCooldown;
+    public float capturePower;
 
     [Header("Beast Management")]
     public GameObject currentBeast; //The beast the player currently has selected
@@ -90,7 +91,6 @@ public class PlayerManager : MonoBehaviour
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         interactionObject = GetComponentInChildren<InteractionObject>();
         animator = GetComponent<Animator>();
-        line = GetComponent<LineRenderer>();
 
         while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -185,7 +185,7 @@ public class PlayerManager : MonoBehaviour
                     mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
                     Instantiate(currentBeast,
                         transform.position + mousePos.normalized,
-                        Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg + 90f, Vector3.forward));
+                        Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
                     //Same as exiting spellcasting
                     animator.SetBool("isCasting", false);
                     playerMode = PlayerMode.Basic;
@@ -197,7 +197,6 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case PlayerMode.Capture:
-                line.enabled = true;
                 capture = Capture(context);
                 StartCoroutine(capture);
                 break;
@@ -321,35 +320,23 @@ public class PlayerManager : MonoBehaviour
         while (context.performed && playerMode == PlayerMode.Capture)
         {
             mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-            hit = Physics2D.Raycast(transform.position + mousePos.normalized, mousePos,captureRange,captureLayerMask);
-            line.SetPosition(0, transform.position + mousePos.normalized);
-
-            if (hit.collider != null)
-            {
-                Debug.Log(hit.collider.name);
-                line.SetPosition(1, hit.point);
-                if (hit.collider.gameObject.tag == "Enemy")
-                {
-                    hit.collider.gameObject.GetComponent<EnemyCapture>().Capturing(); // Will pass values eventually
-                }
-            }
-            else
-            {
-                line.SetPosition(1, transform.position + mousePos.normalized + mousePos.normalized * captureRange);
-            }
-            yield return new WaitForEndOfFrame();
+            Instantiate(captureProjectile,
+                        transform.position + mousePos.normalized,
+                        Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
+            yield return new WaitForSeconds(captureProjectileCooldown);
         }
-        line.enabled = false;
+
         yield return null;
     }
 
-    public IEnumerator Stun(Vector2 dir){
+    public IEnumerator Stun(Vector2 dir)
+    {
         canMove = false;
-        playerHealth.isInvulnerable=true;
+        playerHealth.isInvulnerable = true;
         GetComponent<Rigidbody2D>().AddForce(dir * 10f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
         canMove = true;
-        playerHealth.isInvulnerable=false;
-        
+        playerHealth.isInvulnerable = false;
+
     }
 }

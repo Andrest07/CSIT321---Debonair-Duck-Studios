@@ -14,14 +14,12 @@ public class PauseMenuScript : MonoBehaviour
 {
     public GameObject PauseMenu;
     public GameObject hud;
-    public bool isPaused;
 
     public void PauseGame()
     {
-        isPaused = !isPaused;
-        PauseMenu.SetActive(isPaused);
-        hud.SetActive(!isPaused);
-        Time.timeScale = isPaused ? 0 : 1;
+        GameManager.instance.Pause();
+        PauseMenu.SetActive(GameManager.instance.isPaused);
+        hud.SetActive(!GameManager.instance.isPaused);
     }
 
 

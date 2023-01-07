@@ -17421,6 +17421,7 @@ MonoBehaviour:
   beastiaryArray:
   - {fileID: 11400000, guid: d2231f4b930c787458f90e90e9e2e371, type: 2}
   - {fileID: 11400000, guid: be344d1a030a34b46939fbd4c1034514, type: 2}
+  isPaused: 0
 --- !u!114 &1005983721033641764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17435,7 +17436,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 159923592}
   hud: {fileID: 144914485}
-  isPaused: 0
 --- !u!114 &1005983721033641765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17450,4 +17450,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMenu: {fileID: 1534745029}
   hud: {fileID: 144914485}
-  isPaused: 0
