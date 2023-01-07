@@ -17,6 +17,8 @@ public class EnemyChaseState : EnemyStateMachine
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         controller.agent.isStopped = false;
+
+        if (!agroCoroutine) controller.StartCoroutine(AgroTimer());
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

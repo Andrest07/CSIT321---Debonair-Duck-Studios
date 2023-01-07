@@ -4,6 +4,7 @@ AUTHOR DD/MM/YY: Kaleb 16/11/2022
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 13/12/22: Add beast to beastiary and mechanic revision
     - Kaleb 07/01/23 Capture Redesign
+    - Quentin 07/01/23 Enemy agro
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -27,8 +28,11 @@ public class EnemyCapture : MonoBehaviour
         enemyScriptableObject = enemyController.data;
         enemyHealth = enemyController.GetComponent<EnemyHealth>();
     }
+
     public void Capture(float power)
     {
+        if (!enemyController.isAgro) enemyController.isAgro = true;
+
         if (hasCaptured == 0)
         {
             hasCaptured = GameManager.instance.getBeastiary(enemyScriptableObject) ? 1 : 0;

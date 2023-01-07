@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public Vector3 collisionPosition;
     [HideInInspector] public bool isMoving = false;
     [HideInInspector] public NavMeshAgent agent;
+    [HideInInspector] public bool isAgro = false;
     private bool canTakeDamage = true;
     private Rigidbody2D rigidBody2D;
 

@@ -5,6 +5,7 @@
 	- Quentin 4/10/22: modified how movement is applied, added out of bound check
     - Kaleb 19/11/22: Added scriptable object data
     - Quentin 1/12/22: Changed movement to use navmeshagent
+	- Quentin 7/1/23: Fixed enemy not engaging when returning, coroutine edit for agro
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -15,12 +16,14 @@ public class EnemyPatrolState : EnemyStateMachine
     private Vector3 movementVector;
     private Vector3 prevPosition;
     private bool outOfBounds = false;
+    private IEnumerator waitCoroutine;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         prevPosition = controller.origin;
-        controller.StartCoroutine(WaitToMove(4.0f));
+        waitCoroutine = WaitToMove(4.0f);
+        controller.StartCoroutine(waitCoroutine);
         controller.agent.destination = controller.origin;
     }
 
@@ -41,7 +44,7 @@ public class EnemyPatrolState : EnemyStateMachine
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        controller.StopAllCoroutines();
+        controller.StopCoroutine(waitCoroutine);
     }
 
     private IEnumerator WaitToMove(float time)
@@ -62,6 +65,7 @@ public class EnemyPatrolState : EnemyStateMachine
             // pause coroutine while out of bounds
             while (outOfBounds)
             {
+                TrackPlayer();
                 yield return null;
             }
 

@@ -16,10 +16,13 @@ public class EnemyHealth : MonoBehaviour
     public float totalHealth; // Enemy's total health points
     public float currentHealth; // Enemy's current health points
 
+    private EnemyController controller;
+
     void Start()
     {
         totalHealth = GetComponent<EnemyController>().data.Health;
         currentHealth = totalHealth; // Initial Health
+        controller = GetComponent<EnemyController>();
     }
 
     public void TakeDamage(float damage)
@@ -31,6 +34,9 @@ public class EnemyHealth : MonoBehaviour
         {
             Death();
         }
+
+        // make agro if not
+        if (!controller.isAgro) controller.isAgro = true;
     }
 
 
