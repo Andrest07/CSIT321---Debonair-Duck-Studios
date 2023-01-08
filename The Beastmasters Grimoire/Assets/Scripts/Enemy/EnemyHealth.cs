@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         }
 
         // make agro if not
-        if (!controller.isAgro) controller.isAgro = true;
+        if (!controller.isAggro) controller.isAggro = true;
     }
 
 

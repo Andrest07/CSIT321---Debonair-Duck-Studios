@@ -31,7 +31,7 @@ public class EnemyCapture : MonoBehaviour
 
     public void Capture(float power)
     {
-        if (!enemyController.isAgro) enemyController.isAgro = true;
+        if (!enemyController.isAggro) enemyController.isAggro = true;
 
         if (hasCaptured == 0)
         {

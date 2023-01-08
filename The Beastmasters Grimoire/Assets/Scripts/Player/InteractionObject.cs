@@ -12,7 +12,14 @@ using UnityEngine;
 public class InteractionObject : MonoBehaviour
 {
     private Collider2D collision;
+    private PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward dialogueContinue;
+    private PlayerManager manager;
 
+    private void Start()
+    {
+        dialogueContinue = GameObject.Find("Dialogue Manager/Canvas/Custom Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
+        manager = PlayerManager.instance;
+    }
     public IEnumerator Interact()
     {
         gameObject.GetComponent<BoxCollider2D>().enabled=true;
@@ -24,12 +31,18 @@ public class InteractionObject : MonoBehaviour
                     break;
                 case "Door":
                     break;
+
                 case "NPC":
                     PixelCrushers.DialogueSystem.Usable usable = collision.GetComponent<PixelCrushers.DialogueSystem.Usable>();
                     usable.gameObject.BroadcastMessage("OnUse", this.transform, SendMessageOptions.DontRequireReceiver);
+
                     break;
             }
+        } else if (manager.inDialogue)
+        {
+            dialogueContinue.OnFastForward();
         }
+
         yield return new WaitForSeconds(0.1f);
         gameObject.GetComponent<BoxCollider2D>().enabled=false;
     }
@@ -39,6 +52,7 @@ public class InteractionObject : MonoBehaviour
         collision = other;
         //Turn on Interaction text/UI
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
         collision = null;

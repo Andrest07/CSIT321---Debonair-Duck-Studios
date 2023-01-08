@@ -3,7 +3,7 @@
 
     - EDITOR DD/MM/YY CHANGES:
     - Kaleb 28/09/22: Fixed FacePlayer()
-    - Quentin 7/1/23: Added enemy agro
+    - Quentin 7/1/23: Added enemy aggro
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -15,8 +15,8 @@ public class EnemyStateMachine : StateMachineBehaviour
     protected Transform transform;
     protected bool inAttackRange = false;
     protected bool inChaseRange = false;
-    protected bool agroCoroutine = false;
-    private float agroSeconds = 5.0f;
+    protected bool aggroCoroutine = false;
+    private float aggroSeconds = 5.0f;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -28,7 +28,7 @@ public class EnemyStateMachine : StateMachineBehaviour
     protected void UpdateAnimatorProperties(Animator animator)
     {
         animator.SetBool("isAttacking", inAttackRange);
-        animator.SetBool("isChasing", controller.isAgro);
+        animator.SetBool("isChasing", controller.isAggro);
     }
 
     // Check for player
@@ -42,10 +42,10 @@ public class EnemyStateMachine : StateMachineBehaviour
         if (playerDistance <= controller.data.VisibilityRange || inAttackRange)
         {
             inChaseRange = true;
-            if (!controller.isAgro)
+            if (!controller.isAggro)
             {
-                controller.isAgro = true;
-                controller.StartCoroutine(AgroTimer());
+                controller.isAggro = true;
+                controller.StartCoroutine(AggroTimer());
             }
         }
 
@@ -66,19 +66,19 @@ public class EnemyStateMachine : StateMachineBehaviour
     }
 
     // Wait for specified seconds before changing agro status
-    protected IEnumerator AgroTimer()
+    protected IEnumerator AggroTimer()
     {
-        agroCoroutine = true;
+        aggroCoroutine = true;
 
-        while (controller.isAgro)
+        while (controller.isAggro)
         {
-            yield return new WaitForSeconds(agroSeconds);
+            yield return new WaitForSeconds(aggroSeconds);
 
-            Debug.Log("check if agro" + controller.isAgro);
-            controller.isAgro = inChaseRange;
+            Debug.Log("check if agro" + controller.isAggro);
+            controller.isAggro = inChaseRange;
         }
 
-        agroCoroutine = false;
+        aggroCoroutine = false;
     }
 
 }

@@ -15,7 +15,7 @@ public class EnemyAttackState : EnemyStateMachine
         base.OnStateEnter(animator, stateInfo, layerIndex);
         controller.agent.isStopped = true;
 
-        if (!agroCoroutine) controller.StartCoroutine(AgroTimer());
+        if (!aggroCoroutine) controller.StartCoroutine(AggroTimer());
     }
 
 
