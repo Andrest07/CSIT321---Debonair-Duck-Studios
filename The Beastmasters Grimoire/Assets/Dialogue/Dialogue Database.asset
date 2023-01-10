@@ -446,7 +446,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: What does that mean? [panel=1]
+        value: What does that mean? [panel=0]
         type: 0
         typeString: 
       - title: Sequence
@@ -528,7 +528,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 204.878}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.8200002
   - id: 2
     fields:

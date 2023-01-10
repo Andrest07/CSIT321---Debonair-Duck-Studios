@@ -17,7 +17,7 @@ public class InteractionObject : MonoBehaviour
 
     private void Start()
     {
-        dialogueContinue = GameObject.Find("Dialogue Manager/Canvas/Custom Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
+        dialogueContinue = GameObject.Find("Dialogue Manager/Canvas/Custom Template Standard Dialogue UI 2/Dialogue Panel/Main Panel/Text Panel/Continue Button").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
         manager = PlayerManager.instance;
     }
     public IEnumerator Interact()
