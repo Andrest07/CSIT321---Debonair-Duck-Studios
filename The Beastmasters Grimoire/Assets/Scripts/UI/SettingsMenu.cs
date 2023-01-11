@@ -9,6 +9,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class SettingsMenu : MonoBehaviour
     public GameObject controlsTab;
     public GameObject extrasTab;
 
+    // Tab System 
     //Changing the settings menu screen when buttons are clicked.
     public void whenAudioButtonClicked()
     {
@@ -27,7 +30,6 @@ public class SettingsMenu : MonoBehaviour
         extrasTab.SetActive(false);
 
     }
-
     public void whenVideoButtonClicked()
     {
         videoTab.SetActive(true);
@@ -35,7 +37,6 @@ public class SettingsMenu : MonoBehaviour
         controlsTab.SetActive(false);
         extrasTab.SetActive(false);
     }
-
     public void whenControlsButtonClicked()
     {
         controlsTab.SetActive(true);
@@ -51,25 +52,28 @@ public class SettingsMenu : MonoBehaviour
         videoTab.SetActive(false);
     }
 
-
-    // Old settings script below this will chang soon. Please ignore codes below this line.
     // To Control Volume
-    public AudioMixer audioMixer;
 
-    public void SetVolume (float volume)
+    public AudioMixer theMixer;
+    public TMP_Text mastLabel, musicLabel, sfxLabel;
+    public Slider mastSlider, musicSlider, sfxSlider;
+
+    public void setMasterVolume()
     {
-        audioMixer.SetFloat("volume", volume);
+        mastLabel.text = Mathf.RoundToInt (mastSlider.value + 80 ).ToString();
+        theMixer.SetFloat("MasterVol", mastSlider.value);
     }
 
-    // To set the quality (Low, Medium and High).
-    public void setQuality (int qualityIndex)
+    public void setMusicVolume()
     {
-        QualitySettings.SetQualityLevel(qualityIndex);
+        musicLabel.text = Mathf.RoundToInt(musicSlider.value + 80).ToString();
+        theMixer.SetFloat("MusicVol", musicSlider.value);
     }
 
-    // To enter the fullscreen mode.
-    public void SetFullscreen (bool isFullscreen)
+    public void setSFXVolume()
     {
-        Screen.fullScreen = isFullscreen;
+        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString();
+        theMixer.SetFloat("SFXVol", sfxSlider.value);
     }
+
 }
