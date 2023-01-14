@@ -17,12 +17,33 @@ public class InteractionObject : MonoBehaviour
 
     private void Start()
     {
-        dialogueContinue = GameObject.Find("Dialogue Manager/Canvas/Custom Template Standard Dialogue UI 2/Dialogue Panel/Main Panel/Text Panel/Continue Button").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
+        //dialogueContinue = GameObject.Find("Dialogue Manager/Canvas/Custom Template Standard Dialogue UI 2/Dialogue Panel/Main Panel/Text Panel/Continue Button").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
         manager = PlayerManager.instance;
     }
     public IEnumerator Interact()
     {
-        gameObject.GetComponent<BoxCollider2D>().enabled=true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        collision = other;
+        Trigger();
+        //Turn on Interaction text/UI
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        collision = null;
+        //Turn off Interaction text/UI
+    }
+
+    public void Trigger()
+    {
         if (collision != null)
         {
             switch (collision.tag)
@@ -35,27 +56,17 @@ public class InteractionObject : MonoBehaviour
                 case "NPC":
                     PixelCrushers.DialogueSystem.Usable usable = collision.GetComponent<PixelCrushers.DialogueSystem.Usable>();
                     usable.gameObject.BroadcastMessage("OnUse", this.transform, SendMessageOptions.DontRequireReceiver);
-
+                    break;
+                case "SaveBeacon":
+                    collision.GetComponentInParent<SaveBeacon>().OpenFastTravel();
                     break;
             }
-        } else if (manager.inDialogue)
-        {
-            dialogueContinue.OnFastForward();
         }
-
-        yield return new WaitForSeconds(0.1f);
-        gameObject.GetComponent<BoxCollider2D>().enabled=false;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        collision = other;
-        //Turn on Interaction text/UI
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
+        else if (manager.inDialogue)
+        {
+            //dialogueContinue.OnFastForward();
+        }
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         collision = null;
-        //Turn off Interaction text/UI
     }
 }

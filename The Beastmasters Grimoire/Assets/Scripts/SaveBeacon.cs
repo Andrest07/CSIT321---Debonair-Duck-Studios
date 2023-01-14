@@ -12,7 +12,7 @@ using UnityEngine;
 public class SaveBeacon : MonoBehaviour
 {
     private PlayerHealth playerH;
-    public GameObject ContinueButton; 
+    public GameObject ContinueButton;
     private DeathMenuScript DeathScript;
     public GameObject FastTravelMenu;
 
@@ -27,14 +27,24 @@ public class SaveBeacon : MonoBehaviour
 
     }
 
-    
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.name == "PlayerObject"){
-            playerH.currentHealth = playerH.totalHealth;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
             DeathScript.checkpointLocation = transform.position;
-            FastTravelMenu.SetActive(true);
-            Time.timeScale = 0;
-            Debug.Log("CheckPoint");
         }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            playerH.RegenHealth();
+        }
+    }
+    public void OpenFastTravel()
+    {
+        FastTravelMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 }

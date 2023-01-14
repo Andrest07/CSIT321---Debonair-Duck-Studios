@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void RegenHealth()
+    public void RegenHealth()
     {
         // If current health less than max health
         if (currentHealth < totalHealth)
