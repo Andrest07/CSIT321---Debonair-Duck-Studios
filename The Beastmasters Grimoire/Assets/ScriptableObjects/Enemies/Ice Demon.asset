@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
   m_Name: Ice Demon
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Ice Demon
   enemyType: 0
-  enemyDescription: 
-  spellName: 
+  enemyDescription: Ice monster. shoots ice icile
+  spellName: Icile shoot
   spellObject: {fileID: 0}
   spellType: 0
-  spellDescription: 
-  isRanged: 0
+  spellDescription: Shoots ice icile
+  isRanged: 1
   health: 10
   speed: 1
   meleeDamage: 1

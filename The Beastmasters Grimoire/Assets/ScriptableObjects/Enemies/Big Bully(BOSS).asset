@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
   m_Name: Big Bully(BOSS)
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Big  Bully
   enemyType: 0
-  enemyDescription: 
-  spellName: 
+  enemyDescription: A huge bull, human hybrid. Has a huge sword. Swings big sword
+    at enemy. Charges at the enemy like a bull.
+  spellName: Great Sword Swipe
   spellObject: {fileID: 0}
   spellType: 0
-  spellDescription: 
+  spellDescription: Use a big sword (swipe attack) and attacks enemies in an arc.
   isRanged: 0
   health: 10
   speed: 1

@@ -8,13 +8,18 @@ AUTHOR DD/MM/YY: Kaleb 05/10/22
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SaveBeacon : MonoBehaviour
+
+public class SaveBeacon2 : MonoBehaviour
 {
     private PlayerHealth playerH;
     public GameObject ContinueButton; 
     private DeathMenuScript DeathScript;
     public GameObject FastTravelMenu;
+    public Button[] beaconButtons;
+    public Dictionary<string, GameObject> beaconDictionary = new Dictionary<string, GameObject>();
+    private Transform playerT;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +29,13 @@ public class SaveBeacon : MonoBehaviour
         DeathScript = ContinueButton.GetComponent<DeathMenuScript>();
         //FastTravelMenu = GameObject.Find("FastTravelMenu");
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
+        playerT = PlayerManager.instance.GetComponent<Transform>();
 
+        GameObject[] beacons = GameObject.FindGameObjectsWithTag("SaveBeacon");
+        foreach (GameObject beacon in beacons)
+        {
+            beaconDictionary.Add(beacon.name, beacon);
+        }
     }
 
     
@@ -35,6 +46,19 @@ public class SaveBeacon : MonoBehaviour
             FastTravelMenu.SetActive(true);
             Time.timeScale = 0;
             Debug.Log("CheckPoint");
+
+            for (int i = 0; i < beaconButtons.Length; i++)
+            {
+                string beaconName = beaconButtons[i].GetComponentInChildren<Text>().text;
+                beaconButtons[i].onClick.AddListener(() => Teleport(beaconName));
+            }
         }
+    }
+
+    public void Teleport(string beaconName)
+    {
+        // Teleport the player to the beacon with the same name
+        GameObject targetBeacon = beaconDictionary[beaconName];
+        playerT.position = targetBeacon.transform.position;
     }
 }

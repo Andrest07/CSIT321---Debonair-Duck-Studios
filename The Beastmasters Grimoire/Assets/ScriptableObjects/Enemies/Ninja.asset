@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
   m_Name: Ninja
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Ninja
   enemyType: 0
-  enemyDescription: 
-  spellName: 
+  enemyDescription: Basic ninja, fast, shows shuriken, runs away form enemies.
+  spellName: Shuriken Throw
   spellObject: {fileID: 0}
   spellType: 0
-  spellDescription: 
+  spellDescription: Throws shuriken in a circle
   isRanged: 0
   health: 10
   speed: 1

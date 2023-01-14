@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
   m_Name: Wine monster
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Wine monster
   enemyType: 0
-  enemyDescription: 
-  spellName: 
+  enemyDescription: plant monster. slashes wines on monster
+  spellName: Wine Bind
   spellObject: {fileID: 0}
   spellType: 0
-  spellDescription: 
+  spellDescription: Binds the enemy for a few second.
   isRanged: 0
   health: 10
   speed: 1

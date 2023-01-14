@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
   m_Name: Fire Demon
   m_EditorClassIdentifier: 
-  enemyName: Spark
+  enemyName: Fire Demon
   enemyType: 1
   enemyDescription: Monster made up of Fire. Shoots fire balls.
   spellName: Fireball

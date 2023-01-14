@@ -19,6 +19,7 @@ public class PlayerBasicAttack : MonoBehaviour
     public bool drawGizmos = true;
 
     private EnemyHealth enemyHealth;
+    private EnemyController enemy;
     private Vector3 offsetVector;
     private readonly int layerMask = 1 << 3;
 
@@ -33,7 +34,7 @@ public class PlayerBasicAttack : MonoBehaviour
 
         // attack position relative to player
         offsetVector = (mousePosition - playerPosition).normalized;
-        offsetVector.x *= 0.5f;
+        offsetVector.x *= 0.4f;
         offsetVector.y *= 0.9f;
 
         // player direction
@@ -49,6 +50,12 @@ public class PlayerBasicAttack : MonoBehaviour
         {
             enemyHealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(attackDamage);
+
+            enemy = hit.collider.gameObject.GetComponent<EnemyController>();
+            Vector2 enemyPos = enemy.transform.position;
+            Vector2 knockbackDirection = new Vector2 (transform.position.x - enemyPos.x,transform.position.y - enemyPos.y).normalized;
+            enemy.GetComponent<Rigidbody2D>().AddForce(knockbackDirection * 10f, ForceMode2D.Impulse);
+
         }
 
         PlayerManager.instance.canMove = true;

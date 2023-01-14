@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
   m_Name: Bandit Archer
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Bandit Archer
   enemyType: 0
-  enemyDescription: 
+  enemyDescription: Human Bandit Archer, attacks with arrow.
   spellName: 
   spellObject: {fileID: 0}
   spellType: 0
