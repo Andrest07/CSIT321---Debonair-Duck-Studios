@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Kunal 08/01/23
 
 	- EDITOR DD/MM/YY CHANGES:
+    -Kunal 17/01/23: used dictionary to teleport
 */
 using System.Threading;
 using System.Collections;
@@ -12,8 +13,15 @@ using UnityEngine.SceneManagement;
 public class FastTravelScript : MonoBehaviour
 {   
     private Transform playerT;
+    public Dictionary<string, GameObject> beaconDictionary = new Dictionary<string, GameObject>();
+    
     private void Start() {
         playerT = PlayerManager.instance.GetComponent<Transform>();
+        GameObject[] beacons = GameObject.FindGameObjectsWithTag("SaveBeacon");
+        foreach (GameObject beacon in beacons)
+        {
+            beaconDictionary.Add(beacon.name.Substring(10), beacon);
+        }
     }
     public void FastTravel(string TravelLocName)
     {
@@ -21,14 +29,7 @@ public class FastTravelScript : MonoBehaviour
         gameObject.SetActive(false);
         Time.timeScale = 1;
         
-        switch (TravelLocName)
-        {
-            case "ForestEntrance":
-                playerT.position = new Vector3(-8,3,2);
-                break;
-            case "ForestExit":
-                playerT.position = new Vector3(10,3,2);
-                break;
-        }  
+        GameObject beaconTeleport = beaconDictionary[TravelLocName];
+        playerT.position = beaconTeleport.transform.position;
     }
 }
