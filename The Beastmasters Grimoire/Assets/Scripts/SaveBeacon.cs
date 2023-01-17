@@ -18,8 +18,9 @@ public class SaveBeacon : MonoBehaviour
     public GameObject ContinueButton;
     private DeathMenuScript DeathScript;
     public GameObject FastTravelMenu;
-    public Button[] beaconButtons;
-    private string beaconName;
+    public string beaconName;
+
+    public int beaconIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,6 @@ public class SaveBeacon : MonoBehaviour
         DeathScript = ContinueButton.GetComponent<DeathMenuScript>();
         //FastTravelMenu = GameObject.Find("FastTravelMenu");
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
-        beaconName = gameObject.name.Substring(10);
     }
 
 
@@ -38,15 +38,7 @@ public class SaveBeacon : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             DeathScript.checkpointLocation = transform.position;
-
-            Debug.Log(beaconName);
-            foreach(Button b in beaconButtons){
-                if(beaconName == b.name){
-                    b.interactable = true;
-                    b.GetComponentInChildren<Text>().color = Color.red;
-                }
-            }
-            
+            FastTravelMenu.GetComponent<FastTravelScript>().Unlock(beaconName,beaconIndex);            
         }
     }
     private void OnTriggerStay2D(Collider2D other)

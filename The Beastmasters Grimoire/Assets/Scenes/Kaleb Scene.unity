@@ -467,6 +467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContinueButton: {fileID: 109935356}
   FastTravelMenu: {fileID: 534409963}
+  beaconName: ForestExit
+  beaconIndex: 1
 --- !u!4 &513011397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
@@ -602,6 +604,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ea1df4cde284783889660944ad7108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beaconNames:
+  - ForestEntrance
+  - ForestExit
+  buttons:
+  - {fileID: 1857822181}
+  - {fileID: 1231580436}
 --- !u!1 &573066241
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContinueButton: {fileID: 109935356}
   FastTravelMenu: {fileID: 534409963}
+  beaconName: ForestEntrance
+  beaconIndex: 0
 --- !u!4 &644856287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
@@ -1349,7 +1359,6 @@ GameObject:
   - component: {fileID: 1231580438}
   - component: {fileID: 1231580437}
   - component: {fileID: 1231580436}
-  - component: {fileID: 1231580435}
   m_Layer: 5
   m_Name: ForestExit
   m_TagString: Untagged
@@ -1378,20 +1387,6 @@ RectTransform:
   m_AnchoredPosition: {x: -578, y: 14}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1231580435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231580433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afbb9d650c21f4d9a97d820269e6fadc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpointLocation: {x: 0, y: 0, z: 0}
-  DeathScreen: {fileID: 534409963}
 --- !u!114 &1231580436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,7 +1426,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1231580437}
   m_OnClick:
     m_PersistentCalls:
@@ -5513,8 +5508,6 @@ GameObject:
   - component: {fileID: 1857822183}
   - component: {fileID: 1857822182}
   - component: {fileID: 1857822181}
-  - component: {fileID: 1857822180}
-  - component: {fileID: 1857822184}
   m_Layer: 5
   m_Name: ForestEntrance
   m_TagString: Untagged
@@ -5543,20 +5536,6 @@ RectTransform:
   m_AnchoredPosition: {x: -575, y: 164}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1857822180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857822178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afbb9d650c21f4d9a97d820269e6fadc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpointLocation: {x: 0, y: 0, z: 0}
-  DeathScreen: {fileID: 534409963}
 --- !u!114 &1857822181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5596,7 +5575,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1857822182}
   m_OnClick:
     m_PersistentCalls:
@@ -5651,18 +5630,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857822178}
   m_CullTransparentMesh: 1
---- !u!114 &1857822184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857822178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ea1df4cde284783889660944ad7108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1863900155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1785004417485269519, guid: 99c6c884d71f1394eabc0f6d98ea7d9a, type: 3}
