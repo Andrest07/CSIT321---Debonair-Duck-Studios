@@ -76,4 +76,6 @@ public class SettingsMenu : MonoBehaviour
         theMixer.SetFloat("SFXVol", sfxSlider.value);
     }
 
+    //To Control Video Settings. 
+
 }
