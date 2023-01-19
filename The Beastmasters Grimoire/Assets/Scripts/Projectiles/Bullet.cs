@@ -37,7 +37,6 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name.Equals("PlayerObject")){
-            Debug.Log ("Hit!");
             playerH.TakeDamage(parentController.data.RangedDamage);
             Destroy (gameObject);
         }

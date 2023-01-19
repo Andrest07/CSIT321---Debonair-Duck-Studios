@@ -98,13 +98,15 @@ public class EnemyController : MonoBehaviour
     {
         isColliding = true;
         isMoving = false;
-        playerH.TakeDamage(1);
-        float yDif = collision.collider.bounds.center.y-this.GetComponent<CapsuleCollider2D>().bounds.center.y;
-        float xDif = playerT.position.x - transform.position.x;
-        Vector2 knockbackDirection = new Vector2 (xDif,yDif).normalized;      
-        Debug.Log(knockbackDirection);
+        if (collision.gameObject.tag == "Player")
+        {
+            playerH.TakeDamage(data.MeleeDamage);
+            float yDif = collision.collider.bounds.center.y - this.GetComponent<CapsuleCollider2D>().bounds.center.y;
+            float xDif = playerT.position.x - transform.position.x;
+            Vector2 knockbackDirection = new Vector2(xDif, yDif).normalized;
 
-        StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
+            StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
+        }
 
     }
 

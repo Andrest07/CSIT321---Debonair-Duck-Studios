@@ -49,13 +49,7 @@ public class PlayerBasicAttack : MonoBehaviour
         if (hit.collider != null)
         {
             enemyHealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(attackDamage);
-
-            enemy = hit.collider.gameObject.GetComponent<EnemyController>();
-            Vector2 enemyPos = enemy.transform.position;
-            Vector2 knockbackDirection = new Vector2 (transform.position.x - enemyPos.x,transform.position.y - enemyPos.y).normalized;
-            enemy.GetComponent<Rigidbody2D>().AddForce(knockbackDirection * 10f, ForceMode2D.Impulse);
-
+            enemyHealth.TakeDamage(attackDamage,transform.position);
         }
 
         PlayerManager.instance.canMove = true;
