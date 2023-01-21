@@ -1,7 +1,7 @@
 /*
 AUTHOR DD/MM/YY: Kaleb 05/10/22
 
-	- EDITOR DD/MM/YY CHANGES:
+    - EDITOR DD/MM/YY CHANGES:
     - Kunal 03/12/22: Added checkpoint system
     - Kunal 22/12/12: Changed to player Instance
     - Kunal 17/01/23: Added Button iteractability 
@@ -22,6 +22,9 @@ public class SaveBeacon : MonoBehaviour
 
     public int beaconIndex;
 
+    //[Header("Scriptable Object")]
+    public SaveBeaconScriptableObject beaconData;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +41,8 @@ public class SaveBeacon : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             DeathScript.checkpointLocation = transform.position;
-            FastTravelMenu.GetComponent<FastTravelScript>().Unlock(beaconName,beaconIndex);            
+            FastTravelMenu.GetComponent<FastTravelScript>().Unlock(beaconData.BeaconName); 
+            //beaconData.BeaconUnlocked = true;           
         }
     }
     private void OnTriggerStay2D(Collider2D other)
