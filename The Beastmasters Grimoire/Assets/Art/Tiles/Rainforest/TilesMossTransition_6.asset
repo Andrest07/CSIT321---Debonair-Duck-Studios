@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: rf_groundcover
+  m_Name: TilesMossTransition_6
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 253f9a4ea34ba8d49bbb7ddcdd880fcc, type: 3}
+  m_Sprite: {fileID: -1230278243, guid: 40784a9e8af8ad84ca1ca0aa078daa88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
