@@ -379,6 +379,8 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   inDialogue: 0
+  inGameMenu: 0
+  inPauseMenu: 0
   playerSpeed: 5
   canMove: 1
   canAttack: 1

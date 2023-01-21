@@ -476,7 +476,7 @@ MonoBehaviour:
   - 3
   - 4
   - 5
-  nextScene: 
+  nextScene: Mystwood
   fadeMultiplier: 1
 --- !u!4 &1395530294
 Transform:
