@@ -18,10 +18,6 @@ public class SaveBeacon : MonoBehaviour
     public GameObject ContinueButton;
     private DeathMenuScript DeathScript;
     public GameObject FastTravelMenu;
-    public string beaconName;
-
-    public int beaconIndex;
-
     //[Header("Scriptable Object")]
     public SaveBeaconScriptableObject beaconData;
 
@@ -41,7 +37,7 @@ public class SaveBeacon : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             DeathScript.checkpointLocation = transform.position;
-            FastTravelMenu.GetComponent<FastTravelScript>().Unlock(beaconData.BeaconName); 
+            FastTravelMenu.GetComponent<FastTravelScript>().UnlockBeacon(beaconData); 
             //beaconData.BeaconUnlocked = true;           
         }
     }

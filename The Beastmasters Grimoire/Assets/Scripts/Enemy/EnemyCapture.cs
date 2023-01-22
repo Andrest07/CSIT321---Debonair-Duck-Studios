@@ -35,7 +35,7 @@ public class EnemyCapture : MonoBehaviour
 
         if (hasCaptured == 0)
         {
-            hasCaptured = GameManager.instance.getBeastiary(enemyScriptableObject) ? 1 : 0;
+            hasCaptured = GameManager.instance.GetBeastiary(enemyScriptableObject) ? 1 : 0;
         }
         healthMultiplier = Mathf.Sqrt(enemyHealth.totalHealth/enemyHealth.currentHealth);
 
@@ -44,7 +44,7 @@ public class EnemyCapture : MonoBehaviour
 
         if (captureAmount >= enemyScriptableObject.CaptureTotal)
         {
-            GameManager.instance.setBeastiary(enemyScriptableObject);
+            GameManager.instance.SetBeastiary(enemyScriptableObject);
             Destroy(gameObject);
         }
     }

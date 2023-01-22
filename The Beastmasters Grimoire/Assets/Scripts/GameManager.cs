@@ -104,13 +104,13 @@ public class GameManager : MonoBehaviour
     }
 
     //Method for setting a beast to be unlocked
-    public void setBeastiary(EnemyScriptableObject enemy)
+    public void SetBeastiary(EnemyScriptableObject enemy)
     {
         beastiary[enemy] = true;
     }
 
     //Method for getting whether a beast is or is not unlocked
-    public bool getBeastiary(EnemyScriptableObject enemy)
+    public bool GetBeastiary(EnemyScriptableObject enemy)
     {
         return beastiary[enemy];
     }

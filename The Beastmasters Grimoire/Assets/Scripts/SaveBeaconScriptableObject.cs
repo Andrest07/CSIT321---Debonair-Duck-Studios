@@ -7,13 +7,15 @@ using UnityEngine.UI;
 public class SaveBeaconScriptableObject : ScriptableObject
 {
     [Header("Beacon Info")]
-    [SerializeField] private string name;
-    [SerializeField] private string beaconSceneLocation;
+    [SerializeField] private string beaconName;
+    [SerializeField] private string beaconScene;
+    [SerializeField] private Vector2 beaconPosition;
     //[SerializeField] private bool beaconUnlocked = false;
     //[SerializeField] private string beaconButtonName;
 
-    public string BeaconName { get => name; }
-    public string BeaconSceneLocation { get => beaconSceneLocation; }
+    public string BeaconName { get => beaconName; }
+    public string BeaconScene { get => beaconScene; }
+    public Vector2 BeaconPosition { get => beaconPosition; }
     //public bool BeaconUnlocked { get => beaconUnlocked; }
     //public string BeaconButtonName { get => beaconButtonName; }
 }

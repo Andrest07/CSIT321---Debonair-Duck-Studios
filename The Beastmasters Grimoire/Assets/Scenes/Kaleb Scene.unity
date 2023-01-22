@@ -440,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7615432411939865676, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_Name
-      value: SaveBeaconForestEntrance (1)
+      value: SaveBeaconForestExit
       objectReference: {fileID: 0}
     - target: {fileID: 7615432411939865676, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_Layer
@@ -467,8 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContinueButton: {fileID: 109935356}
   FastTravelMenu: {fileID: 534409963}
-  beaconName: ForestExit
-  beaconIndex: 1
+  beaconData: {fileID: 11400000, guid: 2a9f041c5e9511e4799571a81a6cfe9f, type: 2}
 --- !u!4 &513011397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
@@ -604,12 +603,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ea1df4cde284783889660944ad7108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beaconNames:
-  - ForestEntrance
-  - ForestExit
-  buttons:
-  - {fileID: 1857822181}
-  - {fileID: 1231580436}
+  beacons:
+  - {fileID: 11400000, guid: 72277eb83307c8b4386040e35d50fb7f, type: 2}
+  - {fileID: 11400000, guid: 2a9f041c5e9511e4799571a81a6cfe9f, type: 2}
 --- !u!1 &573066241
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,8 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContinueButton: {fileID: 109935356}
   FastTravelMenu: {fileID: 534409963}
-  beaconName: ForestEntrance
-  beaconIndex: 0
+  beaconData: {fileID: 11400000, guid: 72277eb83307c8b4386040e35d50fb7f, type: 2}
 --- !u!4 &644856287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
@@ -1258,7 +1253,7 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: ba1fab90a46080f4da1c855caa2e393c, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9cd0557ba132d6548a4693be93513c99, type: 2}
 --- !u!4 &1056743705
 Transform:
   m_ObjectHideFlags: 0
@@ -1426,7 +1421,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1231580437}
   m_OnClick:
     m_PersistentCalls:
@@ -1434,10 +1429,10 @@ MonoBehaviour:
       - m_Target: {fileID: 534409965}
         m_TargetAssemblyTypeName: FastTravelScript, Assembly-CSharp
         m_MethodName: FastTravel
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 2a9f041c5e9511e4799571a81a6cfe9f, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SaveBeaconScriptableObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: ForestExit
@@ -5575,7 +5570,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1857822182}
   m_OnClick:
     m_PersistentCalls:
@@ -5583,10 +5578,10 @@ MonoBehaviour:
       - m_Target: {fileID: 534409965}
         m_TargetAssemblyTypeName: FastTravelScript, Assembly-CSharp
         m_MethodName: FastTravel
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 72277eb83307c8b4386040e35d50fb7f, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SaveBeaconScriptableObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: ForestEntrance

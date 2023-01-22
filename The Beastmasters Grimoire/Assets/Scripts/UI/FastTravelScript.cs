@@ -2,11 +2,10 @@
 AUTHOR DD/MM/YY: Kunal 08/01/23
 
     - EDITOR DD/MM/YY CHANGES:
-    -Kunal 17/01/23: used dictionary to teleport
+    - Kunal 17/01/23: used dictionary to teleport
     - Kaleb 18/01/23: Fixes
+    - Kaleb 23/01/23: Scriptable object fixes
 */
-using System.Threading;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,15 +15,9 @@ public class FastTravelScript : MonoBehaviour
 {
     private Transform playerT;
 
-    //Array of all beacon names
-    public string[] beaconNames;
     //Dictionary for storing whether teleports are unlocked 
-    //public Dictionary<string, bool> beaconDictionary = new Dictionary<string, bool>();
-    public Dictionary<string, Button> buttonDictionary = new Dictionary<string, Button>();
-    public Dictionary<string, GameObject> beaconDictionary = new Dictionary<string, GameObject>();
-    public Button[] buttons;
-    public GameObject[] beacons;
-
+    public Dictionary<SaveBeaconScriptableObject, bool> beaconDictionary = new Dictionary<SaveBeaconScriptableObject, bool>();
+    public SaveBeaconScriptableObject[] beacons;
 
     private void Start()
     {
@@ -33,76 +26,43 @@ public class FastTravelScript : MonoBehaviour
 
         //If dictionary is unitialized create it.
         if (beaconDictionary.Count == 0)
-        {   
-            /*
-            foreach (string name in beaconNames)
+        {
+            foreach (SaveBeaconScriptableObject beacon in beacons)
             {
-                beaconDictionary.Add(name, false);
-            */
-            foreach (Button b in buttons){
-                buttonDictionary.Add(b.name, b);
-            }
-
-            foreach (GameObject beacon in beacons){
-                beaconDictionary.Add(beacon.data.BeaconName, beacon);
+                beaconDictionary.Add(beacon, false);
             }
 
         }
     }
+    
 
-    public void Unlock(string beaconName)
-    {   /*
-        beaconDictionary[TravelLocName] = true;
-
-        buttons[num].interactable = true;
-        */
-        Button toUnlock = buttonDictionary[beaconName];
-        toUnlock.interactable = true;
-
+    public void UnlockBeacon(SaveBeaconScriptableObject beacon)
+    {
+        beaconDictionary[beacon] = true;
     }
 
-    public void FastTravel(string TravelLocName)
-    {   /*
-        if (beaconDictionary[TravelLocName] == true)
+    public void FastTravel(SaveBeaconScriptableObject beaconData)
+    {
+        if (beaconDictionary[beaconData] == true)
         {
-            switch (TravelLocName)
+            //if the beacon is in current scene then teleport
+            if (SceneManager.GetActiveScene().name == beaconData.BeaconScene)
             {
-                case "ForestEntrance":
-                    if (SceneManager.GetActiveScene().name != "Kaleb Scene")
-                    {
-                        SceneManager.LoadScene("Kaleb Scene");
-                    }
-                    playerT.position = new Vector3(-8, 3, 2);
-                    break;
-                case "ForestExit":
-                    if (SceneManager.GetActiveScene().name != "Kaleb Scene")
-                    {
-                        SceneManager.LoadScene("Kaleb Scene");
-                    }
-                    playerT.position = new Vector3(10, 3, 2);
-                    break;
+                playerT.position = new Vector3 (beaconData.BeaconPosition.x,beaconData.BeaconPosition.y,0);
             }
-            Debug.Log("Travel");
+
+            //if beacon is in different scene then change scene
+            else
+            {
+                SceneManager.LoadScene(beaconData.BeaconScene);
+                PlayerManager.instance.levelSwapPosition = new Vector3 (beaconData.BeaconPosition.x,beaconData.BeaconPosition.y,0);
+            }
             gameObject.SetActive(false);
             Time.timeScale = 1;
         }
         else
         {
-            //Fail Fast Travel code
+
         }
-        */
-
-        //get the beacon with travelLocName from beacon array and check if it's unlocked 
-        GameObject destinationBeacon = beaconDictionary[TravelLocName];
-        //if the beacon is in current scene then teleport
-            if (SceneManager.GetActiveScene().name == destinationBeacon.data.BeaconSceneLocation){
-                    playerT.position = destinationBeacon.transform.position;
-                }
-
-            //if beacon is in different scene then change scene
-            else {
-                SceneManager.LoadScene(destinationBeacon.data.BeaconSceneLocation);
-                PlayerManager.instance.levelSwapPosition = destinationBeacon.transform.position;
-            }
     }
 }
