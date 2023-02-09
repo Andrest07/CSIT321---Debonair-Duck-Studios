@@ -3,6 +3,7 @@ AUTHOR DD/MM/YY: Nabin 13/12/22
 
     - EDITOR DD/MM/YY CHANGES:
     - Nabin  28/12/2022  Added tab style settings script to the menu.
+    - Nabin  09/02/2023  Mute option added to audio tab.
 */
 
 using System.Collections;
@@ -57,6 +58,7 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer theMixer;
     public TMP_Text mastLabel, musicLabel, sfxLabel;
     public Slider mastSlider, musicSlider, sfxSlider;
+    public Toggle myToggle;
 
     public void setMasterVolume()
     {
@@ -74,6 +76,27 @@ public class SettingsMenu : MonoBehaviour
     {
         sfxLabel.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString();
         theMixer.SetFloat("SFXVol", sfxSlider.value);
+    }
+
+    public void muteToggle()
+    {
+        myToggle = GetComponent<Toggle>();
+        if(AudioListener.volume == 0)
+        {
+            myToggle.isOn = true;
+        }
+    }
+
+    public void ToggleAudioOnValueChange(bool audioIn)
+    {
+        if(audioIn)
+        {
+            AudioListener.volume = 0;
+        }
+        else 
+        {
+            AudioListener.volume = 1;
+        }
     }
 
     //To Control Video Settings. 
