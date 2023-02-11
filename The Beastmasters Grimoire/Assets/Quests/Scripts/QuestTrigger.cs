@@ -3,6 +3,7 @@ AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 6/12/22: Made trigger multipurpose
+    - Quentin 9/2/23: Edits for saving/loading
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -26,6 +27,16 @@ public class QuestTrigger : MonoBehaviour
 
     private QuestController qControl;
     private bool questGiven = false;
+
+    private void Start()
+    {
+        PlayerManager manager = PlayerManager.instance;
+        if (newQuest != null)
+        {
+            foreach (Quest q in manager.data.playerQuests)
+                if (q.info.questId == newQuest.info.questId) questGiven = true;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

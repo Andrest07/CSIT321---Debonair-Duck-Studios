@@ -6,6 +6,7 @@ AUTHOR DD/MM/YY: Kaleb 04/10/22
     - Kaleb 19/12/22 Singleton setup
     - Kaleb 23/12/22 Sprint Indicator
     - Kaleb 07/01/23 Pause Redesign
+    - Quentin 9/2/23 Variables for save/load
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused;
 
+    // Variables for saving/loading
+    [HideInInspector] public PlayerProfile currentProfile = new PlayerProfile();
+    [HideInInspector] public bool loadFromSave = false;
+
     void Awake()
     {
         //If there is no gameManager, set this to the gameManager, otherwise destroy this
@@ -47,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         spellSlots = GameObject.FindGameObjectsWithTag("SpellSlot");
 
-        UpdateSpellSlots(PlayerManager.instance.totalBeasts);
+        UpdateSpellSlots(PlayerManager.instance.data.totalBeasts);
         UpdateDisplayedSpell(0);
 
         //Initialise the beastiary if it isn't intialised. Set all beast unlocks to false

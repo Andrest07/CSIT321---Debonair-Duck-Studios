@@ -11,6 +11,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
 public class Quest : ScriptableObject
 {
     public enum Status
@@ -109,8 +110,21 @@ public class Quest : ScriptableObject
         }
     }
 
+    public void ReInitialize()
+    {
+        questCompleted = new QuestCompletedEvent();
+
+        foreach (var stage in stages)
+        {
+            if (stage.completed) continue;
+            stage.Initialize();
+            Debug.Log("adding listener");
+            stage.stageCompleted.AddListener(delegate { CheckStage(); });
+        }
+    }
+
     // Check for remaining stages after stage complete
-    private void CheckStage()
+    public void CheckStage()
     {
         // check if all stages complete
         completed = stages.All(s => s.completed);

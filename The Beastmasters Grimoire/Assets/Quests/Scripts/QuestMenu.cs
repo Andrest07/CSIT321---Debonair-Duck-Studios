@@ -3,6 +3,7 @@ AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 8/12/22 Added notification event
+    - Quentin 9/2/23 Fixes for save/load
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -24,12 +25,23 @@ public class QuestMenu : MonoBehaviour
     public GameObject sideObject;
     public GameObject errandObject;
 
+    private bool notInitialized = true;
+
     private void OnEnable()
     {
-        Button[] btns = GetComponentsInChildren<Button>();
-        mainBtn = btns[0];
-        sideBtn = btns[1];
-        errandBtn = btns[2];
+        if (notInitialized)
+        {
+            Button[] btns = GetComponentsInChildren<Button>();
+            mainBtn = btns[0];
+            sideBtn = btns[1];
+            errandBtn = btns[2];
+
+            mainObject = transform.GetChild(1).gameObject;
+            sideObject = transform.GetChild(3).gameObject;
+            errandObject = transform.GetChild(5).gameObject;
+
+            notInitialized = false;
+        }
 
         mainBtn.interactable = mainObject.transform.childCount > 0;
         sideBtn.interactable = sideObject.transform.childCount > 0;
@@ -80,8 +92,7 @@ public class QuestMenu : MonoBehaviour
         else
             newItem.transform.SetParent(errandObject.transform);
 
-        // send notification
-        EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, q.info.questDescription));
+        if (q.completed) FinishQuest(q.info.questId);
     }
 
     public void FinishQuest(int id)

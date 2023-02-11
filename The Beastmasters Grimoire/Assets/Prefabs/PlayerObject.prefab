@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 7286641169873635502}
   - component: {fileID: 1695965317}
   - component: {fileID: 1695965318}
+  - component: {fileID: 280011212450600004}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -389,13 +390,17 @@ MonoBehaviour:
   captureProjectile: {fileID: 6977254816827940189, guid: 4b2c22a542f029d4b8cf7283080e92e6, type: 3}
   captureProjectileCooldown: 0.25
   capturePower: 0.5
-  currentBeast: {fileID: 0}
-  availableBeasts:
-  - {fileID: 977090989498658392, guid: 50257de4580e54c419188c468f78968c, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  totalBeasts: 3
-  currentBeastIndex: 0
+  data:
+    playerStamina: {fileID: 0}
+    playerHealth: {fileID: 0}
+    currentBeast: {fileID: 977090989498658392, guid: 50257de4580e54c419188c468f78968c, type: 3}
+    availableBeasts:
+    - {fileID: 977090989498658392, guid: 50257de4580e54c419188c468f78968c, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    totalBeasts: 3
+    currentBeastIndex: 0
+    playerQuests: []
 --- !u!114 &1695965318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,3 +595,15 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &280011212450600004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338222291938608896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ffe7f15097bfc42810e7ed97b3fc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

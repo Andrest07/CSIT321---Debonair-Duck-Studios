@@ -18,6 +18,7 @@ z
     - Kaleb 02/12/22: Interaction system
     - Kaleb 19/12/22 Singleton setup
     - Kaleb 07/01/23 Capture Redesign
+    - Quentin 9/2/23 'Data' struct for storing persistant data
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -34,8 +35,6 @@ public class PlayerManager : MonoBehaviour
 
     private Rigidbody2D playerBody;
     private PlayerInput playerInput;
-    private PlayerStamina playerStamina;
-    private PlayerHealth playerHealth;
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
     private InteractionObject interactionObject;
@@ -62,12 +61,22 @@ public class PlayerManager : MonoBehaviour
     public float captureProjectileCooldown;
     public float capturePower;
 
-    [Header("Beast Management")]
-    public GameObject currentBeast; //The beast the player currently has selected
-    public List<GameObject> availableBeasts; //All the beasts the player currently has equipped
-    public int totalBeasts; //The total number of beasts the player can store
-    public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
+    // Serializable struct for data that will be saved/loaded //
+    [System.Serializable]
+    public struct Data
+    {
+        [HideInInspector] public PlayerStamina playerStamina;
+        [HideInInspector] public PlayerHealth playerHealth;
 
+        [Header("Beast Management")]
+        public GameObject currentBeast; //The beast the player currently has selected
+        public List<GameObject> availableBeasts; //All the beasts the player currently has equipped
+        public int totalBeasts; //The total number of beasts the player can store
+        public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
+
+        public List<Quest> playerQuests;
+    }
+    public Data data = new Data();
 
 
     private void Awake()
@@ -88,18 +97,18 @@ public class PlayerManager : MonoBehaviour
         //Private variables initialization
         playerBody = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-        playerStamina = GetComponent<PlayerStamina>();
-        playerHealth = GetComponent<PlayerHealth>();
+        data.playerStamina = GetComponent<PlayerStamina>();
+        data.playerHealth = GetComponent<PlayerHealth>();
         playerDash = GetComponent<PlayerDash>();
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         interactionObject = GetComponentInChildren<InteractionObject>();
         animator = GetComponent<Animator>();
 
-        while (availableBeasts.Count > totalBeasts) //Make sure the player does not have more available beasts then the limit
+        while (data.availableBeasts.Count > data.totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
-            availableBeasts.RemoveAt(availableBeasts.Count - 1);
+            data.availableBeasts.RemoveAt(data.availableBeasts.Count - 1);
         }
-        currentBeast = availableBeasts[0];
+        data.currentBeast = data.availableBeasts[0];
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -188,7 +197,7 @@ public class PlayerManager : MonoBehaviour
                 if (true)
                 {
                     mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-                    Instantiate(currentBeast,
+                    Instantiate(data.currentBeast,
                         transform.position + mousePos.normalized,
                         Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
                     //Same as exiting spellcasting
@@ -257,12 +266,12 @@ public class PlayerManager : MonoBehaviour
         if (context.performed)
         {
             animator.SetBool("isSprinting", true);
-            playerStamina.isSprinting = true;
+            data.playerStamina.isSprinting = true;
         }
         else
         {
             animator.SetBool("isSprinting", false);
-            playerStamina.isSprinting = false;
+            data.playerStamina.isSprinting = false;
         }
     }
 
@@ -286,29 +295,29 @@ public class PlayerManager : MonoBehaviour
 
     public void MonsterSwitch(InputAction.CallbackContext context)
     {
-        currentBeastIndex += (int)context.ReadValue<float>(); //Change the current beast index by -1 or 1 for Q and E respectively
+        data.currentBeastIndex += (int)context.ReadValue<float>(); //Change the current beast index by -1 or 1 for Q and E respectively
 
-        if (currentBeastIndex < 0) //Lower bound, set selected beast index to last beast
+        if (data.currentBeastIndex < 0) //Lower bound, set selected beast index to last beast
         {
-            currentBeastIndex = totalBeasts - 1;
+            data.currentBeastIndex = data.totalBeasts - 1;
         }
 
-        if (currentBeastIndex > totalBeasts - 1) //Upper bound, set selected beast index to first beast
+        if (data.currentBeastIndex > data.totalBeasts - 1) //Upper bound, set selected beast index to first beast
         {
-            currentBeastIndex = 0;
+            data.currentBeastIndex = 0;
         }
 
-        currentBeast = availableBeasts[currentBeastIndex]; //Change the currently selected beast
-        GameManager.instance.UpdateDisplayedSpell(currentBeastIndex);
+        data.currentBeast = data.availableBeasts[data.currentBeastIndex]; //Change the currently selected beast
+        GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
     }
 
     public void MonsterSelect(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() < totalBeasts)
+        if (context.ReadValue<float>() < data.totalBeasts)
         { //If the selected beast is not out of bounds change the selected beast
-            currentBeastIndex = (int)context.ReadValue<float>();
-            currentBeast = availableBeasts[currentBeastIndex];
-            GameManager.instance.UpdateDisplayedSpell(currentBeastIndex);
+            data.currentBeastIndex = (int)context.ReadValue<float>();
+            data.currentBeast = data.availableBeasts[data.currentBeastIndex];
+            GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
         }
     }
 
@@ -337,11 +346,11 @@ public class PlayerManager : MonoBehaviour
     public IEnumerator Stun(Vector2 dir)
     {
         canMove = false;
-        playerHealth.isInvulnerable = true;
+        data.playerHealth.isInvulnerable = true;
         GetComponent<Rigidbody2D>().AddForce(dir * 10f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
         canMove = true;
-        playerHealth.isInvulnerable = false;
+        data.playerHealth.isInvulnerable = false;
 
     }
 }
