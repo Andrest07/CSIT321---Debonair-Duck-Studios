@@ -15,34 +15,34 @@ public class KeyBindScript : MonoBehaviour
 {
 
     private Dictionary<string, KeyCode> keys = new Dictionary<string, KeyCode>();
-    public TMP_Text forward, left, backward, right, pause, jump;
+    public TMP_Text up, left, down, right, attack, spellcast;
     private GameObject currentKey;
 
     // Start is called before the first frame update
     void Start()
     {
-        keys.Add("Forward",(KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Forward", "W")));
+        keys.Add("Up",(KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up", "W")));
         keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
-        keys.Add("Backward", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Backward", "S")));
+        keys.Add("Down", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "S")));
         keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
-        keys.Add("Pause", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Pause", "P")));
-        keys.Add("Jump", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "Space")));
+        keys.Add("Attack", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Attack", "K")));
+        keys.Add("SpellCast", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpellCast", "L")));
 
-        forward.text = keys["Forward"].ToString();
+        up.text = keys["Up"].ToString();
         left.text = keys["Left"].ToString();
-        backward.text = keys["Backward"].ToString();
+        down.text = keys["Down"].ToString();
         right.text = keys["Right"].ToString();
-        pause.text = keys["Pause"].ToString();
-        jump.text = keys["Jump"].ToString();
+        attack.text = keys["Attack"].ToString();
+        spellcast.text = keys["SpellCast"].ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(keys["Forward"]))
+        if (Input.GetKeyDown(keys["Up"]))
         {
             //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Forward");
+            Debug.Log("Up");
         }
 
         if (Input.GetKeyDown(keys["Left"]))
@@ -51,25 +51,25 @@ public class KeyBindScript : MonoBehaviour
             Debug.Log("Left");
         }
 
-        if (Input.GetKeyDown(keys["Backward"]))
+        if (Input.GetKeyDown(keys["Down"]))
         {
             //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Backward");
+            Debug.Log("Down");
         }
         if (Input.GetKeyDown(keys["Right"]))
         {
             //Do a move action. i.e. add functionality to the correct updated button by the player.
             Debug.Log("Right");
         }
-        if (Input.GetKeyDown(keys["Pause"]))
+        if (Input.GetKeyDown(keys["Attack"]))
         {
             //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Pause");
+            Debug.Log("Attack");
         }
-        if (Input.GetKeyDown(keys["Jump"]))
+        if (Input.GetKeyDown(keys["SpellCast"]))
         {
             //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Jump");
+            Debug.Log("SpellCast");
         }
         
     }

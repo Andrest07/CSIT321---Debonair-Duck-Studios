@@ -99,6 +99,4 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    //To Control Video Settings. 
-
 }
