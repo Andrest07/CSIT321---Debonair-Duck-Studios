@@ -27,7 +27,7 @@ MonoBehaviour:
   captureTotal: 5
   isRanged: 1
   homingRanged: 1
-  rotationSpeed: 10
+  rotationSpeed: 0.5
   rangedDamage: 1
   visibilityRange: 4
   attackDistance: 2

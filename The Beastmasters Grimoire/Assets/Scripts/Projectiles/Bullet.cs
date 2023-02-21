@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector] public Transform playerT;
     [HideInInspector] public PlayerHealth playerH;
     [HideInInspector] public EnemyController parentController;
-    Vector3 moveDirection;
+    Vector2 moveDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +36,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (parentController.data.HomingRanged)
             {
                 moveDirection = (playerT.position - transform.position).normalized * moveSpeed;
-                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-                rotateToTarget = Quaternion.AngleAxis(angle, Vector3.forward);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * parentController.data.RotationSpeed);
+                float angle = Vector3.Cross(moveDirection, transform.position).z;
+                rb.angularVelocity = angle * parentController.data.RotationSpeed;
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
             }
         
