@@ -29,7 +29,6 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private float health = 10f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float meleeDamage = 1f;
-    [SerializeField] private float rangedDamage = 1f;
     [SerializeField] private GameObject rangedProjectile;
     [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float captureTotal = 5f;
