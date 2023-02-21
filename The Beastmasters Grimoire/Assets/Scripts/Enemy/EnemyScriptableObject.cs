@@ -5,6 +5,7 @@
     - Quentin 22/09/22: Changed variables to private, added get methods, changed menu path
     - Quentin 27/09/22: New variables for chasing etc
     - Kaleb 19/11/22: Revision and redesign of scriptable object
+    - Andreas 21/02/23: Added additional ranged stats and separated ranged-related stats to their own category
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +26,6 @@ public class EnemyScriptableObject : ScriptableObject
     [TextArea][SerializeField] private string spellDescription;
 
     [Header("Enemy Stats")]
-    [SerializeField] private bool isRanged = false;
     [SerializeField] private float health = 10f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float meleeDamage = 1f;
@@ -33,6 +33,12 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private GameObject rangedProjectile;
     [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float captureTotal = 5f;
+
+    [Header("Ranged Stats")]
+    [SerializeField] private bool isRanged = false;
+    [SerializeField] private bool homingRanged = false;
+    [SerializeField] private float rotationSpeed = 1f;
+    [SerializeField] private float rangedDamage = 1f;
 
     [Header("Visibility Range (Blue Gizmo)")]
     [SerializeField] private float visibilityRange = 10.0f;
@@ -59,6 +65,8 @@ public class EnemyScriptableObject : ScriptableObject
     public float VisibilityRange { get => visibilityRange; }
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }
+    public bool HomingRanged { get => homingRanged; }
+    public bool RotationSpeed { get => rotationSpeed; }
 
     public enum EnemyTypeEnum
     {
