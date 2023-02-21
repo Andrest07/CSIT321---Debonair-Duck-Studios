@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector] public Transform playerT;
     [HideInInspector] public PlayerHealth playerH;
     [HideInInspector] public EnemyController parentController;
-    Vector2 moveDirection;
+    Vector3 moveDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +31,18 @@ public class Bullet : MonoBehaviour
         playerH = PlayerObject.GetComponent<PlayerHealth>();
         rb  = GetComponent<Rigidbody2D>();
         moveDirection = (playerT.position - transform.position).normalized * moveSpeed;
-        if (parentController.data.HomingRanged)
-        {
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            rotateToTarget = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * parentController.data.RotationSpeed);
-        }
         rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
         Destroy(gameObject, 3f);
+    }
+
+    void Update()
+    {
+        if (parentController.data.HomingRanged)
+            {
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+                rotateToTarget = Quaternion.AngleAxis(angle, Vector3.forward);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * parentController.data.RotationSpeed);
+            }
     }
 
     void OnTriggerEnter2D(Collider2D col)

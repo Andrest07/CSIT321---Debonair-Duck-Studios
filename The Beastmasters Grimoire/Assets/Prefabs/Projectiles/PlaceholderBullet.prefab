@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  PlayerObject: {fileID: 0}
   playerT: {fileID: 0}
   playerH: {fileID: 0}
-  EnemyC: {fileID: 0}
+  parentController: {fileID: 0}
