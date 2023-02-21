@@ -5,7 +5,7 @@
     - Kaleb 10/10/22: Enemy Controller fix
     - Kaleb 19/11/22: Added scriptable object data
     - Andreas 21/02/23: Added homing functionality, removed EnemyC (redundant)
-    - Andreas 22/02/23: Fixed homing functionality
+    - Andreas 22/02/23: Modifications to homing functionality (still broken), added moveSpeed as projSpeed and projLifetime to EnemyScriptableObject
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -13,8 +13,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float moveSpeed = 7f;
-
     Rigidbody2D rb;
     Quaternion rotateToTarget;
 
@@ -31,19 +29,19 @@ public class Bullet : MonoBehaviour
         playerT = PlayerObject.GetComponent<Transform>();
         playerH = PlayerObject.GetComponent<PlayerHealth>();
         rb  = GetComponent<Rigidbody2D>();
-        moveDirection = (playerT.position - transform.position).normalized * moveSpeed;
+        moveDirection = (playerT.position - transform.position).normalized * parentController.data.ProjSpeed;
         rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, parentController.data.ProjLifetime);
     }
 
     void FixedUpdate()
     {
-        if (parentController.data.HomingRanged)
+        if (parentController.data.ProjHoming)
             {
-                moveDirection = (playerT.position - transform.position).normalized * moveSpeed;
+                moveDirection = (playerT.position - transform.position).normalized * parentController.data.ProjSpeed;
                 float angle = Vector3.Cross(moveDirection, transform.position).z;
-                rb.angularVelocity = angle * parentController.data.RotationSpeed;
-                rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+                rb.angularVelocity = angle * parentController.data.ProjRotation;
+                rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
             }
         
     }
@@ -51,7 +49,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name.Equals("PlayerObject")){
-            playerH.TakeDamage(parentController.data.RangedDamage);
+            playerH.TakeDamage(parentController.data.ProjDamage);
             Destroy (gameObject);
         }
     }

@@ -6,6 +6,7 @@
     - Quentin 27/09/22: New variables for chasing etc
     - Kaleb 19/11/22: Revision and redesign of scriptable object
     - Andreas 21/02/23: Added additional ranged stats and separated ranged-related stats to their own category
+    - Andreas 22/02/23: Added projSpeed and projLifeTime
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -35,9 +36,11 @@ public class EnemyScriptableObject : ScriptableObject
 
     [Header("Ranged Stats")]
     [SerializeField] private bool isRanged = false;
-    [SerializeField] private bool homingRanged = false;
-    [SerializeField] private float rotationSpeed = 1f;
-    [SerializeField] private float rangedDamage = 1f;
+    [SerializeField] private bool projHoming = false;
+    [SerializeField] private float projRotation = 1f;
+    [SerializeField] private float projDamage = 1f;
+    [SerializeField] private float projSpeed = 1f;
+    [SerializeField] private float projLifetime = 3f;
 
     [Header("Visibility Range (Blue Gizmo)")]
     [SerializeField] private float visibilityRange = 10.0f;
@@ -57,15 +60,17 @@ public class EnemyScriptableObject : ScriptableObject
     public float Health { get => health; }
     public float Speed { get => speed; }
     public float MeleeDamage { get => meleeDamage; }
-    public float RangedDamage { get => rangedDamage; }
+    public float ProjDamage { get => projDamage; }
     public GameObject RangedProjectile { get => rangedProjectile; }
     public float WanderRadius { get => wanderRadius; }
     public float CaptureTotal { get => captureTotal; }
     public float VisibilityRange { get => visibilityRange; }
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }
-    public bool HomingRanged { get => homingRanged; }
-    public float RotationSpeed { get => rotationSpeed; }
+    public bool ProjHoming { get => projHoming; }
+    public float ProjRotation { get => projRotation; }
+    public float ProjSpeed { get => projSpeed; }
+    public float ProjLifetime { get => projLifetime; }
 
     public enum EnemyTypeEnum
     {
