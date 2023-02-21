@@ -5,6 +5,7 @@
     - Kaleb 10/10/22: Enemy Controller fix
     - Kaleb 19/11/22: Added scriptable object data
     - Andreas 21/02/23: Added homing functionality, removed EnemyC (redundant)
+    - Andreas 22/02/23: Fixed homing functionality
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -39,10 +40,13 @@ public class Bullet : MonoBehaviour
     {
         if (parentController.data.HomingRanged)
             {
+                moveDirection = (playerT.position - transform.position).normalized * moveSpeed;
                 float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
                 rotateToTarget = Quaternion.AngleAxis(angle, Vector3.forward);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * parentController.data.RotationSpeed);
+                rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
             }
+        
     }
 
     void OnTriggerEnter2D(Collider2D col)
