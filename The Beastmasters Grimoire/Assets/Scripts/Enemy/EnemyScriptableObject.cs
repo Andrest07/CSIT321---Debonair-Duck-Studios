@@ -65,7 +65,7 @@ public class EnemyScriptableObject : ScriptableObject
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }
     public bool HomingRanged { get => homingRanged; }
-    public bool RotationSpeed { get => rotationSpeed; }
+    public float RotationSpeed { get => rotationSpeed; }
 
     public enum EnemyTypeEnum
     {

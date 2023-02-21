@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     public float moveSpeed = 7f;
 
     Rigidbody2D rb;
+    Quaternion rotateToTarget;
 
     private GameObject PlayerObject;
     [HideInInspector] public Transform playerT;
@@ -32,7 +33,7 @@ public class Bullet : MonoBehaviour
         moveDirection = (playerT.position - transform.position).normalized * moveSpeed;
         if (parentController.data.HomingRanged)
         {
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Red2Deg;
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
             rotateToTarget = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * parentController.data.RotationSpeed);
         }
