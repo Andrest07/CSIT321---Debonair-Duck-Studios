@@ -26,9 +26,11 @@ MonoBehaviour:
   wanderRadius: 3
   captureTotal: 5
   isRanged: 1
-  homingRanged: 1
-  rotationSpeed: 0.5
-  rangedDamage: 1
+  projHoming: 1
+  projRotation: 1
+  projDamage: 1
+  projSpeed: 1
+  projLifetime: 10
   visibilityRange: 4
-  attackDistance: 2
+  attackDistance: 4
   attackCooldown: 1
