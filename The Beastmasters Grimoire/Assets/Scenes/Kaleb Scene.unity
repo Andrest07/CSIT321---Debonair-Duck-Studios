@@ -446,7 +446,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 644856282, guid: b7258be7292f86840adb721143ea2b87, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7258be7292f86840adb721143ea2b87, type: 3}
 --- !u!1 &513011391 stripped
 GameObject:
@@ -5489,7 +5490,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 644856282, guid: b7258be7292f86840adb721143ea2b87, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7258be7292f86840adb721143ea2b87, type: 3}
 --- !u!1 &1857822178
 GameObject:
