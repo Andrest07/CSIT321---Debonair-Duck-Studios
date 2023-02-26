@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7647437889510919238}
   - component: {fileID: 7647437889510919237}
   - component: {fileID: 5792366095046394767}
+  - component: {fileID: -8376435392681183302}
   m_Layer: 0
   m_Name: RockSmall01
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.59, y: 1.03}
   m_EdgeRadius: 0
+--- !u!114 &-8376435392681183302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7647437889510919236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecbff6182dc0fa40a21bdc4bd48338d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setOnce: 1

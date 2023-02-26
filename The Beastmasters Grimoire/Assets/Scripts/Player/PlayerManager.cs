@@ -81,9 +81,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        //Initialize player controls and input system
-
-
         if (instance == null)
         {
             instance = this;
@@ -119,6 +116,7 @@ public class PlayerManager : MonoBehaviour
 
     void SetupOnce()
     {
+        //Initialize player controls and input system
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.PauseMenu.performed += PauseMenu;

@@ -15,9 +15,7 @@ using UnityEngine.UI;
 public class SaveBeacon : MonoBehaviour
 {
     private PlayerHealth playerH;
-    public GameObject ContinueButton;
     private DeathMenuScript DeathScript;
-    public GameObject FastTravelMenu;
     //[Header("Scriptable Object")]
     public SaveBeaconScriptableObject beaconData;
 
@@ -26,7 +24,7 @@ public class SaveBeacon : MonoBehaviour
     {
         //playerHealth = player.GetComponent<PlayerHealth>();
         //DeathScreen = GameObject.Find("DeathScreen");
-        DeathScript = ContinueButton.GetComponent<DeathMenuScript>();
+        DeathScript =  GameManager.instance.GetComponent<DeathMenuScript>();
         //FastTravelMenu = GameObject.Find("FastTravelMenu");
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
     }
@@ -37,7 +35,7 @@ public class SaveBeacon : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             DeathScript.checkpointLocation = transform.position;
-            FastTravelMenu.GetComponent<FastTravelScript>().UnlockBeacon(beaconData); 
+             GameManager.instance.GetComponent<FastTravelScript>().UnlockBeacon(beaconData); 
             //beaconData.BeaconUnlocked = true;           
         }
     }
@@ -50,7 +48,7 @@ public class SaveBeacon : MonoBehaviour
     }
     public void OpenFastTravel()
     {
-        FastTravelMenu.SetActive(true);
-        Time.timeScale = 0;
+         GameManager.instance.GetComponent<FastTravelScript>().OpenMenu(); 
+        
     }
 }
