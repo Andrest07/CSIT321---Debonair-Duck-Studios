@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 83f7fcc5826ab9749a7defa8cb7ec32e
+guid: 72cf9676e2673a84f845b17afb0f4564
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,295 +104,293 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerSpriteSheet_0
+      name: WaterTiles_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1522
-        width: 251
-        height: 526
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 81, y: -91}
+        - {x: -58, y: -256}
+        - {x: -256, y: -256}
+        - {x: -256, y: -93}
+        - {x: -151, y: 52}
+        - {x: -151, y: 247}
+        - {x: -148, y: 247}
+        - {x: 132, y: 256}
       tessellationDetail: 0
       bones: []
-      spriteID: 02983c18bbe72484a982e0799c592db7
-      internalID: -1257048632
+      spriteID: 17631b50e5f3fea4ebbd4df04ccbd07e
+      internalID: -1234228063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_1
+      name: WaterTiles_1
       rect:
         serializedVersion: 2
-        x: 1752
-        y: 1513
-        width: 223
-        height: 533
-      alignment: 9
-      pivot: {x: 0.48418266, y: 0.5542318}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 505e87bfa74cf3c4598a1a60d740ca39
-      internalID: -1361096417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 541
-        y: 1524
-        width: 241
-        height: 524
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -138, y: -256}
+        - {x: -56, y: 40}
+        - {x: 148, y: 147}
+        - {x: 256, y: 135}
+        - {x: 253, y: -124}
+        - {x: 157, y: -256}
       tessellationDetail: 0
       bones: []
-      spriteID: e8dcf7599dda84f4ebf8b3adf561c10f
-      internalID: 1719815078
+      spriteID: 3bbd89ea2d1017a458b968db3badd373
+      internalID: -2121532153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_3
+      name: WaterTiles_2
       rect:
         serializedVersion: 2
-        x: 796
-        y: 1524
-        width: 241
-        height: 524
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -148, y: -138}
+        - {x: -256, y: -120}
+        - {x: -256, y: 115}
+        - {x: 48, y: 40}
+        - {x: 125, y: -256}
+        - {x: -109, y: -256}
       tessellationDetail: 0
       bones: []
-      spriteID: 775b02896ad97fc4a9e8e5e5ef70919b
-      internalID: 1015807049
+      spriteID: 5406933859b096b4395f2674f94205f3
+      internalID: 1677170484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 1041
-        y: 1524
-        width: 300
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 736824933d5402d49889bd0a1a58245f
-      internalID: 1748557148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 1393
-        y: 1524
-        width: 300
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a207e0db369c5d4b8d158f87028a464
-      internalID: -1032784497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_6
-      rect:
-        serializedVersion: 2
-        x: 1138
-        y: 955
-        width: 350
-        height: 523
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1179051bd7ad2354b868a5b6c32dd432
-      internalID: -761835885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 1540
-        y: 956
-        width: 251
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e587d7463cc1041429a17995e88d7408
-      internalID: -239836615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_8
+      name: WaterTiles_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 400
-        width: 395
-        height: 526
-      alignment: 9
-      pivot: {x: 0.6777498, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e903a296de8f06499296037840a2e52
-      internalID: -833924890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_9
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 957
-        width: 415
-        height: 524
-      alignment: 9
-      pivot: {x: 0.71655446, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef882ee3884d00849a239ae15fed7d2b
-      internalID: 1386584134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 956
-        width: 258
-        height: 524
-      alignment: 9
-      pivot: {x: 0.56065226, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a53ecc18fc23d548b3e450b40da4c8a
-      internalID: -447381039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_11
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 400
-        width: 395
-        height: 524
-      alignment: 9
-      pivot: {x: 0.36440563, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8d1c4bd64215eb40b8ab3cf843eb186
-      internalID: -1165939905
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_12
-      rect:
-        serializedVersion: 2
-        x: 703
-        y: 957
-        width: 415
-        height: 524
-      alignment: 9
-      pivot: {x: 0.26485732, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d0d68c01e6dfce4fb84c38ee3a33713
-      internalID: 455726754
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_13
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 1524
-        width: 241
-        height: 524
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 82, y: -256}
+        - {x: 163, y: -168}
+        - {x: 250, y: -83}
+        - {x: 256, y: -256}
       tessellationDetail: 0
       bones: []
-      spriteID: 5e74b99d097d86f4e89d3b604fb3f4eb
-      internalID: -1059691229
+      spriteID: 85ea7613131f99345886f048f142a23b
+      internalID: -2015446801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterTiles_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -256, y: -256}
+        - {x: -256, y: -99}
+        - {x: 94, y: 256}
+        - {x: 256, y: 256}
+        - {x: 256, y: 64}
+        - {x: -60, y: -256}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011b5126dd77d6640aee5bc3e04eb4ed
+      internalID: 1179209851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterTiles_5
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -78, y: -17}
+        - {x: -100, y: 256}
+        - {x: 123, y: 256}
+        - {x: 151, y: 152}
+        - {x: 256, y: 115}
+        - {x: 256, y: -133}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075476caff9bab843a4f295fa187d9eb
+      internalID: -817678662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterTiles_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -122, y: -256}
+        - {x: -119, y: 256}
+        - {x: 127, y: 256}
+        - {x: 114, y: -256}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fb98b94e71bed4aa089788aab04ea2
+      internalID: -1159730264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterTiles_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 256, y: 54}
+        - {x: 155, y: -31}
+        - {x: 113, y: -256}
+        - {x: -117, y: -256}
+        - {x: -89, y: 17}
+        - {x: 85, y: 256}
+        - {x: 256, y: 256}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc038115b0e6264f9bd7375f58b93fe
+      internalID: -67348774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterTiles_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -256, y: 96}
+        - {x: -256, y: 256}
+        - {x: -76, y: 256}
+        - {x: -170, y: 181}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e353ddc91c744e84d9dc0b3e793cb437
+      internalID: -1570851335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterTiles_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -256, y: -124}
+        - {x: -256, y: 109}
+        - {x: 256, y: 124}
+        - {x: 256, y: -114}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5443ffc986f677b41984e7cc6ae673e8
+      internalID: 408208850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterTiles_10
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 11, y: -49}
+        - {x: -256, y: -115}
+        - {x: -256, y: 109}
+        - {x: -153, y: 183}
+        - {x: -100, y: 256}
+        - {x: 123, y: 256}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a89ed7ddd22b64a8051ae9c404feaa
+      internalID: -1646897507
       vertices: []
       indices: 
       edges: []
@@ -408,20 +406,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerSpriteSheet_9: 1386584134
-      PlayerSpriteSheet_11: -1165939905
-      PlayerSpriteSheet_12: 455726754
-      PlayerSpriteSheet_6: -761835885
-      PlayerSpriteSheet_3: 1015807049
-      PlayerSpriteSheet_1: -1361096417
-      PlayerSpriteSheet_2: 1719815078
-      PlayerSpriteSheet_4: 1748557148
-      PlayerSpriteSheet_13: 2089182606
-      PlayerSpriteSheet_7: -239836615
-      PlayerSpriteSheet_8: -833924890
-      PlayerSpriteSheet_10: -447381039
-      PlayerSpriteSheet_0: -1257048632
-      PlayerSpriteSheet_5: -1032784497
+      WaterTiles_3: -2015446801
+      WaterTiles_0: -1234228063
+      WaterTiles_4: 1179209851
+      WaterTiles_1: -2121532153
+      WaterTiles_9: 408208850
+      WaterTiles_2: 1677170484
+      WaterTiles_8: -1570851335
+      WaterTiles_10: -1646897507
+      WaterTiles_5: -817678662
+      WaterTiles_7: -67348774
+      WaterTiles_6: -1159730264
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

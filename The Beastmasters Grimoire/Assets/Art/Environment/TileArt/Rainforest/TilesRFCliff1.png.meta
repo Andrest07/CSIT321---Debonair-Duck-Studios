@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 83f7fcc5826ab9749a7defa8cb7ec32e
+guid: 4e4ceaabf45fe6c4ca18fa28f2ab6147
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,295 +104,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerSpriteSheet_0
+      name: TilesRFCliff1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1522
-        width: 251
-        height: 526
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02983c18bbe72484a982e0799c592db7
-      internalID: -1257048632
+      spriteID: 3bff28fd7883bbf408a32ae2dcc7e3b9
+      internalID: 1785232093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_1
+      name: TilesRFCliff1_1
       rect:
         serializedVersion: 2
-        x: 1752
-        y: 1513
-        width: 223
-        height: 533
-      alignment: 9
-      pivot: {x: 0.48418266, y: 0.5542318}
+        x: 100
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 505e87bfa74cf3c4598a1a60d740ca39
-      internalID: -1361096417
+      spriteID: 66b06a5243c66824ab148d3fd3dfb16d
+      internalID: -1256065291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_2
+      name: TilesRFCliff1_2
       rect:
         serializedVersion: 2
-        x: 541
-        y: 1524
-        width: 241
-        height: 524
+        x: 200
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8dcf7599dda84f4ebf8b3adf561c10f
-      internalID: 1719815078
+      spriteID: 02b201b77b9d16b40a3d5a94b68f57fb
+      internalID: -814036892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 796
-        y: 1524
-        width: 241
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 775b02896ad97fc4a9e8e5e5ef70919b
-      internalID: 1015807049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 1041
-        y: 1524
-        width: 300
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 736824933d5402d49889bd0a1a58245f
-      internalID: 1748557148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 1393
-        y: 1524
-        width: 300
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a207e0db369c5d4b8d158f87028a464
-      internalID: -1032784497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_6
-      rect:
-        serializedVersion: 2
-        x: 1138
-        y: 955
-        width: 350
-        height: 523
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1179051bd7ad2354b868a5b6c32dd432
-      internalID: -761835885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 1540
-        y: 956
-        width: 251
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e587d7463cc1041429a17995e88d7408
-      internalID: -239836615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_8
+      name: TilesRFCliff1_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 400
-        width: 395
-        height: 526
-      alignment: 9
-      pivot: {x: 0.6777498, y: 0.5}
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e903a296de8f06499296037840a2e52
-      internalID: -833924890
+      spriteID: 86a9b3c100daee848873694cefb24bf4
+      internalID: -284434338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_9
+      name: TilesRFCliff1_4
       rect:
         serializedVersion: 2
-        x: 276
-        y: 957
-        width: 415
-        height: 524
-      alignment: 9
-      pivot: {x: 0.71655446, y: 0.5}
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef882ee3884d00849a239ae15fed7d2b
-      internalID: 1386584134
+      spriteID: 70a0d72602977984b8c7dc2a948e816e
+      internalID: 1043427693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSpriteSheet_10
+      name: TilesRFCliff1_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466241edc06d5a146a72a5fc4a169109
+      internalID: 1851664802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilesRFCliff1_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 956
-        width: 258
-        height: 524
-      alignment: 9
-      pivot: {x: 0.56065226, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a53ecc18fc23d548b3e450b40da4c8a
-      internalID: -447381039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_11
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 400
-        width: 395
-        height: 524
-      alignment: 9
-      pivot: {x: 0.36440563, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8d1c4bd64215eb40b8ab3cf843eb186
-      internalID: -1165939905
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_12
-      rect:
-        serializedVersion: 2
-        x: 703
-        y: 957
-        width: 415
-        height: 524
-      alignment: 9
-      pivot: {x: 0.26485732, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d0d68c01e6dfce4fb84c38ee3a33713
-      internalID: 455726754
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerSpriteSheet_13
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 1524
-        width: 241
-        height: 524
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e74b99d097d86f4e89d3b604fb3f4eb
-      internalID: -1059691229
+      spriteID: 6fa0a0b9e9d508a4c8cfff796c0d7611
+      internalID: -217148870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilesRFCliff1_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54beca692c9418440bc7e15737f059de
+      internalID: -628466408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilesRFCliff1_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34784274dbabb1b4bbbb9a10f7c54ab3
+      internalID: -964809750
       vertices: []
       indices: 
       edges: []
@@ -408,20 +303,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerSpriteSheet_9: 1386584134
-      PlayerSpriteSheet_11: -1165939905
-      PlayerSpriteSheet_12: 455726754
-      PlayerSpriteSheet_6: -761835885
-      PlayerSpriteSheet_3: 1015807049
-      PlayerSpriteSheet_1: -1361096417
-      PlayerSpriteSheet_2: 1719815078
-      PlayerSpriteSheet_4: 1748557148
-      PlayerSpriteSheet_13: 2089182606
-      PlayerSpriteSheet_7: -239836615
-      PlayerSpriteSheet_8: -833924890
-      PlayerSpriteSheet_10: -447381039
-      PlayerSpriteSheet_0: -1257048632
-      PlayerSpriteSheet_5: -1032784497
+      TilesRFCliff1_6: -217148870
+      TilesRFCliff1_0: 1785232093
+      TilesRFCliff1_2: -814036892
+      TilesRFCliff1_8: -964809750
+      TilesRFCliff1_5: 1851664802
+      TilesRFCliff1_7: -628466408
+      TilesRFCliff1_3: -284434338
+      TilesRFCliff1_1: -1256065291
+      TilesRFCliff1_4: 1043427693
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
