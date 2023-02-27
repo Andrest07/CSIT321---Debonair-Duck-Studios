@@ -26,11 +26,11 @@ MonoBehaviour:
   wanderRadius: 3
   captureTotal: 5
   isRanged: 1
-  projHoming: 1
+  projHoming: 0
   projRotation: 1
   projDamage: 1
-  projSpeed: 1
+  projSpeed: 5
   projLifetime: 10
   visibilityRange: 4
   attackDistance: 4
-  attackCooldown: 1
+  attackCooldown: 0.2

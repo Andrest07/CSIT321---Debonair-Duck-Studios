@@ -94,6 +94,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Collision events
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isColliding = true;
@@ -109,6 +110,7 @@ public class EnemyController : MonoBehaviour
         }
 
     }
+    
 
     private void OnCollisionStay2D(Collision2D collision)
     {
