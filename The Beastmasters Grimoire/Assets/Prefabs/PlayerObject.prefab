@@ -210,7 +210,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &3155322573152117181
 CapsuleCollider2D:
@@ -245,7 +245,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6025, y: 1.31}
+    oldSize: {x: 0.6275, y: 1.315}
     newSize: {x: 0.47, y: 1.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -466,8 +466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9a0db9817940cabba522f73c0b030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContinueButton: {fileID: 109935356}
-  FastTravelMenu: {fileID: 534409963}
   beaconData: {fileID: 11400000, guid: 2a9f041c5e9511e4799571a81a6cfe9f, type: 2}
 --- !u!4 &513011397 stripped
 Transform:
@@ -604,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ea1df4cde284783889660944ad7108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fastTravelMenu: {fileID: 0}
   beacons:
   - {fileID: 11400000, guid: 72277eb83307c8b4386040e35d50fb7f, type: 2}
   - {fileID: 11400000, guid: 2a9f041c5e9511e4799571a81a6cfe9f, type: 2}
@@ -655,8 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9a0db9817940cabba522f73c0b030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContinueButton: {fileID: 109935356}
-  FastTravelMenu: {fileID: 534409963}
   beaconData: {fileID: 11400000, guid: 72277eb83307c8b4386040e35d50fb7f, type: 2}
 --- !u!4 &644856287 stripped
 Transform:
@@ -5138,7 +5135,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!19719996 &1260665519
 TilemapCollider2D:
@@ -5801,6 +5798,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 334133255, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 337565569, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5887,6 +5888,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1005983721033641767, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124801085073224100, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124801085073224100, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539398691102076167, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539398691102076167, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

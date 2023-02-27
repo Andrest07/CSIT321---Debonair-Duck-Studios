@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Final Scenes/MainMenu.unity
     guid: eea94bbbcf28b8f4487bc17c5e309e5a
   - enabled: 1
     path: Assets/Scenes/Kaleb Scene.unity
