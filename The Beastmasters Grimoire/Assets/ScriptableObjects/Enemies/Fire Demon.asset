@@ -33,4 +33,4 @@ MonoBehaviour:
   projLifetime: 4
   visibilityRange: 6
   attackDistance: 4
-  attackCooldown: 2
+  attackCooldown: 1

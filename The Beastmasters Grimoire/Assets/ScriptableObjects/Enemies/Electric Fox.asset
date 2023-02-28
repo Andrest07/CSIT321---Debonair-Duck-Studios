@@ -25,7 +25,7 @@ MonoBehaviour:
   rangedProjectile: {fileID: 8168317729838749010, guid: 94bc33383788a48f5bc16b3b643d47f0, type: 3}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
+  isRanged: 1
   projHoming: 0
   projRotation: 1
   projDamage: 1

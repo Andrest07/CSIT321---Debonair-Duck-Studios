@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
     Quaternion rotateToTarget;
+    public string projectileType;
 
     private GameObject PlayerObject;
     [HideInInspector] public Transform playerT;

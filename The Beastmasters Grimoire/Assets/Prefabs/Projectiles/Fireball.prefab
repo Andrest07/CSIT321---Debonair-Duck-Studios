@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1625a29e047365f42bbabc82394c82e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileType: Fire
   playerT: {fileID: 0}
   playerH: {fileID: 0}
   parentController: {fileID: 0}

@@ -216,11 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointLocation: {x: 0, y: 0, z: 0}
   DeathScreen: {fileID: 1575406862}
---- !u!1 &150207190 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
-  m_PrefabInstance: {fileID: 1120830318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &153400726
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,32 +979,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7342188552462242031, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
   m_PrefabInstance: {fileID: 1120830318}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &875845269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150207190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327c3566bca6945878978e646cbb32a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTime: 0
-  currentTime: 0
-  maxBurnMeter: 10
-  currBurnMeter: 0
-  isBurning: 0
-  maxPoisonMeter: 10
-  currPoisonMeter: 0
-  isPoisoned: 0
-  maxParalysisMeter: 10
-  currParalysisMeter: 0
-  isParalyzed: 0
-  maxFreezeMeter: 10
-  currFreezeMeter: 0
-  isFreezed: 0
 --- !u!1 &949647784
 GameObject:
   m_ObjectHideFlags: 0

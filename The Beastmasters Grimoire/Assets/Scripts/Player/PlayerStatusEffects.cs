@@ -12,6 +12,8 @@ public class PlayerStatusEffects : MonoBehaviour {
     public float startTime;
     public float currentTime;
 
+    private Bullet bullet;
+
     [Header("Status Effects")]
     public float maxBurnMeter = 10f;
     public float currBurnMeter = 0f;
@@ -36,15 +38,23 @@ public class PlayerStatusEffects : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other){
         Debug.Log("enter");
-        if (other.gameObject.name == "Fireball(Clone)"){
-            currBurnMeter += 4f;
-            Debug.Log("Fireball");
+        bullet = other.gameObject.GetComponent<Bullet>();
+
+        switch(bullet.projectileType){
+            case "Fire":
+                currBurnMeter += 4f;
+                break;
         }
+            
     }
 
     private void Update() {
         currentTime = Time.deltaTime;
 
+        checkBurn();
+    }
+
+    private void checkBurn(){
         if (currBurnMeter >= maxBurnMeter){
             currBurnMeter = maxBurnMeter;
             isBurning = true;
@@ -63,7 +73,6 @@ public class PlayerStatusEffects : MonoBehaviour {
     }
 
     private void BurnPlayer() {
-        Debug.Log(currentTime);
         playerH.TakeDamage(.1f);
         currentTime = 0;
 
