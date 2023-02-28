@@ -25,13 +25,20 @@ public class QuestStageCheckEvent : GameEvent
 }
 
 public class NotificationEvent : GameEvent
-{
+{    public enum NotificationType
+    {
+        Quest,
+        Save
+    };
+
     public string message;
     public string message2;
+    public NotificationType type;
     
-    public NotificationEvent(string m1, string m2)
+    public NotificationEvent(string m1, string m2, NotificationType type)
     {
         this.message = m1;
         this.message2 = m2;
+        this.type = type;
     }
 }

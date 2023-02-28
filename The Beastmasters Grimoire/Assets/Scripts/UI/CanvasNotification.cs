@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Quentin 8/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Quentin 28/2/23 Added save notifications
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,10 @@ public class CanvasNotification : MonoBehaviour
     bool clear = true;
 
     [HideInInspector] public UnityEvent stageCompleted;
+
+    [Header("Notification Prefabs")]
     public GameObject questNotif;
+    public GameObject saveNotif;
 
     private void Awake()
     {
@@ -27,13 +31,25 @@ public class CanvasNotification : MonoBehaviour
     private void NewNotif(NotificationEvent eventInfo)
     {
         TMP_Text[] itemText;
-        GameObject newNotif = Instantiate(questNotif, this.transform, false);
-        newNotif.SetActive(false);
-        itemText = newNotif.GetComponentsInChildren<TMP_Text>();
-        itemText[0].text = eventInfo.message;
-        itemText[1].text = eventInfo.message2;
+        GameObject newNotif;
 
-        notifQueue.Enqueue(newNotif);
+        if (eventInfo.type == NotificationEvent.NotificationType.Quest)
+        {
+            newNotif = Instantiate(questNotif, this.transform, false);
+            newNotif.SetActive(false);
+            itemText = newNotif.GetComponentsInChildren<TMP_Text>();
+            itemText[0].text = eventInfo.message;
+            itemText[1].text = eventInfo.message2;
+
+            notifQueue.Enqueue(newNotif);
+        }
+        else if(eventInfo.type == NotificationEvent.NotificationType.Save)
+        {
+            newNotif = Instantiate(saveNotif, this.transform, false);
+            newNotif.SetActive(false);
+
+            notifQueue.Enqueue(newNotif);
+        }
     }
 
     private void Update()
@@ -86,5 +102,16 @@ public class CanvasNotification : MonoBehaviour
             notif.GetComponent<CanvasGroup>().alpha = 1 - elapsed / fade;
             yield return null;
         }
+    }
+
+
+    public void Reset()
+    {
+        StopCoroutine(DisplayCoroutine());
+        StopCoroutine(FadeIn(null));
+        StopCoroutine(FadeOut(null));
+
+        while (this.transform.childCount > 0)
+            DestroyImmediate(this.transform.GetChild(0).gameObject);
     }
 }

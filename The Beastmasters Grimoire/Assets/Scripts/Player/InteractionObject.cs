@@ -57,8 +57,14 @@ public class InteractionObject : MonoBehaviour
                     PixelCrushers.DialogueSystem.Usable usable = collision.GetComponent<PixelCrushers.DialogueSystem.Usable>();
                     usable.gameObject.BroadcastMessage("OnUse", this.transform, SendMessageOptions.DontRequireReceiver);
                     break;
+
                 case "SaveBeacon":
-                    collision.GetComponentInParent<SaveBeacon>().OpenFastTravel();
+                    // save game
+                    collision.gameObject.GetComponentInParent<SaveLoadGame>().Save();
+                    Debug.Log(collision.gameObject.name);
+                    EventManager.Instance.QueueEvent(new NotificationEvent("","", NotificationEvent.NotificationType.Save));
+
+                    //collision.GetComponentInParent<SaveBeacon>().OpenFastTravel();
                     break;
             }
         }

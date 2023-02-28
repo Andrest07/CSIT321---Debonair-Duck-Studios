@@ -13,15 +13,19 @@ public class QuestController : MonoBehaviour
 {
     private QuestMenu menu;
     private PlayerManager playerManager;
+    private GameManager gameManager;
 
     private void Awake()
     {
-        menu = GameObject.Find("Canvas").GetComponentInChildren<QuestMenu>(true);
+        //menu = GameObject.Find("Canvas").GetComponentInChildren<QuestMenu>(true);
     }
 
     private void Start()
     {
         playerManager = PlayerManager.instance;
+        gameManager = GameManager.instance;
+
+        menu = gameManager.GetComponentInChildren<QuestMenu>(true);
 
         playerManager.data.playerQuests = new List<Quest>();
     }
@@ -36,17 +40,17 @@ public class QuestController : MonoBehaviour
         menu.AddQuest(newQuest);
 
         // send notification
-        EventManager.Instance.QueueEvent(new NotificationEvent(newQuest.info.questName, newQuest.info.questDescription));
+        EventManager.Instance.QueueEvent(new NotificationEvent(newQuest.info.questName, newQuest.info.questDescription, NotificationEvent.NotificationType.Quest));
     }
 
     // to be called when loading a save
     public void LoadSavedQuests()
     {
-        menu = GameObject.Find("Canvas").GetComponentInChildren<QuestMenu>(true);
+        menu = gameManager.GetComponentInChildren<QuestMenu>(true);
+        menu.Reset();
 
         foreach (Quest quest in playerManager.data.playerQuests)
         {
-            Debug.Log("checking quest");
             if (!quest.completed)
             {
                 quest.ReInitialize();
@@ -60,7 +64,7 @@ public class QuestController : MonoBehaviour
     private void OnQuestCompleted(Quest q)
     {
         // send notification to canvas
-        EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, "Completed!"));
+        EventManager.Instance.QueueEvent(new NotificationEvent(q.info.questName, "Completed!", NotificationEvent.NotificationType.Quest));
         menu.FinishQuest(q.info.questId);
     }
 }

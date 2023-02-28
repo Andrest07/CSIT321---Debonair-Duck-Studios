@@ -119,5 +119,20 @@ public class QuestMenu : MonoBehaviour
         {
             errandObject.SetActive(!errandObject.activeSelf);
         }
-    } 
+    }
+
+
+    public void Reset()
+    {
+        questList = new Dictionary<int, GameObject>();
+
+        while(mainObject.transform.childCount > 0)
+            DestroyImmediate(mainObject.transform.GetChild(0).gameObject);
+
+        while (sideObject.transform.childCount > 0)
+            DestroyImmediate(sideObject.transform.GetChild(0).gameObject);
+
+        while (errandObject.transform.childCount > 0)
+            DestroyImmediate(errandObject.transform.GetChild(0).gameObject);
+    }
 }
