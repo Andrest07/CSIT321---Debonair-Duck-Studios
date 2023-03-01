@@ -1799,7 +1799,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 212770136}
-  - component: {fileID: 212770137}
   m_Layer: 0
   m_Name: ExtrasTab
   m_TagString: Untagged
@@ -1828,20 +1827,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &212770137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212770135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc48e77165164043861b10ee8eb3911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HudVisibilitySlider: {fileID: 2146007031}
-  difficultyDropdown: {fileID: 193485408}
 --- !u!1 &218797123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10560,7 +10545,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1093374070}
-  - component: {fileID: 1093374071}
   m_Layer: 0
   m_Name: VideoTab
   m_TagString: Untagged
@@ -10589,26 +10573,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1093374071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093374069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260010052399b4a4f81e6bc6270bccd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brightnessSlider: {fileID: 135167515}
-  qualityDropdown: {fileID: 807623502}
-  fullScreenToggle: {fileID: 769232692}
-  defaultBrightness: 1
-  _qualityLevel: 0
-  _isFullScreen: 0
-  _brightnessLevel: 0
-  resolutionDropdown: {fileID: 2093108304}
 --- !u!1 &1102713264
 GameObject:
   m_ObjectHideFlags: 0
@@ -15104,6 +15068,7 @@ GameObject:
   - component: {fileID: 1503310583}
   - component: {fileID: 1503310584}
   - component: {fileID: 1503310585}
+  - component: {fileID: 1503310586}
   m_Layer: 0
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -15175,14 +15140,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260010052399b4a4f81e6bc6270bccd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brightnessSlider: {fileID: 0}
-  qualityDropdown: {fileID: 0}
-  fullScreenToggle: {fileID: 0}
+  brightnessSlider: {fileID: 135167515}
+  qualityDropdown: {fileID: 807623502}
+  fullScreenToggle: {fileID: 769232692}
   defaultBrightness: 1
   _qualityLevel: 0
   _isFullScreen: 0
   _brightnessLevel: 0
   resolutionDropdown: {fileID: 2093108304}
+--- !u!114 &1503310586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503310582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc48e77165164043861b10ee8eb3911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HudVisibilitySlider: {fileID: 2146007031}
+  difficultyDropdown: {fileID: 193485408}
 --- !u!1 &1517021747
 GameObject:
   m_ObjectHideFlags: 0
