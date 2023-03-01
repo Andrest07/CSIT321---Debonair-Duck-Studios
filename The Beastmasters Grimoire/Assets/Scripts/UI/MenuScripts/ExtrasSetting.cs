@@ -10,7 +10,7 @@ public class ExtrasSetting : MonoBehaviour
     public Slider HudVisibilitySlider;
     private Color panelColor;
 
-    public Dropdown difficultyDropdown;
+    public TMP_Dropdown difficultyDropdown;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class ExtrasSetting : MonoBehaviour
     }
 
     //Method to call when the value of difficulty in dropdown menu changes
-    void DifficultyDropdownValueChanged(Dropdown dropdown)
+    void DifficultyDropdownValueChanged(TMP_Dropdown dropdown)
     {
         switch (dropdown.value)
         {
