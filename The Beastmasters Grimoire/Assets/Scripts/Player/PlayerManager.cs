@@ -70,7 +70,7 @@ public class PlayerManager : MonoBehaviour
 
         [Header("Beast Management")]
         public GameObject currentBeast; //The beast the player currently has selected
-        public List<GameObject> availableBeasts; //All the beasts the player currently has equipped
+        public List<EnemyScriptableObject> availableBeasts; //All the beasts the player currently has equipped
         public int totalBeasts; //The total number of beasts the player can store
         public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
 
@@ -105,7 +105,7 @@ public class PlayerManager : MonoBehaviour
         {
             data.availableBeasts.RemoveAt(data.availableBeasts.Count - 1);
         }
-        data.currentBeast = data.availableBeasts[0];
+        //data.currentBeast = data.availableBeasts[0].SpellObject;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -305,7 +305,7 @@ public class PlayerManager : MonoBehaviour
             data.currentBeastIndex = 0;
         }
 
-        data.currentBeast = data.availableBeasts[data.currentBeastIndex]; //Change the currently selected beast
+        data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellObject;; //Change the currently selected beast
         GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
     }
 
@@ -314,7 +314,7 @@ public class PlayerManager : MonoBehaviour
         if (context.ReadValue<float>() < data.totalBeasts)
         { //If the selected beast is not out of bounds change the selected beast
             data.currentBeastIndex = (int)context.ReadValue<float>();
-            data.currentBeast = data.availableBeasts[data.currentBeastIndex];
+            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellObject;;
             GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
         }
     }
