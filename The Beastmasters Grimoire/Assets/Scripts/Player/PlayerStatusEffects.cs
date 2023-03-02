@@ -40,11 +40,11 @@ public class PlayerStatusEffects : MonoBehaviour {
         Debug.Log("enter");
         bullet = other.gameObject.GetComponent<Bullet>();
 
-        switch(bullet.projectileType){
+        /*switch(bullet.projectileType){
             case "Fire":
                 currBurnMeter += 4f;
                 break;
-        }
+        }*/
             
     }
 
