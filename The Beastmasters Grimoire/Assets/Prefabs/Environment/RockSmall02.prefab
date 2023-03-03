@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 33711825721367597}
   - component: {fileID: 33711825721367596}
-  - component: {fileID: 5637439677896185199}
   - component: {fileID: 8422120850002542284}
+  - component: {fileID: -2095761413846459432}
   m_Layer: 0
   m_Name: RockSmall02
   m_TagString: Untagged
@@ -86,8 +86,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5637439677896185199
-BoxCollider2D:
+--- !u!114 &8422120850002542284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33711825721367599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecbff6182dc0fa40a21bdc4bd48338d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setOnce: 1
+--- !u!60 &-2095761413846459432
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,19 +122,50 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.775, y: 0.915}
-  m_EdgeRadius: 0
---- !u!114 &8422120850002542284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33711825721367599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ecbff6182dc0fa40a21bdc4bd48338d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setOnce: 1
+  m_Points:
+    m_Paths:
+    - - {x: -0.4025, y: -0.42749998}
+      - {x: -0.3175, y: -0.42749998}
+      - {x: -0.2075, y: -0.4075}
+      - {x: -0.1125, y: -0.3575}
+      - {x: 0.107499994, y: -0.26749998}
+      - {x: 0.1325, y: -0.2725}
+      - {x: 0.18249999, y: -0.2925}
+      - {x: 0.2075, y: -0.3225}
+      - {x: 0.2725, y: -0.3275}
+      - {x: 0.36749998, y: -0.3175}
+      - {x: 0.42749998, y: -0.3075}
+      - {x: 0.5575, y: -0.30249998}
+      - {x: 0.6425, y: -0.2825}
+      - {x: 0.7175, y: -0.24249999}
+      - {x: 0.8075, y: -0.1925}
+      - {x: 0.8725, y: -0.1575}
+      - {x: 0.8875, y: -0.0975}
+      - {x: 0.8875, y: -0.0525}
+      - {x: 0.8825, y: -0.0175}
+      - {x: 0.86249995, y: 0.0075}
+      - {x: 0.8125, y: 0.057499997}
+      - {x: 0.7675, y: 0.057499997}
+      - {x: 0.7375, y: 0.0875}
+      - {x: 0.678186, y: 0.13524505}
+      - {x: 0.6375, y: 0.1625}
+      - {x: 0.58936334, y: 0.16838239}
+      - {x: 0.5220096, y: 0.1995589}
+      - {x: 0.3225894, y: 0.19945145}
+      - {x: 0.27264425, y: 0.19875531}
+      - {x: -0.65645695, y: 0.19842756}
+      - {x: -0.6806855, y: 0.1867404}
+      - {x: -0.7100959, y: 0.1631701}
+      - {x: -0.79479885, y: 0.13774204}
+      - {x: -0.8875, y: 0.067499995}
+      - {x: -0.8875, y: -0.2025}
+      - {x: -0.8775, y: -0.2375}
+      - {x: -0.8725, y: -0.2875}
+      - {x: -0.84749997, y: -0.33249998}
+      - {x: -0.8225, y: -0.3875}
+      - {x: -0.7575, y: -0.4425}
+      - {x: -0.7375, y: -0.45749998}
+      - {x: -0.6825, y: -0.45749998}
+      - {x: -0.60749996, y: -0.4475}
+      - {x: -0.5575, y: -0.4525}
+      - {x: -0.4725, y: -0.4525}
