@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2921136670345731016}
   - component: {fileID: 2921136670345731017}
-  - component: {fileID: 2921136670345731023}
+  - component: {fileID: 8403241052430296212}
+  - component: {fileID: 2257675923170159806}
   m_Layer: 0
   m_Name: TreeWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2921136670345731016
 Transform:
@@ -85,7 +86,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2921136670345731023
+--- !u!60 &8403241052430296212
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921136670345731018}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.08052, y: 10.809999}
+    newSize: {x: 9.71, y: 8.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.8001783, y: 2.02}
+      - {x: 1.815085, y: 2.56}
+      - {x: -1.0200479, y: 2.6149998}
+      - {x: -3.9401848, y: 1.9949999}
+      - {x: -4.90523, y: -0.52}
+      - {x: -4.945232, y: -2.695}
+      - {x: -3.6351705, y: -3.6099997}
+      - {x: -1.0000468, y: -3.5399997}
+      - {x: -0.8150382, y: -4.0299997}
+      - {x: -0.8150382, y: -4.535}
+      - {x: -1.1500539, y: -5.0499997}
+      - {x: -0.85003984, y: -5.0849996}
+      - {x: -1.1600543, y: -5.37}
+      - {x: -0.16500774, y: -5.19}
+      - {x: 0.6150288, y: -5.22}
+      - {x: 0.90504247, y: -4.9649997}
+      - {x: 0.5150242, y: -4.4649997}
+      - {x: 0.43502042, y: -4.0049996}
+      - {x: 0.31501478, y: -3.35}
+      - {x: 0.5950279, y: -3.2099998}
+      - {x: 3.070144, y: -3.1049998}
+      - {x: 4.340204, y: -1.9399998}
+      - {x: 4.665219, y: -0.79499996}
+--- !u!114 &2257675923170159806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

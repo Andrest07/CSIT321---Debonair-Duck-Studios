@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4022459652270032432}
   - component: {fileID: 4022459652270032433}
-  - component: {fileID: 4022459652270032434}
-  - component: {fileID: 4022459652270032444}
+  - component: {fileID: 1307383438532188605}
+  - component: {fileID: 8394030349123819127}
   m_Layer: 0
   m_Name: TreeWallBare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4022459652270032432
 Transform:
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4022459652270032445}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 23.43, y: 7.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4022459652270032434
-BoxCollider2D:
+--- !u!60 &1307383438532188605
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,8 +98,8 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.05857277, y: -2.870674}
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,10 +109,22 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.3767738, y: 4.1948285}
-  m_EdgeRadius: 0
---- !u!114 &4022459652270032444
+  m_Points:
+    m_Paths:
+    - - {x: 3.112534, y: 0.4775}
+      - {x: -1.2025131, y: 0.95750004}
+      - {x: -3.597539, y: -0.0225}
+      - {x: -3.9641986, y: -1.4541523}
+      - {x: -3.302431, y: -2.552782}
+      - {x: -2.202524, y: -3.2425}
+      - {x: -0.457505, y: -3.3875}
+      - {x: -0.4675051, y: -4.7575}
+      - {x: 0.9825107, y: -4.6475}
+      - {x: 0.5925064, y: -2.9825003}
+      - {x: 1.572517, y: -2.2975001}
+      - {x: 3.2575352, y: -2.1175}
+      - {x: 4.1175447, y: -0.99750006}
+--- !u!114 &8394030349123819127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
