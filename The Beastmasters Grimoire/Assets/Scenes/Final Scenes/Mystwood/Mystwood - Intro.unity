@@ -20856,42 +20856,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1534745029, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575406862, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694814326, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694814326, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694814326, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
-      value: 
-      objectReference: {fileID: 1203079708}
-    - target: {fileID: 1694814326, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694814326, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: PauseGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694814326, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: PauseMenuScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694814326, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1005983721033641761, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -21015,6 +20979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 977b820801a24724cacec3dde9182f37, type: 3}
+--- !u!20 &812756476 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 519420031, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+  m_PrefabInstance: {fileID: 803733038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &839304316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21480,17 +21449,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1268515315016702193, guid: 977b820801a24724cacec3dde9182f37, type: 3}
   m_PrefabInstance: {fileID: 1101465484}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1203079708 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1005983721033641764, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
-  m_PrefabInstance: {fileID: 803733038}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bac5cfcfe2c34732a93874e7feed509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1220029977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21692,10 +21650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
-      propertyPath: data.availableBeasts.Array.data[0]
+    - target: {fileID: 873619469, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 812756476}
     - target: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_Name
       value: PlayerObject

@@ -1,9 +1,9 @@
- /*
+/*
 AUTHOR DD/MM/YY: Kaleb 02/12/22
 
-	- EDITOR DD/MM/YY CHANGES:
-    - Kaleb 03/12/22: Minor fixes and changes
-    - Quentin 21/12/22: Added convo event for NPC
+   - EDITOR DD/MM/YY CHANGES:
+   - Kaleb 03/12/22: Minor fixes and changes
+   - Quentin 21/12/22: Added convo event for NPC
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +14,8 @@ public class InteractionObject : MonoBehaviour
     private Collider2D collision;
     private PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward dialogueContinue;
     private PlayerManager manager;
+    private bool active = false;
+    public GameObject InteractionUI;
 
     private void Start()
     {
@@ -22,29 +24,34 @@ public class InteractionObject : MonoBehaviour
     }
     public IEnumerator Interact()
     {
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-
-
-        yield return new WaitForSeconds(0.1f);
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        active = true;
+        yield return new WaitForEndOfFrame();
+        active = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         collision = other;
         Trigger();
-        //Turn on Interaction text/UI
+        InteractionUI.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         collision = null;
-        //Turn off Interaction text/UI
+        InteractionUI.SetActive(false);
+    }
+    void Update()
+    {
+        if (collision != null)
+        {
+            Trigger();
+        }
     }
 
     public void Trigger()
     {
-        if (collision != null)
+        if (collision != null && active)
         {
             switch (collision.tag)
             {
@@ -62,17 +69,17 @@ public class InteractionObject : MonoBehaviour
                     // save game
                     collision.gameObject.GetComponentInParent<SaveLoadGame>().Save();
                     Debug.Log(collision.gameObject.name);
-                    EventManager.Instance.QueueEvent(new NotificationEvent("","", NotificationEvent.NotificationType.Save));
+                    EventManager.Instance.QueueEvent(new NotificationEvent("", "", NotificationEvent.NotificationType.Save));
 
                     //collision.GetComponentInParent<SaveBeacon>().OpenFastTravel();
                     break;
             }
+            active = false;
         }
         else if (manager.inDialogue)
         {
             //dialogueContinue.OnFastForward();
         }
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        collision = null;
+
     }
 }
