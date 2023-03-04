@@ -19,9 +19,9 @@ public class InteractionObject : MonoBehaviour
 
     private void Start()
     {
-        //dialogueContinue = GameObject.Find("Dialogue Manager/Canvas/Custom Template Standard Dialogue UI 2/Dialogue Panel/Main Panel/Text Panel/Continue Button").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
         manager = PlayerManager.instance;
     }
+
     public IEnumerator Interact()
     {
         active = true;
@@ -61,8 +61,16 @@ public class InteractionObject : MonoBehaviour
                     break;
 
                 case "NPC":
-                    PixelCrushers.DialogueSystem.Usable usable = collision.GetComponent<PixelCrushers.DialogueSystem.Usable>();
-                    usable.gameObject.BroadcastMessage("OnUse", this.transform, SendMessageOptions.DontRequireReceiver);
+                    if (manager.inDialogue)
+                    {
+                        if (dialogueContinue == null) dialogueContinue = GameObject.FindGameObjectWithTag("DialogueContinue").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
+                        dialogueContinue.OnFastForward();
+                    }
+                    else
+                    {
+                        PixelCrushers.DialogueSystem.Usable usable = collision.GetComponent<PixelCrushers.DialogueSystem.Usable>();
+                        usable.gameObject.BroadcastMessage("OnUse", this.transform, SendMessageOptions.DontRequireReceiver);
+                    }
                     break;
 
                 case "SaveBeacon":
@@ -75,10 +83,6 @@ public class InteractionObject : MonoBehaviour
                     break;
             }
             active = false;
-        }
-        else if (manager.inDialogue)
-        {
-            //dialogueContinue.OnFastForward();
         }
 
     }

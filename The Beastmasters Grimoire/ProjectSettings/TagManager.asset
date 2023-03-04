@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Cinemachine
   - DashCooldown
+  - NPC
+  - DialogueContinue
   layers:
   - Default
   - TransparentFX
