@@ -273,13 +273,17 @@ public class PlayerManager : MonoBehaviour
 
         if (context.performed)
         {
-            animator.SetBool("isSprinting", true);
+            //animator.SetBool("isSprinting", true);
             data.playerStamina.isSprinting = true;
+
+            animator.SetFloat("SprintMult", 2);
         }
         else
         {
-            animator.SetBool("isSprinting", false);
+            //animator.SetBool("isSprinting", false);
             data.playerStamina.isSprinting = false;
+
+            animator.SetFloat("SprintMult", 1);
         }
     }
 

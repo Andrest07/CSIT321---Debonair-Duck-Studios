@@ -31,12 +31,16 @@ public class PlayerStamina : MonoBehaviour
     public bool isSprinting; //Boolean for whether the player is sprinting or not
     public bool isRegening; //Boolean for whether the player is regenerating or not
 
+    private PlayerManager playerManager;
+
     void Start()
     {
         //Initializing values
         currentStamina = totalStamina;
         currentRegenDelay = totalRegenDelay;
         updateSpeed();
+
+        playerManager = PlayerManager.instance;
     }
 
     void Update()
@@ -66,6 +70,12 @@ public class PlayerStamina : MonoBehaviour
         {
             currentStamina = 0;
             isSprinting = false;
+
+            //playerManager.animator.SetBool("isSprinting", false);
+            playerManager.data.playerStamina.isSprinting = false;
+
+            playerManager.animator.SetFloat("SprintMult", 1);
+
         }
     }
 
