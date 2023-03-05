@@ -21866,7 +21866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1128358610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WorldTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22169,7 +22169,7 @@ GameObject:
   - component: {fileID: 1273424955}
   - component: {fileID: 1273424954}
   - component: {fileID: 1273424953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Quest00Giver
   m_TagString: Untagged
   m_Icon: {fileID: 0}

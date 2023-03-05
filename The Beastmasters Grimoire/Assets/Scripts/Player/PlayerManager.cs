@@ -179,6 +179,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         switch (playerMode) //Decide which attack is used based on player mode
         {
             case PlayerMode.Basic:
@@ -217,6 +219,8 @@ public class PlayerManager : MonoBehaviour
 
     public void SpellcastMode(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         if (playerMode == PlayerMode.Spellcast) //If the player is spellcasting, return to basic attacks
         {
             animator.SetBool("isCasting", false);
@@ -235,6 +239,8 @@ public class PlayerManager : MonoBehaviour
 
     public void CaptureMode(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         if (playerMode == PlayerMode.Capture) //If the player is capturing, return to basic attacks
         {
             animator.SetBool("isCapturing", false);
@@ -253,6 +259,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         if (context.performed)
         {
             StartCoroutine(interactionObject.Interact());
@@ -261,6 +269,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext context) //Button down and up sets sprinting to true and false respectively
     {
+        if(GameManager.instance.isPaused) return;
+
         if (context.performed)
         {
             animator.SetBool("isSprinting", true);
@@ -275,6 +285,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Movement(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         if (context.performed && canMove)
             animator.SetBool("isWalking", true);
         else
@@ -293,6 +305,8 @@ public class PlayerManager : MonoBehaviour
 
     public void MonsterSwitch(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         data.currentBeastIndex += (int)context.ReadValue<float>(); //Change the current beast index by -1 or 1 for Q and E respectively
 
         if (data.currentBeastIndex < 0) //Lower bound, set selected beast index to last beast
@@ -311,6 +325,8 @@ public class PlayerManager : MonoBehaviour
 
     public void MonsterSelect(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         if (context.ReadValue<float>() < data.totalBeasts)
         { //If the selected beast is not out of bounds change the selected beast
             data.currentBeastIndex = (int)context.ReadValue<float>();
@@ -321,6 +337,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Mobility(InputAction.CallbackContext context)
     {
+        if(GameManager.instance.isPaused) return;
+
         if (context.performed && playerDash.canDash && movementVector != Vector2.zero)
         {
             playerDash.Dash(movementVector);
@@ -351,4 +369,5 @@ public class PlayerManager : MonoBehaviour
         data.playerHealth.isInvulnerable = false;
 
     }
+    
 }

@@ -15612,7 +15612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 159923592}
-  hud: {fileID: 0}
+  hud: {fileID: 1971578401401381992}
 --- !u!114 &1005983721033641765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15626,7 +15626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMenu: {fileID: 1534745029}
-  hud: {fileID: 0}
+  hud: {fileID: 1971578401401381992}
 --- !u!114 &146138544645821981
 MonoBehaviour:
   m_ObjectHideFlags: 0
