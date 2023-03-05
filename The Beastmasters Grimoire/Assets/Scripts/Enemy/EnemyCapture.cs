@@ -42,6 +42,8 @@ public class EnemyCapture : MonoBehaviour
         captureMultiplyer = (1 + hasCaptured)*healthMultiplier; //Will be expanded with better calculations later
         captureAmount += captureMultiplyer * power;
 
+        enemyController.UpdateCapturehBar(captureAmount);
+
         if (captureAmount >= enemyScriptableObject.CaptureTotal)
         {
             GameManager.instance.SetBeastiary(enemyScriptableObject);
