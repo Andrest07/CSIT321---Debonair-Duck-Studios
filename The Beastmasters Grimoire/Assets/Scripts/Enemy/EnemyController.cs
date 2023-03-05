@@ -11,11 +11,13 @@
     - Kaleb 19/11/22: Added scriptable object data
     - Quentin 1/12/22: Added navmeshagent
     - Kunal 22/12/22: Added knockback effect
+    - Kaleb 05/03/23: Added Enemy UI
 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -24,6 +26,12 @@ public class EnemyController : MonoBehaviour
 
     [Header("Gizmos")]
     public bool drawGizmos = true;
+
+    [Header("UI Elements")]
+    public GameObject healthBar;
+    public GameObject captureBar;
+    public GameObject enemyName;
+
 
     // Externals
     [HideInInspector] public Transform playerT;
@@ -59,6 +67,10 @@ public class EnemyController : MonoBehaviour
     {
         playerT = PlayerManager.instance.GetComponent<Transform>();
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
+
+        enemyName.GetComponent<TMPro.TextMeshProUGUI>().text = data.EnemyName;
+        healthBar.GetComponent<Slider>().maxValue = data.Health;
+        captureBar.GetComponent<Slider>().maxValue = data.CaptureTotal;
     }
 
     // Enemy attack
@@ -94,7 +106,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Collision events
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isColliding = true;
@@ -110,7 +122,7 @@ public class EnemyController : MonoBehaviour
         }
 
     }
-    
+
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -135,6 +147,16 @@ public class EnemyController : MonoBehaviour
         canTakeDamage = false;
         yield return new WaitForSeconds(data.AttackCooldown);
         canTakeDamage = true;
+    }
+
+    public void UpdateHealthBar(float health)
+    {
+        healthBar.GetComponent<Slider>().value = health;
+    }
+
+    public void UpdateCapturehBar(float capture)
+    {
+        captureBar.GetComponent<Slider>().value = capture;
     }
 
 

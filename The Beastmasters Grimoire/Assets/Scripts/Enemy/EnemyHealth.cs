@@ -37,6 +37,8 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(Stun(knockbackDirection * damageMultiplier));
         currentHealth -= damage; // Take damage
 
+        controller.UpdateHealthBar(currentHealth);
+
         // Death Trigger
         if (currentHealth <= 0)
         {
