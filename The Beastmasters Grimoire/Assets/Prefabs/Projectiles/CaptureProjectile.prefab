@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7015508037614737926}
   - component: {fileID: 4525632760357167488}
   - component: {fileID: -8945578719853791232}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CaptureProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  capturePower: 0
 --- !u!114 &-8945578719853791232
 MonoBehaviour:
   m_ObjectHideFlags: 0

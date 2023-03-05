@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 388464848}
   - component: {fileID: 428888872}
   - component: {fileID: 644856282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SaveBeacon
   m_TagString: SaveBeacon
   m_Icon: {fileID: 0}
@@ -204,6 +204,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb9a0db9817940cabba522f73c0b030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContinueButton: {fileID: 0}
-  FastTravelMenu: {fileID: 0}
   beaconData: {fileID: 0}
