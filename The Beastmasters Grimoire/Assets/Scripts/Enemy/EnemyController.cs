@@ -70,7 +70,7 @@ public class EnemyController : MonoBehaviour
 
         enemyName.GetComponent<TMPro.TextMeshProUGUI>().text = data.EnemyName;
         healthBar.GetComponent<Slider>().maxValue = data.Health;
-        captureBar.GetComponent<Slider>().maxValue = data.CaptureTotal;
+        captureBar.GetComponent<Slider>().maxValue = data.CaptureTotal*100;
     }
 
     // Enemy attack
@@ -156,7 +156,7 @@ public class EnemyController : MonoBehaviour
 
     public void UpdateCapturehBar(float capture)
     {
-        captureBar.GetComponent<Slider>().value = capture;
+        captureBar.GetComponent<Slider>().value = capture*100;
     }
 
 
