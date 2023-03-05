@@ -305,7 +305,7 @@ public class PlayerManager : MonoBehaviour
             data.currentBeastIndex = 0;
         }
 
-        data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellObject;; //Change the currently selected beast
+        data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellObject;; //Change the currently selected beast
         GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
     }
 
@@ -314,7 +314,7 @@ public class PlayerManager : MonoBehaviour
         if (context.ReadValue<float>() < data.totalBeasts)
         { //If the selected beast is not out of bounds change the selected beast
             data.currentBeastIndex = (int)context.ReadValue<float>();
-            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellObject;;
+            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellObject;
             GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
         }
     }

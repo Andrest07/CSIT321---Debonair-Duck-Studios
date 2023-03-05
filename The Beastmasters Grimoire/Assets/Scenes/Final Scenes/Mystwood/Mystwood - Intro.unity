@@ -21724,6 +21724,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSwapper
       objectReference: {fileID: 0}
+    - target: {fileID: 5641556614216282355, guid: bf7261688248df1489d29583656f656b, type: 3}
+      propertyPath: levelSwap
+      value: Mystwood - Forest 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641556614216282355, guid: bf7261688248df1489d29583656f656b, type: 3}
+      propertyPath: levelSwapLocation.x
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641556614216282355, guid: bf7261688248df1489d29583656f656b, type: 3}
+      propertyPath: levelSwapLocation.y
+      value: -182
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7261688248df1489d29583656f656b, type: 3}
 --- !u!1001 &1093188044

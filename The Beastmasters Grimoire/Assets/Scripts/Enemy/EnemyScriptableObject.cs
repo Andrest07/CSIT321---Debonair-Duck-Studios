@@ -22,7 +22,7 @@ public class EnemyScriptableObject : ScriptableObject
 
     [Header("Spell Info")]
     [SerializeField] private string spellName;
-    [SerializeField] private GameObject spellObject;
+    [SerializeField] private SpellScriptableObject spellScriptable;
     [SerializeField] private SpellTypeEnum spellType;
     [TextArea][SerializeField] private string spellDescription;
 
@@ -53,7 +53,7 @@ public class EnemyScriptableObject : ScriptableObject
     public EnemyTypeEnum EnemyType { get => enemyType; }
     public string EnemyDescription { get => enemyDescription; }
     public string SpellName { get => spellName; }
-    public GameObject SpellObject { get => spellObject; }
+    public SpellScriptableObject SpellScriptable { get => spellScriptable; }
     public SpellTypeEnum SpellType { get => spellType; }
     public string SpellDescription { get => spellDescription; }
     public bool IsRanged { get => isRanged; }
