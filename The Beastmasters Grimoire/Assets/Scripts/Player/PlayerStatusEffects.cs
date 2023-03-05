@@ -12,7 +12,7 @@ public class PlayerStatusEffects : MonoBehaviour {
     public float startTime;
     public float currentTime;
 
-    private Bullet bullet;
+    private Projectile projectile;
 
     [Header("Status Effects")]
     public float maxBurnMeter = 10f;
@@ -38,7 +38,7 @@ public class PlayerStatusEffects : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other){
         Debug.Log("enter");
-        bullet = other.gameObject.GetComponent<Bullet>();
+        projectile = other.gameObject.GetComponent<Projectile>();
 
         /*switch(bullet.projectileType){
             case "Fire":

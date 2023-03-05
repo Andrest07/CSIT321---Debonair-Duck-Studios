@@ -33,6 +33,7 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private GameObject rangedProjectile;
     [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float captureTotal = 5f;
+    [SerializeField] private float testing = 5f;
 
     [Header("Ranged Stats")]
     [SerializeField] private bool isRanged = false;
@@ -64,6 +65,7 @@ public class EnemyScriptableObject : ScriptableObject
     public GameObject RangedProjectile { get => rangedProjectile; }
     public float WanderRadius { get => wanderRadius; }
     public float CaptureTotal { get => captureTotal; }
+    public float Testing { get => testing; }
     public float VisibilityRange { get => visibilityRange; }
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }

@@ -133,10 +133,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6977254816827940189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1625a29e047365f42bbabc82394c82e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e30b64be6612dd4cabbb0c149e265b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  playerT: {fileID: 0}
-  playerH: {fileID: 0}
-  parentController: {fileID: 0}
+  playerSpell: 0
+  eController: {fileID: 0}

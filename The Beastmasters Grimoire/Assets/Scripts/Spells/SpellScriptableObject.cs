@@ -12,9 +12,10 @@ public class SpellScriptableObject : ScriptableObject
 {
     [Header("Spell Info")]
     [SerializeField] private string spellName;
-    [SerializeField] private GameObject spellObject;
+    [SerializeField] private GameObject spellProjectile;
     [SerializeField] private SpellTypeEnum spellType;
     [SerializeField] private AttributeTypeEnum attributeType;
+    [SerializeField] private float spellCooldown = 2f;
     [TextArea][SerializeField] private string spellDescription;
 
     [Header("Spell Stats")]
@@ -27,7 +28,7 @@ public class SpellScriptableObject : ScriptableObject
     [SerializeField] private float projRotation = 1f;
 
     public string SpellName { get => spellName; }
-    public GameObject SpellObject { get => spellObject; }
+    public GameObject SpellProjectile { get => spellProjectile; }
     public SpellTypeEnum SpellType { get => spellType; }
     public AttributeTypeEnum AttributeType { get => attributeType; }
     public string SpellDescription { get => spellDescription; }

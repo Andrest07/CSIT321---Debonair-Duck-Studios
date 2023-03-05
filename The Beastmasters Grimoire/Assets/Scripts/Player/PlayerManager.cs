@@ -195,9 +195,11 @@ public class PlayerManager : MonoBehaviour
                 if (true)
                 {
                     mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-                    Instantiate(data.currentBeast,
+                    GameObject tempSpell = Instantiate(data.currentBeast,
                         transform.position + mousePos.normalized,
                         Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
+                    tempSpell.GetComponent<Projectile>().playerSpell = true;
+                    tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
                     //Same as exiting spellcasting
                     animator.SetBool("isCasting", false);
                     playerMode = PlayerMode.Basic;
@@ -305,7 +307,7 @@ public class PlayerManager : MonoBehaviour
             data.currentBeastIndex = 0;
         }
 
-        data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellObject;; //Change the currently selected beast
+        data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile;; //Change the currently selected beast
         GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
     }
 
@@ -314,7 +316,7 @@ public class PlayerManager : MonoBehaviour
         if (context.ReadValue<float>() < data.totalBeasts)
         { //If the selected beast is not out of bounds change the selected beast
             data.currentBeastIndex = (int)context.ReadValue<float>();
-            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellObject;
+            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile;
             GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
         }
     }

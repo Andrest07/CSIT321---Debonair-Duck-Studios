@@ -6,51 +6,86 @@
     - Kaleb 19/11/22: Added scriptable object data
     - Andreas 21/02/23: Added homing functionality, removed EnemyC (redundant)
     - Andreas 22/02/23: Modifications to homing functionality (still broken), added moveSpeed as projSpeed and projLifetime to EnemyScriptableObject
+    - Andreas 05/03/23: Reworked to work with both players and enemies
 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class Bullet : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     Rigidbody2D rb;
     Quaternion rotateToTarget;
 
     private GameObject PlayerObject;
-    [HideInInspector] public Transform playerT;
-    [HideInInspector] public PlayerHealth playerH;
-    [HideInInspector] public EnemyController parentController;
+    [HideInInspector] public bool playerSpell = false;
+    [HideInInspector] private Transform playerT;
+    [HideInInspector] private PlayerHealth playerH;
+    [HideInInspector] public SpellScriptableObject playerS;
+    [HideInInspector] public EnemyController eController;
+    [HideInInspector] private EnemyScriptableObject enemyS;
     Vector2 moveDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerObject = PlayerManager.instance.gameObject;
-        playerT = PlayerObject.GetComponent<Transform>();
-        playerH = PlayerObject.GetComponent<PlayerHealth>();
+        PlayerManager playerM = PlayerObject.GetComponent<PlayerManager>();
+        if (playerSpell == false){
+            enemyS = eController.data;
+            playerT = PlayerObject.GetComponent<Transform>();
+            playerH = PlayerObject.GetComponent<PlayerHealth>();
+            moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
+        } else {
+            Vector3 mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+            moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
+        }
         rb  = GetComponent<Rigidbody2D>();
-        moveDirection = (playerT.position - transform.position).normalized * parentController.data.ProjSpeed;
         rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
-        Destroy(gameObject, parentController.data.ProjLifetime);
+        if (playerSpell == false){
+            Destroy(gameObject, enemyS.ProjLifetime);
+        } else {
+            Destroy(gameObject, playerS.ProjLifetime);
+        }
     }
 
     void FixedUpdate()
     {
-        if (parentController.data.ProjHoming)
-            {
-                moveDirection = (playerT.position - transform.position).normalized * parentController.data.ProjSpeed;
-                float angle = Vector3.Cross(moveDirection, transform.position).z;
-                rb.angularVelocity = angle * parentController.data.ProjRotation;
-                rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
-            }
-        
+        if (enemyS != null){
+            if (enemyS.ProjHoming == true){
+                    float angle = Vector3.Cross(moveDirection, transform.position).z;
+                    rb.angularVelocity = angle * enemyS.ProjRotation;
+                }
+        }
+        if (playerS != null){
+            if (playerS.ProjHoming == true){
+                    Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), transform.position).GetComponent<Transform>();
+                    moveDirection = (homingT.position - transform.position).normalized * playerS.ProjSpeed;
+                    float angle = Vector3.Cross(transform.position, moveDirection).z;
+                    rb.angularVelocity = angle * playerS.ProjRotation;
+                }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name.Equals("PlayerObject")){
-            playerH.TakeDamage(parentController.data.ProjDamage);
+        if (col.gameObject.tag.Equals("Player") && playerSpell == false){
+            playerH.TakeDamage(enemyS.ProjDamage);
+            Destroy (gameObject);
+        } else if (col.gameObject.tag.Equals("Enemy") && playerSpell == true){
+            EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
+            enemyH.TakeDamage(playerS.ProjDamage, transform.position);
             Destroy (gameObject);
         }
+    }
+
+    public GameObject SortDistances(GameObject[] objects, Vector3 origin) {
+        float[] distances = new float[ objects.Length ];
+        for (int i = 0; i < objects.Length; i++) {
+            distances[i] = (objects[i].transform.position - origin).sqrMagnitude;
+        }
+        System.Array.Sort(distances, objects);
+        return objects[0];
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyType: 0
   enemyDescription: 
   spellName: 
-  spellObject: {fileID: 0}
+  spellScriptable: {fileID: 0}
   spellType: 0
   spellDescription: 
   health: 20
@@ -25,6 +25,7 @@ MonoBehaviour:
   rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3
   captureTotal: 5
+  testing: 5
   isRanged: 1
   projHoming: 0
   projRotation: 1
