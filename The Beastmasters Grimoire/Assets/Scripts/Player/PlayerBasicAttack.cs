@@ -23,9 +23,6 @@ public class PlayerBasicAttack : MonoBehaviour
     private Vector3 offsetVector;
     private readonly int layerMask = 1 << 3;
 
-    private void Awake()
-    {
-    }
 
     public void BasicAttack()
     {

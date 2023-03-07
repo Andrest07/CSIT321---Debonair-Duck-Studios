@@ -359,6 +359,11 @@ public class PlayerManager : MonoBehaviour
             Instantiate(captureProjectile,
                         transform.position + mousePos.normalized,
                         Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
+
+            // Set sprite direction
+            animator.SetFloat("Move X", mousePos.x);
+            animator.SetFloat("Move Y", mousePos.y);
+
             yield return new WaitForSeconds(captureProjectileCooldown);
         }
 
