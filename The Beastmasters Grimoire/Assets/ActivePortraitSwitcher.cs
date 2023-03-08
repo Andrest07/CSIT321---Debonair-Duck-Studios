@@ -25,7 +25,6 @@ public class ActivePortraitSwitcher : MonoBehaviour
             {
                 speakerName = PixelCrushers.DialogueSystem.DialogueManager.currentConversationState.subtitle.speakerInfo.nameInDatabase;
 
-                Debug.Log(speakerName);
                 if (speakerName == "Player" || speakerName == "PlayerChoice")
                 {
                     portrait0.alpha = 1;

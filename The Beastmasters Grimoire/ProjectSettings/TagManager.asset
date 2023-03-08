@@ -12,6 +12,7 @@ TagManager:
   - DashCooldown
   - NPC
   - DialogueContinue
+  - Door
   layers:
   - Default
   - TransparentFX

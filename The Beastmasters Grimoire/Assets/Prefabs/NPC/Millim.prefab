@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8694813103044809916
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1945653360836825378, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07589115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825382, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: trigger
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825382, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: conversation
+      value: Tutorial Conversation 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825382, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: selectedDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 963b11d3ea3d4374d9d6dfc76458cc50, type: 2}
+    - target: {fileID: 1945653360836825382, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: conversationActor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945653360836825385, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_Name
+      value: Millim
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130165293013677925, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1945653360836825379, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}

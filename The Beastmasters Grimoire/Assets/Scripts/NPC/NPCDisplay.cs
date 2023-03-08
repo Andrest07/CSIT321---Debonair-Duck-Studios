@@ -10,25 +10,22 @@ using TMPro;
 
 public class NPCDisplay : MonoBehaviour
 {
-    private Transform canvas;
-
+    public GameObject canvas;
     public string npcName;
 
     private void Awake()
     {
-        canvas = this.gameObject.transform.GetChild(0);
-
-        canvas.gameObject.GetComponentInChildren<TMP_Text>().text = npcName;
+       canvas.GetComponentInChildren<TMP_Text>().text = npcName;
     }
 
     // Display NPC canvas
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") canvas.gameObject.SetActive(true);
+        if (collision.tag == "Player") canvas.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player") canvas.gameObject.SetActive(false);
+        if (collision.tag == "Player") canvas.SetActive(false);
     }
 }
