@@ -18,7 +18,14 @@ public class LevelSwapper : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene(levelSwap);
+            LoadLevel();
+        }
+    }
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene(levelSwap);
+        if (PlayerManager.instance != null)
+        {
             PlayerManager.instance.levelSwapPosition = levelSwapLocation;
         }
     }

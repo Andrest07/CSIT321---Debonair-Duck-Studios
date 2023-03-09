@@ -22132,7 +22132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5641556614216282355, guid: bf7261688248df1489d29583656f656b, type: 3}
       propertyPath: levelSwap
-      value: Mystwood - Forest 1
+      value: MystwoodForest1
       objectReference: {fileID: 0}
     - target: {fileID: 5641556614216282355, guid: bf7261688248df1489d29583656f656b, type: 3}
       propertyPath: levelSwapLocation.x
@@ -22741,6 +22741,10 @@ PrefabInstance:
     - target: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063347449660883088, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: totalStamina
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7342188552462242031, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_RootOrder

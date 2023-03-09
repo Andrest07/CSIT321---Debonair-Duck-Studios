@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Forest Clearing
   m_EditorClassIdentifier: 
   beaconName: Forest Clearing
-  beaconScene: Mystwood - Intro
+  beaconScene: MystwoodIntro
   beaconPosition: {x: 0.32, y: 1.3}

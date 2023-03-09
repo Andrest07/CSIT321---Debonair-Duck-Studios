@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb86adf2fdb5b44b83502e97022a8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalStamina: 111111
+  totalStamina: 5
   currentStamina: 0
   sprintSpeed: 0
   sprintRate: 1.5
@@ -569,6 +569,7 @@ MonoBehaviour:
   captureProjectile: {fileID: 6977254816827940189, guid: 4b2c22a542f029d4b8cf7283080e92e6, type: 3}
   captureProjectileCooldown: 0.25
   capturePower: 0.5
+  fizzleEffect: {fileID: 0}
   data:
     playerStamina: {fileID: 0}
     playerHealth: {fileID: 0}
@@ -577,6 +578,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    availableBeastsCooldowns: []
     totalBeasts: 3
     currentBeastIndex: 0
     playerQuests: []
