@@ -307,10 +307,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerObject
       objectReference: {fileID: 0}
-    - target: {fileID: 3063347449660883088, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
-      propertyPath: totalStamina
-      value: 111111
-      objectReference: {fileID: 0}
     - target: {fileID: 7342188552462242031, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_RootOrder
       value: 1
