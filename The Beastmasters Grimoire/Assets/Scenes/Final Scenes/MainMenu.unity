@@ -8224,7 +8224,7 @@ GameObject:
   - component: {fileID: 912887849}
   - component: {fileID: 912887848}
   m_Layer: 0
-  m_Name: QuiteButton
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8557,7 +8557,7 @@ GameObject:
   - component: {fileID: 963306045}
   - component: {fileID: 963306044}
   m_Layer: 0
-  m_Name: ContinueButton
+  m_Name: LoadGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8577,11 +8577,11 @@ RectTransform:
   m_Children:
   - {fileID: 1003139914}
   m_Father: {fileID: 1834218956}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 378, y: 267}
+  m_AnchoredPosition: {x: 378, y: 112}
   m_SizeDelta: {x: 716, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963306044
@@ -9222,7 +9222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Load Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
   m_sharedMaterial: {fileID: 1909752705754731268, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
@@ -12062,11 +12062,11 @@ RectTransform:
   m_Children:
   - {fileID: 1415299281}
   m_Father: {fileID: 1834218956}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 378, y: 115}
+  m_AnchoredPosition: {x: 378, y: 267}
   m_SizeDelta: {x: 716, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359223687
@@ -16890,8 +16890,8 @@ RectTransform:
   m_Children:
   - {fileID: 1116996935}
   - {fileID: 868087944}
-  - {fileID: 963306043}
   - {fileID: 1359223686}
+  - {fileID: 963306043}
   - {fileID: 713360639}
   - {fileID: 549757910}
   - {fileID: 912887847}
