@@ -19,6 +19,7 @@ z
     - Kaleb 19/12/22 Singleton setup
     - Kaleb 07/01/23 Capture Redesign
     - Quentin 9/2/23 'Data' struct for storing persistant data
+    - Kaleb 09/03/23: Beast management improvements
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -60,6 +61,8 @@ public class PlayerManager : MonoBehaviour
     public GameObject captureProjectile;
     public float captureProjectileCooldown;
     public float capturePower;
+    [Header("Other Data")]
+    public GameObject fizzleEffect;
 
     // Serializable struct for data that will be saved/loaded //
     [System.Serializable]
@@ -69,8 +72,9 @@ public class PlayerManager : MonoBehaviour
         [HideInInspector] public PlayerHealth playerHealth;
 
         [Header("Beast Management")]
-        public GameObject currentBeast; //The beast the player currently has selected
+        public GameObject currentBeast; //The beast the player currently has selected   
         public List<EnemyScriptableObject> availableBeasts; //All the beasts the player currently has equipped
+        public List<float> availableBeastsCooldowns; //The corresponding cooldowns for each beast the player currently has equipped
         public int totalBeasts; //The total number of beasts the player can store
         public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
 
@@ -104,6 +108,7 @@ public class PlayerManager : MonoBehaviour
         while (data.availableBeasts.Count > data.totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
             data.availableBeasts.RemoveAt(data.availableBeasts.Count - 1);
+            data.availableBeastsCooldowns.RemoveAt(data.availableBeasts.Count - 1);
         }
         //data.currentBeast = data.availableBeasts[0].SpellObject;
     }
@@ -179,7 +184,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         switch (playerMode) //Decide which attack is used based on player mode
         {
@@ -193,8 +198,20 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case PlayerMode.Spellcast:
-                //NEEDS TO BE IN IF CHECK FOR COOLDOWN <= 0
-                if (true)
+
+                if (data.currentBeast == null)
+                {
+                    //Create Fizzle Effect and play warning sound
+                    mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                    Instantiate(fizzleEffect,
+                        transform.position + mousePos.normalized,
+                        Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
+                    //Same as exiting spellcasting
+                    animator.SetBool("isCasting", false);
+                    playerMode = PlayerMode.Basic;
+                    canMove = true;
+                }
+                else if (data.availableBeastsCooldowns[data.currentBeastIndex] <= 0)
                 {
                     mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
                     GameObject tempSpell = Instantiate(data.currentBeast,
@@ -206,6 +223,7 @@ public class PlayerManager : MonoBehaviour
                     animator.SetBool("isCasting", false);
                     playerMode = PlayerMode.Basic;
                     canMove = true;
+                    StartCoroutine(AbilityCooldown(data.currentBeastIndex));
                 }
                 else
                 {
@@ -221,7 +239,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SpellcastMode(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         if (playerMode == PlayerMode.Spellcast) //If the player is spellcasting, return to basic attacks
         {
@@ -241,7 +259,7 @@ public class PlayerManager : MonoBehaviour
 
     public void CaptureMode(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         if (playerMode == PlayerMode.Capture) //If the player is capturing, return to basic attacks
         {
@@ -261,7 +279,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         if (context.performed)
         {
@@ -271,7 +289,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext context) //Button down and up sets sprinting to true and false respectively
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         if (context.performed)
         {
@@ -291,7 +309,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Movement(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         if (context.performed && canMove)
             animator.SetBool("isWalking", true);
@@ -311,7 +329,7 @@ public class PlayerManager : MonoBehaviour
 
     public void MonsterSwitch(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         data.currentBeastIndex += (int)context.ReadValue<float>(); //Change the current beast index by -1 or 1 for Q and E respectively
 
@@ -324,26 +342,39 @@ public class PlayerManager : MonoBehaviour
         {
             data.currentBeastIndex = 0;
         }
-
-        data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile;; //Change the currently selected beast
+        if (data.availableBeasts[data.currentBeastIndex] != null)
+        {
+            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile; ; //Change the currently selected beast
+        }
+        else
+        {
+            data.currentBeast = null;
+        }
         GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
     }
 
     public void MonsterSelect(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         if (context.ReadValue<float>() < data.totalBeasts)
         { //If the selected beast is not out of bounds change the selected beast
             data.currentBeastIndex = (int)context.ReadValue<float>();
-            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile;
+            if (data.availableBeasts[data.currentBeastIndex] != null)
+            {
+                data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile; ; //Change the currently selected beast
+            }
+            else
+            {
+                data.currentBeast = null;
+            }
             GameManager.instance.UpdateDisplayedSpell(data.currentBeastIndex);
         }
     }
 
     public void Mobility(InputAction.CallbackContext context)
     {
-        if(GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused) return;
 
         if (context.performed && playerDash.canDash && movementVector != Vector2.zero)
         {
@@ -380,5 +411,16 @@ public class PlayerManager : MonoBehaviour
         data.playerHealth.isInvulnerable = false;
 
     }
-    
+
+    public IEnumerator AbilityCooldown(int i)
+    {
+        data.availableBeastsCooldowns[i] = 2;// data.currentBeast[i].SpellScriptable.
+        while (data.availableBeastsCooldowns[i] >= 0)
+        {
+            data.availableBeastsCooldowns[i] -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        data.availableBeastsCooldowns[i] = 0;
+    }
+
 }

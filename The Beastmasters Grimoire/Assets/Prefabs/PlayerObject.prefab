@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb86adf2fdb5b44b83502e97022a8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalStamina: 5
+  totalStamina: 111111
   currentStamina: 0
   sprintSpeed: 0
   sprintRate: 1.5
@@ -572,7 +572,7 @@ MonoBehaviour:
   data:
     playerStamina: {fileID: 0}
     playerHealth: {fileID: 0}
-    currentBeast: {fileID: 977090989498658392, guid: 50257de4580e54c419188c468f78968c, type: 3}
+    currentBeast: {fileID: 0}
     availableBeasts:
     - {fileID: 0}
     - {fileID: 0}
