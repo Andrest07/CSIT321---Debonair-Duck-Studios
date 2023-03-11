@@ -1,4 +1,11 @@
-using System.Timers;
+
+/*
+AUTHOR DD/MM/YY: Kunal 26/02/23
+
+	- EDITOR DD/MM/YY CHANGES:
+
+
+*/
 using System;
 using System.Threading;
 using System.Runtime.InteropServices;
@@ -32,7 +39,7 @@ public class PlayerStatusEffects : MonoBehaviour {
     
     private void Start() {
         InvokeRepeating("decreaseBurn",1f,1f);
-        playerH = gameObject.GetComponent<PlayerHealth>();
+        playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
         startTime = Time.realtimeSinceStartup;
     }
 
