@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1639782938797313481}
   - component: {fileID: 562339574}
   - component: {fileID: 4098434606280599646}
+  - component: {fileID: -2978061256368877787}
   m_Layer: 0
   m_Name: RockLarge01
   m_TagString: Untagged
@@ -141,3 +142,19 @@ PolygonCollider2D:
       - {x: 1.1846685, y: -0.35034418}
       - {x: 1.0585985, y: -0.4787333}
       - {x: 0.755, y: -0.5525}
+--- !u!114 &-2978061256368877787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858441876291227716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

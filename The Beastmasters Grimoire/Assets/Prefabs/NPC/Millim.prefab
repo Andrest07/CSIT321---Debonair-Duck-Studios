@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 940010182684118380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: points.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402910400651130228, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_Height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402910400651130228, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402910400651130228, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_BaseOffset
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402910400651130228, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825378, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -17,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.25
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -61,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825382, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: conversation
-      value: Tutorial Conversation 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825382, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: selectedDatabase
