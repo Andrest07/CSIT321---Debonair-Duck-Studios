@@ -41,19 +41,11 @@ public class InteractionObject : MonoBehaviour
         collision = null;
         InteractionUI.SetActive(false);
     }
-
     void Update()
     {
         if (collision != null)
         {
             Trigger();
-        }
-        else if (dialogueContinue == null && active)
-        {
-            dialogueContinue = GameObject.FindGameObjectWithTag("DialogueContinue").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
-            dialogueContinue.OnFastForward();
-
-            active = false;
         }
     }
 
