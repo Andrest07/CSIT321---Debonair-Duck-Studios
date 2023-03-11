@@ -19,14 +19,18 @@ MonoBehaviour:
   spellObject: {fileID: 0}
   spellType: 0
   spellDescription: Increases players defence.
-  isRanged: 0
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  visibilityRange: 10
-  attackDistance: 7
+  isRanged: 0
+  projHoming: 0
+  projRotation: 1
+  projDamage: 1
+  projSpeed: 1
+  projLifetime: 3
+  visibilityRange: 5.2
+  attackDistance: 0
   attackCooldown: 1
