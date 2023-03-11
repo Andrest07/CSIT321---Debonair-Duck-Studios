@@ -47,12 +47,6 @@ public class InteractionObject : MonoBehaviour
         {
             Trigger();
         }
-        else if(manager.inDialogue && active)
-        {
-            // pressing F when in dialogue that wasn't initiated by an interaction
-            if (dialogueContinue == null) dialogueContinue = GameObject.FindGameObjectWithTag("DialogueContinue").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
-            dialogueContinue.OnFastForward();
-        }
     }
 
     public void Trigger()
