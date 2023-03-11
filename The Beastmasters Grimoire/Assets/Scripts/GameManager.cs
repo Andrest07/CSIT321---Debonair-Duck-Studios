@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 
         spellSlots = GameObject.FindGameObjectsWithTag("SpellSlot");
     }
+	
     void Start()
     {
         UpdateSpellSlots(PlayerManager.instance.data.totalBeasts);

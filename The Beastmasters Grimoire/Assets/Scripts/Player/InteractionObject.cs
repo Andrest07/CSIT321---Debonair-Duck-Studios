@@ -48,9 +48,9 @@ public class InteractionObject : MonoBehaviour
         {
             Trigger();
         }
-        else if (dialogueContinue == null && active)
+        else if (manager.inDialogue && active)
         {
-            dialogueContinue = GameObject.FindGameObjectWithTag("DialogueContinue").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
+            if (dialogueContinue == null) dialogueContinue = GameObject.FindGameObjectWithTag("DialogueContinue").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();
             dialogueContinue.OnFastForward();
 
             active = false;
