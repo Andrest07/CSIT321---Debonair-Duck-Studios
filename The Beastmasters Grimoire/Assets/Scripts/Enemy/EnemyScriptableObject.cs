@@ -19,12 +19,7 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private string enemyName;
     [SerializeField] private EnemyTypeEnum enemyType;
     [TextArea][SerializeField] private string enemyDescription;
-
-    [Header("Spell Info")]
-    [SerializeField] private string spellName;
     [SerializeField] private SpellScriptableObject spellScriptable;
-    [SerializeField] private SpellTypeEnum spellType;
-    [TextArea][SerializeField] private string spellDescription;
 
     [Header("Enemy Stats")]
     [SerializeField] private float health = 10f;
@@ -33,7 +28,6 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private GameObject rangedProjectile;
     [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float captureTotal = 5f;
-    [SerializeField] private float testing = 5f;
 
     [Header("Ranged Stats")]
     [SerializeField] private bool isRanged = false;
@@ -53,10 +47,7 @@ public class EnemyScriptableObject : ScriptableObject
     public string EnemyName { get => enemyName; }
     public EnemyTypeEnum EnemyType { get => enemyType; }
     public string EnemyDescription { get => enemyDescription; }
-    public string SpellName { get => spellName; }
     public SpellScriptableObject SpellScriptable { get => spellScriptable; }
-    public SpellTypeEnum SpellType { get => spellType; }
-    public string SpellDescription { get => spellDescription; }
     public bool IsRanged { get => isRanged; }
     public float Health { get => health; }
     public float Speed { get => speed; }
@@ -65,7 +56,6 @@ public class EnemyScriptableObject : ScriptableObject
     public GameObject RangedProjectile { get => rangedProjectile; }
     public float WanderRadius { get => wanderRadius; }
     public float CaptureTotal { get => captureTotal; }
-    public float Testing { get => testing; }
     public float VisibilityRange { get => visibilityRange; }
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }
@@ -75,13 +65,6 @@ public class EnemyScriptableObject : ScriptableObject
     public float ProjLifetime { get => projLifetime; }
 
     public enum EnemyTypeEnum
-    {
-        //Insert Types here Eventually,
-        Normal,
-        Fire
-    }
-
-    public enum SpellTypeEnum
     {
         //Insert Types here Eventually,
         Normal,
