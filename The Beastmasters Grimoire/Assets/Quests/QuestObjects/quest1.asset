@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73d19ed10878d6b4e8c46b0aad58f2a4, type: 3}
-  m_Name: Quest00
+  m_Name: quest1
   m_EditorClassIdentifier: 
   info:
-    questId: 0
-    questName: Mistwood
-    questDescription: Traverse the Mistwood and reach Altum Heights
+    questId: 1
+    questName: Capture a monster
+    questDescription: 
     questGroup: 0
   reward:
-    exp: 10
+    exp: 5
   stages:
-  - {fileID: 5563424872534514374}
---- !u!114 &5563424872534514374
+  - {fileID: 3876634395656157957}
+--- !u!114 &3876634395656157957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,14 +30,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f8a3a83cff0704ba1a8640f3171b29, type: 3}
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numericalGoal: 0
+  numericalGoal: 1
   numericalCurrent: 0
-  booleanGoal: 1
+  booleanGoal: 0
   stageCompleted:
     m_PersistentCalls:
       m_Calls: []
-  location: Altum Heights
-  stageDescription: Reach Altum Heights
+  monster: Rhino
+  goal: 1
+  stageDescription: Capture a rhino

@@ -35,7 +35,7 @@ public class EnemyCapture : MonoBehaviour
 
         if (hasCaptured == 0)
         {
-            hasCaptured = GameManager.instance.GetBeastiary(enemyScriptableObject) ? 1f : 0.25f;
+            hasCaptured = GameManager.instance.GetBestiary(enemyScriptableObject) ? 1f : 0.25f;
         }
         healthMultiplier = enemyHealth.totalHealth / enemyHealth.currentHealth;
 
@@ -46,8 +46,11 @@ public class EnemyCapture : MonoBehaviour
 
         if (captureAmount >= enemyScriptableObject.CaptureTotal)
         {
-            GameManager.instance.SetBeastiary(enemyScriptableObject);
+            GameManager.instance.SetBestiary(enemyScriptableObject);
             Destroy(gameObject);
+
+            // for capture quests
+            EventManager.Instance.QueueEvent(new QuestStageCheckEvent(enemyScriptableObject.EnemyName));
         }
     }
 }

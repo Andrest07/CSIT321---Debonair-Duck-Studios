@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] spellSlots;
 
-    public EnemyScriptableObject[] beastiaryArray;
+    public EnemyScriptableObject[] bestiaryArray;
 
-    private Dictionary<EnemyScriptableObject, bool> beastiary = new Dictionary<EnemyScriptableObject, bool>();
+    private Dictionary<EnemyScriptableObject, bool> bestiary = new Dictionary<EnemyScriptableObject, bool>();
 
     private int totalBeasts;
 
@@ -56,12 +56,12 @@ public class GameManager : MonoBehaviour
         UpdateSpellSlots(PlayerManager.instance.data.totalBeasts);
         UpdateDisplayedSpell(0);
 
-        //Initialise the beastiary if it isn't intialised. Set all beast unlocks to false
-        if (beastiary.Count == 0)
+        //Initialise the bestiary if it isn't intialised. Set all beast unlocks to false
+        if (bestiary.Count == 0)
         {
-            foreach (EnemyScriptableObject enemy in beastiaryArray)
+            foreach (EnemyScriptableObject enemy in bestiaryArray)
             {
-                beastiary.Add(enemy, false);
+                bestiary.Add(enemy, false);
             }
 
         }
@@ -115,15 +115,15 @@ public class GameManager : MonoBehaviour
     }
 
     //Method for setting a beast to be unlocked
-    public void SetBeastiary(EnemyScriptableObject enemy)
+    public void SetBestiary(EnemyScriptableObject enemy)
     {
-        beastiary[enemy] = true;
+        bestiary[enemy] = true;
     }
 
     //Method for getting whether a beast is or is not unlocked
-    public bool GetBeastiary(EnemyScriptableObject enemy)
+    public bool GetBestiary(EnemyScriptableObject enemy)
     {
-        return beastiary[enemy];
+        return bestiary.ContainsKey(enemy);
     }
 
     public void UpdateSprintCooldown(bool available)

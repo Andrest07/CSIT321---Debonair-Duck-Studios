@@ -10,6 +10,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using System.IO;
 
 [System.Serializable]
 public class Quest : ScriptableObject
@@ -152,11 +153,17 @@ public class QuestEditor : Editor
     List<string> m_questStageType;
     SerializedProperty m_questStageListProperty;
 
+    static string objectPath;
+
     [MenuItem("Assets/Quest", priority = 0)]
     public static void CreateQuest()
     {
         var newQuest = CreateInstance<Quest>();
-        ProjectWindowUtil.CreateAsset(newQuest, "quest.asset");
+
+        objectPath = Application.dataPath + "/Quests/QuestObjects";
+        newQuest.info.questId = Directory.GetFiles(objectPath, "*", SearchOption.TopDirectoryOnly).Length /2;
+            
+        ProjectWindowUtil.CreateAsset(newQuest, "quest"+newQuest.info.questId+".asset");
     }
 
     private void OnEnable()
