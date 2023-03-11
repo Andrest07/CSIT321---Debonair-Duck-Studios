@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1818762530867067192}
   - component: {fileID: 7015508037614737926}
   - component: {fileID: 104555736006875916}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PlaceholderBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,5 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpell: 0
-  playerS: {fileID: 0}
   eController: {fileID: 0}

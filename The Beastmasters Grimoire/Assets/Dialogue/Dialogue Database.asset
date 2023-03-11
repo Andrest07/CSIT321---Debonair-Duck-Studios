@@ -1561,7 +1561,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 244.19147
-        y: 461.26788
+        y: 462.40424
         width: 160
         height: 30
     - id: 9
@@ -1583,7 +1583,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: (Millim motions towards the flickering Mother Tree.)
+        value: (Millim motions towards the flickering Mother Tree.) [panel=0]
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -1638,7 +1638,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: Find out for yourself.
+        value: Find out for yourself. [panel=0]
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -1860,7 +1860,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: Me, I saved you. Be grateful.
+        value: Me, I saved you. Be grateful. [panel=0]
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -1973,6 +1973,7 @@ MonoBehaviour:
         value: No. (motions towards the Beacon) That, saved you. A Pharus Node (though
           I doubt you know what it is), let's just call it a beacon of sorts. Monsters
           avoid a certain radius around the beacon and that's what kept you safe.
+          [panel=0]
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -2083,7 +2084,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Actor
       - title: Menu Text
         value: Anyway, you won't survive with that empty grimoire so I shall grace
-          you with 1% of my power and be your first monster!
+          you with 1% of my power and be your first monster! [panel=0]
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -2114,8 +2115,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.8800001
+    canvasScrollPosition: {x: 0, y: 597.87244}
+    canvasZoom: 0.94000006
   syncInfo:
     syncActors: 0
     syncItems: 0
