@@ -17,7 +17,7 @@ public class EnemyCapture : MonoBehaviour
     private EnemyHealth enemyHealth;
     public float captureAmount = 0;
     public float captureMultiplyer;
-    private int hasCaptured;
+    private float hasCaptured;
     private float healthMultiplier;
 
 
@@ -35,11 +35,11 @@ public class EnemyCapture : MonoBehaviour
 
         if (hasCaptured == 0)
         {
-            hasCaptured = GameManager.instance.GetBeastiary(enemyScriptableObject) ? 1 : 0;
+            hasCaptured = GameManager.instance.GetBeastiary(enemyScriptableObject) ? 1f : 0.25f;
         }
-        healthMultiplier = Mathf.Sqrt(enemyHealth.totalHealth/enemyHealth.currentHealth);
+        healthMultiplier = enemyHealth.totalHealth / enemyHealth.currentHealth;
 
-        captureMultiplyer = (1 + hasCaptured)*healthMultiplier; //Will be expanded with better calculations later
+        captureMultiplyer = (hasCaptured) * healthMultiplier; //Will be expanded with better calculations later
         captureAmount += captureMultiplyer * power;
 
         enemyController.UpdateCapturehBar(captureAmount);
