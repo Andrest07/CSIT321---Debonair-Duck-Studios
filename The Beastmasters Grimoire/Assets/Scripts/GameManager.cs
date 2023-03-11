@@ -71,7 +71,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        isPaused = Time.timeScale == 0 ? true : false;
+    }
+    void OnApplicationPause(bool pauseStatus)
+    {
+        isPaused = pauseStatus;
+        //For Windowed game, pausing when not focused
     }
 
     public void UpdateSpellSlots(int beastMax)

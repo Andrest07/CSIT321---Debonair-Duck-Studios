@@ -279,7 +279,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
-        if (GameManager.instance.isPaused) return;
+        //if (GameManager.instance.isPaused) return;
 
         if (context.performed)
         {
