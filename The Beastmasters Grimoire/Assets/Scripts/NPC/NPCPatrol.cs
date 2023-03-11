@@ -19,6 +19,8 @@ public class NPCPatrol : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
         navMeshAgent.autoBraking = false;
         GoToNextPoint();
 
