@@ -29,6 +29,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    public bool testingMode;
     public static PlayerManager instance = null;
     //Private variables
     private PauseMenuScript pauseFunction;
@@ -38,7 +39,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
-    private InteractionObject interactionObject;    
+    private InteractionObject interactionObject;
     [HideInInspector] public Vector2 movementVector;
     private Vector3 directionVector;
     public Vector3 mousePos;
@@ -64,6 +65,11 @@ public class PlayerManager : MonoBehaviour
     [Header("Other Data")]
     public GameObject fizzleEffect;
 
+    //Tutorial Booleans
+    [HideInInspector] public bool canCapture = false;
+    [HideInInspector] public bool canBasic = false;
+    [HideInInspector] public bool canSpellcast = false;
+
     // Serializable struct for data that will be saved/loaded //
     [System.Serializable]
     public struct Data
@@ -85,6 +91,10 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        if (testingMode)
+        {
+            canCapture = canBasic = canSpellcast = true;
+        }
         if (instance == null)
         {
             instance = this;
@@ -189,7 +199,7 @@ public class PlayerManager : MonoBehaviour
         switch (playerMode) //Decide which attack is used based on player mode
         {
             case PlayerMode.Basic:
-                if (context.performed && canAttack)
+                if (context.performed && canAttack && canBasic)
                 {
                     canAttack = false;
                     canMove = false;
@@ -198,41 +208,46 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case PlayerMode.Spellcast:
-
-                if (data.currentBeast == null)
+                if (canSpellcast)
                 {
-                    //Create Fizzle Effect and play warning sound
-                    mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-                    Instantiate(fizzleEffect,
-                        transform.position + mousePos.normalized,
-                        Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
-                    //Same as exiting spellcasting
-                    animator.SetBool("isCasting", false);
-                    playerMode = PlayerMode.Basic;
-                    canMove = true;
-                }
-                else if (data.availableBeastsCooldowns[data.currentBeastIndex] <= 0)
-                {
-                    mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-                    GameObject tempSpell = Instantiate(data.currentBeast,
-                        transform.position + mousePos.normalized,
-                        Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
-                    tempSpell.GetComponent<Projectile>().playerSpell = true;
-                    tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
-                    //Same as exiting spellcasting
-                    animator.SetBool("isCasting", false);
-                    playerMode = PlayerMode.Basic;
-                    canMove = true;
-                    StartCoroutine(AbilityCooldown(data.currentBeastIndex));
-                }
-                else
-                {
-                    //Something will happen when spells on CD
+                    if (data.currentBeast == null)
+                    {
+                        //Create Fizzle Effect and play warning sound
+                        mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                        Instantiate(fizzleEffect,
+                            transform.position + mousePos.normalized,
+                            Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
+                        //Same as exiting spellcasting
+                        animator.SetBool("isCasting", false);
+                        playerMode = PlayerMode.Basic;
+                        canMove = true;
+                    }
+                    else if (data.availableBeastsCooldowns[data.currentBeastIndex] <= 0)
+                    {
+                        mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                        GameObject tempSpell = Instantiate(data.currentBeast,
+                            transform.position + mousePos.normalized,
+                            Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
+                        tempSpell.GetComponent<Projectile>().playerSpell = true;
+                        tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
+                        //Same as exiting spellcasting
+                        animator.SetBool("isCasting", false);
+                        playerMode = PlayerMode.Basic;
+                        canMove = true;
+                        StartCoroutine(AbilityCooldown(data.currentBeastIndex));
+                    }
+                    else
+                    {
+                        //Something will happen when spells on CD
+                    }
                 }
                 break;
             case PlayerMode.Capture:
-                capture = Capture(context);
-                StartCoroutine(capture);
+                if (canCapture)
+                {
+                    capture = Capture(context);
+                    StartCoroutine(capture);
+                }
                 break;
         }
     }
@@ -240,6 +255,7 @@ public class PlayerManager : MonoBehaviour
     public void SpellcastMode(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
+        if (!canSpellcast) return;
 
         if (playerMode == PlayerMode.Spellcast) //If the player is spellcasting, return to basic attacks
         {
@@ -260,6 +276,7 @@ public class PlayerManager : MonoBehaviour
     public void CaptureMode(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
+        if (!canCapture) return;
 
         if (playerMode == PlayerMode.Capture) //If the player is capturing, return to basic attacks
         {

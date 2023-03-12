@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 1382788680}
   m_Layer: 6
   m_Name: InteractionObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 1695965317}
   - component: {fileID: 1695965318}
   - component: {fileID: 280011212450600004}
+  - component: {fileID: 1904658984}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -557,6 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0037ceb8b580b4ab6f49d5cfdb4649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testingMode: 0
+  movementVector: {x: 0, y: 0}
   mousePos: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   inDialogue: 0
@@ -571,6 +574,9 @@ MonoBehaviour:
   captureProjectileCooldown: 0.25
   capturePower: 0.5
   fizzleEffect: {fileID: 0}
+  canCapture: 0
+  canBasic: 0
+  canSpellcast: 0
   data:
     playerStamina: {fileID: 0}
     playerHealth: {fileID: 0}
@@ -787,5 +793,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2ffe7f15097bfc42810e7ed97b3fc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1904658984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338222291938608896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4735672926b0ca2408a8b9ce574d0be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
