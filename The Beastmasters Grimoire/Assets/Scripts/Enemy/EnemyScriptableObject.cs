@@ -7,6 +7,7 @@
     - Kaleb 19/11/22: Revision and redesign of scriptable object
     - Andreas 21/02/23: Added additional ranged stats and separated ranged-related stats to their own category
     - Andreas 22/02/23: Added projSpeed and projLifeTime
+    - Andreas 12/03/23: Added Homing, Beam and AOE categories. Tidied up the entire thing.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -31,11 +32,33 @@ public class EnemyScriptableObject : ScriptableObject
 
     [Header("Ranged Stats")]
     [SerializeField] private bool isRanged = false;
-    [SerializeField] private bool projHoming = false;
-    [SerializeField] private float projRotation = 1f;
+    [DrawIf("isRanged", true)]
+    [SerializeField] private ProjTypeEnum projType;
+    [DrawIf("isRanged", true)]
     [SerializeField] private float projDamage = 1f;
+    [DrawIf("isRanged", true)]
     [SerializeField] private float projSpeed = 1f;
+    [DrawIf("isRanged", true)]
     [SerializeField] private float projLifetime = 3f;
+
+    [Header("Homing Stats")]
+    [SerializeField] private bool projHoming = false;
+    [DrawIf("projHoming", true)]
+    [SerializeField] private float projRotation = 1f;
+
+    [Header("Beam Stats")]
+    [SerializeField] private bool projBeam = false;
+    [DrawIf("projBeam", true)]
+    [SerializeField] private float beamTelegraph = 1f;
+    [DrawIf("projBeam", true)]
+    [SerializeField] private float beamActual = 1f;
+
+    [Header("AOE Stats")]
+    [SerializeField] private bool projAOE = false;
+    [DrawIf("projAOE", true)]
+    [SerializeField] private float aoeTelegraph = 1f;
+    [DrawIf("projAOE", true)]
+    [SerializeField] private float aoeActual = 1f;
 
     [Header("Visibility Range (Blue Gizmo)")]
     [SerializeField] private float visibilityRange = 10.0f;
@@ -44,30 +67,60 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private float attackDistance = 7.0f;
     [SerializeField] private float attackCooldown = 1.0f;
 
+    //Enemy Info
     public string EnemyName { get => enemyName; }
     public EnemyTypeEnum EnemyType { get => enemyType; }
     public string EnemyDescription { get => enemyDescription; }
     public SpellScriptableObject SpellScriptable { get => spellScriptable; }
-    public bool IsRanged { get => isRanged; }
+
+    //Enemy Stats
     public float Health { get => health; }
     public float Speed { get => speed; }
-    public float MeleeDamage { get => meleeDamage; }
-    public float ProjDamage { get => projDamage; }
-    public GameObject RangedProjectile { get => rangedProjectile; }
+    public float MeleeDamage { get => meleeDamage; }  
+    public GameObject RangedProjectile { get => rangedProjectile; }  
     public float WanderRadius { get => wanderRadius; }
     public float CaptureTotal { get => captureTotal; }
-    public float VisibilityRange { get => visibilityRange; }
-    public float AttackDistance { get => attackDistance; }
-    public float AttackCooldown { get => attackCooldown; }
-    public bool ProjHoming { get => projHoming; }
-    public float ProjRotation { get => projRotation; }
+    
+    //Ranged Stats
+    public bool IsRanged { get => isRanged; }
+    public ProjTypeEnum ProjType { get => projType; }
+    public float ProjDamage { get => projDamage; }
     public float ProjSpeed { get => projSpeed; }
     public float ProjLifetime { get => projLifetime; }
+
+    //Homing Stats
+    public bool ProjHoming { get => projHoming; }
+    public float ProjRotation { get => projRotation; }
+
+    //Beam Stats
+    public bool ProjBeam { get => projBeam; }
+    public float BeamTelegraph { get => beamTelegraph; }
+    public float BeamActual { get => beamActual; }
+
+    //AOE Stats
+    public bool ProjAOE { get => projAOE; }
+    public float AOETelegraph { get => aoeTelegraph; }
+    public float AOEActual { get => aoeActual; }
+    
+    //Visibility Range (Blue Gizmo)
+    public float VisibilityRange { get => visibilityRange; }
+
+    //Attack Range (Yellow Gizmo)
+    public float AttackDistance { get => attackDistance; }
+    public float AttackCooldown { get => attackCooldown; }
 
     public enum EnemyTypeEnum
     {
         //Insert Types here Eventually,
         Normal,
         Fire
+    }
+
+    public enum ProjTypeEnum
+    {
+        //Insert Types here Eventually,
+        Bullet,
+        Beam,
+        AOE
     }
 }
