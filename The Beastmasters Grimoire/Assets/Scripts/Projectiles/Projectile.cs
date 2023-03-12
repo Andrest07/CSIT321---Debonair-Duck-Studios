@@ -28,6 +28,16 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private EnemyScriptableObject enemyS;
     Vector2 moveDirection;
 
+    public string projectileType;
+    private PlayerStatusEffects playerStats;
+
+    enum proType {
+        Fire,
+        Cold,
+        Electric,
+        Poison
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +63,8 @@ public class Projectile : MonoBehaviour
         } else {
             Destroy(gameObject, playerS.ProjLifetime);
         }
+
+        playerStats = PlayerObject.GetComponent<PlayerStatusEffects>();
     }
 
     void FixedUpdate()
@@ -78,6 +90,21 @@ public class Projectile : MonoBehaviour
         if (col.gameObject.tag.Equals("Player") && playerSpell == false){
             playerH.TakeDamage(enemyS.ProjDamage);
             Destroy (gameObject);
+            switch(projectileType) {
+                case nameof(proType.Fire):
+                    playerStats.currBurnMeter += 4f;
+                    break;
+                case nameof(proType.Cold):
+                    playerStats.currBurnMeter += 4f;
+                    break;
+                case nameof(proType.Electric):
+                    playerStats.currBurnMeter += 4f;
+                    break;
+                case nameof(proType.Poison):
+                    playerStats.currBurnMeter += 4f;
+                    break;
+
+            }
         } else if (col.gameObject.tag.Equals("Enemy") && playerSpell == true){
             EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
             enemyH.TakeDamage(playerS.ProjDamage, transform.position);
