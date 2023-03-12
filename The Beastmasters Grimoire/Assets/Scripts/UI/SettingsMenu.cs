@@ -53,7 +53,7 @@ public class SettingsMenu : MonoBehaviour
         videoTab.SetActive(false);
     }
 
-    // To Control Volume
+    // To Control Volume [Volume Tab]
 
     public AudioMixer theMixer;
     public TMP_Text mastLabel, musicLabel, sfxLabel;
