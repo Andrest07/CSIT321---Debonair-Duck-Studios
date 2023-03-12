@@ -48,6 +48,7 @@ public class PlayerStatusEffects : MonoBehaviour {
         startTime = Time.realtimeSinceStartup;
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D other){
         projectile = other.gameObject.GetComponent<Projectile>();
         switch(projectile.enemyS.EnemyType){
@@ -57,6 +58,7 @@ public class PlayerStatusEffects : MonoBehaviour {
         }
             
     }
+    */
 
     private void Update() {
         currentTime = Time.deltaTime;
