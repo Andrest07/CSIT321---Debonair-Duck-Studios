@@ -6,7 +6,8 @@
     - Kaleb 19/11/22: Added scriptable object data
     - Andreas 21/02/23: Added homing functionality, removed EnemyC (redundant)
     - Andreas 22/02/23: Modifications to homing functionality (still broken), added moveSpeed as projSpeed and projLifetime to EnemyScriptableObject
-    - Andreas 05/03/23: Reworked to work with both players and enemies
+    - Andreas 05/03/23: Reworked to work with both players and enemies. Player homing projectiles now find the closest enemy and home into them.
+    - Andreas 12/03/23: Added bullet checks in preparation for beam and AOE.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -26,8 +27,6 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public EnemyController eController;
     [HideInInspector] private EnemyScriptableObject enemyS;
     Vector2 moveDirection;
-
-    public string projectileType;
 
     // Start is called before the first frame update
     void Start()
