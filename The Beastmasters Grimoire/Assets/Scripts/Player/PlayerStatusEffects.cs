@@ -19,8 +19,6 @@ public class PlayerStatusEffects : MonoBehaviour {
     public float startTime;
     public float currentTime;
 
-    private Projectile projectile;
-
     [Header("Status Effects")]
     public float maxBurnMeter = 10f;
     public float currBurnMeter = 0f;
@@ -34,13 +32,6 @@ public class PlayerStatusEffects : MonoBehaviour {
     public float maxFreezeMeter = 10f;
     public float currFreezeMeter = 0f;
     public bool isFreezed = false;
-
-    enum proType {
-        Fire,
-        Cold,
-        Electric,
-        Poison
-    }
     
     private void Start() {
         InvokeRepeating("decreaseBurn",1f,1f);
@@ -48,6 +39,7 @@ public class PlayerStatusEffects : MonoBehaviour {
         startTime = Time.realtimeSinceStartup;
     }
 
+<<<<<<< Updated upstream
     
     private void OnTriggerEnter2D(Collider2D other){
         projectile = other.gameObject.GetComponent<Projectile>();/*
@@ -60,6 +52,8 @@ public class PlayerStatusEffects : MonoBehaviour {
     }
    
 
+=======
+>>>>>>> Stashed changes
     private void Update() {
         currentTime = Time.deltaTime;
 

@@ -18,7 +18,7 @@ public class EnemyScriptableObject : ScriptableObject
 {
     [Header("Enemy Info")]
     [SerializeField] private string enemyName;
-    [SerializeField] private EnemyTypeEnum enemyType;
+    [SerializeField] private AttributeTypeEnum attributeType;
     [TextArea][SerializeField] private string enemyDescription;
     [SerializeField] private SpellScriptableObject spellScriptable;
 
@@ -69,7 +69,7 @@ public class EnemyScriptableObject : ScriptableObject
 
     //Enemy Info
     public string EnemyName { get => enemyName; }
-    public EnemyTypeEnum EnemyType { get => enemyType; }
+    public AttributeTypeEnum AttributeType { get => attributeType; }
     public string EnemyDescription { get => enemyDescription; }
     public SpellScriptableObject SpellScriptable { get => spellScriptable; }
 
@@ -109,11 +109,14 @@ public class EnemyScriptableObject : ScriptableObject
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }
 
-    public enum EnemyTypeEnum
+    public enum AttributeTypeEnum
     {
         //Insert Types here Eventually,
         Normal,
-        Fire
+        Fire,
+        Cold,
+        Electric,
+        Poison
     }
 
     public enum ProjTypeEnum

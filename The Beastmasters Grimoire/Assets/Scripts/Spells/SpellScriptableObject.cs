@@ -69,18 +69,21 @@ public class SpellScriptableObject : ScriptableObject
     public float AOETelegraph { get => aoeTelegraph; }
     public float AOEActual { get => aoeActual; }
 
+    public enum AttributeTypeEnum
+    {
+        //Insert Types here Eventually,
+        Normal,
+        Fire,
+        Cold,
+        Electric,
+        Poison
+    }
+
     public enum ProjTypeEnum
     {
         //Insert Types here Eventually,
         Bullet,
         Beam,
         AOE
-    }
-
-    public enum AttributeTypeEnum
-    {
-        //Insert Types here Eventually,
-        Normal,
-        Fire
     }
 }

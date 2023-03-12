@@ -8,6 +8,8 @@
     - Andreas 22/02/23: Modifications to homing functionality (still broken), added moveSpeed as projSpeed and projLifetime to EnemyScriptableObject
     - Andreas 05/03/23: Reworked to work with both players and enemies. Player homing projectiles now find the closest enemy and home into them.
     - Andreas 12/03/23: Added bullet checks in preparation for beam and AOE.
+    - Kunal 12/03/23: Added status effects.
+    - Andreas 12/03/23: Reworked and fixed status effects.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -23,20 +25,11 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public bool playerSpell = false;
     [HideInInspector] private Transform playerT;
     [HideInInspector] private PlayerHealth playerH;
+    [HideInInspector] private PlayerStatusEffects playerStatus;
     [HideInInspector] public SpellScriptableObject playerS;
     [HideInInspector] public EnemyController eController;
     [HideInInspector] public EnemyScriptableObject enemyS;
     Vector2 moveDirection;
-
-    public string projectileType;
-    private PlayerStatusEffects playerStats;
-
-    enum proType {
-        Fire,
-        Cold,
-        Electric,
-        Poison
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +40,7 @@ public class Projectile : MonoBehaviour
             enemyS = eController.data;
             playerT = PlayerObject.GetComponent<Transform>();
             playerH = PlayerObject.GetComponent<PlayerHealth>();
+            playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
         } else {
             Vector3 mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
@@ -63,8 +57,6 @@ public class Projectile : MonoBehaviour
         } else {
             Destroy(gameObject, playerS.ProjLifetime);
         }
-
-        playerStats = PlayerObject.GetComponent<PlayerStatusEffects>();
     }
 
     void FixedUpdate()
@@ -89,22 +81,21 @@ public class Projectile : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player") && playerSpell == false){
             playerH.TakeDamage(enemyS.ProjDamage);
-            Destroy (gameObject);
-            switch(projectileType) {
-                case nameof(proType.Fire):
-                    playerStats.currBurnMeter += 4f;
+           switch(enemyS.AttributeType) {
+                case EnemyScriptableObject.AttributeTypeEnum.Fire:
+                    playerStatus.currBurnMeter += 4f;
                     break;
-                case nameof(proType.Cold):
-                    playerStats.currBurnMeter += 4f;
+                case EnemyScriptableObject.AttributeTypeEnum.Cold:
+                    playerStatus.currBurnMeter += 4f;
                     break;
-                case nameof(proType.Electric):
-                    playerStats.currBurnMeter += 4f;
+                case EnemyScriptableObject.AttributeTypeEnum.Electric:
+                    playerStatus.currBurnMeter += 4f;
                     break;
-                case nameof(proType.Poison):
-                    playerStats.currBurnMeter += 4f;
+                case EnemyScriptableObject.AttributeTypeEnum.Poison:
+                    playerStatus.currBurnMeter += 4f;
                     break;
-
             }
+            Destroy (gameObject);
         } else if (col.gameObject.tag.Equals("Enemy") && playerSpell == true){
             EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
             enemyH.TakeDamage(playerS.ProjDamage, transform.position);
