@@ -18,11 +18,16 @@ public class PlayerBasicAttack : MonoBehaviour
     [Header("Gizmos")]
     public bool drawGizmos = true;
 
+    [Header("Effects")]
+    public GameObject swordSlash;
+
     private EnemyHealth enemyHealth;
     private EnemyController enemy;
     private Vector3 offsetVector;
     private readonly int layerMask = 1 << 3;
 
+    private bool isLeft = false;
+    private bool wasLeft = false;
 
     public void BasicAttack()
     {
@@ -37,6 +42,7 @@ public class PlayerBasicAttack : MonoBehaviour
         // player direction
         PlayerManager.instance.animator.SetFloat("Move X", mousePosition.x - playerPosition.x);
         PlayerManager.instance.animator.SetFloat("Move Y", mousePosition.y - playerPosition.y);
+        isLeft = mousePosition.x - playerPosition.x < 0;
 
         // convert mouse coords to world position
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -47,6 +53,13 @@ public class PlayerBasicAttack : MonoBehaviour
         {
             enemyHealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(attackDamage,transform.position);
+
+            if (isLeft != wasLeft)
+                swordSlash.GetComponent<SpriteRenderer>().flipX = !swordSlash.GetComponent<SpriteRenderer>().flipX;
+            
+            //Debug.Log(isLeft + " was " + wasLeft);
+            Instantiate(swordSlash, hit.collider.transform);
+            wasLeft = isLeft;
         }
 
         PlayerManager.instance.canMove = true;

@@ -544,6 +544,7 @@ MonoBehaviour:
   attackDamage: 2
   attackCooldown: 0.25
   drawGizmos: 1
+  swordSlash: {fileID: 1356084919416981197, guid: dd394aa75a540a44381eed3c239c1aa6, type: 3}
 --- !u!114 &1695965317
 MonoBehaviour:
   m_ObjectHideFlags: 0

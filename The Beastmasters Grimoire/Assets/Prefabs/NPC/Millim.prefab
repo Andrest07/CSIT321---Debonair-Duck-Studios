@@ -27,10 +27,6 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1945653360836825378, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825380, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -103,6 +99,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b8b4348fb10a2f54bbfb43d7c3b9fd1d, type: 3}
+    - target: {fileID: 1945653360836825383, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1945653360836825385, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
       propertyPath: m_Name
       value: Millim
@@ -116,9 +116,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 1945653360836825379, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
     - {fileID: 1945653360836825378, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
-    - {fileID: 1613944670, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 411cd2aee5cd6ff4f80033294c1fbf11, type: 3}
 --- !u!1 &7181683532700091797 stripped
 GameObject:
@@ -141,22 +139,6 @@ CircleCollider2D:
   m_Offset: {x: 0.07572508, y: -0.11106333}
   serializedVersion: 2
   m_Radius: 0.14659616
---- !u!111 &1493709038
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7181683532700091797}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 3907ea29ec8ad3244ac0ffa9329f707e, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 3907ea29ec8ad3244ac0ffa9329f707e, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &1493709032
 MonoBehaviour:
   m_ObjectHideFlags: 0
