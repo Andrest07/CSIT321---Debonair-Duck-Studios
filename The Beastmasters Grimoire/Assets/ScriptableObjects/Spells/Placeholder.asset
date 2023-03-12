@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: 
   spellProjectile: {fileID: 0}
-  spellType: 0
   attributeType: 0
   spellCooldown: 2
   spellDescription: 
+  projType: 0
   projDamage: 100
   projSpeed: 1
   projLifetime: 3
   projHoming: 0
   projRotation: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1

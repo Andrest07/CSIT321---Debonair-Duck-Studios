@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
             moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
         }
         
-        if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet || enemyS.SpellScriptable.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet){
+        if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet || enemyS.ProjType == EnemyScriptableObject.ProjTypeEnum.Bullet){
             rb  = GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
         }
