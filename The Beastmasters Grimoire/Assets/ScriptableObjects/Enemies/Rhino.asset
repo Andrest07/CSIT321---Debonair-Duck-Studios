@@ -16,21 +16,22 @@ MonoBehaviour:
   enemyType: 0
   enemyDescription: Rhino, charges at you
   spellName: Defence up
-  spellObject: {fileID: 0}
+  spellScriptable: {fileID: 0}
   spellType: 0
   spellDescription: Increases players defence.
   health: 10
   speed: 1
   meleeDamage: 1
   rangedProjectile: {fileID: 0}
-  wanderRadius: 3
+  wanderRadius: 3.03
   captureTotal: 5
+  testing: 5
   isRanged: 0
   projHoming: 0
   projRotation: 1
   projDamage: 1
   projSpeed: 1
   projLifetime: 3
-  visibilityRange: 5.2
+  visibilityRange: 6.05
   attackDistance: 0
   attackCooldown: 1

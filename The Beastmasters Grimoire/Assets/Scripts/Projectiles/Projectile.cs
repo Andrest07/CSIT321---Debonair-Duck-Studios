@@ -27,6 +27,8 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private EnemyScriptableObject enemyS;
     Vector2 moveDirection;
 
+    public string projectileType;
+
     // Start is called before the first frame update
     void Start()
     {

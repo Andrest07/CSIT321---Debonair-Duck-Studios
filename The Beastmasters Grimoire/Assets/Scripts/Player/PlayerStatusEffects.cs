@@ -35,7 +35,12 @@ public class PlayerStatusEffects : MonoBehaviour {
     public float currFreezeMeter = 0f;
     public bool isFreezed = false;
 
-
+    enum proType {
+        Fire,
+        Cold,
+        Electric,
+        Poison
+    }
     
     private void Start() {
         InvokeRepeating("decreaseBurn",1f,1f);
@@ -44,14 +49,12 @@ public class PlayerStatusEffects : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("enter");
         projectile = other.gameObject.GetComponent<Projectile>();
-
-        /*switch(bullet.projectileType){
-            case "Fire":
+        switch(projectile.projectileType){
+            case nameof(proType.Fire):
                 currBurnMeter += 4f;
                 break;
-        }*/
+        }
             
     }
 
