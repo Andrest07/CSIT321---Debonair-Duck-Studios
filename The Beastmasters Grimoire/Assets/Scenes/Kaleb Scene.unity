@@ -5390,6 +5390,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1005983721033641766, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: bestiaryArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005983721033641766, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: bestiaryArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4443a189002ac124dada62ad19b7525c, type: 2}
     - target: {fileID: 1005983721033641767, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_RootOrder
       value: 6

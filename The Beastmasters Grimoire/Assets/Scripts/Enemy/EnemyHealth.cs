@@ -16,6 +16,8 @@ public class EnemyHealth : MonoBehaviour
     public float totalHealth; // Enemy's total health points
     public float currentHealth; // Enemy's current health points
 
+    public bool cannotDie;
+
     private Rigidbody2D rb;
 
     private EnemyController controller;
@@ -37,13 +39,17 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(Stun(knockbackDirection * damageMultiplier));
         currentHealth -= damage; // Take damage
 
-        controller.UpdateHealthBar(currentHealth);
-
         // Death Trigger
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !cannotDie)
         {
             Death();
         }
+        else if (currentHealth <= 0)
+        {
+            currentHealth=1;
+        }
+
+        controller.UpdateHealthBar(currentHealth);
 
         // make agro if not
         if (!controller.isAggro) controller.isAggro = true;
