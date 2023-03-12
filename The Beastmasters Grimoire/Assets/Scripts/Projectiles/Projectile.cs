@@ -43,8 +43,12 @@ public class Projectile : MonoBehaviour
             Vector3 mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
             moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
         }
-        rb  = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+        
+        if (playerS.SpellType == "Bullet" || enemyS.SpellType == "Bullet"){
+            rb  = GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+        }
+
         if (playerSpell == false){
             Destroy(gameObject, enemyS.ProjLifetime);
         } else {
