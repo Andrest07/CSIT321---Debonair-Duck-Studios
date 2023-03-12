@@ -2,6 +2,7 @@
 AUTHOR DD/MM/YY: Quentin 07/10/22
 
 	- EDITOR DD/MM/YY CHANGES:
+    - Quentin 12/3/23 Added slashing animation
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,11 @@ public class PlayerBasicAttack : MonoBehaviour
     private bool isLeft = false;
     private bool wasLeft = false;
 
+    private void Awake()
+    {
+        swordSlash.GetComponent<SpriteRenderer>().flipX = false;
+    }
+
     public void BasicAttack()
     {
         Vector2 playerPosition = Camera.main.WorldToScreenPoint(transform.position);
@@ -54,10 +60,10 @@ public class PlayerBasicAttack : MonoBehaviour
             enemyHealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(attackDamage,transform.position);
 
+            // create sword slashing effect
             if (isLeft != wasLeft)
                 swordSlash.GetComponent<SpriteRenderer>().flipX = !swordSlash.GetComponent<SpriteRenderer>().flipX;
             
-            //Debug.Log(isLeft + " was " + wasLeft);
             Instantiate(swordSlash, hit.collider.transform);
             wasLeft = isLeft;
         }
