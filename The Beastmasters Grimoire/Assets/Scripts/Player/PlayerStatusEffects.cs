@@ -39,21 +39,6 @@ public class PlayerStatusEffects : MonoBehaviour {
         startTime = Time.realtimeSinceStartup;
     }
 
-<<<<<<< Updated upstream
-    
-    private void OnTriggerEnter2D(Collider2D other){
-        projectile = other.gameObject.GetComponent<Projectile>();/*
-        switch(projectile.enemyS.EnemyType){
-            case nameof(proType.Fire):
-                currBurnMeter += 4f;
-                break;
-        }*/
-            
-    }
-   
-
-=======
->>>>>>> Stashed changes
     private void Update() {
         currentTime = Time.deltaTime;
 
