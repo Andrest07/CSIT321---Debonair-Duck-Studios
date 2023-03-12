@@ -408,6 +408,8 @@ public class PlayerManager : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(dir * 10f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
         canMove = true;
+        animator.SetBool("isCasting", false); animator.SetBool("isCapturing", false);
+        playerMode = PlayerMode.Basic;
         data.playerHealth.isInvulnerable = false;
 
     }
