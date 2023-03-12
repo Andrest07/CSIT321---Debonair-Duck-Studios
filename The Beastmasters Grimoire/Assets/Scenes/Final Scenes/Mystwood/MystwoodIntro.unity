@@ -2940,6 +2940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Attack Tutorial Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 6576446313625536358, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2994,15 +2998,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3010,7 +3014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5331,6 +5335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Save Beacon Equip Monsters Tutorial Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 6576446313625536358, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5385,15 +5393,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5401,7 +5409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7451802692065658323, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27186,6 +27194,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1983104115}
     m_Modifications:
+    - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
+      propertyPath: m_text
+      value: Press the 'C' Button to enter Capture Mode. Pressing 'C' again or being
+        hit by an enemy will exit Capture Mode. While in Capture Mode. aim the cursor
+        and left click to fire capture projectiles that will fill the enemies capture
+        bar. When the bar is full the enemy is captured!
+      objectReference: {fileID: 0}
     - target: {fileID: 6576446313625536358, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_Name
       value: Capture Tutorial Popup

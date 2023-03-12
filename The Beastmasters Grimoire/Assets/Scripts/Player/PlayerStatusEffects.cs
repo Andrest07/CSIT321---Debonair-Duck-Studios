@@ -6,7 +6,7 @@ AUTHOR DD/MM/YY: Kunal 26/02/23
 
 
 */
-/*using System;
+using System;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Collections;
@@ -48,17 +48,17 @@ public class PlayerStatusEffects : MonoBehaviour {
         startTime = Time.realtimeSinceStartup;
     }
 
-    /*
+    
     private void OnTriggerEnter2D(Collider2D other){
-        projectile = other.gameObject.GetComponent<Projectile>();
+        projectile = other.gameObject.GetComponent<Projectile>();/*
         switch(projectile.enemyS.EnemyType){
             case nameof(proType.Fire):
                 currBurnMeter += 4f;
                 break;
-        }
+        }*/
             
     }
-    */
+   
 
     private void Update() {
         currentTime = Time.deltaTime;
@@ -98,4 +98,4 @@ public class PlayerStatusEffects : MonoBehaviour {
             isBurning = false;
         }
     }
-}*/
+}

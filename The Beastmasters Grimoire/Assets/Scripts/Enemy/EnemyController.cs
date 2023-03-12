@@ -70,7 +70,7 @@ public class EnemyController : MonoBehaviour
 
         enemyName.GetComponent<TMPro.TextMeshProUGUI>().text = data.EnemyName;
         healthBar.GetComponent<Slider>().maxValue = data.Health;
-        captureBar.GetComponent<Slider>().maxValue = data.CaptureTotal*100;
+        captureBar.GetComponent<Slider>().maxValue = data.CaptureTotal * 100;
     }
 
     // Enemy attack
@@ -97,9 +97,7 @@ public class EnemyController : MonoBehaviour
                 // damage player
                 if (canTakeDamage)
                 {
-                    playerH.TakeDamage(data.MeleeDamage);
-
-                    StartCoroutine(DamageTimer());
+                    MeleeDamage();
                 }
             }
         }
@@ -113,14 +111,19 @@ public class EnemyController : MonoBehaviour
         isMoving = false;
         if (collision.gameObject.tag == "Player")
         {
-            playerH.TakeDamage(data.MeleeDamage);
-            float yDif = collision.collider.bounds.center.y - this.GetComponent<CapsuleCollider2D>().bounds.center.y;
-            float xDif = playerT.position.x - transform.position.x;
-            Vector2 knockbackDirection = new Vector2(xDif, yDif).normalized;
-
-            StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
+            MeleeDamage();
         }
 
+    }
+
+    public void MeleeDamage()
+    {
+        playerH.TakeDamage(data.MeleeDamage);
+        float yDif = playerT.GetComponent<CapsuleCollider2D>().bounds.center.y - this.GetComponent<CapsuleCollider2D>().bounds.center.y;
+        float xDif = playerT.position.x - transform.position.x;
+        Vector2 knockbackDirection = new Vector2(xDif, yDif).normalized;
+
+        StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
     }
 
 
@@ -156,7 +159,7 @@ public class EnemyController : MonoBehaviour
 
     public void UpdateCapturehBar(float capture)
     {
-        captureBar.GetComponent<Slider>().value = capture*100;
+        captureBar.GetComponent<Slider>().value = capture * 100;
     }
 
 
