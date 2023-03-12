@@ -6,7 +6,7 @@ AUTHOR DD/MM/YY: Kunal 26/02/23
 
 
 */
-using System;
+/*using System;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Collections;
@@ -50,7 +50,7 @@ public class PlayerStatusEffects : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other){
         projectile = other.gameObject.GetComponent<Projectile>();
-        switch(projectile.projectileType){
+        switch(projectile.enemyS.EnemyType){
             case nameof(proType.Fire):
                 currBurnMeter += 4f;
                 break;
@@ -96,4 +96,4 @@ public class PlayerStatusEffects : MonoBehaviour {
             isBurning = false;
         }
     }
-}
+}*/
