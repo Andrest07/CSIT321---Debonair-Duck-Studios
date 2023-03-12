@@ -38,8 +38,8 @@ public class PlayerManager : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerDash playerDash;
     private PlayerBasicAttack playerBasicAttack;
-    private InteractionObject interactionObject;
-    private Vector2 movementVector;
+    private InteractionObject interactionObject;    
+    [HideInInspector] public Vector2 movementVector;
     private Vector3 directionVector;
     public Vector3 mousePos;
     private IEnumerator capture;

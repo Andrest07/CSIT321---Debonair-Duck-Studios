@@ -99,6 +99,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5521815846279503783}
     m_Modifications:
+    - target: {fileID: 1493709031, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7181683532700091797, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
       propertyPath: m_Name
       value: Millim
@@ -109,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7181683532700091800, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.029999971
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7181683532700091800, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
       propertyPath: m_LocalPosition.y

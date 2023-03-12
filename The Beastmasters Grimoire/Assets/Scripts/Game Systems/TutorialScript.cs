@@ -25,6 +25,11 @@ public class TutorialScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.transform.position -= (other.transform.position - transform.position)*0.25f;
+            PlayerManager.instance.movementVector=Vector2.zero;
+            PlayerManager.instance.animator.SetBool("isIdle", true);
+            PlayerManager.instance.animator.SetBool("isWalking",false);
+            PlayerManager.instance.animator.SetBool("isSprinting",false);
+
         }
     }
 }
