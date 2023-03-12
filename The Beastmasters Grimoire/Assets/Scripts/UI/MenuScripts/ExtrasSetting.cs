@@ -38,9 +38,9 @@ public class ExtrasSetting : MonoBehaviour
     }
 
     //Method to call when the value of difficulty in dropdown menu changes
-    void DifficultyDropdownValueChanged(TMP_Dropdown dropdown)
+    void DifficultyDropdownValueChanged(TMP_Dropdown difficultyDropdown)
     {
-        switch (dropdown.value)
+        switch (difficultyDropdown.value)
         {
             case 0:
             Debug.Log("easy mode");
