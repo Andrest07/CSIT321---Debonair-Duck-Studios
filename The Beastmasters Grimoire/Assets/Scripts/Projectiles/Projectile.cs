@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private PlayerHealth playerH;
     [HideInInspector] public SpellScriptableObject playerS;
     [HideInInspector] public EnemyController eController;
-    [HideInInspector] private EnemyScriptableObject enemyS;
+    [HideInInspector] public EnemyScriptableObject enemyS;
     Vector2 moveDirection;
 
     public string projectileType;
@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
             moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
         }
         
-        if (playerS.SpellType == "Bullet" || enemyS.SpellType == "Bullet"){
+        if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet || enemyS.SpellScriptable.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet){
             rb  = GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
         }

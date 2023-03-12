@@ -33,6 +33,8 @@ public class EnemyScriptableObject : ScriptableObject
     [Header("Ranged Stats")]
     [SerializeField] private bool isRanged = false;
     [DrawIf("isRanged", true)]
+    [SerializeField] private ProjTypeEnum projType;
+    [DrawIf("isRanged", true)]
     [SerializeField] private float projDamage = 1f;
     [DrawIf("isRanged", true)]
     [SerializeField] private float projSpeed = 1f;
@@ -81,6 +83,7 @@ public class EnemyScriptableObject : ScriptableObject
     
     //Ranged Stats
     public bool IsRanged { get => isRanged; }
+    public ProjTypeEnum ProjType { get => projType; }
     public float ProjDamage { get => projDamage; }
     public float ProjSpeed { get => projSpeed; }
     public float ProjLifetime { get => projLifetime; }
@@ -111,5 +114,13 @@ public class EnemyScriptableObject : ScriptableObject
         //Insert Types here Eventually,
         Normal,
         Fire
+    }
+
+    public enum ProjTypeEnum
+    {
+        //Insert Types here Eventually,
+        Bullet,
+        Beam,
+        AOE
     }
 }
