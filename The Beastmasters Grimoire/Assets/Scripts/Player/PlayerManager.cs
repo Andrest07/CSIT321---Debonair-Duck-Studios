@@ -125,7 +125,10 @@ public class PlayerManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        transform.position = levelSwapPosition;
+        if (levelSwapPosition.magnitude != 0)
+        {
+            transform.position = levelSwapPosition;
+        }
         GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = this.transform;
     }
 
