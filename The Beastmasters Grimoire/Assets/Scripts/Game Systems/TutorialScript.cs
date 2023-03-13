@@ -9,6 +9,7 @@ using UnityEngine;
 
 public class TutorialScript : MonoBehaviour
 {
+    public GameObject captureTutorial;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +25,22 @@ public class TutorialScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.transform.position -= (other.transform.position - transform.position)*0.25f;
-            PlayerManager.instance.movementVector=Vector2.zero;
-            PlayerManager.instance.animator.SetBool("isIdle", true);
-            PlayerManager.instance.animator.SetBool("isWalking",false);
-            PlayerManager.instance.animator.SetBool("isSprinting",false);
+            other.transform.position -= (other.transform.position - transform.position) * 0.25f;
 
         }
+    }
+
+    public void CaptureTutorial()
+    {
+        PlayerManager.instance.canCapture = true;
+        Destroy(captureTutorial);
+    }
+    public void BasicAttackTutorial()
+    {
+        PlayerManager.instance.canBasic = true;
+    }
+    public void SaveBeaconTutorial()
+    {
+        PlayerManager.instance.canSpellcast = true;
     }
 }

@@ -162,14 +162,26 @@ public class PlayerManager : MonoBehaviour
         gameMenuFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMenu>();
         animator.SetBool("isIdle", true);
     }
+    void Update()
+    {
+        if (GameManager.instance.isPaused)
+        {
+            movementVector = Vector2.zero;
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isSprinting", false);
+        }
+    }
 
     //For Movement
     private void FixedUpdate()
     {
+
         if (canMove)
         {
             playerBody.velocity = movementVector * playerSpeed;
         }
+
         if (animator.GetBool("isWalking") || animator.GetBool("isSprinting"))
         {
             animator.SetFloat("Move X", movementVector.x);
