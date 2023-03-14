@@ -32,32 +32,32 @@ public class EnemyScriptableObject : ScriptableObject
 
     [Header("Ranged Stats")]
     [SerializeField] private bool isRanged = false;
-    [DrawIf("isRanged", true)]
+    //[DrawIf("isRanged", true)]
     [SerializeField] private ProjTypeEnum projType;
-    [DrawIf("isRanged", true)]
+    //[DrawIf("isRanged", true)]
     [SerializeField] private float projDamage = 1f;
-    [DrawIf("isRanged", true)]
+    //[DrawIf("isRanged", true)]
     [SerializeField] private float projSpeed = 1f;
-    [DrawIf("isRanged", true)]
+    //[DrawIf("isRanged", true)]
     [SerializeField] private float projLifetime = 3f;
 
     [Header("Homing Stats")]
     [SerializeField] private bool projHoming = false;
-    [DrawIf("projHoming", true)]
+    //[DrawIf("projHoming", true)]
     [SerializeField] private float projRotation = 1f;
 
     [Header("Beam Stats")]
     [SerializeField] private bool projBeam = false;
-    [DrawIf("projBeam", true)]
+    //[DrawIf("projBeam", true)]
     [SerializeField] private float beamTelegraph = 1f;
-    [DrawIf("projBeam", true)]
+    //[DrawIf("projBeam", true)]
     [SerializeField] private float beamActual = 1f;
 
     [Header("AOE Stats")]
     [SerializeField] private bool projAOE = false;
-    [DrawIf("projAOE", true)]
+    //[DrawIf("projAOE", true)]
     [SerializeField] private float aoeTelegraph = 1f;
-    [DrawIf("projAOE", true)]
+    //[DrawIf("projAOE", true)]
     [SerializeField] private float aoeActual = 1f;
 
     [Header("Visibility Range (Blue Gizmo)")]

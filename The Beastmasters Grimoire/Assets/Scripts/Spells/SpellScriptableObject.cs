@@ -26,21 +26,21 @@ public class SpellScriptableObject : ScriptableObject
 
     [Header("Homing Stats")]
     [SerializeField] private bool projHoming = false;
-    [DrawIf("projHoming", true)]
+    //[DrawIf("projHoming", true)]
     [SerializeField] private float projRotation = 1f;
 
     [Header("Beam Stats")]
     [SerializeField] private bool projBeam = false;
-    [DrawIf("projBeam", true)]
+    //[DrawIf("projBeam", true)]
     [SerializeField] private float beamTelegraph = 1f;
-    [DrawIf("projBeam", true)]
+    //[DrawIf("projBeam", true)]
     [SerializeField] private float beamActual = 1f;
 
     [Header("AOE Stats")]
     [SerializeField] private bool projAOE = false;
-    [DrawIf("projAOE", true)]
+    //[DrawIf("projAOE", true)]
     [SerializeField] private float aoeTelegraph = 1f;
-    [DrawIf("projAOE", true)]
+    //[DrawIf("projAOE", true)]
     [SerializeField] private float aoeActual = 1f;
 
     //Spell Info

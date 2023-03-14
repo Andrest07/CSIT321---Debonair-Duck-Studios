@@ -139,3 +139,4 @@ MonoBehaviour:
   playerSpell: 0
   playerS: {fileID: 0}
   eController: {fileID: 0}
+  enemyS: {fileID: 0}
