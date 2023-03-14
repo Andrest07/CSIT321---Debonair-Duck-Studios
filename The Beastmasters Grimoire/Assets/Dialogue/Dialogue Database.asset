@@ -204,10 +204,10 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 2
+  - id: 3
     fields:
     - title: Name
-      value: timesTalkedToMillim
+      value: millimTutorialIndex
       type: 0
       typeString: 
     - title: Initial Value
@@ -215,7 +215,7 @@ MonoBehaviour:
       type: 1
       typeString: CustomFieldType_Number
     - title: Description
-      value: 
+      value: What stage the player is at in the tutorial
       type: 0
       typeString: 
   conversations:
@@ -1172,6 +1172,12 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
+      - originConversationID: 3
+        originDialogueID: 0
+        destinationConversationID: 3
+        destinationDialogueID: 20
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1227,7 +1233,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: Variable["timesTalkedToMillim"] == 0
+      conditionsString: Variable["millimTutorialIndex"] == 0
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1496,15 +1502,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["timesTalkedToMillim"] == 1
-      userScript: Variable["timesTalkedToMillim"]=2;
+      conditionsString: Variable["millimTutorialIndex"] == 1
+      userScript: Variable["millimTutorialIndex"]=2;
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 482
-        y: 82
+        x: 446.83508
+        y: 145.73627
         width: 160
         height: 30
     - id: 7
@@ -2158,7 +2164,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["millimTutorialIndex"]=1;
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2168,9 +2174,58 @@ MonoBehaviour:
         y: 1234.1705
         width: 160
         height: 30
+    - id: 20
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Hello a third time! [panel=0]
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Variable["millimTutorialIndex"] == 2
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 564.6064
+        y: 53.32968
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 18.758026, y: 900.62805}
-    canvasZoom: 1.6599994
+    canvasScrollPosition: {x: 0, y: 849.99963}
+    canvasZoom: 0.5800003
   - id: 4
     fields:
     - title: Title

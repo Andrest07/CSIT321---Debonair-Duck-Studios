@@ -30474,6 +30474,14 @@ PrefabInstance:
       propertyPath: cannotDie
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8439477113733400497, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
+      propertyPath: conversation
+      value: Tutorial Introduction Conversation
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439477113733400497, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
+      propertyPath: conversationActor
+      value: 
+      objectReference: {fileID: 1904658983}
     - target: {fileID: 8439477113733400510, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_Layer
       value: 3
