@@ -18,20 +18,14 @@ public class SaveBeaconMenu : MonoBehaviour
 
     public int attunedSlotNumber;
 
-    void Start()
-    {
+    private SaveLoadGame saveLoad;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void OpenMenu(GameObject beacon)
     {
         attunedBeacon = beacon;
         saveBeaconMenu.SetActive(true);
+
+        saveLoad = attunedBeacon.GetComponent<SaveLoadGame>();
     }
     public void SetAttunedBeast(EnemyScriptableObject beast)
     {
@@ -57,9 +51,14 @@ public class SaveBeaconMenu : MonoBehaviour
     public void Save()
     {
         // save game
-        attunedBeacon.GetComponentInParent<SaveLoadGame>().Save();
+        saveLoad.Save();
         EventManager.Instance.QueueEvent(new NotificationEvent("", "", NotificationEvent.NotificationType.Save));
 
         //collision.GetComponentInParent<SaveBeacon>().OpenFastTravel();
+    }
+
+    public void Load()
+    {
+        saveLoad.Load();
     }
 }
