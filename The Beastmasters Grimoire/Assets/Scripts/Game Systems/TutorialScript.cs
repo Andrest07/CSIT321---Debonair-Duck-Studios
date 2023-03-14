@@ -22,8 +22,9 @@ public class TutorialScript : MonoBehaviour
     public bool captureBool;
     public bool captured;
     public bool spellEquiped = false;
+    public bool tutorialFinished = false;
 
-    private CircleCollider2D exitTrigger;
+    private DialogueSystemTrigger [] dialogueTrigger;
 
     [Header("Tutorial Dialogues")]
     [ConversationPopup] public string tutIntro;
@@ -34,7 +35,7 @@ public class TutorialScript : MonoBehaviour
 
     private void Awake()
     {
-        exitTrigger = GetComponent<CircleCollider2D>();
+        dialogueTrigger = GetComponents<DialogueSystemTrigger> ();
     }
 
     // Update is called once per frame
@@ -57,15 +58,16 @@ public class TutorialScript : MonoBehaviour
             Time.timeScale = 0f;
         }
         
-        if (spellEquiped)
+        if (spellEquiped && !tutorialFinished)
         {
             DialogueManager.StartConversation(tutFinish, PlayerManager.instance.transform, this.transform);
+            tutorialFinished = true;
             Time.timeScale = 0f;
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (!tutorialFinished && other.gameObject.tag == "Player")
         {
             other.transform.position -= (other.transform.position - transform.position) * 0.25f;
         }
@@ -106,7 +108,7 @@ public class TutorialScript : MonoBehaviour
         }
         if(DialogueManager.lastConversationStarted == tutFinish)
         {
-
+            dialogueTrigger[1].trigger = DialogueSystemTriggerEvent.None;
         }
     }
 }
