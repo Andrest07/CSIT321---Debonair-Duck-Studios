@@ -19,10 +19,11 @@ MonoBehaviour:
   spellDescription: 
   projType: 0
   projDamage: 1
-  projSpeed: 1
+  projSpeed: 3
   projLifetime: 3
   projHoming: 1
-  projRotation: 1
+  projRotation: 1000
+  projFocusDistance: 0
   projBeam: 0
   beamTelegraph: 1
   beamActual: 1

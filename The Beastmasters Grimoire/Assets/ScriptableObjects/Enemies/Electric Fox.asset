@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Electric Fox
   m_EditorClassIdentifier: 
   enemyName: Electric Fox
-  enemyType: 0
+  attributeType: 3
   enemyDescription: Yellow Electric Fox.
-  spellScriptable: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: 0e02004e9b38a2b48b7644dd3f1d67c4, type: 2}
   health: 10
   speed: 1
   meleeDamage: 1
@@ -23,11 +23,19 @@ MonoBehaviour:
   wanderRadius: 3
   captureTotal: 5
   isRanged: 1
+  projType: 0
+  projDamage: 1
+  projSpeed: 5
+  projLifetime: 3
   projHoming: 0
   projRotation: 1
-  projDamage: 1
-  projSpeed: 1
-  projLifetime: 3
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
   visibilityRange: 5.18
-  attackDistance: 3.1
+  attackDistance: 5
   attackCooldown: 0.7

@@ -9,23 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: 001 Millim
+  m_Script: {fileID: 11500000, guid: e3c2d226e960b3341bc5e5b6e55074ae, type: 3}
+  m_Name: Electric Bolt
   m_EditorClassIdentifier: 
-  enemyName: Millim
-  attributeType: 0
-  enemyDescription: 
-  spellScriptable: {fileID: 11400000, guid: f4e808b0d5dca9d468a193ba89dd169f, type: 2}
-  health: 10
-  speed: 1
-  meleeDamage: 1
-  rangedProjectile: {fileID: 0}
-  wanderRadius: 0
-  captureTotal: 15
-  isRanged: 1
+  spellName: Electric Bolt
+  spellProjectile: {fileID: 8168317729838749010, guid: 192e3bad6bf9849d78bcb9ece4adf6cd, type: 3}
+  attributeType: 3
+  spellCooldown: 2
+  spellDescription: 
   projType: 0
   projDamage: 1
-  projSpeed: 1
+  projSpeed: 5
   projLifetime: 3
   projHoming: 0
   projRotation: 1
@@ -36,6 +30,3 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 1
-  attackDistance: 1
-  attackCooldown: 1

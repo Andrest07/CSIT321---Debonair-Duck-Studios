@@ -28,7 +28,8 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private PlayerStatusEffects playerStatus;
     [HideInInspector] public SpellScriptableObject playerS;
     [HideInInspector] public EnemyScriptableObject enemyS;
-    Vector2 moveDirection;
+    Vector3 moveDirection;
+    Vector3 mousePos;
     private bool isLookingAtObject = true;
 
     // Start is called before the first frame update
@@ -47,7 +48,7 @@ public class Projectile : MonoBehaviour
             }
             Destroy(gameObject, enemyS.ProjLifetime);
         } else if (playerS != null) {
-            Vector3 mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+            mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
             moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
             if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet) {
                 rb  = GetComponent<Rigidbody2D>();
@@ -62,27 +63,35 @@ public class Projectile : MonoBehaviour
         if (enemyS != null){
             if (enemyS.ProjHoming == true){
                 moveDirection = (playerT.position - transform.position).normalized;
-                Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, enemyS.ProjRotation * Time.deltaTime, 0.0F);
+                /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, enemyS.ProjRotation * Time.deltaTime, 0.0F);
                 transform.Translate(Vector3.forward * Time.deltaTime * enemyS.ProjSpeed, Space.Self);
+                float angle = Mathf.Atan2(playerT.position.y-transform.position.y, playerT.position.x-transform.position.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 if(Vector3.Distance(transform.position, playerT.position) < enemyS.ProjFocusDistance) {
                     isLookingAtObject = false;
                 }
                 if(isLookingAtObject) {
                     transform.rotation = Quaternion.LookRotation(newDirection);
-                }
+                }*/
+                transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
+                transform.position += moveDirection * enemyS.ProjSpeed * Time.deltaTime;
             }
         } else if (playerS != null){
             if (playerS.ProjHoming == true){
-                Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), transform.position).GetComponent<Transform>();
+                Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), mousePos).GetComponent<Transform>();
                 moveDirection = (homingT.position - transform.position).normalized;
-                Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, playerS.ProjRotation * Time.deltaTime, 0.0F);
+                /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, playerS.ProjRotation * Time.deltaTime, 0.0F);
                 transform.Translate(Vector3.forward * Time.deltaTime * playerS.ProjSpeed, Space.Self);
+                //float angle = Mathf.Atan2(homingT.position.y-transform.position.y, homingT.position.x-transform.position.x) * Mathf.Rad2Deg;
+                //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 if(Vector3.Distance(transform.position, homingT.position) < playerS.ProjFocusDistance) {
                     isLookingAtObject = false;
                 }
                 if(isLookingAtObject) {
                     transform.rotation = Quaternion.LookRotation(newDirection);
-                }
+                }*/
+                transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
+                transform.position += moveDirection * playerS.ProjSpeed * Time.deltaTime;
             }
         }
     }

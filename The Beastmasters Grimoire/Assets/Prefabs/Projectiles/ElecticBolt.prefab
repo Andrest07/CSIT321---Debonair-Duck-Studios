@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2024879903250899447}
   - component: {fileID: -529914059837509439}
   - component: {fileID: -1145838706630913912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ElecticBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: fea0cfab9702d4714910fdb116ebf414, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 8.4, y: 4.02}
   m_AdaptiveModeThreshold: 0.5
@@ -136,7 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e30b64be6612dd4cabbb0c149e265b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpell: 0
   playerS: {fileID: 0}
-  eController: {fileID: 0}
-  projectileType: Electric
+  enemyS: {fileID: 0}

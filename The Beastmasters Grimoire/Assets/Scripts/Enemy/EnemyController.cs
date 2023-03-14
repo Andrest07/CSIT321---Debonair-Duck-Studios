@@ -76,13 +76,16 @@ public class EnemyController : MonoBehaviour
     // Enemy attack
     public void Attack()
     {
+        Debug.Log(data.IsRanged);
         if (data.IsRanged)
         {
+            Debug.Log(Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance);
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
                 // do bullet
                 if (canTakeDamage)
                 {
+                    Debug.Log("Instantiating projectile");
                     GameObject tempBullet = Instantiate(data.RangedProjectile, transform.position, Quaternion.identity);
                     tempBullet.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
 
