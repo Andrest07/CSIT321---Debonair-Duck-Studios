@@ -1331,7 +1331,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 90b0110df5429e54b93c7893a0d04f55, type: 2}
     - target: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7615432411939865665, guid: b7258be7292f86840adb721143ea2b87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3156,11 +3156,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_text
-      value: Capture speed is based on a variety of factors, the main one being the
-        enemies remaining health. Try damaging Millim using basic attacks. When not
-        in Capture Mode or Spellcasting Mode, Left Click will perform a basic attack.
-        This is a short swing of your blade. Due to it's short range and poor damage,
-        this should only be used in emergencies!
+      value: "Capture speed is based on a variety of factors, the main one being
+        the enemies remaining health. \n\nTry damaging Millim using basic attacks.
+        \n\nWhen not in Capture Mode or Spellcasting Mode, Left Click will perform
+        a basic attack. This is a short swing of your blade. Due to it's short range
+        and poor damage, this should only be used in emergencies!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6576446313625536358, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_Name
@@ -6002,9 +6006,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_text
-      value: Pharus Nodes appear throughout the world saving your progress. They
-        also allow you to attune your Beastmasters Grimoire to new Beasts. Interact
-        with the nearby Pharus Node to attune Millim to the Grimoire!
+      value: "Pharus Nodes appear throughout the world saving your progress. They
+        also allow you to attune your Beastmasters Grimoire to new Beasts. \n\nInteract
+        with the nearby Pharus Node to attune Millim to the Grimoire!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6576446313625536358, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_Name
@@ -28219,10 +28227,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_text
-      value: Press the 'C' Button to enter Capture Mode. Pressing 'C' again or being
-        hit by an enemy will exit Capture Mode. While in Capture Mode, aim the cursor
-        and left click to fire capture projectiles. These will fill the enemies capture
-        bar when they hit the enemy. When the bar is full the enemy is captured!
+      value: "Press the 'C' Button to enter Capture Mode. Pressing 'C' again or being
+        hit by an enemy will exit Capture Mode. \n\nWhile in Capture Mode, aim the
+        cursor and left click to fire capture projectiles. These will fill the enemies
+        capture bar when they hit the enemy. \n\nWhen the bar is full the enemy is
+        captured!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6576446313625536358, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_Name
@@ -29410,7 +29423,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1962727106
 PrefabInstance:
@@ -29684,14 +29697,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   captureTutorial: {fileID: 1052933319}
   capturePopup: {fileID: 1493884498}
-  AttackPopup: {fileID: 1279860277}
-  BeaconPopup: {fileID: 262659487}
+  attackPopup: {fileID: 1279860277}
+  beaconPopup: {fileID: 262659487}
   millim: {fileID: 1517123293}
   captureBool: 0
   captured: 0
   tutIntro: Tutorial Introduction Conversation
   tutCapture: Tutorial Capture Dialogue
   tutAttack: Tutorial Attack Dialogue
+  tutBeacon: Tutorial Beacon Dialogue
 --- !u!58 &1983104117
 CircleCollider2D:
   m_ObjectHideFlags: 0
