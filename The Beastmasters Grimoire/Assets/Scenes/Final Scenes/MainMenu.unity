@@ -14864,7 +14864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Beastmaster's Grimore
+  m_text: Beastmaster's Grimoire
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2596e9b1cd18e854fbd26ff932a477a1, type: 2}
   m_sharedMaterial: {fileID: -8122146068438977893, guid: 2596e9b1cd18e854fbd26ff932a477a1, type: 2}
