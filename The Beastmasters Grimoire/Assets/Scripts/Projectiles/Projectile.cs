@@ -27,9 +27,9 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private PlayerHealth playerH;
     [HideInInspector] private PlayerStatusEffects playerStatus;
     [HideInInspector] public SpellScriptableObject playerS;
-    [HideInInspector] public EnemyController eController;
     [HideInInspector] public EnemyScriptableObject enemyS;
     Vector2 moveDirection;
+    private bool isLookingAtObject = true;
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +37,11 @@ public class Projectile : MonoBehaviour
         PlayerObject = PlayerManager.instance.gameObject;
         PlayerManager playerM = PlayerObject.GetComponent<PlayerManager>();
         if (enemyS != null){
-            enemyS = eController.data;
             playerT = PlayerObject.GetComponent<Transform>();
             playerH = PlayerObject.GetComponent<PlayerHealth>();
             playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
             if (enemyS.ProjType == EnemyScriptableObject.ProjTypeEnum.Bullet) {
-                Debug.Log("Added velocity");
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
             }
@@ -52,7 +50,6 @@ public class Projectile : MonoBehaviour
             Vector3 mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
             moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
             if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet) {
-                Debug.Log("Added velocity");
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
             }
@@ -64,16 +61,29 @@ public class Projectile : MonoBehaviour
     {
         if (enemyS != null){
             if (enemyS.ProjHoming == true){
-                    float angle = Vector3.Cross(moveDirection, transform.position).z;
-                    rb.angularVelocity = angle * enemyS.ProjRotation;
+                moveDirection = (playerT.position - transform.position).normalized;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, enemyS.ProjRotation * Time.deltaTime, 0.0F);
+                transform.Translate(Vector3.forward * Time.deltaTime * enemyS.ProjSpeed, Space.Self);
+                if(Vector3.Distance(transform.position, playerT.position) < enemyS.ProjFocusDistance) {
+                    isLookingAtObject = false;
                 }
+                if(isLookingAtObject) {
+                    transform.rotation = Quaternion.LookRotation(newDirection);
+                }
+            }
         } else if (playerS != null){
             if (playerS.ProjHoming == true){
-                    Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), transform.position).GetComponent<Transform>();
-                    moveDirection = (homingT.position - transform.position).normalized * playerS.ProjSpeed;
-                    float angle = Vector3.Cross(transform.position, moveDirection).z;
-                    rb.angularVelocity = angle * playerS.ProjRotation;
+                Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), transform.position).GetComponent<Transform>();
+                moveDirection = (homingT.position - transform.position).normalized;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, playerS.ProjRotation * Time.deltaTime, 0.0F);
+                transform.Translate(Vector3.forward * Time.deltaTime * playerS.ProjSpeed, Space.Self);
+                if(Vector3.Distance(transform.position, homingT.position) < playerS.ProjFocusDistance) {
+                    isLookingAtObject = false;
                 }
+                if(isLookingAtObject) {
+                    transform.rotation = Quaternion.LookRotation(newDirection);
+                }
+            }
         }
     }
 

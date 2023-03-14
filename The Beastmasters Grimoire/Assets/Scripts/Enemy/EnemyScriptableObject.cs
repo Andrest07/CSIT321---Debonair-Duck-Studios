@@ -45,6 +45,7 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private bool projHoming = false;
     //[DrawIf("projHoming", true)]
     [SerializeField] private float projRotation = 1f;
+    [SerializeField] private float projFocusDistance = 1f;
 
     [Header("Beam Stats")]
     [SerializeField] private bool projBeam = false;
@@ -91,6 +92,7 @@ public class EnemyScriptableObject : ScriptableObject
     //Homing Stats
     public bool ProjHoming { get => projHoming; }
     public float ProjRotation { get => projRotation; }
+    public float ProjFocusDistance {get => projFocusDistance; }
 
     //Beam Stats
     public bool ProjBeam { get => projBeam; }

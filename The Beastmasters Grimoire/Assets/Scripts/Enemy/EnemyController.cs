@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour
                 if (canTakeDamage)
                 {
                     GameObject tempBullet = Instantiate(data.RangedProjectile, transform.position, Quaternion.identity);
-                    tempBullet.GetComponent<Projectile>().eController = this.GetComponent<EnemyController>();
+                    tempBullet.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
 
                     StartCoroutine(DamageTimer());
                 }
