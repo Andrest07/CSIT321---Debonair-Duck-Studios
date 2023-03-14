@@ -6,30 +6,34 @@ using UnityEngine.InputSystem;
 
 public class BeamEffect : MonoBehaviour
 {
-    public ParticleSystem particles;
+    public GameObject particles;
     public GameObject laserAim;
     public GameObject laserFire;
     public Transform firePoint;
-
     public GameObject target;
-    public float timer = 3f;
 
+    [Header("Delay for firing & firing time")]
+    [SerializeField] private float delay = 3f;
+    [SerializeField] private float firingTime = 4f;
+
+    [Header("Visible for testing")]
     public bool fire = false;
-    public bool isFiring = false;
+    private bool isFiring = false;
+    private bool isAiming = false;
 
-    private Transform m_transform;
     private LineRenderer lineAim;
     private LineRenderer lineFire;
     private RaycastHit2D hit;
     private Vector2 finalTarget;
+    private Vector2 direction;
+    private int layerMask = 1 << 3;
     [SerializeField] private float distanceRay = 100;
+
 
     private void Start()
     {
         lineAim = laserAim.GetComponent<LineRenderer>();
         lineFire = laserFire.GetComponent<LineRenderer> ();
-
-        m_transform = GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -37,53 +41,58 @@ public class BeamEffect : MonoBehaviour
         if (fire && !isFiring)
         {
             fire = false;
-            isFiring = true;
-            Debug.Log("true");
+            isFiring = isAiming = true;
             FireBeam();
         }
-
-        ShootLaser();
-        
-    }
-
-    void ShootLaser()
-    {
-        Vector3 dir = (target.transform.position - firePoint.position).normalized;
-        Debug.DrawRay(firePoint.position, dir, Color.green);
-
-        if (Physics2D.Raycast(firePoint.position, dir * distanceRay))
+        else if (isFiring && isAiming)
         {
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, dir * distanceRay);
+            if (Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask))
+                hit = Physics2D.Raycast(firePoint.position, direction * distanceRay);
+
             Draw2DRay(lineAim, firePoint.position, hit.point);
         }
-        else
+        else if (isFiring)
         {
-            Draw2DRay(lineAim, firePoint.position, firePoint.transform.right * distanceRay);
+            if (Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask))
+                hit = Physics2D.Raycast(firePoint.position, direction * distanceRay);
+
+            if (Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask))
+            {
+                Debug.Log("hits");
+
+                particles.transform.position = hit.point;
+                particles.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("doesn't hit");
+
+                particles.SetActive(false);
+            }
+
+            Draw2DRay(lineFire, firePoint.position, hit.point);
         }
+        
     }
 
     private void FireBeam()
     {
         laserAim.SetActive(true);
-        if (Physics2D.Raycast(m_transform.position, target.transform.position))
+
+        direction = (target.transform.position - firePoint.position).normalized;
+        if (Physics2D.Raycast(firePoint.position, direction * distanceRay))
         {
-            Debug.Log("hit");
-            hit = Physics2D.Raycast(transform.position, target.transform.position);
+            hit = Physics2D.Raycast(firePoint.position, direction * distanceRay);
             finalTarget = hit.point;
         }
         else
-        {
-            finalTarget = m_transform.right * distanceRay;
+        {   
+            finalTarget = firePoint.right * distanceRay;
         }
-        /*
+        
         StartCoroutine(BeamTimer());
-        laserAim.SetActive(false);
-        laserFire.SetActive(true);
-        StartCoroutine(BeamTimer());
-        laserFire.SetActive(false);
-
-        isFiring = false;*/
     }
+
     void Draw2DRay(LineRenderer lineRenderer, Vector2 start, Vector2 end)
     {
         lineRenderer.SetPosition(0, start);
@@ -93,10 +102,27 @@ public class BeamEffect : MonoBehaviour
     private IEnumerator BeamTimer()
     {
         float elapsed = 0;
-        while (elapsed < timer)
+        while (elapsed < delay)
         {
             elapsed += Time.deltaTime;
             yield return null;
         }
+
+        laserAim.SetActive(false);
+
+        isAiming = false;
+        laserFire.SetActive(true);
+
+        elapsed = 0;
+        while (elapsed < firingTime)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        laserFire.SetActive(false);
+        particles.SetActive(false);
+
+        isFiring = false;
     }
 }
