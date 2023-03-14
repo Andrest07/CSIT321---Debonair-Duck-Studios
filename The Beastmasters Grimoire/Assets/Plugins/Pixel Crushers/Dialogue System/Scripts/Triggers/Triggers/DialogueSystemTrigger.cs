@@ -514,7 +514,7 @@ namespace PixelCrushers.DialogueSystem
                 if (pauseGameDuringConversation && didIPause)
                 {
                     didIPause = false;
-                    Time.timeScale = preConversationTimeScale;
+                    Time.timeScale = 1;
                 }
                 frameConversationEnded = Time.frameCount;
             }

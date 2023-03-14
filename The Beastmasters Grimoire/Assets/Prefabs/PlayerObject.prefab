@@ -269,6 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7342188552462242031}
   - component: {fileID: 9183235391351313799}
+  - component: {fileID: 1695965317}
   - component: {fileID: 5986977438749633228}
   - component: {fileID: 4495194794552010770}
   - component: {fileID: 3155322573152117181}
@@ -279,7 +280,6 @@ GameObject:
   - component: {fileID: 5480006108857693111}
   - component: {fileID: 7083514175328161317}
   - component: {fileID: 7286641169873635502}
-  - component: {fileID: 1695965317}
   - component: {fileID: 1695965318}
   - component: {fileID: 280011212450600004}
   - component: {fileID: 1904658984}
@@ -359,6 +359,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &1695965317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338222291938608896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0037ceb8b580b4ab6f49d5cfdb4649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testingMode: 1
+  movementVector: {x: 0, y: 0}
+  mousePos: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
+  inDialogue: 0
+  inGameMenu: 0
+  inPauseMenu: 0
+  playerSpeed: 5
+  canMove: 1
+  canAttack: 1
+  playerMode: 0
+  levelSwapPosition: {x: 0, y: 0, z: 0}
+  captureProjectile: {fileID: 6977254816827940189, guid: 4b2c22a542f029d4b8cf7283080e92e6, type: 3}
+  captureProjectileCooldown: 0.25
+  capturePower: 0.5
+  fizzleEffect: {fileID: 0}
+  canCapture: 0
+  canBasic: 0
+  canSpellcast: 0
+  data:
+    playerStamina: {fileID: 0}
+    playerHealth: {fileID: 0}
+    currentBeast: {fileID: 0}
+    availableBeasts:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    availableBeastsCooldowns: []
+    totalBeasts: 3
+    currentBeastIndex: 0
+    playerQuests: []
 --- !u!114 &5986977438749633228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,49 +590,6 @@ MonoBehaviour:
   attackCooldown: 0.25
   drawGizmos: 1
   swordSlash: {fileID: 1356084919416981197, guid: dd394aa75a540a44381eed3c239c1aa6, type: 3}
---- !u!114 &1695965317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338222291938608896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0037ceb8b580b4ab6f49d5cfdb4649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testingMode: 0
-  movementVector: {x: 0, y: 0}
-  mousePos: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  inDialogue: 0
-  inGameMenu: 0
-  inPauseMenu: 0
-  playerSpeed: 5
-  canMove: 1
-  canAttack: 1
-  playerMode: 0
-  levelSwapPosition: {x: 0, y: 0, z: 0}
-  captureProjectile: {fileID: 6977254816827940189, guid: 4b2c22a542f029d4b8cf7283080e92e6, type: 3}
-  captureProjectileCooldown: 0.25
-  capturePower: 0.5
-  fizzleEffect: {fileID: 0}
-  canCapture: 0
-  canBasic: 0
-  canSpellcast: 0
-  data:
-    playerStamina: {fileID: 0}
-    playerHealth: {fileID: 0}
-    currentBeast: {fileID: 0}
-    availableBeasts:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    availableBeastsCooldowns: []
-    totalBeasts: 3
-    currentBeastIndex: 0
-    playerQuests: []
 --- !u!114 &1695965318
 MonoBehaviour:
   m_ObjectHideFlags: 0

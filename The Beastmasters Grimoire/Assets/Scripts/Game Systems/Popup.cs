@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Popup : MonoBehaviour
 {
-    public void OpenPopup()
+    void Update()
     {
+
         GameManager.instance.isPaused = true;
         Time.timeScale = 0;
-        gameObject.SetActive(true);
     }
     public void ClosePopup()
     {

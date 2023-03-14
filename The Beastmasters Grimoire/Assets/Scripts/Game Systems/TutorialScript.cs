@@ -6,10 +6,19 @@ AUTHOR DD/MM/YY:
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 public class TutorialScript : MonoBehaviour
 {
     public GameObject captureTutorial;
+
+    public GameObject capturePopup;
+    public GameObject AttackPopup;
+    public GameObject BeaconPopup;
+
+    public GameObject millim;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +28,10 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (millim.GetComponent<EnemyCapture>().captureAmount >= 1)
+        {
+            Debug.Log("amgos");
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -42,5 +54,26 @@ public class TutorialScript : MonoBehaviour
     public void SaveBeaconTutorial()
     {
         PlayerManager.instance.canSpellcast = true;
+    }
+
+    [ConversationPopup] public string tutIntro;
+    [ConversationPopup] public string tutCapture;
+    [ConversationPopup] public string tutAttack;
+
+    void OnConversationEnd(Transform actor)
+    {
+        if (DialogueManager.lastConversationStarted == tutIntro)
+        {
+            captureTutorial.SetActive(true);
+        }
+        if (DialogueManager.lastConversationStarted == tutCapture)
+        {
+            capturePopup.SetActive(true);
+            Destroy(captureTutorial);
+        }
+        if (DialogueManager.lastConversationStarted == tutAttack)
+        {
+            AttackPopup.SetActive(true);
+        }
     }
 }
