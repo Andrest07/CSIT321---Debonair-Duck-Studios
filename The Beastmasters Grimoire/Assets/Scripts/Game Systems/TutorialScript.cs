@@ -18,6 +18,7 @@ public class TutorialScript : MonoBehaviour
 
     public GameObject millim;
 
+    public bool captureBool;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,14 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (millim.GetComponent<EnemyCapture>().captureAmount >= 1)
+        if (!captureBool)
         {
-            Debug.Log("amgos");
+            if (millim.GetComponent<EnemyCapture>().captureAmount >= 1)
+            {
+                DialogueManager.StartConversation("Tutorial Attack Dialogue", PlayerManager.instance.transform, this.transform);
+                captureBool = true;
+                Time.timeScale = 0f;
+            }
         }
     }
     void OnTriggerExit2D(Collider2D other)

@@ -28220,9 +28220,9 @@ PrefabInstance:
     - target: {fileID: 3365360873234270518, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_text
       value: Press the 'C' Button to enter Capture Mode. Pressing 'C' again or being
-        hit by an enemy will exit Capture Mode. While in Capture Mode. aim the cursor
-        and left click to fire capture projectiles that will fill the enemies capture
-        bar. When the bar is full the enemy is captured!
+        hit by an enemy will exit Capture Mode. While in Capture Mode, aim the cursor
+        and left click to fire capture projectiles. These will fill the enemies capture
+        bar when they hit the enemy. When the bar is full the enemy is captured!
       objectReference: {fileID: 0}
     - target: {fileID: 6576446313625536358, guid: 5ab597d7d5ffa854ea25351d02ddca0e, type: 3}
       propertyPath: m_Name
@@ -29687,9 +29687,10 @@ MonoBehaviour:
   AttackPopup: {fileID: 1279860277}
   BeaconPopup: {fileID: 262659487}
   millim: {fileID: 1517123293}
+  captureBool: 0
   tutIntro: Tutorial Introduction Conversation
   tutCapture: Tutorial Capture Dialogue
-  tutAttack: New Conversation 1
+  tutAttack: Tutorial Attack Dialogue
 --- !u!58 &1983104117
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30450,6 +30451,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5791805929956493105, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6889689853455143332, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -30502,5 +30507,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5791805929956493105, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
