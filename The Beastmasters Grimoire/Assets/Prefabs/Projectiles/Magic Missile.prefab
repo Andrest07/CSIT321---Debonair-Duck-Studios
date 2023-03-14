@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerS: {fileID: 0}
-  eController: {fileID: 0}
   enemyS: {fileID: 0}
 --- !u!96 &-4102027191872205499
 TrailRenderer:
@@ -192,20 +191,20 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -0.23880135
-        outSlope: -0.23880135
+        inSlope: -0.39136904
+        outSlope: -0.39136904
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.2243346
+        outWeight: 0.27450624
       - serializedVersion: 3
-        time: 1
+        time: 0.75285923
         value: 0
-        inSlope: -1.4293479
-        outSlope: -1.4293479
+        inSlope: -0.84532356
+        outSlope: -0.84532356
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.17490494
+        inWeight: 0.32680613
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -213,7 +212,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.41960785, g: 0, b: 1, a: 1}
-      key1: {r: 0.41960785, g: 0, b: 1, a: 1}
+      key1: {r: 0.41960785, g: 0, b: 1, a: 0.27450982}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -236,7 +235,7 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -246,5 +245,5 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
