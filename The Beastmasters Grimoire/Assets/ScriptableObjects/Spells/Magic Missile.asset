@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c2d226e960b3341bc5e5b6e55074ae, type: 3}
   m_Name: Magic Missile
   m_EditorClassIdentifier: 
-  spellName: 
-  spellProjectile: {fileID: 0}
+  spellName: Magic Missile
+  spellProjectile: {fileID: 76919016255997969, guid: 3c369ad209a0af34583168054e06e124, type: 3}
   attributeType: 0
   spellCooldown: 2
   spellDescription: 
@@ -21,7 +21,7 @@ MonoBehaviour:
   projDamage: 1
   projSpeed: 1
   projLifetime: 3
-  projHoming: 0
+  projHoming: 1
   projRotation: 1
   projBeam: 0
   beamTelegraph: 1

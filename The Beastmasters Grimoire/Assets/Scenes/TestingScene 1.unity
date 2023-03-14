@@ -536,11 +536,19 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: testingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: data.currentBeast
       value: 
       objectReference: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
     - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: data.availableBeasts.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4443a189002ac124dada62ad19b7525c, type: 2}
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: data.availableBeasts.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: d2231f4b930c787458f90e90e9e2e371, type: 2}
     - target: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
