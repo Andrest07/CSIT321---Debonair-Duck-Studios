@@ -10,6 +10,7 @@
     - Andreas 12/03/23: Added bullet checks in preparation for beam and AOE.
     - Kunal 12/03/23: Added status effects.
     - Andreas 12/03/23: Reworked and fixed status effects.
+    - Andreas 14/03/23: Rewritten how player vs enemy spell is handled.
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +23,6 @@ public class Projectile : MonoBehaviour
     Quaternion rotateToTarget;
 
     private GameObject PlayerObject;
-    [HideInInspector] public bool playerSpell = false;
     [HideInInspector] private Transform playerT;
     [HideInInspector] private PlayerHealth playerH;
     [HideInInspector] private PlayerStatusEffects playerStatus;
@@ -36,25 +36,26 @@ public class Projectile : MonoBehaviour
     {
         PlayerObject = PlayerManager.instance.gameObject;
         PlayerManager playerM = PlayerObject.GetComponent<PlayerManager>();
-        if (playerSpell == false){
+        if (enemyS != null){
             enemyS = eController.data;
             playerT = PlayerObject.GetComponent<Transform>();
             playerH = PlayerObject.GetComponent<PlayerHealth>();
             playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
-        } else {
+            if (enemyS.ProjType == EnemyScriptableObject.ProjTypeEnum.Bullet) {
+                Debug.Log("Added velocity");
+                rb  = GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+            }
+            Destroy(gameObject, enemyS.ProjLifetime);
+        } else if (playerS != null) {
             Vector3 mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
             moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
-        }
-        
-            if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet || enemyS.ProjType == EnemyScriptableObject.ProjTypeEnum.Bullet){
-            rb  = GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
-        }
-
-        if (playerSpell == false){
-            Destroy(gameObject, enemyS.ProjLifetime);
-        } else {
+            if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet) {
+                Debug.Log("Added velocity");
+                rb  = GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+            }
             Destroy(gameObject, playerS.ProjLifetime);
         }
     }
@@ -66,8 +67,7 @@ public class Projectile : MonoBehaviour
                     float angle = Vector3.Cross(moveDirection, transform.position).z;
                     rb.angularVelocity = angle * enemyS.ProjRotation;
                 }
-        }
-        if (playerS != null){
+        } else if (playerS != null){
             if (playerS.ProjHoming == true){
                     Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), transform.position).GetComponent<Transform>();
                     moveDirection = (homingT.position - transform.position).normalized * playerS.ProjSpeed;
@@ -79,7 +79,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag.Equals("Player") && playerSpell == false){
+        if (col.gameObject.tag.Equals("Player") && enemyS != null){
             playerH.TakeDamage(enemyS.ProjDamage);
            switch(enemyS.AttributeType) {
                 case EnemyScriptableObject.AttributeTypeEnum.Fire:
@@ -96,7 +96,7 @@ public class Projectile : MonoBehaviour
                     break;
             }
             Destroy (gameObject);
-        } else if (col.gameObject.tag.Equals("Enemy") && playerSpell == true){
+        } else if (col.gameObject.tag.Equals("Enemy") && playerS != null){
             EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
             enemyH.TakeDamage(playerS.ProjDamage, transform.position);
             Destroy (gameObject);

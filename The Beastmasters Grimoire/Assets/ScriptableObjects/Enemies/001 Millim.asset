@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Millim
   attributeType: 0
   enemyDescription: 
-  spellScriptable: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: f4e808b0d5dca9d468a193ba89dd169f, type: 2}
   health: 10
   speed: 1
   meleeDamage: 1

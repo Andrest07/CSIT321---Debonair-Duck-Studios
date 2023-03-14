@@ -243,7 +243,6 @@ public class PlayerManager : MonoBehaviour
                         GameObject tempSpell = Instantiate(data.currentBeast,
                             transform.position + mousePos.normalized,
                             Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
-                        tempSpell.GetComponent<Projectile>().playerSpell = true;
                         tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
                         //Same as exiting spellcasting
                         animator.SetBool("isCasting", false);
