@@ -455,9 +455,26 @@ public class PlayerManager : MonoBehaviour
         data.availableBeastsCooldowns[i] = 0;
     }
 
-    public void UpdateAvailableBeast(EnemyScriptableObject beast, int number)
+    public bool UpdateAvailableBeast(EnemyScriptableObject beast, int number)
     {
+        if (number >= data.totalBeasts - 1)
+        {
+            return false;
+        }
+        for (int i = 0; i < data.totalBeasts; i++)
+        {
+            if (data.availableBeasts[i] == beast)
+            {
+                return false;
+            }
+        }
+
         data.availableBeasts[number] = beast;
+        if (data.currentBeastIndex == number)
+        {
+            data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile;
+        }
+        return true;
     }
 
 }

@@ -48,7 +48,10 @@ public class SaveBeaconMenu : MonoBehaviour
     public void Attune()
     {
         GameManager.instance.UpdateSpellImage(attunedBeast, attunedSlotNumber);
-        PlayerManager.instance.UpdateAvailableBeast(attunedBeast, attunedSlotNumber);
+        bool uniqueSpell = PlayerManager.instance.UpdateAvailableBeast(attunedBeast, attunedSlotNumber);
+        if(!uniqueSpell){
+            //Display failed text
+        }
     }
 
     public void Save()
