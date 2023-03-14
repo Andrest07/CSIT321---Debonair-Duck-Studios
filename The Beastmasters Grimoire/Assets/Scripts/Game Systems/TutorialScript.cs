@@ -19,6 +19,7 @@ public class TutorialScript : MonoBehaviour
     public GameObject millim;
 
     public bool captureBool;
+    public bool captured;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +32,18 @@ public class TutorialScript : MonoBehaviour
     {
         if (!captureBool)
         {
-            if (millim.GetComponent<EnemyCapture>().captureAmount >= 1)
+            if (millim.GetComponent<EnemyCapture>().captureAmount >= 2.5)
             {
                 DialogueManager.StartConversation("Tutorial Attack Dialogue", PlayerManager.instance.transform, this.transform);
                 captureBool = true;
                 Time.timeScale = 0f;
             }
+        }
+        if (millim == null && !captured)
+        {
+            DialogueManager.StartConversation("Tutorial Beacon Dialogue", PlayerManager.instance.transform, this.transform);
+            captured = true;
+            Time.timeScale = 0f;
         }
     }
     void OnTriggerExit2D(Collider2D other)

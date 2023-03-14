@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
     //Method for getting whether a beast is or is not unlocked
     public bool GetBestiary(EnemyScriptableObject enemy)
     {
-        return bestiary.ContainsKey(enemy);
+        return bestiary[enemy];
     }
 
     public void UpdateSprintCooldown(bool available)

@@ -21,7 +21,7 @@ MonoBehaviour:
   meleeDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 0
-  captureTotal: 15
+  captureTotal: 25
   isRanged: 0
   projType: 0
   projDamage: 1
@@ -29,6 +29,7 @@ MonoBehaviour:
   projLifetime: 3
   projHoming: 0
   projRotation: 1
+  projFocusDistance: 1
   projBeam: 0
   beamTelegraph: 1
   beamActual: 1

@@ -29688,6 +29688,7 @@ MonoBehaviour:
   BeaconPopup: {fileID: 262659487}
   millim: {fileID: 1517123293}
   captureBool: 0
+  captured: 0
   tutIntro: Tutorial Introduction Conversation
   tutCapture: Tutorial Capture Dialogue
   tutAttack: Tutorial Attack Dialogue
