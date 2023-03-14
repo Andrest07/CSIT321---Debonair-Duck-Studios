@@ -456,4 +456,9 @@ public class PlayerManager : MonoBehaviour
         data.availableBeastsCooldowns[i] = 0;
     }
 
+    public void UpdateAvailableBeast(EnemyScriptableObject beast, int number)
+    {
+        data.availableBeasts[number] = beast;
+    }
+
 }

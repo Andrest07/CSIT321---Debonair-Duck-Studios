@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
         spellSlots = GameObject.FindGameObjectsWithTag("SpellSlot");
     }
-	
+
     void Start()
     {
         UpdateSpellSlots(PlayerManager.instance.data.totalBeasts);
@@ -113,6 +113,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void UpdateSpellImage(EnemyScriptableObject beast, int number)
+    {
+        spellSlots[number].GetComponent<Image>().sprite = beast.SpellScriptable.SpellImage;
+    }
 
     //Method for setting a beast to be unlocked
     public void SetBestiary(EnemyScriptableObject enemy)
@@ -123,7 +127,7 @@ public class GameManager : MonoBehaviour
     //Method for getting whether a beast is or is not unlocked
     public bool GetBestiary(EnemyScriptableObject enemy)
     {
-        return bestiary.ContainsKey(enemy);
+        return bestiary[enemy];
     }
 
     public void UpdateSprintCooldown(bool available)
