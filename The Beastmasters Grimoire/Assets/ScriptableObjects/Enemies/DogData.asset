@@ -13,25 +13,29 @@ MonoBehaviour:
   m_Name: DogData
   m_EditorClassIdentifier: 
   enemyName: Dog
-  enemyType: 0
+  attributeType: 0
   enemyDescription: 
-  spellName: 
   spellScriptable: {fileID: 0}
-  spellType: 0
-  spellDescription: 
   health: 20
-  speed: 2
+  speed: 5
   meleeDamage: 1
   rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3
   captureTotal: 5
-  testing: 5
   isRanged: 1
-  projHoming: 0
-  projRotation: 1
+  projType: 0
   projDamage: 1
   projSpeed: 5
   projLifetime: 10
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
   visibilityRange: 4
   attackDistance: 4
-  attackCooldown: 0.2
+  attackCooldown: 0.01
