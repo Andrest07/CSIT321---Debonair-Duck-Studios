@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Electric Bolt
   spellProjectile: {fileID: 8168317729838749010, guid: 192e3bad6bf9849d78bcb9ece4adf6cd, type: 3}
-  attributeType: 3
+  attributeType: 0
   spellCooldown: 2
   spellDescription: 
+  spellImage: {fileID: 0}
   projType: 0
   projDamage: 1
-  projSpeed: 5
+  projSpeed: 10
   projLifetime: 3
   projHoming: 0
   projRotation: 1

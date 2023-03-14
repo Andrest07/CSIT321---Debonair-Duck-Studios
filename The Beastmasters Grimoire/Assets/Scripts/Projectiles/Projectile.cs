@@ -40,9 +40,10 @@ public class Projectile : MonoBehaviour
         if (enemyS != null){
             playerT = PlayerObject.GetComponent<Transform>();
             playerH = PlayerObject.GetComponent<PlayerHealth>();
-            playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
+            PlayerStatusEffects playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
             if (enemyS.ProjType == EnemyScriptableObject.ProjTypeEnum.Bullet) {
+                transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
             }
@@ -51,6 +52,7 @@ public class Projectile : MonoBehaviour
             mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
             moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
             if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet) {
+                transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
             }
@@ -65,8 +67,8 @@ public class Projectile : MonoBehaviour
                 moveDirection = (playerT.position - transform.position).normalized;
                 /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, enemyS.ProjRotation * Time.deltaTime, 0.0F);
                 transform.Translate(Vector3.forward * Time.deltaTime * enemyS.ProjSpeed, Space.Self);
-                float angle = Mathf.Atan2(playerT.position.y-transform.position.y, playerT.position.x-transform.position.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                //float angle = Mathf.Atan2(playerT.position.y-transform.position.y, playerT.position.x-transform.position.x) * Mathf.Rad2Deg;
+                //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 if(Vector3.Distance(transform.position, playerT.position) < enemyS.ProjFocusDistance) {
                     isLookingAtObject = false;
                 }
@@ -100,7 +102,7 @@ public class Projectile : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player") && enemyS != null){
             playerH.TakeDamage(enemyS.ProjDamage);
-           switch(enemyS.AttributeType) {
+            switch(enemyS.AttributeType) {
                 case EnemyScriptableObject.AttributeTypeEnum.Fire:
                     playerStatus.currBurnMeter += 4f;
                     break;

@@ -17,12 +17,14 @@ MonoBehaviour:
   attributeType: 0
   spellCooldown: 2
   spellDescription: 
+  spellImage: {fileID: 0}
   projType: 0
   projDamage: 100
-  projSpeed: 1
+  projSpeed: 3
   projLifetime: 3
   projHoming: 0
   projRotation: 1
+  projFocusDistance: 1
   projBeam: 0
   beamTelegraph: 1
   beamActual: 1

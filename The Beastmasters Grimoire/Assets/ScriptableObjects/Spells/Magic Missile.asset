@@ -20,7 +20,7 @@ MonoBehaviour:
   spellImage: {fileID: 21300000, guid: fea0cfab9702d4714910fdb116ebf414, type: 3}
   projType: 0
   projDamage: 1
-  projSpeed: 3
+  projSpeed: 5
   projLifetime: 3
   projHoming: 1
   projRotation: 1000
