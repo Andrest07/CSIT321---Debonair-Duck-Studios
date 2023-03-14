@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Millim
   attributeType: 0
-  enemyDescription: 
+  enemyDescription: 'A cool bat that is very cool and has very cool powers for very
+    cool people.
+
+'
   spellScriptable: {fileID: 11400000, guid: f4e808b0d5dca9d468a193ba89dd169f, type: 2}
   health: 10
   speed: 1
