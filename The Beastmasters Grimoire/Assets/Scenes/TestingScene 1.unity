@@ -609,9 +609,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: fizzleEffect
+      value: 
+      objectReference: {fileID: 2381686611941950504, guid: 98d99ddd434159540950a33f53a1bbfa, type: 3}
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: data.currentBeast
       value: 
       objectReference: {fileID: 76919016255997969, guid: 3c369ad209a0af34583168054e06e124, type: 3}
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: data.availableBeasts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: data.availableBeasts.Array.data[0]
       value: 
@@ -619,11 +627,11 @@ PrefabInstance:
     - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: data.availableBeasts.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: d2231f4b930c787458f90e90e9e2e371, type: 2}
+      objectReference: {fileID: 11400000, guid: 85438dc944cfc483dbe33819e5c1b026, type: 2}
     - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: data.availableBeasts.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 85438dc944cfc483dbe33819e5c1b026, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: data.availableBeastsCooldowns.Array.size
       value: 3
