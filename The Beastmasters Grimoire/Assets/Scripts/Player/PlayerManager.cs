@@ -193,7 +193,6 @@ public class PlayerManager : MonoBehaviour
     {
         if (context.performed && !inDialogue && !inGameMenu)
         {
-            inPauseMenu = !inPauseMenu;
             pauseFunction.PauseGame();
         }
     }
