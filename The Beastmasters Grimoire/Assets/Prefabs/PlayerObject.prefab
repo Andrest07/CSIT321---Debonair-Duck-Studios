@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0037ceb8b580b4ab6f49d5cfdb4649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testingMode: 1
+  testingMode: 0
   movementVector: {x: 0, y: 0}
   mousePos: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
@@ -398,7 +398,10 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    availableBeastsCooldowns: []
+    availableBeastsCooldowns:
+    - 0
+    - 0
+    - 0
     totalBeasts: 3
     currentBeastIndex: 0
     playerQuests: []

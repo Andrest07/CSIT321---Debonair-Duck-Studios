@@ -15,9 +15,9 @@ MonoBehaviour:
   enemyName: Dog
   attributeType: 0
   enemyDescription: 
-  spellScriptable: {fileID: 11400000, guid: ccea6e00456336b48b26a86797682f03, type: 2}
+  spellScriptable: {fileID: 0}
   health: 20
-  speed: 2
+  speed: 5
   meleeDamage: 1
   rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3
@@ -25,7 +25,7 @@ MonoBehaviour:
   isRanged: 1
   projType: 0
   projDamage: 1
-  projSpeed: 3
+  projSpeed: 5
   projLifetime: 10
   projHoming: 0
   projRotation: 1
@@ -38,4 +38,4 @@ MonoBehaviour:
   aoeActual: 1
   visibilityRange: 4
   attackDistance: 4
-  attackCooldown: 0.2
+  attackCooldown: 0.01

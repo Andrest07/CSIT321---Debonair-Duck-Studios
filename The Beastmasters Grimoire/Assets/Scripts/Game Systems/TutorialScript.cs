@@ -11,7 +11,7 @@ using PixelCrushers.DialogueSystem;
 public class TutorialScript : MonoBehaviour
 {
     public GameObject captureTutorial;
-    
+
     [Header("Tutorial Popup Objects")]
     public GameObject capturePopup;
     public GameObject attackPopup;
@@ -19,12 +19,14 @@ public class TutorialScript : MonoBehaviour
 
     public GameObject millim;
 
+    private EnemyScriptableObject millimData;
+
     public bool captureBool;
     public bool captured;
     public bool spellEquiped = false;
     public bool tutorialFinished = false;
 
-    private DialogueSystemTrigger [] dialogueTrigger;
+    private DialogueSystemTrigger[] dialogueTrigger;
 
     [Header("Tutorial Dialogues")]
     [ConversationPopup] public string tutIntro;
@@ -35,7 +37,8 @@ public class TutorialScript : MonoBehaviour
 
     private void Awake()
     {
-        dialogueTrigger = GetComponents<DialogueSystemTrigger> ();
+        dialogueTrigger = GetComponents<DialogueSystemTrigger>();
+        millimData = millim.GetComponent<EnemyController>().data;
     }
 
     // Update is called once per frame
@@ -50,19 +53,25 @@ public class TutorialScript : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
-        
+
         if (millim == null && !captured)
         {
             DialogueManager.StartConversation(tutBeacon, PlayerManager.instance.transform, this.transform);
             captured = true;
             Time.timeScale = 0f;
         }
-        
+
+        foreach (EnemyScriptableObject enemy in PlayerManager.instance.data.availableBeasts)
+        {
+            if (enemy == millimData) spellEquiped = true;
+        }
+
         if (spellEquiped && !tutorialFinished)
         {
             DialogueManager.StartConversation(tutFinish, PlayerManager.instance.transform, this.transform);
             tutorialFinished = true;
             Time.timeScale = 0f;
+            PlayerManager.instance.canSpellcast = true;
         }
     }
     void OnTriggerExit2D(Collider2D other)
@@ -81,10 +90,6 @@ public class TutorialScript : MonoBehaviour
     public void BasicAttackTutorial()
     {
         PlayerManager.instance.canBasic = true;
-    }
-    public void SaveBeaconTutorial()
-    {
-        PlayerManager.instance.canSpellcast = true;
     }
 
     void OnConversationEnd(Transform actor)
@@ -106,7 +111,7 @@ public class TutorialScript : MonoBehaviour
         {
             beaconPopup.SetActive(true);
         }
-        if(DialogueManager.lastConversationStarted == tutFinish)
+        if (DialogueManager.lastConversationStarted == tutFinish)
         {
             dialogueTrigger[1].trigger = DialogueSystemTriggerEvent.None;
         }

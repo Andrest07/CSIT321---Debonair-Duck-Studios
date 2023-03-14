@@ -14,12 +14,20 @@ public class PauseMenuScript : MonoBehaviour
 {
     public GameObject PauseMenu;
     public GameObject hud;
+    private PlayerManager player;
+
+    private void Start()
+    {
+        player = PlayerManager.instance;
+    }
 
     public void PauseGame()
     {
         GameManager.instance.Pause();
         PauseMenu.SetActive(GameManager.instance.isPaused);
         hud.SetActive(!GameManager.instance.isPaused);
+
+        player.inPauseMenu = !player.inPauseMenu;
     }
 
 
