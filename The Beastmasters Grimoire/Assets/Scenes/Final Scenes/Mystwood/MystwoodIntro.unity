@@ -3368,6 +3368,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2729547013534210246, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1480474347}
+    - target: {fileID: 2729547013534210246, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 3124801085073224100, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6601,11 +6609,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7342188552462242031, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7342188552462242031, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7342188552462242031, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27238,6 +27246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec79fc72517baec42b755933a34672d2, type: 3}
+--- !u!1 &1480474347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6991624862676588581, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+  m_PrefabInstance: {fileID: 803733038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1482295358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2921136670345731016, guid: d479ce11c973f27438946ebfff61eda9, type: 3}
@@ -29702,10 +29715,12 @@ MonoBehaviour:
   millim: {fileID: 1517123293}
   captureBool: 0
   captured: 0
+  spellEquiped: 0
   tutIntro: Tutorial Introduction Conversation
   tutCapture: Tutorial Capture Dialogue
   tutAttack: Tutorial Attack Dialogue
   tutBeacon: Tutorial Beacon Dialogue
+  tutFinish: 
 --- !u!58 &1983104117
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30366,12 +30381,24 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1636351097541685955, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1636351097541685964, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2858335417025274956, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983359215309869336, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983359215309869336, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
+      propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3270283509336980913, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
@@ -30424,11 +30451,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5521815846279503783, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5521815846279503783, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5521815846279503783, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_LocalPosition.z

@@ -82,12 +82,7 @@ public class InteractionObject : MonoBehaviour
                     break;
 
                 case "SaveBeacon":
-                    // save game
-                    collision.gameObject.GetComponentInParent<SaveLoadGame>().Save();
-                    Debug.Log(collision.gameObject.name);
-                    EventManager.Instance.QueueEvent(new NotificationEvent("", "", NotificationEvent.NotificationType.Save));
-
-                    //collision.GetComponentInParent<SaveBeacon>().OpenFastTravel();
+                    GameManager.instance.GetComponent<SaveBeaconMenu>().OpenMenu(collision.transform.parent.gameObject);
                     break;
 
                 default:

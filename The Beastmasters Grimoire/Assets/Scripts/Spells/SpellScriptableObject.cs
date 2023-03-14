@@ -17,6 +17,7 @@ public class SpellScriptableObject : ScriptableObject
     [SerializeField] private AttributeTypeEnum attributeType;
     [SerializeField] private float spellCooldown = 2f;
     [TextArea][SerializeField] private string spellDescription;
+    [SerializeField] private Sprite spellImage;
 
     [Header("Spell Stats")]
     [SerializeField] private ProjTypeEnum projType;
@@ -49,6 +50,7 @@ public class SpellScriptableObject : ScriptableObject
     public GameObject SpellProjectile { get => spellProjectile; }
     public AttributeTypeEnum AttributeType { get => attributeType; }
     public string SpellDescription { get => spellDescription; }
+    public Sprite SpellImage { get => spellImage; }
 
     //Spell Stats
     public ProjTypeEnum ProjType { get => projType; }
