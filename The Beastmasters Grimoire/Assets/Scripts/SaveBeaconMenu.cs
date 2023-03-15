@@ -26,6 +26,11 @@ public class SaveBeaconMenu : MonoBehaviour
         saveBeaconMenu.SetActive(true);
 
         saveLoad = attunedBeacon.GetComponent<SaveLoadGame>();
+        Time.timeScale=0f;
+    }
+    public void CloseMenu()
+    {
+        Time.timeScale=1f;
     }
     public void SetAttunedBeast(EnemyScriptableObject beast)
     {

@@ -3868,6 +3868,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4180786367870270416, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180786367870270416, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180786367870270416, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 803733039}
+    - target: {fileID: 4180786367870270416, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180786367870270416, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CloseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180786367870270416, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveBeaconMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180786367870270416, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4254184340742658372, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
