@@ -49,6 +49,7 @@ public class SpellScriptableObject : ScriptableObject
     public string SpellName { get => spellName; }
     public GameObject SpellProjectile { get => spellProjectile; }
     public AttributeTypeEnum AttributeType { get => attributeType; }
+    public float SpellCooldown { get => spellCooldown; }
     public string SpellDescription { get => spellDescription; }
     public Sprite SpellImage { get => spellImage; }
 
@@ -61,7 +62,7 @@ public class SpellScriptableObject : ScriptableObject
     //Homing Stats
     public bool ProjHoming { get => projHoming; }
     public float ProjRotation { get => projRotation; }
-    public float ProjFocusDistance {get => projFocusDistance; }
+    public float ProjFocusDistance { get => projFocusDistance; }
 
     //Beam Stats
     public bool ProjBeam { get => projBeam; }
