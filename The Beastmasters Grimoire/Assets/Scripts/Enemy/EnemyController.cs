@@ -27,10 +27,6 @@ public class EnemyController : MonoBehaviour
     [Header("Gizmos")]
     public bool drawGizmos = true;
 
-    [Header("UI Elements")]
-    public GameObject healthBar;
-    public GameObject captureBar;
-    public GameObject enemyName;
 
 
     // Externals
@@ -46,6 +42,10 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public bool isMoving = false;
     [HideInInspector] public NavMeshAgent agent;
     [HideInInspector] public bool isAggro = false;
+
+    [HideInInspector] public GameObject healthBar;
+    [HideInInspector] public GameObject captureBar;
+    [HideInInspector] public GameObject enemyName;
     private bool canTakeDamage = true;
     private Rigidbody2D rigidBody2D;
 
@@ -65,12 +65,16 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        healthBar = gameObject.transform.Find("Enemy Canvas").transform.Find("Enemy UI").transform.Find("HealthBar").gameObject;
+        captureBar = gameObject.transform.Find("Enemy Canvas").transform.Find("Enemy UI").transform.Find("CaptureBar").gameObject;
+        enemyName = gameObject.transform.Find("Enemy Canvas").transform.Find("Enemy UI").transform.Find("EnemyName").gameObject;
+
         playerT = PlayerManager.instance.GetComponent<Transform>();
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
 
-        enemyName.GetComponent<TMPro.TextMeshProUGUI>().text = data.EnemyName;
         healthBar.GetComponent<Slider>().maxValue = data.Health;
         captureBar.GetComponent<Slider>().maxValue = data.CaptureTotal * 100;
+        enemyName.GetComponent<TMPro.TextMeshProUGUI>().text = data.EnemyName;
     }
 
     // Enemy attack
