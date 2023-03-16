@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerProfile currentProfile = new PlayerProfile();
     [HideInInspector] public bool loadFromSave = false;
 
+    //Tutorial variable
+    [HideInInspector] public bool tutorialComplete = false;
+
     void Awake()
     {
         //If there is no gameManager, set this to the gameManager, otherwise destroy this
