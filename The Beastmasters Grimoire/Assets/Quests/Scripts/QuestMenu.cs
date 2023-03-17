@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class QuestMenu : MonoBehaviour
 {
@@ -24,13 +25,18 @@ public class QuestMenu : MonoBehaviour
     public GameObject mainObject;
     public GameObject sideObject;
     public GameObject errandObject;
+    public TMP_Text questDescriptionText;
 
     private bool notInitialized = true;
+    private PlayerManager playerManager;
 
     private void OnEnable()
     {
         if (notInitialized)
         {
+            playerManager = PlayerManager.instance;
+            EventManager.Instance.AddListener<QuestShowDescriptionEvent>(ShowDescription);
+
             Button[] btns = GetComponentsInChildren<Button>();
             mainBtn = btns[0];
             sideBtn = btns[1];
@@ -53,7 +59,7 @@ public class QuestMenu : MonoBehaviour
         // add quest to log
         TMP_Text[] itemText;
         GameObject newItem = Instantiate(questItem, this.transform, false);
-        newItem.name = "Quest " + q.info.questId.ToString();
+        newItem.name = q.info.questId.ToString();
         itemText = newItem.GetComponentsInChildren<TMP_Text>();
         itemText[0].text = q.info.questName;
         itemText[1].text = q.stages[0].Description();
@@ -76,7 +82,7 @@ public class QuestMenu : MonoBehaviour
         // add quest to log
         TMP_Text[] itemText;
         GameObject newItem = Instantiate(questItem, this.transform, false);
-        newItem.name = "Quest " + q.info.questId.ToString();
+        newItem.name = q.info.questId.ToString();
         itemText = newItem.GetComponentsInChildren<TMP_Text>();
         itemText[0].text = q.info.questName;
         itemText[1].text = q.stages[0].Description();
@@ -121,7 +127,29 @@ public class QuestMenu : MonoBehaviour
         }
     }
 
+    public void ShowDescription(QuestShowDescriptionEvent eventInfo)
+    {
+        //int id = int.Parse(button.transform.parent.name);
+        if (questList.ContainsKey(eventInfo.id))
+        {
+            foreach(var quest in playerManager.data.playerQuests)
+            {
+                //TODO maybe a better way of accessing this
+                if(quest.info.questId == eventInfo.id)
+                {
+                    questDescriptionText.text = quest.ToString();
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("quest entry with id " + eventInfo.id + " not found.");
+        }
+    }
 
+
+    // reset the quest menu (for saving etc)
     public void Reset()
     {
         questList = new Dictionary<int, GameObject>();

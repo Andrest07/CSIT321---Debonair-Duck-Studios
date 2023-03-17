@@ -24,6 +24,16 @@ public class QuestStageCheckEvent : GameEvent
     }
 }
 
+public class QuestShowDescriptionEvent : GameEvent
+{
+    public int id;
+
+    public QuestShowDescriptionEvent(int id)
+    {
+        this.id = id;
+    }
+}
+
 public class NotificationEvent : GameEvent
 {    public enum NotificationType
     {

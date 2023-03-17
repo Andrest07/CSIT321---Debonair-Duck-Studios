@@ -135,6 +135,20 @@ public class Quest : ScriptableObject
         }
     }
 
+    public override string ToString()
+    {
+        string fullDesc = info.questDescription + "\n\n";
+        foreach (var stage in stages)
+        {
+            if (stage.completed)
+                fullDesc += "\n- <s>" + stage.Description() + "</s>";
+            else
+                fullDesc += "\n- " + stage.Description();
+        }
+
+        return fullDesc;
+    }
+
 }
 
 public class QuestCompletedEvent : UnityEvent<Quest> { }
