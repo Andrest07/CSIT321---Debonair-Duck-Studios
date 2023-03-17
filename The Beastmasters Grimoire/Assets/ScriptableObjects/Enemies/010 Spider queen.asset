@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: Wine monster
+  m_Name: 010 Spider queen
   m_EditorClassIdentifier: 
-  enemyName: Wine monster
+  enemyName: Spider Monster
   enemyType: 0
-  enemyDescription: plant monster. slashes wines on monster
-  spellName: Wine Bind
+  enemyDescription: big spider throws web that can bind player
+  spellName: web Throw
   spellObject: {fileID: 0}
   spellType: 0
-  spellDescription: Binds the enemy for a few second.
-  isRanged: 0
+  spellDescription: Throws web to bind the player on critical hits.
+  isRanged: 1
   health: 10
   speed: 1
   meleeDamage: 1
   rangedDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
-  captureSeconds: 5
+  captureTotal: 5
   visibilityRange: 10
   attackDistance: 7
   attackCooldown: 1
