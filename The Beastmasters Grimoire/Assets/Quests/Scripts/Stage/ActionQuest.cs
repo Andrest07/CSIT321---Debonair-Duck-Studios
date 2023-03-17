@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ActionQuest : Quest.QuestStage
 {
+    [Header("Action Quest")]
     public string action;
     public string stageDescription;
 
+    private bool booleanGoal = false;
+
     public override string Description()
     {
-        return stageDescription + '\n' + $"You must {action}";
+        return stageDescription;
     }
 
     private void OnPerformed(QuestStageCheckEvent eventInfo)
@@ -19,6 +22,11 @@ public class ActionQuest : Quest.QuestStage
             booleanGoal = true;
             Evaluate();
         }
+    }
+
+    protected override void Evaluate()
+    {
+        if (booleanGoal) Complete();
     }
 
     public override void Initialize()

@@ -9,8 +9,11 @@ using UnityEngine;
 
 public class TravelQuest : Quest.QuestStage
 {
+    [Header("Travel Quest")]
     public string location;
     public string stageDescription;
+
+    private bool booleanGoal = false;
 
     public override string Description()
     {
@@ -24,6 +27,11 @@ public class TravelQuest : Quest.QuestStage
             booleanGoal = true;
             Evaluate();
         }
+    }
+
+    protected override void Evaluate()
+    {
+        if (booleanGoal) Complete();
     }
 
     public override void Initialize()

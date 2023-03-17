@@ -65,11 +65,6 @@ public class Quest : ScriptableObject
     {
         protected string description;
 
-        [Header("Goal type - use one")]
-        public int numericalGoal = 0;
-        public int numericalCurrent;
-        public bool booleanGoal;
-
         public bool completed { get; protected set; }
         [HideInInspector] public UnityEvent stageCompleted;
 
@@ -82,13 +77,9 @@ public class Quest : ScriptableObject
         }
 
         // Check if stage is finished
-        protected void Evaluate()
-        {
-            if (numericalGoal == 0 && booleanGoal) Complete();
-            else if (numericalCurrent >= numericalGoal) Complete();
-        }
+        protected virtual void Evaluate() { }
 
-        private void Complete()
+        protected void Complete()
         {
             completed = true;
             stageCompleted.Invoke();
