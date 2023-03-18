@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: Electric Fox
+  m_Name: 012 Bat
   m_EditorClassIdentifier: 
-  enemyName: Electric Fox
+  enemyName: Bat
   attributeType: 0
-  enemyDescription: Yellow Electric Fox.
-  spellScriptable: {fileID: 11400000, guid: 0e02004e9b38a2b48b7644dd3f1d67c4, type: 2}
+  enemyDescription: Big black bat. shoots sonic waves reducing enemy speed. low health
+    low attack. beam attack
+  spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 8168317729838749010, guid: 192e3bad6bf9849d78bcb9ece4adf6cd, type: 3}
+  rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 1
+  isRanged: 0
   projType: 0
   projDamage: 1
-  projSpeed: 10
+  projSpeed: 1
   projLifetime: 3
   projHoming: 0
   projRotation: 1
@@ -36,6 +37,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 5.18
-  attackDistance: 5
-  attackCooldown: 0.7
+  visibilityRange: 10
+  attackDistance: 7
+  attackCooldown: 1

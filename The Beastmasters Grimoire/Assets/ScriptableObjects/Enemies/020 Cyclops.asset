@@ -10,22 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: GoblinData
+  m_Name: 020 Cyclops
   m_EditorClassIdentifier: 
-  enemyName: 
-  enemyType: 0
-  enemyDescription: 
-  spellName: 
-  spellObject: {fileID: 0}
-  spellType: 0
-  spellDescription: 
-  isRanged: 0
+  enemyName: Cyclops
+  attributeType: 0
+  enemyDescription: 'one eyed creature. shoots lazer beam from eye. '
+  spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
+  captureTotal: 5
+  isRanged: 0
+  projType: 0
+  projDamage: 1
+  projSpeed: 1
+  projLifetime: 3
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
   visibilityRange: 10
   attackDistance: 7
   attackCooldown: 1

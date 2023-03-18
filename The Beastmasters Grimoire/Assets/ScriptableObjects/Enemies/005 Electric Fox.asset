@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: DogData
+  m_Name: 005 Electric Fox
   m_EditorClassIdentifier: 
-  enemyName: Dog
+  enemyName: Electric Fox
   attributeType: 0
-  enemyDescription: 
-  spellScriptable: {fileID: 0}
-  health: 20
-  speed: 5
+  enemyDescription: Yellow Electric Fox.
+  spellScriptable: {fileID: 11400000, guid: 0e02004e9b38a2b48b7644dd3f1d67c4, type: 2}
+  health: 10
+  speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
+  rangedProjectile: {fileID: 8168317729838749010, guid: 192e3bad6bf9849d78bcb9ece4adf6cd, type: 3}
   wanderRadius: 3
   captureTotal: 5
   isRanged: 1
   projType: 0
   projDamage: 1
-  projSpeed: 3
-  projLifetime: 10
+  projSpeed: 10
+  projLifetime: 3
   projHoming: 0
   projRotation: 1
   projFocusDistance: 1
@@ -36,6 +36,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 4
-  attackDistance: 4
-  attackCooldown: 0.01
+  visibilityRange: 5.18
+  attackDistance: 5
+  attackCooldown: 0.7

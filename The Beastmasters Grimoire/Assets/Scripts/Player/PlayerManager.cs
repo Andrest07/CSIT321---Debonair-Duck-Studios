@@ -45,6 +45,7 @@ public class PlayerManager : MonoBehaviour
     public Vector3 mousePos;
     private IEnumerator capture;
     private PlayerInputActions playerInputActions;
+    private bool isCapturing;
     [HideInInspector] public Animator animator;
 
     [HideInInspector] public bool inDialogue = false;
@@ -167,6 +168,7 @@ public class PlayerManager : MonoBehaviour
         if (GameManager.instance.isPaused)
         {
             movementVector = Vector2.zero;
+            data.playerStamina.isSprinting = false;
             animator.SetBool("isIdle", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isSprinting", false);
@@ -258,8 +260,12 @@ public class PlayerManager : MonoBehaviour
             case PlayerMode.Capture:
                 if (canCapture)
                 {
-                    capture = Capture(context);
-                    StartCoroutine(capture);
+                    if (!isCapturing)
+                    {
+                        isCapturing = true;
+                        capture = Capture(context);
+                        StartCoroutine(capture);
+                    }
                 }
                 break;
         }
@@ -427,7 +433,7 @@ public class PlayerManager : MonoBehaviour
 
             yield return new WaitForSeconds(captureProjectileCooldown);
         }
-
+        isCapturing=false;
         yield return null;
     }
 
@@ -446,7 +452,7 @@ public class PlayerManager : MonoBehaviour
 
     public IEnumerator AbilityCooldown(int i)
     {
-        data.availableBeastsCooldowns[i] = 2;// data.currentBeast[i].SpellScriptable.
+        data.availableBeastsCooldowns[i] = data.availableBeasts[i].SpellScriptable.SpellCooldown;
         while (data.availableBeastsCooldowns[i] >= 0)
         {
             data.availableBeastsCooldowns[i] -= Time.fixedDeltaTime;

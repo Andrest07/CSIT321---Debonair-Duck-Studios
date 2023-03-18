@@ -26,6 +26,11 @@ public class SaveBeaconMenu : MonoBehaviour
         saveBeaconMenu.SetActive(true);
 
         saveLoad = attunedBeacon.GetComponent<SaveLoadGame>();
+        Time.timeScale=0f;
+    }
+    public void CloseMenu()
+    {
+        Time.timeScale=1f;
     }
     public void SetAttunedBeast(EnemyScriptableObject beast)
     {
@@ -41,10 +46,11 @@ public class SaveBeaconMenu : MonoBehaviour
 
     public void Attune()
     {
-        GameManager.instance.UpdateSpellImage(attunedBeast, attunedSlotNumber);
+        
         bool uniqueSpell = PlayerManager.instance.UpdateAvailableBeast(attunedBeast, attunedSlotNumber);
         if(!uniqueSpell){
             //Display failed text
+            GameManager.instance.UpdateSpellImage(attunedBeast, attunedSlotNumber);
         }
     }
 

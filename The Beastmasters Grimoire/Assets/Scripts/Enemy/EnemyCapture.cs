@@ -35,7 +35,7 @@ public class EnemyCapture : MonoBehaviour
 
         if (hasCaptured == 0)
         {
-            hasCaptured = GameManager.instance.GetBestiary(enemyScriptableObject) ? 1f : 0.25f;
+            hasCaptured = GameManager.instance.GetBestiary(enemyScriptableObject) ? 1f : 0.5f;
         }
         healthMultiplier = enemyHealth.totalHealth / enemyHealth.currentHealth;
 

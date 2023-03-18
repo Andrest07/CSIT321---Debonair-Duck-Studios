@@ -59,16 +59,15 @@ public class Quest : ScriptableObject
     public bool completed { get; protected set; }
     public QuestCompletedEvent questCompleted;
 
+    //TBD for testing
+    [SerializeField] private int currentStage;
 
     // Quest stages
     public abstract class QuestStage : ScriptableObject
     {
-        protected string description;
-
-        [Header("Goal type - use one")]
-        public int numericalGoal = 0;
-        public int numericalCurrent;
-        public bool booleanGoal;
+        protected string description = "";
+        public int stageNumber = 0;
+        public bool active = false;
 
         public bool completed { get; protected set; }
         [HideInInspector] public UnityEvent stageCompleted;
@@ -82,13 +81,9 @@ public class Quest : ScriptableObject
         }
 
         // Check if stage is finished
-        protected void Evaluate()
-        {
-            if (numericalGoal == 0 && booleanGoal) Complete();
-            else if (numericalCurrent >= numericalGoal) Complete();
-        }
+        protected virtual void Evaluate() { }
 
-        private void Complete()
+        protected void Complete()
         {
             completed = true;
             stageCompleted.Invoke();
@@ -98,16 +93,43 @@ public class Quest : ScriptableObject
 
     public List<QuestStage> stages;
 
+    public List<QuestStage> hiddenStages;
+
+    public void SetActiveStage()
+    {
+        string newDesc = null;
+
+        foreach(var s in stages)
+        {
+            if (s.stageNumber == currentStage)
+            {
+                if (newDesc == null) newDesc = s.Description();
+                s.active = true;
+            }
+        }
+
+        // notif for new quest stage
+        EventManager.Instance.QueueEvent(new NotificationEvent(this.info.questName,newDesc,NotificationEvent.NotificationType.QuestUpdate));
+    }
+
 
     // Init quest
     public void Initialize()
     {
         completed = false;
         questCompleted = new QuestCompletedEvent();
+        currentStage = 0;
         foreach(var stage in stages)
         {
             stage.Initialize();
             stage.stageCompleted.AddListener(delegate { CheckStage(); });
+
+            if (stage.stageNumber <= currentStage)
+            {
+                Debug.Log(stage.Description() + ", " + stage.stageNumber);
+                stage.active = true;
+            }
+            else { stage.active = false; };
         }
     }
 
@@ -121,18 +143,53 @@ public class Quest : ScriptableObject
             stage.Initialize();
             Debug.Log("adding listener");
             stage.stageCompleted.AddListener(delegate { CheckStage(); });
+            
+            if (stage.stageNumber <= currentStage) stage.active = true;
+            else { stage.active = false; };
         }
     }
 
     // Check for remaining stages after stage complete
     public void CheckStage()
     {
-        // check if all stages complete
-        completed = stages.All(s => s.completed);
-        if (completed) {
+        // check if all goals in current stage are complete vs overall
+        bool stageCompleted = true;
+        foreach (var s in stages.Where(s => s.stageNumber == currentStage))
+        {
+            if (!s.completed) { stageCompleted = false; break; }
+        }
+        completed = ( (stageCompleted && stages.All(s=>s.completed) ) == true);
+
+        Debug.Log("stage " + currentStage + stages.All(s => s.completed && s.stageNumber == currentStage));
+        Debug.Log(stages.All(s => s.completed));
+
+        // if all goals in all stages
+        if (completed)
+        {
             questCompleted.Invoke(this);
             questCompleted.RemoveAllListeners();
         }
+        // else move to next stages goals
+        else if(stageCompleted && !completed)
+        {
+            currentStage++;
+            SetActiveStage();
+        }
+    }
+
+    public override string ToString()
+    {
+        string fullDesc = info.questDescription + "\n\n";
+        foreach (var stage in stages)
+        {
+            if (stage.completed)
+                fullDesc += "\n- <s>" + stage.Description() + "</s>";
+            // only show stages that are active
+            else if(stage.stageNumber <= currentStage)
+                fullDesc += "\n- " + stage.Description();
+        }
+
+        return fullDesc;
     }
 
 }
@@ -204,6 +261,7 @@ public class QuestEditor : Editor
             child.NextVisible(true);
         }
 
+        // visible quest stages
         int choice = EditorGUILayout.Popup("Add new quest stage", -1, m_questStageType.ToArray());
         if (choice != -1)
         {

@@ -9,9 +9,12 @@ using UnityEngine;
 
 public class CaptureQuest : Quest.QuestStage
 {
+    [Header("Capture Quest")]
     public string monster;
     public int goal;
     public string stageDescription;
+
+    private int numericalCurrent;
 
     public override string Description()
     {
@@ -25,6 +28,11 @@ public class CaptureQuest : Quest.QuestStage
             numericalCurrent++;
             Evaluate();
         }
+    }
+
+    protected override void Evaluate()
+    {
+        if (active && numericalCurrent >= goal) Complete();
     }
 
     public override void Initialize()

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2382515573032027585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f8a3a83cff0704ba1a8640f3171b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 1
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  location: two
+  stageDescription: travel to two
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d19ed10878d6b4e8c46b0aad58f2a4, type: 3}
+  m_Name: quest4 1
+  m_EditorClassIdentifier: 
+  info:
+    questId: 4
+    questName: testing
+    questDescription: woooahh
+    questGroup: 0
+  reward:
+    exp: 5
+  currentStage: 1
+  stages:
+  - {fileID: 6877870137375056357}
+  - {fileID: 7935093145454945235}
+  - {fileID: -2382515573032027585}
+  hiddenStages: []
+--- !u!114 &6877870137375056357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f8a3a83cff0704ba1a8640f3171b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  location: over here
+  stageDescription: travel over here
+--- !u!114 &7935093145454945235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f8a3a83cff0704ba1a8640f3171b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 1
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  location: one
+  stageDescription: travel to one

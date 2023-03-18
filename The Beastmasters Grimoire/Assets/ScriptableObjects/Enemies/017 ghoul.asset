@@ -10,23 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: Snake
+  m_Name: 017 ghoul
   m_EditorClassIdentifier: 
-  enemyName: Snake
-  enemyType: 0
-  enemyDescription: big black/pueple snake. Uses tail whip attack
-  spellName: poison fangs
-  spellObject: {fileID: 0}
-  spellType: 0
-  spellDescription: shoots poison fangs.
-  isRanged: 0
+  enemyName: ghoul
+  attributeType: 0
+  enemyDescription: slow, low attack, medium health
+  spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
+  isRanged: 0
+  projType: 0
+  projDamage: 1
+  projSpeed: 1
+  projLifetime: 3
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
   visibilityRange: 10
   attackDistance: 7
   attackCooldown: 1

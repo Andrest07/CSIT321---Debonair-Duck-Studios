@@ -10,19 +10,17 @@ using PixelCrushers.DialogueSystem;
 
 public class TutorialScript : MonoBehaviour
 {
-    public GameObject captureTutorial;
-
-    [Header("Tutorial Popup Objects")]
+    [Header("Tutorial Child Objects")]
     public GameObject capturePopup;
     public GameObject attackPopup;
     public GameObject beaconPopup;
-
+    public GameObject captureTutorial;
     public GameObject millim;
-
     private EnemyScriptableObject millimData;
 
-    public bool captureBool;
-    public bool captured;
+    [Header("Tutorial Progress Booleans")]
+    public bool captureBool = false;
+    public bool captured = false;
     public bool spellEquiped = false;
     public bool tutorialFinished = false;
 
@@ -39,6 +37,11 @@ public class TutorialScript : MonoBehaviour
     {
         dialogueTrigger = GetComponents<DialogueSystemTrigger>();
         millimData = millim.GetComponent<EnemyController>().data;
+        if (GameManager.instance.tutorialComplete)
+        {
+            Destroy(millim.transform.parent.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -46,11 +49,14 @@ public class TutorialScript : MonoBehaviour
     {
         if (!captureBool)
         {
-            if (millim.GetComponent<EnemyCapture>().captureAmount >= 2.5)
+            if (millim.GetComponent<EnemyCapture>().captureAmount >= 4)
             {
                 DialogueManager.StartConversation(tutAttack, PlayerManager.instance.transform, this.transform);
                 captureBool = true;
                 Time.timeScale = 0f;
+                PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
+                PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
+                PlayerManager.instance.canMove = true;
             }
         }
 
@@ -59,19 +65,23 @@ public class TutorialScript : MonoBehaviour
             DialogueManager.StartConversation(tutBeacon, PlayerManager.instance.transform, this.transform);
             captured = true;
             Time.timeScale = 0f;
+            PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
+            PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
+            PlayerManager.instance.canMove = true;
         }
 
-        foreach (EnemyScriptableObject enemy in PlayerManager.instance.data.availableBeasts)
-        {
-            if (enemy == millimData) spellEquiped = true;
-        }
-
-        if (spellEquiped && !tutorialFinished)
+        if (spellEquiped && !tutorialFinished && Time.timeScale == 1f)
         {
             DialogueManager.StartConversation(tutFinish, PlayerManager.instance.transform, this.transform);
             tutorialFinished = true;
             Time.timeScale = 0f;
             PlayerManager.instance.canSpellcast = true;
+            GameManager.instance.tutorialComplete = true;
+        }
+
+        foreach (EnemyScriptableObject enemy in PlayerManager.instance.data.availableBeasts)
+        {
+            if (enemy == millimData) spellEquiped = true;
         }
     }
     void OnTriggerExit2D(Collider2D other)
@@ -114,6 +124,8 @@ public class TutorialScript : MonoBehaviour
         if (DialogueManager.lastConversationStarted == tutFinish)
         {
             dialogueTrigger[1].trigger = DialogueSystemTriggerEvent.None;
+            Time.timeScale = 1f;
+
         }
     }
 }
