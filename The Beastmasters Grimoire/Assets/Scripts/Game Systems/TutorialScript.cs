@@ -54,6 +54,9 @@ public class TutorialScript : MonoBehaviour
                 DialogueManager.StartConversation(tutAttack, PlayerManager.instance.transform, this.transform);
                 captureBool = true;
                 Time.timeScale = 0f;
+                PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
+                PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
+                PlayerManager.instance.canMove = true;
             }
         }
 
@@ -62,6 +65,9 @@ public class TutorialScript : MonoBehaviour
             DialogueManager.StartConversation(tutBeacon, PlayerManager.instance.transform, this.transform);
             captured = true;
             Time.timeScale = 0f;
+            PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
+            PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
+            PlayerManager.instance.canMove = true;
         }
 
         if (spellEquiped && !tutorialFinished && Time.timeScale == 1f)
@@ -118,6 +124,8 @@ public class TutorialScript : MonoBehaviour
         if (DialogueManager.lastConversationStarted == tutFinish)
         {
             dialogueTrigger[1].trigger = DialogueSystemTriggerEvent.None;
+            Time.timeScale = 1f;
+
         }
     }
 }

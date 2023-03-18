@@ -168,6 +168,7 @@ public class PlayerManager : MonoBehaviour
         if (GameManager.instance.isPaused)
         {
             movementVector = Vector2.zero;
+            data.playerStamina.isSprinting = false;
             animator.SetBool("isIdle", true);
             animator.SetBool("isWalking", false);
             animator.SetBool("isSprinting", false);
