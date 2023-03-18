@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2381686611941950503}
   - component: {fileID: 2381686611941950502}
   - component: {fileID: 2381686611941950505}
+  - component: {fileID: -3285284020525733202}
   m_Layer: 0
   m_Name: FizzleEffect
   m_TagString: Untagged
@@ -105,3 +106,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3285284020525733202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381686611941950504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafb535160f4fca45bf66187561a10b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
