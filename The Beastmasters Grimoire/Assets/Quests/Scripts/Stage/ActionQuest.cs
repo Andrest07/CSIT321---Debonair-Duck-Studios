@@ -26,7 +26,7 @@ public class ActionQuest : Quest.QuestStage
 
     protected override void Evaluate()
     {
-        if (booleanGoal) Complete();
+        if (active && booleanGoal) Complete();
     }
 
     public override void Initialize()

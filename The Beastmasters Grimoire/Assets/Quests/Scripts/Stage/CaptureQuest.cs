@@ -32,7 +32,7 @@ public class CaptureQuest : Quest.QuestStage
 
     protected override void Evaluate()
     {
-        if (numericalCurrent >= goal) Complete();
+        if (active && numericalCurrent >= goal) Complete();
     }
 
     public override void Initialize()

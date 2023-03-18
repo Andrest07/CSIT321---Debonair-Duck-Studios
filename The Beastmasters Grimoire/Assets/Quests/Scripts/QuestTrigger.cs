@@ -40,7 +40,6 @@ public class QuestTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("trigger enter");
         switch(triggerType){
             case Type.New:
                 if (collision.tag == "Player" && !questGiven)

@@ -50,6 +50,16 @@ public class CanvasNotification : MonoBehaviour
 
             notifQueue.Enqueue(newNotif);
         }
+        else if(eventInfo.type == NotificationEvent.NotificationType.QuestUpdate)
+        {
+            newNotif = Instantiate(questNotif, this.transform, false);
+            newNotif.SetActive(false);
+            itemText = newNotif.GetComponentsInChildren<TMP_Text>();
+            itemText[0].text = "Quest Updated | " + eventInfo.message;
+            itemText[1].text = eventInfo.message2;
+
+            notifQueue.Enqueue(newNotif);
+        }
     }
 
     private void Update()

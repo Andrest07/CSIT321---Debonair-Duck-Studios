@@ -22,7 +22,7 @@ public class TravelQuest : Quest.QuestStage
 
     private void OnTravel(QuestStageCheckEvent eventInfo)
     {
-        if (eventInfo.identifier == location)
+        if (active && eventInfo.identifier == location)
         {
             booleanGoal = true;
             Evaluate();

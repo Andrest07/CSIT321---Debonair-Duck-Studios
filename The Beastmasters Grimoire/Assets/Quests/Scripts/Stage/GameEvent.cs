@@ -38,7 +38,8 @@ public class NotificationEvent : GameEvent
 {    public enum NotificationType
     {
         Quest,
-        Save
+        Save,
+        QuestUpdate
     };
 
     public string message;
