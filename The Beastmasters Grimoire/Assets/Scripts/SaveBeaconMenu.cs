@@ -10,13 +10,18 @@ using UnityEngine.UI;
 
 public class SaveBeaconMenu : MonoBehaviour
 {
+    [Header("Beastiary UI Elements")]
     public GameObject saveBeaconMenu;
     public GameObject informationText;
     public GameObject equipButton;
+    public GameObject beastName;
+    public GameObject beastImage;
+    public GameObject[] spellImages;
+
+
+    [Header("Currently Attuned")]
     public GameObject attunedBeacon;
     public EnemyScriptableObject attunedBeast;
-
-    public int attunedSlotNumber;
 
     private SaveLoadGame saveLoad;
 
@@ -26,32 +31,31 @@ public class SaveBeaconMenu : MonoBehaviour
         saveBeaconMenu.SetActive(true);
 
         saveLoad = attunedBeacon.GetComponent<SaveLoadGame>();
-        Time.timeScale=0f;
+        Time.timeScale = 0f;
     }
     public void CloseMenu()
     {
-        Time.timeScale=1f;
+        Time.timeScale = 1f;
     }
     public void SetAttunedBeast(EnemyScriptableObject beast)
     {
         attunedBeast = beast;
+        beastName.GetComponent<TMPro.TextMeshProUGUI>().text = beast.EnemyName;
         informationText.GetComponent<TMPro.TextMeshProUGUI>().text = beast.EnemyDescription;
         equipButton.GetComponent<Button>().interactable = GameManager.instance.GetBestiary(beast);
     }
 
-    public void SetAttunedNumber(int number)
+    public void Attune(int number)
     {
-        attunedSlotNumber = number;
-    }
-
-    public void Attune()
-    {
-        
-        bool uniqueSpell = PlayerManager.instance.UpdateAvailableBeast(attunedBeast, attunedSlotNumber);
-        if(!uniqueSpell){
-            //Display failed text
-            GameManager.instance.UpdateSpellImage(attunedBeast, attunedSlotNumber);
+        int changedSlot = PlayerManager.instance.UpdateAvailableBeast(attunedBeast, number);
+        GameManager.instance.UpdateSpellImage(attunedBeast, number);
+        spellImages[number].GetComponent<Image>().sprite = attunedBeast.SpellScriptable.SpellImage;
+        if (changedSlot != number)
+        {
+        GameManager.instance.UpdateSpellImage(null, changedSlot);
+        spellImages[changedSlot].GetComponent<Image>().sprite = GameManager.instance.blankSlot;
         }
+
     }
 
     public void Save()

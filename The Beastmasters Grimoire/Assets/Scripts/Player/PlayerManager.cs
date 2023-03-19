@@ -433,7 +433,7 @@ public class PlayerManager : MonoBehaviour
 
             yield return new WaitForSeconds(captureProjectileCooldown);
         }
-        isCapturing=false;
+        isCapturing = false;
         yield return null;
     }
 
@@ -461,26 +461,24 @@ public class PlayerManager : MonoBehaviour
         data.availableBeastsCooldowns[i] = 0;
     }
 
-    public bool UpdateAvailableBeast(EnemyScriptableObject beast, int number)
+    public int UpdateAvailableBeast(EnemyScriptableObject beast, int number)
     {
-        if (number >= data.totalBeasts - 1)
-        {
-            return false;
-        }
-        for (int i = 0; i < data.totalBeasts; i++)
-        {
-            if (data.availableBeasts[i] == beast)
-            {
-                return false;
-            }
-        }
-
+        int changedNum = number;
         data.availableBeasts[number] = beast;
         if (data.currentBeastIndex == number)
         {
             data.currentBeast = data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellProjectile;
         }
-        return true;
+
+        for (int i = 0; i < data.totalBeasts; i++)
+        {
+            if (data.availableBeasts[i] == beast && i != number)
+            {
+                data.availableBeasts[i] = null;
+                changedNum = i;
+            }
+        }
+        return changedNum;
     }
 
 }

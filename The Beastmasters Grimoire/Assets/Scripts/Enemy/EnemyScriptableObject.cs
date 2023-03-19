@@ -20,6 +20,7 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private string enemyName;
     [SerializeField] private AttributeTypeEnum attributeType;
     [TextArea][SerializeField] private string enemyDescription;
+    [SerializeField] private Sprite enemyImage;
     [SerializeField] private SpellScriptableObject spellScriptable;
 
     [Header("Enemy Stats")]
@@ -72,6 +73,7 @@ public class EnemyScriptableObject : ScriptableObject
     public string EnemyName { get => enemyName; }
     public AttributeTypeEnum AttributeType { get => attributeType; }
     public string EnemyDescription { get => enemyDescription; }
+    public Sprite EnemyImage { get => enemyImage; }
     public SpellScriptableObject SpellScriptable { get => spellScriptable; }
 
     //Enemy Stats

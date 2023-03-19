@@ -21,14 +21,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] spellSlots;
 
+    public GameObject dashIndicator;
+
+    public Sprite blankSlot;
+
     public EnemyScriptableObject[] bestiaryArray;
 
     private Dictionary<EnemyScriptableObject, bool> bestiary = new Dictionary<EnemyScriptableObject, bool>();
 
     private int totalBeasts;
-
-    private GameObject dashIndicator;
-
     public bool isPaused;
 
     // Variables for saving/loading
@@ -51,12 +52,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        spellSlots = GameObject.FindGameObjectsWithTag("SpellSlot");
     }
 
     void Start()
     {
-        UpdateSpellSlots(PlayerManager.instance.data.totalBeasts);
+        UpdateSpellSlots();
         UpdateDisplayedSpell(0);
 
         //Initialise the bestiary if it isn't intialised. Set all beast unlocks to false
@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
 
         }
 
-        dashIndicator = GameObject.FindGameObjectWithTag("DashCooldown");
     }
 
     // Update is called once per frame
@@ -83,19 +82,21 @@ public class GameManager : MonoBehaviour
         //For Windowed game, pausing when not focused
     }
 
-    public void UpdateSpellSlots(int beastMax)
+    public void UpdateSpellSlots()
     {
-        totalBeasts = beastMax;
+        totalBeasts = PlayerManager.instance.data.totalBeasts;
 
         for (int i = 0; i < spellSlots.Length; i++)
         {
             if (i > totalBeasts - 1)
             {
                 spellSlots[i].SetActive(false);
+                GetComponent<SaveBeaconMenu>().spellImages[i].SetActive(false);
             }
             else
             {
                 spellSlots[i].SetActive(true);
+                GetComponent<SaveBeaconMenu>().spellImages[i].SetActive(true);
             }
         }
     }
@@ -118,7 +119,14 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateSpellImage(EnemyScriptableObject beast, int number)
     {
-        spellSlots[number].GetComponent<Image>().sprite = beast.SpellScriptable.SpellImage;
+        if (beast != null)
+        {
+            spellSlots[number].GetComponent<Image>().sprite = beast.SpellScriptable.SpellImage;
+        }
+        else
+        {
+            spellSlots[number].GetComponent<Image>().sprite = blankSlot;
+        }
     }
 
     //Method for setting a beast to be unlocked
