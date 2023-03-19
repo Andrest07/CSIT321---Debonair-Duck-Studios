@@ -243,7 +243,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 1695965318}
   - component: {fileID: 280011212450600004}
   - component: {fileID: 1904658984}
+  - component: {fileID: 875845269}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -371,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0037ceb8b580b4ab6f49d5cfdb4649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testingMode: 0
+  testingMode: 1
   movementVector: {x: 0, y: 0}
   mousePos: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
@@ -386,7 +387,7 @@ MonoBehaviour:
   captureProjectile: {fileID: 6977254816827940189, guid: 4b2c22a542f029d4b8cf7283080e92e6, type: 3}
   captureProjectileCooldown: 0.25
   capturePower: 0.5
-  fizzleEffect: {fileID: 0}
+  fizzleEffect: {fileID: 2381686611941950504, guid: 98d99ddd434159540950a33f53a1bbfa, type: 3}
   canCapture: 0
   canBasic: 0
   canSpellcast: 0
@@ -436,7 +437,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &3155322573152117181
@@ -811,6 +812,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4735672926b0ca2408a8b9ce574d0be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &875845269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338222291938608896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327c3566bca6945878978e646cbb32a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 0
+  currentTime: 0
+  maxBurnMeter: 10
+  currBurnMeter: 0
+  isBurning: 0
+  maxPoisonMeter: 10
+  currPoisonMeter: 0
+  isPoisoned: 0
+  maxParalysisMeter: 10
+  currParalysisMeter: 0
+  isParalyzed: 0
+  maxFreezeMeter: 10
+  currFreezeMeter: 0
+  isFreezed: 0
 --- !u!1 &3384376437886370050
 GameObject:
   m_ObjectHideFlags: 0
