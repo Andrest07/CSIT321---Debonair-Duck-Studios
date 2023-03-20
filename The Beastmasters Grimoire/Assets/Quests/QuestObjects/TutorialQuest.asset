@@ -1,70 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4838685252523166364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numericalGoal: 1
-  numericalCurrent: 0
-  booleanGoal: 0
-  stageCompleted:
-    m_PersistentCalls:
-      m_Calls: []
-  monster: Millim
-  goal: 1
-  stageDescription: Capture Millim
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d19ed10878d6b4e8c46b0aad58f2a4, type: 3}
-  m_Name: quest3
-  m_EditorClassIdentifier: 
-  info:
-    questId: 3
-    questName: 'Quest 3 '
-    questDescription: Do something
-    questGroup: 0
-  reward:
-    exp: 5
-  stages:
-  - {fileID: 829709699186924348}
-  - {fileID: 7661968118195873406}
-  - {fileID: -4838685252523166364}
---- !u!114 &829709699186924348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f8a3a83cff0704ba1a8640f3171b29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numericalGoal: 0
-  numericalCurrent: 0
-  booleanGoal: 1
-  stageCompleted:
-    m_PersistentCalls:
-      m_Calls: []
-  location: Big tree
-  stageDescription: Travel to the big tree
---- !u!114 &7661968118195873406
+--- !u!114 &-7468433521109785126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,11 +12,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be777f329224b543b64479ee39d5d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numericalGoal: 0
-  numericalCurrent: 0
-  booleanGoal: 0
+  stageNumber: 0
+  active: 0
   stageCompleted:
     m_PersistentCalls:
       m_Calls: []
-  action: open grimoire
-  stageDescription: Open your Grimoire
+  action: capture millim
+  stageDescription: Approach the [blank] and capture Millim with your Grimoire.
+--- !u!114 &-6345735025126745380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 1
+  active: 0
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Millim
+  goal: 1
+  stageDescription: Weaken then capture Millim.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d19ed10878d6b4e8c46b0aad58f2a4, type: 3}
+  m_Name: TutorialQuest
+  m_EditorClassIdentifier: 
+  info:
+    questId: 0
+    questName: Capture Millim
+    questDescription: Capture Millim with your Grimoire
+    questGroup: 0
+  reward:
+    exp: 5
+  currentStage: 0
+  stages:
+  - {fileID: -7468433521109785126}
+  - {fileID: -6345735025126745380}
+  - {fileID: 8180390174411246457}
+  hiddenStages: []
+--- !u!114 &8180390174411246457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be777f329224b543b64479ee39d5d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 2
+  active: 0
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  action: attune grimoire
+  stageDescription: Use the Pharus Node to equip Millim.

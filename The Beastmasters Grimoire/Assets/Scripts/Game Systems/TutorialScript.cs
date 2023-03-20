@@ -33,6 +33,10 @@ public class TutorialScript : MonoBehaviour
     [ConversationPopup] public string tutBeacon;
     [ConversationPopup] public string tutFinish;
 
+    [Header("Tutorial Quest")]
+    public Quest tutorialQuest;
+    private QuestController questController;
+
     private void Awake()
     {
         dialogueTrigger = GetComponents<DialogueSystemTrigger>();
@@ -42,6 +46,8 @@ public class TutorialScript : MonoBehaviour
             Destroy(millim.transform.parent.gameObject);
             Destroy(gameObject);
         }
+
+        questController = PlayerManager.instance.GetComponent<QuestController>();
     }
 
     // Update is called once per frame
@@ -57,6 +63,8 @@ public class TutorialScript : MonoBehaviour
                 PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
                 PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
                 PlayerManager.instance.canMove = true;
+
+                EventManager.Instance.QueueEvent(new QuestStageCheckEvent("capture millim"));
             }
         }
 
@@ -77,6 +85,8 @@ public class TutorialScript : MonoBehaviour
             Time.timeScale = 0f;
             PlayerManager.instance.canSpellcast = true;
             GameManager.instance.tutorialComplete = true;
+
+            EventManager.Instance.QueueEvent(new QuestStageCheckEvent("attune grimoire"));
         }
 
         foreach (EnemyScriptableObject enemy in PlayerManager.instance.data.availableBeasts)
@@ -107,6 +117,7 @@ public class TutorialScript : MonoBehaviour
         if (DialogueManager.lastConversationStarted == tutIntro)
         {
             captureTutorial.SetActive(true);
+            questController.AddQuest(tutorialQuest);
         }
         if (DialogueManager.lastConversationStarted == tutCapture)
         {

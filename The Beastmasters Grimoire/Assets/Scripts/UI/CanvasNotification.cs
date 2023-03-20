@@ -16,6 +16,7 @@ public class CanvasNotification : MonoBehaviour
     int delay = 5;
     int fade = 2;
     bool clear = true;
+    bool busy = false;
 
     [HideInInspector] public UnityEvent stageCompleted;
 
@@ -75,14 +76,17 @@ public class CanvasNotification : MonoBehaviour
     {
         while(notifQueue.Count > 0)
         {
+            if (busy) continue;
+
             GameObject notif = notifQueue.Peek();
+            busy = true;
 
             notif.SetActive(true);
             StartCoroutine(FadeIn(notif));
             yield return new WaitForSeconds(delay);
 
             StartCoroutine(FadeOut(notif));
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(fade);
 
             Destroy(notif);
             notifQueue.Dequeue();
@@ -112,6 +116,8 @@ public class CanvasNotification : MonoBehaviour
             notif.GetComponent<CanvasGroup>().alpha = 1 - elapsed / fade;
             yield return null;
         }
+
+        busy = false;
     }
 
 

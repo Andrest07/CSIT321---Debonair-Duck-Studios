@@ -44,7 +44,7 @@ public class InteractionObject : MonoBehaviour
 
     void Update()
     {
-        if (collision != null)
+        if (collision != null && !manager.inDialogue)
         {
             Trigger();
         }

@@ -55,7 +55,7 @@ public class QuestMenu : MonoBehaviour
     }
 
     public void Initalize(Quest q)
-    {
+    { /*
         // add quest to log
         TMP_Text[] itemText;
         GameObject newItem = Instantiate(questItem, this.transform, false);
@@ -73,7 +73,8 @@ public class QuestMenu : MonoBehaviour
             newItem.transform.SetParent(sideObject.transform);
         
         else
-            newItem.transform.SetParent(errandObject.transform);
+            newItem.transform.SetParent(errandObject.transform); */
+        AddQuest(q);
 
     }
 
@@ -85,7 +86,7 @@ public class QuestMenu : MonoBehaviour
         newItem.name = q.info.questId.ToString();
         itemText = newItem.GetComponentsInChildren<TMP_Text>();
         itemText[0].text = q.info.questName;
-        itemText[1].text = q.stages[0].Description();
+        itemText[1].text = q.info.questDescription;
 
         questList.Add(q.info.questId, newItem);
 
