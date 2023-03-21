@@ -64,8 +64,10 @@ public class InteractionObject : MonoBehaviour
             switch (collision.tag)
             {
                 case "Button":
+                    if (GameManager.instance.isPaused) return;
                     break;
                 case "Door":
+                    if (GameManager.instance.isPaused) return;
                     break;
 
                 case "NPC":
@@ -76,12 +78,14 @@ public class InteractionObject : MonoBehaviour
                     }
                     else
                     {
+                        if (GameManager.instance.isPaused) return;
                         PixelCrushers.DialogueSystem.Usable usable = collision.GetComponentInParent<PixelCrushers.DialogueSystem.Usable>();
                         usable.gameObject.BroadcastMessage("OnUse", this.transform, SendMessageOptions.DontRequireReceiver);
                     }
                     break;
 
                 case "SaveBeacon":
+                    if (GameManager.instance.isPaused) return;
                     GameManager.instance.GetComponent<SaveBeaconMenu>().OpenMenu(collision.transform.parent.gameObject);
                     break;
 
