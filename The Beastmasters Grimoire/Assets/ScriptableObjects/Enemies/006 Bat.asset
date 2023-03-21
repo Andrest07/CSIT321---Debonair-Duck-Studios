@@ -21,10 +21,10 @@ MonoBehaviour:
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 0}
+  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
+  isRanged: 1
   projType: 0
   projDamage: 1
   projSpeed: 1
