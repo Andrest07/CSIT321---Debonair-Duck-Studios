@@ -17,10 +17,16 @@ public class CutsceneSystem : MonoBehaviour
     public float[] slidesDurations;
 
     private int currentSlide = 0;
-    public string nextScene;
     public float fadeMultiplier =1f;
+    public bool playOnStart;
+    public bool transitionSceneOnEnd;
+    public string nextScene;
     void Start()
     {
+        if(playOnStart) StartCoroutine(Cutscene());
+    }
+
+    public void Play(){
         StartCoroutine(Cutscene());
     }
 
@@ -34,23 +40,24 @@ public class CutsceneSystem : MonoBehaviour
         while (currentSlide < slides.Length - 1)
         {
             //Let the current slide play for it's duration and then swap to the next slide;
-            yield return new WaitForSeconds(slidesDurations[currentSlide]);
+            yield return new WaitForSecondsRealtime(slidesDurations[currentSlide]);
 
             currentSlide++;
 
             StartCoroutine(FadeIn(slides[currentSlide]));
             StartCoroutine(FadeOut(slides[currentSlide - 1]));
         }
-        yield return new WaitForSeconds(slidesDurations[currentSlide]); // Let the final slide play then load the next scene
-        SceneManager.LoadScene(nextScene); //Can replace / hardcode with First level
+        yield return new WaitForSecondsRealtime(slidesDurations[currentSlide]); // Let the final slide play then load the next scene
+        if(transitionSceneOnEnd) SceneManager.LoadScene(nextScene); 
+        else Destroy(gameObject);
     }
 
     public IEnumerator FadeIn(GameObject slide)
     {
         while (slide.GetComponent<CanvasGroup>().alpha < 1)
         {
-            slide.GetComponent<CanvasGroup>().alpha += Time.deltaTime*fadeMultiplier;
-            yield return new WaitForFixedUpdate();
+            slide.GetComponent<CanvasGroup>().alpha += Time.unscaledDeltaTime*fadeMultiplier;
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -58,8 +65,8 @@ public class CutsceneSystem : MonoBehaviour
     {
         while (slide.GetComponent<CanvasGroup>().alpha > 0)
         {
-            slide.GetComponent<CanvasGroup>().alpha -= Time.deltaTime*fadeMultiplier;
-            yield return new WaitForFixedUpdate();
+            slide.GetComponent<CanvasGroup>().alpha -= Time.unscaledDeltaTime*fadeMultiplier;
+            yield return new WaitForEndOfFrame();
         }
     }
 }

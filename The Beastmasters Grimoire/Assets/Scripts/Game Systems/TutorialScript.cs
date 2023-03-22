@@ -15,7 +15,9 @@ public class TutorialScript : MonoBehaviour
     public GameObject attackPopup;
     public GameObject beaconPopup;
     public GameObject captureTutorial;
+    public GameObject spellCastTutorialPopup;
     public GameObject millim;
+    public GameObject fadeIn;
     private EnemyScriptableObject millimData;
 
     [Header("Tutorial Progress Booleans")]
@@ -48,6 +50,7 @@ public class TutorialScript : MonoBehaviour
         }
 
         questController = PlayerManager.instance.GetComponent<QuestController>();
+        fadeIn.SetActive(true);
     }
 
     // Update is called once per frame
@@ -135,7 +138,7 @@ public class TutorialScript : MonoBehaviour
         if (DialogueManager.lastConversationStarted == tutFinish)
         {
             dialogueTrigger[1].trigger = DialogueSystemTriggerEvent.None;
-            Time.timeScale = 1f;
+            spellCastTutorialPopup.SetActive(true);
 
         }
     }

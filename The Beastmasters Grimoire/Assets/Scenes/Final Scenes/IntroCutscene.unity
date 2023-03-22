@@ -476,8 +476,10 @@ MonoBehaviour:
   - 3
   - 4
   - 5
-  nextScene: Mystwood - Intro
   fadeMultiplier: 1
+  playOnStart: 1
+  transitionSceneOnEnd: 1
+  nextScene: Mystwood - Intro
 --- !u!4 &1395530294
 Transform:
   m_ObjectHideFlags: 0

@@ -184,6 +184,7 @@ public class PlayerManager : MonoBehaviour
             playerBody.velocity = movementVector * playerSpeed;
         }
 
+
         if (animator.GetBool("isWalking") || animator.GetBool("isSprinting"))
         {
             animator.SetFloat("Move X", movementVector.x);
@@ -345,6 +346,15 @@ public class PlayerManager : MonoBehaviour
 
     public void Movement(InputAction.CallbackContext context)
     {
+        movementVector = context.ReadValue<Vector2>();
+
+        if (movementVector != Vector2.zero && playerMode != PlayerMode.Basic)
+        {
+            animator.SetBool("isCapturing", false); animator.SetBool("isCasting", false);
+            playerMode = PlayerMode.Basic;
+            canMove = true;
+        }
+
         if (GameManager.instance.isPaused) return;
 
         if (context.performed && canMove)
@@ -352,7 +362,7 @@ public class PlayerManager : MonoBehaviour
         else
             animator.SetBool("isWalking", false);
 
-        movementVector = context.ReadValue<Vector2>();
+
 
         if (movementVector.sqrMagnitude == 1) //Reposition the interaction object
         {
