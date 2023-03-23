@@ -30481,7 +30481,6 @@ MonoBehaviour:
   tutBeacon: Tutorial Beacon Dialogue
   tutFinish: Finish Tutorial
   tutorialQuest: {fileID: 11400000, guid: 7c5c0f42a51802c45a3ca4b23a41c90e, type: 2}
-  finishTutorial: 0
 --- !u!58 &1983104117
 CircleCollider2D:
   m_ObjectHideFlags: 0
