@@ -24,9 +24,27 @@ public class CanvasNotification : MonoBehaviour
     public GameObject questNotif;
     public GameObject saveNotif;
 
+
     private void Awake()
     {
-        EventManager.Instance.AddListener<NotificationEvent>(NewNotif);
+        Debug.Log("CanvasNotification awake");
+    }
+
+    private void Start()
+    {
+        Debug.Log("CanvasNotification start");
+        if(!EventManager.Instance.HasListener<NotificationEvent>(NewNotif))
+            EventManager.Instance.AddListener<NotificationEvent>(NewNotif);
+        else
+        {
+            Debug.Log("notif double");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("CanvasNotification destroy");
+        EventManager.Instance.RemoveListener<NotificationEvent>(NewNotif);
     }
 
     public void Clear()

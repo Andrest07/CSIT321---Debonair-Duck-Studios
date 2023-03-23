@@ -71,6 +71,9 @@ public class SaveLoadGame : MonoBehaviour {
         json = PixelCrushers.DialogueSystem.PersistentDataManager.GetSaveData();
         WriteFile(json, path + "/Profile" + index +"/dialogue.json");
 
+        // for continuing
+        PlayerPrefs.SetInt("continue", index);
+
     }
 
     // Load player data from file & then change scene
@@ -84,12 +87,14 @@ public class SaveLoadGame : MonoBehaviour {
         json = ReadFile(path + "/Profile" + gameManager.currentProfile.index + "/save.json");
         JsonUtility.FromJsonOverwrite(json, manager.data);
 
+        Debug.Log(manager.data.playerQuests.Count);
+
         // load dialogue database //
         json = ReadFile(path + "/Profile" + gameManager.currentProfile.index + "/dialogue.json");
         PixelCrushers.DialogueSystem.PersistentDataManager.ApplySaveData(json);
 
         // clear canvas notifs
-        gameManager.GetComponentInChildren<CanvasNotification>().Clear();
+        //gameManager.GetComponentInChildren<CanvasNotification>().Clear();
 
         gameManager.tutorialComplete = PlayerPrefs.GetInt(gameManager.currentProfile.index + "tutorial") == 0 ? false : true;
 
@@ -116,8 +121,20 @@ public class SaveLoadGame : MonoBehaviour {
     }
 
 
+    public PlayerProfile GetProfile(int index)
+    {
+        PlayerProfile profile = new PlayerProfile();
+        string json = ReadFile(path + "/Profile" + index + "/profile.json");
+        JsonUtility.FromJsonOverwrite(json, profile);
+
+        return profile;
+    }
+
     private void WriteFile(string json, string filepath)
     {
+        if (!Directory.Exists(path + "/Profile" + gameManager.currentProfile.index))
+            Directory.CreateDirectory(path + "/Profile" + gameManager.currentProfile.index);
+
         try
         {
             FileStream fs = new FileStream(filepath, FileMode.Create);
