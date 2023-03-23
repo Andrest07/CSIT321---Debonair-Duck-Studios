@@ -7346,6 +7346,7 @@ MonoBehaviour:
     playTime: 0
     level: TestingScene 1
   loadFromSave: 0
+  tutorialComplete: 0
 --- !u!114 &1005983721033641764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7446,6 +7447,7 @@ MonoBehaviour:
   - {fileID: 2030886982043480821}
   attunedBeacon: {fileID: 0}
   attunedBeast: {fileID: 0}
+  saveButton: {fileID: 5995624501094981275}
 --- !u!1 &1020248958241699456
 GameObject:
   m_ObjectHideFlags: 0

@@ -62,6 +62,7 @@ public class MainMenu : MonoBehaviour
             if (!File.Exists(path + "/Profile" + i + "/save.json"))
             {
                 inputPanel.GetComponent<NewGameInput>().saveSlot = i;
+                break;
             }
         }
     }

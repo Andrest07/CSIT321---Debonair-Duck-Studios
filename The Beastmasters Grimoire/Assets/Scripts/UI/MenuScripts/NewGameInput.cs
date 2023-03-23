@@ -22,9 +22,12 @@ public class NewGameInput : MonoBehaviour
     public void StartGame()
     {
         GameManager.instance.currentProfile = new PlayerProfile(saveSlot, playerName);
-        GameManager.instance.currentProfile.level = "MystwoodIntro";
-
         saveLoad.Save();
+
+        GameManager.instance.currentProfile.level = "MystwoodIntro";
+        GameManager.instance.currentProfile.playTime = 0;
+        string json = JsonUtility.ToJson(GameManager.instance.currentProfile);
+        saveLoad.WriteFile(json, Application.persistentDataPath + "/Profile" + saveSlot + "/profile.json");
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

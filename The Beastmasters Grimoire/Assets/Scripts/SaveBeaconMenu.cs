@@ -23,7 +23,10 @@ public class SaveBeaconMenu : MonoBehaviour
     public GameObject attunedBeacon;
     public EnemyScriptableObject attunedBeast;
 
+    public Button saveButton;
+
     private SaveLoadGame saveLoad;
+
 
     public void OpenMenu(GameObject beacon)
     {
@@ -33,10 +36,12 @@ public class SaveBeaconMenu : MonoBehaviour
         saveLoad = attunedBeacon.GetComponent<SaveLoadGame>();
         Time.timeScale = 0f;
     }
+
     public void CloseMenu()
     {
         Time.timeScale = 1f;
     }
+
     public void SetAttunedBeast(EnemyScriptableObject beast)
     {
         attunedBeast = beast;
@@ -70,5 +75,10 @@ public class SaveBeaconMenu : MonoBehaviour
     public void Load()
     {
         saveLoad.Load();
+    }
+
+    public void ToggleSaveButton()
+    {
+        saveButton.interactable = !saveButton.interactable;
     }
 }

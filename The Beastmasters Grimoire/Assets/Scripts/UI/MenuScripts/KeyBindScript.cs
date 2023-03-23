@@ -37,42 +37,42 @@ public class KeyBindScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(keys["Up"]))
-        {
-            //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Up");
-        }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(keys["Up"]))
+    //    {
+    //        //Do a move action. i.e. add functionality to the correct updated button by the player.
+    //        Debug.Log("Up");
+    //    }
 
-        if (Input.GetKeyDown(keys["Left"]))
-        {
-            //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Left");
-        }
+    //    if (Input.GetKeyDown(keys["Left"]))
+    //    {
+    //        //Do a move action. i.e. add functionality to the correct updated button by the player.
+    //        Debug.Log("Left");
+    //    }
 
-        if (Input.GetKeyDown(keys["Down"]))
-        {
-            //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Down");
-        }
-        if (Input.GetKeyDown(keys["Right"]))
-        {
-            //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Right");
-        }
-        if (Input.GetKeyDown(keys["Attack"]))
-        {
-            //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("Attack");
-        }
-        if (Input.GetKeyDown(keys["SpellCast"]))
-        {
-            //Do a move action. i.e. add functionality to the correct updated button by the player.
-            Debug.Log("SpellCast");
-        }
+    //    if (Input.GetKeyDown(keys["Down"]))
+    //    {
+    //        //Do a move action. i.e. add functionality to the correct updated button by the player.
+    //        Debug.Log("Down");
+    //    }
+    //    if (Input.GetKeyDown(keys["Right"]))
+    //    {
+    //        //Do a move action. i.e. add functionality to the correct updated button by the player.
+    //        Debug.Log("Right");
+    //    }
+    //    if (Input.GetKeyDown(keys["Attack"]))
+    //    {
+    //        //Do a move action. i.e. add functionality to the correct updated button by the player.
+    //        Debug.Log("Attack");
+    //    }
+    //    if (Input.GetKeyDown(keys["SpellCast"]))
+    //    {
+    //        //Do a move action. i.e. add functionality to the correct updated button by the player.
+    //        Debug.Log("SpellCast");
+    //    }
         
-    }
+    //}
     
     void OnGUI()
     {

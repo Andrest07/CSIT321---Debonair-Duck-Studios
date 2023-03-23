@@ -130,7 +130,7 @@ public class SaveLoadGame : MonoBehaviour {
         return profile;
     }
 
-    private void WriteFile(string json, string filepath)
+    public void WriteFile(string json, string filepath)
     {
         if (!Directory.Exists(path + "/Profile" + gameManager.currentProfile.index))
             Directory.CreateDirectory(path + "/Profile" + gameManager.currentProfile.index);

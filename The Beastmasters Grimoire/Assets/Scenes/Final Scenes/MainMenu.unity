@@ -9260,11 +9260,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 673244863, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 673244865, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 803733042, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_Enabled

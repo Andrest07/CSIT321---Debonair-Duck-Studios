@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
+using UnityEngine.UI;
 
 public class TutorialScript : MonoBehaviour
 {
@@ -53,7 +54,6 @@ public class TutorialScript : MonoBehaviour
         fadeIn.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!captureBool)
@@ -121,6 +121,7 @@ public class TutorialScript : MonoBehaviour
         {
             captureTutorial.SetActive(true);
             questController.AddQuest(tutorialQuest);
+            GameManager.instance.GetComponent<SaveBeaconMenu>().ToggleSaveButton();
         }
         if (DialogueManager.lastConversationStarted == tutCapture)
         {
@@ -139,7 +140,7 @@ public class TutorialScript : MonoBehaviour
         {
             dialogueTrigger[1].trigger = DialogueSystemTriggerEvent.None;
             spellCastTutorialPopup.SetActive(true);
-
+            GameManager.instance.GetComponent<SaveBeaconMenu>().ToggleSaveButton();
         }
     }
 }
