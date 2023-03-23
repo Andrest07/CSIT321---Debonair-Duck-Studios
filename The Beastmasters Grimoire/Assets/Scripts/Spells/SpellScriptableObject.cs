@@ -81,7 +81,8 @@ public class SpellScriptableObject : ScriptableObject
         Fire,
         Cold,
         Electric,
-        Poison
+        Poison,
+        slowBeam
     }
 
     public enum ProjTypeEnum

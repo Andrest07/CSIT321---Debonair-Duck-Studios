@@ -120,7 +120,8 @@ public class EnemyScriptableObject : ScriptableObject
         Fire,
         Cold,
         Electric,
-        Poison
+        Poison,
+        slowBeam
     }
 
     public enum ProjTypeEnum

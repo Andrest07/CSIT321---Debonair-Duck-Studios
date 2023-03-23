@@ -27,7 +27,7 @@ MonoBehaviour:
   isRanged: 1
   projType: 0
   projDamage: 1
-  projSpeed: 1
+  projSpeed: 3
   projLifetime: 3
   projHoming: 0
   projRotation: 1

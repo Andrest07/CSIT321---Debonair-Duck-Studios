@@ -16,6 +16,7 @@ using UnityEngine;
 public class PlayerStatusEffects : MonoBehaviour {
 
     private PlayerHealth playerH;
+    private PlayerManager playerM;
     public float startTime;
     public float currentTime;
 
@@ -32,10 +33,12 @@ public class PlayerStatusEffects : MonoBehaviour {
     public float maxFreezeMeter = 10f;
     public float currFreezeMeter = 0f;
     public bool isFreezed = false;
+    public bool slow = false;
     
     private void Start() {
         InvokeRepeating("decreaseBurn",1f,1f);
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
+        playerM = PlayerManager.instance.GetComponent<PlayerManager>();
         startTime = Time.realtimeSinceStartup;
     }
 
@@ -43,6 +46,7 @@ public class PlayerStatusEffects : MonoBehaviour {
         currentTime = Time.deltaTime;
 
         checkBurn();
+        checkSlow();
     }
 
     private void checkBurn(){
@@ -76,5 +80,19 @@ public class PlayerStatusEffects : MonoBehaviour {
         if (currBurnMeter <= 0f){
             isBurning = false;
         }
+    }
+
+    private void checkSlow(){
+        Debug.Log("slow value "+ slow);
+        if (slow == true){
+            Debug.Log(" Slow");
+            playerM.playerSpeed = playerM.playerSpeed * 0.5f;
+            currentTime = 0;
+        }
+        if (currentTime > 0.5f){
+            playerM.playerSpeed = playerM.playerSpeed * 2f;
+            slow = false;
+        }
+
     }
 }

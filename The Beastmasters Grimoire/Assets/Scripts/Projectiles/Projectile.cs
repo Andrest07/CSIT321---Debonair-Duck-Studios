@@ -114,6 +114,9 @@ public class Projectile : MonoBehaviour
                 case EnemyScriptableObject.AttributeTypeEnum.Poison:
                     playerStatus.currBurnMeter += 4f;
                     break;
+                case EnemyScriptableObject.AttributeTypeEnum.slowBeam:
+                    playerStatus.slow = true;
+                    break;
             }
             Destroy (gameObject);
         } else if (col.gameObject.tag.Equals("Enemy") && playerS != null){

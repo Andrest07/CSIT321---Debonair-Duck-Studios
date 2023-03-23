@@ -179,7 +179,7 @@ Animator:
   m_GameObject: {fileID: 7917238221559215613}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 1982652dbe093294d8d781623716daf3, type: 2}
+  m_Controller: {fileID: 22100000, guid: 4ee05d228052440c9a40f40b811a11f9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda29da3d73bc4566b0c4400c72d966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 85438dc944cfc483dbe33819e5c1b026, type: 2}
+  data: {fileID: 11400000, guid: c61b3e19bd7c441e5be6a117be8e1635, type: 2}
   drawGizmos: 1
   playerT: {fileID: 0}
   playerH: {fileID: 0}
@@ -213,6 +213,9 @@ MonoBehaviour:
   isMoving: 0
   agent: {fileID: 0}
   isAggro: 0
+  healthBar: {fileID: 0}
+  captureBar: {fileID: 0}
+  enemyName: {fileID: 0}
 --- !u!114 &6498185047953973294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 20
   currentHealth: 20
+  cannotDie: 0
 --- !u!114 &2557269106343029520
 MonoBehaviour:
   m_ObjectHideFlags: 0
