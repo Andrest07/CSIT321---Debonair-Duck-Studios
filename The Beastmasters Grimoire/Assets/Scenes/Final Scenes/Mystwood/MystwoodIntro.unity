@@ -4126,6 +4126,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8307657994608808101, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307657994608808101, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307657994608808101, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1314259995}
+    - target: {fileID: 8307657994608808101, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307657994608808101, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307657994608808101, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PauseMenuScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307657994608808101, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8319046070285798839, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7655,6 +7683,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7340062150852082941, guid: 5642c8faaec26a143baf8d58395df6b3, type: 3}
   m_PrefabInstance: {fileID: 230761999}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1314259995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1005983721033641764, guid: 4c704d41bbc81424a820447ae6ea7ef2, type: 3}
+  m_PrefabInstance: {fileID: 803733038}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bac5cfcfe2c34732a93874e7feed509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328993801
 GameObject:
   m_ObjectHideFlags: 0
@@ -30442,6 +30481,7 @@ MonoBehaviour:
   tutBeacon: Tutorial Beacon Dialogue
   tutFinish: Finish Tutorial
   tutorialQuest: {fileID: 11400000, guid: 7c5c0f42a51802c45a3ca4b23a41c90e, type: 2}
+  finishTutorial: 0
 --- !u!58 &1983104117
 CircleCollider2D:
   m_ObjectHideFlags: 0

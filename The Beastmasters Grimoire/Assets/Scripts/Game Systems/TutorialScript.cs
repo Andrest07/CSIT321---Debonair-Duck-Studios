@@ -43,7 +43,7 @@ public class TutorialScript : MonoBehaviour
     {
         dialogueTrigger = GetComponents<DialogueSystemTrigger>();
         millimData = millim.GetComponent<EnemyController>().data;
-        if (GameManager.instance.tutorialComplete)
+        if (PlayerManager.instance.data.tutorialComplete)
         {
             Destroy(millim.transform.parent.gameObject);
             Destroy(gameObject);
@@ -87,7 +87,7 @@ public class TutorialScript : MonoBehaviour
             tutorialFinished = true;
             Time.timeScale = 0f;
             PlayerManager.instance.canSpellcast = true;
-            GameManager.instance.tutorialComplete = true;
+            PlayerManager.instance.data.tutorialComplete = true;
 
             EventManager.Instance.QueueEvent(new QuestStageCheckEvent("attune grimoire"));
         }

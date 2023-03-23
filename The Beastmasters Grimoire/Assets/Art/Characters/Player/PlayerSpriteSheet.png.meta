@@ -107,7 +107,7 @@ TextureImporter:
       name: PlayerSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 1522
         width: 251
         height: 526

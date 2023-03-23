@@ -29,6 +29,14 @@ public class CanvasNotification : MonoBehaviour
         EventManager.Instance.AddListener<NotificationEvent>(NewNotif);
     }
 
+    public void Clear()
+    {
+        notifQueue.Clear();
+        while (this.transform.childCount > 0)
+            DestroyImmediate(this.transform.GetChild(0).gameObject);
+        StopAllCoroutines();
+    }
+
     private void NewNotif(NotificationEvent eventInfo)
     {
         TMP_Text[] itemText;

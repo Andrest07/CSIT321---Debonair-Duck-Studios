@@ -61,6 +61,11 @@ public class SaveLoadGame : MonoBehaviour {
         PlayerPrefs.SetFloat("PlayerX", PlayerManager.instance.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", PlayerManager.instance.transform.position.y);
         PlayerPrefs.SetFloat("PlayerZ", PlayerManager.instance.transform.position.z);
+
+        // save dialogue database
+        json = PixelCrushers.DialogueSystem.PersistentDataManager.GetSaveData();
+        WriteFile(json, path + "/Profile" + gameManager.currentProfile.index +"/dialogue.json");
+
     }
 
     // Load player data from file & then change scene
@@ -74,8 +79,12 @@ public class SaveLoadGame : MonoBehaviour {
         json = ReadFile(path + "/Profile" + gameManager.currentProfile.index + "/save.json");
         JsonUtility.FromJsonOverwrite(json, manager.data);
 
-		// TBD testing
-        //manager.data = JsonConvert.DeserializeObject<PlayerManager.Data>(json);
+        // load dialogue database //
+        json = ReadFile(path + "/Profile" + gameManager.currentProfile.index + "/dialogue.json");
+        PixelCrushers.DialogueSystem.PersistentDataManager.ApplySaveData(json);
+
+        // clear canvas notifs
+        GameManager.instance.GetComponentInChildren<CanvasNotification>().Clear();
 
         // Load scene
         SceneManager.LoadScene(gameManager.currentProfile.level);
