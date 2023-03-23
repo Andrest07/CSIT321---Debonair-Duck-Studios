@@ -211,7 +211,11 @@ public class PlayerManager : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (GameManager.instance.isPaused) return;
+        if (GameManager.instance.isPaused)
+        {
+            if(inDialogue) StartCoroutine(interactionObject.Interact());
+            return;
+        }
 
         switch (playerMode) //Decide which attack is used based on player mode
         {

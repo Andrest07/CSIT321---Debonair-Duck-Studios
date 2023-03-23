@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
         isPaused = Time.timeScale == 0 ? true : false;
     }
+
     void OnApplicationPause(bool pauseStatus)
     {
         isPaused = pauseStatus;
