@@ -43,28 +43,33 @@ public class SaveLoadGame : MonoBehaviour {
 
     public void Save()
     {
+        int index = gameManager.currentProfile.index;
+
         // save player profile //
         gameManager.currentProfile.playTime += Time.realtimeSinceStartup;  // update save time
         gameManager.currentProfile.level = SceneManager.GetActiveScene().name; // save current scene
         string json = JsonUtility.ToJson(gameManager.currentProfile);
 
-        WriteFile(json, path+"/Profile"+gameManager.currentProfile.index+"/profile.json");
+        WriteFile(json, path+"/Profile"+index+"/profile.json");
 
         // save player data //
         json = JsonUtility.ToJson(manager.data);
         //TBD for testing
         //json = JsonConvert.SerializeObject(manager.data, Formatting.Indented);
 
-        WriteFile(json, path + "/Profile" + gameManager.currentProfile.index + "/save.json");
+        WriteFile(json, path + "/Profile" + index + "/save.json");
 
         // save player position
-        PlayerPrefs.SetFloat("PlayerX", PlayerManager.instance.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerY", PlayerManager.instance.transform.position.y);
-        PlayerPrefs.SetFloat("PlayerZ", PlayerManager.instance.transform.position.z);
+        PlayerPrefs.SetFloat(index + "PlayerX", PlayerManager.instance.transform.position.x);
+        PlayerPrefs.SetFloat(index + "PlayerY", PlayerManager.instance.transform.position.y);
+        PlayerPrefs.SetFloat(index + "PlayerZ", PlayerManager.instance.transform.position.z);
+
+        int tutComplete = gameManager.tutorialComplete == false ? 0 : 1;
+        PlayerPrefs.SetInt(index + "tutorial", tutComplete);
 
         // save dialogue database
         json = PixelCrushers.DialogueSystem.PersistentDataManager.GetSaveData();
-        WriteFile(json, path + "/Profile" + gameManager.currentProfile.index +"/dialogue.json");
+        WriteFile(json, path + "/Profile" + index +"/dialogue.json");
 
     }
 
@@ -84,7 +89,9 @@ public class SaveLoadGame : MonoBehaviour {
         PixelCrushers.DialogueSystem.PersistentDataManager.ApplySaveData(json);
 
         // clear canvas notifs
-        GameManager.instance.GetComponentInChildren<CanvasNotification>().Clear();
+        gameManager.GetComponentInChildren<CanvasNotification>().Clear();
+
+        gameManager.tutorialComplete = PlayerPrefs.GetInt(gameManager.currentProfile.index + "tutorial") == 0 ? false : true;
 
         // Load scene
         SceneManager.LoadScene(gameManager.currentProfile.level);
@@ -95,11 +102,15 @@ public class SaveLoadGame : MonoBehaviour {
     // Any loading set up that needs to be done after loading the new scene
     public void Load2()
     {
+        int index = gameManager.currentProfile.index;
         // add quest listeners, menu items //
         manager.GetComponent<QuestController>().LoadSavedQuests();
 
         // load player position //
-        PlayerManager.instance.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+        PlayerManager.instance.transform.position = new Vector3(
+            PlayerPrefs.GetFloat(index + "PlayerX"), 
+            PlayerPrefs.GetFloat(index + "PlayerY"), 
+            PlayerPrefs.GetFloat(index + "PlayerZ"));
 
         Debug.Log("loaded");
     }

@@ -11,6 +11,11 @@ public class MainMenu : MonoBehaviour
 
     public GameObject noSavedGameDialog = null;
 
+    private void Awake()
+    {
+        GameManager.instance.Pause();
+    }
+
     public void NewGameDialogYes(){
         SceneManager.LoadScene(newGameLevel);
     }
@@ -24,6 +29,11 @@ public class MainMenu : MonoBehaviour
             noSavedGameDialog.SetActive(true);
 
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.Pause();
     }
 
     public void ExitButton(){
