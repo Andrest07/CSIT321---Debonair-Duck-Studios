@@ -86,9 +86,6 @@ public class PlayerManager : MonoBehaviour
         public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
 
         public List<Quest> playerQuests;
-
-        //Tutorial variable
-        [HideInInspector] public bool tutorialComplete;
     }
     public Data data = new Data();
 
