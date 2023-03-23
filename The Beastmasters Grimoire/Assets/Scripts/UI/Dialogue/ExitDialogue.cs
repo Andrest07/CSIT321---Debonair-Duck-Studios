@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 public class ExitDialogue : MonoBehaviour
 {
     public void OnClick()
     {
-        PixelCrushers.DialogueSystem.DialogueManager.StopAllConversations();
+        DialogueManager.instance.GetComponent<ConversationControl>().SkipAll();
     }
 }
