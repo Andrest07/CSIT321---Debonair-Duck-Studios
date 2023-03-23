@@ -36,11 +36,10 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         PlayerObject = PlayerManager.instance.gameObject;
-        PlayerManager playerM = PlayerObject.GetComponent<PlayerManager>();
         if (enemyS != null){
             playerT = PlayerObject.GetComponent<Transform>();
             playerH = PlayerObject.GetComponent<PlayerHealth>();
-            PlayerStatusEffects playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
+            playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
             if (enemyS.ProjType == EnemyScriptableObject.ProjTypeEnum.Bullet) {
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);

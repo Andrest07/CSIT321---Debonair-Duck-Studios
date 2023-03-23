@@ -80,10 +80,8 @@ public class EnemyController : MonoBehaviour
     // Enemy attack
     public void Attack()
     {
-        Debug.Log(data.IsRanged);
         if (data.IsRanged)
         {
-            Debug.Log(Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance);
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
                 // do bullet
