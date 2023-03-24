@@ -15,7 +15,8 @@ MonoBehaviour:
   enemyName: Bulak
   attributeType: 0
   enemyDescription: monster with upper half as a humanoid bull (minator like) and
-    lower half snake. big chest with fur. red eyes. horns.
+    lower half snake. big chest with fur. red eyes. horns. club or axe as a weapon.
+  enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1

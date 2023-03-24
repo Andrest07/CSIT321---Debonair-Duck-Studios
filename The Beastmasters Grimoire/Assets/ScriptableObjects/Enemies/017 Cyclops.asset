@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyName: Cyclops
   attributeType: 0
   enemyDescription: 'one eyed creature. shoots lazer beam from eye. '
+  enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1
@@ -22,7 +23,7 @@ MonoBehaviour:
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
+  isRanged: 1
   projType: 0
   projDamage: 1
   projSpeed: 1

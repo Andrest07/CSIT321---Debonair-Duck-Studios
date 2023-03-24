@@ -18,8 +18,8 @@ MonoBehaviour:
     low attack. beam attack
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
-  health: 10
-  speed: 1
+  health: 3
+  speed: 3
   meleeDamage: 1
   rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3

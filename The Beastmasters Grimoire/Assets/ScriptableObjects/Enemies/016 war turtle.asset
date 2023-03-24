@@ -16,6 +16,7 @@ MonoBehaviour:
   attributeType: 0
   enemyDescription: medium size turtle with cannons on its back. cannons shoot beams.
     high recharge time. turtle slow, high health, high damage.
+  enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1
@@ -23,7 +24,7 @@ MonoBehaviour:
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
+  isRanged: 1
   projType: 0
   projDamage: 1
   projSpeed: 1
