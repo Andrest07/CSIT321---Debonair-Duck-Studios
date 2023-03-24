@@ -10,21 +10,25 @@ using UnityEngine.UI;
 
 public class SaveBeaconMenu : MonoBehaviour
 {
-    [Header("Beastiary UI Elements")]
     public GameObject saveBeaconMenu;
-    public GameObject informationText;
     public GameObject equipButton;
-    public GameObject beastName;
-    public GameObject beastImage;
     public GameObject[] spellImages;
+
+    [Header("Beastiary UI Elements")]
+    public Sprite UnknownBeast;
+    public Sprite UnknownSpell;
+    public GameObject beastName;
+    public GameObject beastInformation;
+    public GameObject beastImage;
+    public GameObject spellName;
+    public GameObject spellInformation;
+    public GameObject spellImage;
 
 
     [Header("Currently Attuned")]
     public GameObject attunedBeacon;
     public EnemyScriptableObject attunedBeast;
-
     public Button saveButton;
-
     private SaveLoadGame saveLoad;
 
 
@@ -45,8 +49,7 @@ public class SaveBeaconMenu : MonoBehaviour
     public void SetAttunedBeast(EnemyScriptableObject beast)
     {
         attunedBeast = beast;
-        beastName.GetComponent<TMPro.TextMeshProUGUI>().text = beast.EnemyName;
-        informationText.GetComponent<TMPro.TextMeshProUGUI>().text = beast.EnemyDescription;
+        UpdateDisplayedEntry(beast);
         equipButton.GetComponent<Button>().interactable = GameManager.instance.GetBestiary(beast);
     }
 
@@ -57,9 +60,10 @@ public class SaveBeaconMenu : MonoBehaviour
         spellImages[number].GetComponent<Image>().sprite = attunedBeast.SpellScriptable.SpellImage;
         if (changedSlot != number)
         {
-        GameManager.instance.UpdateSpellImage(null, changedSlot);
-        spellImages[changedSlot].GetComponent<Image>().sprite = GameManager.instance.blankSlot;
+            GameManager.instance.UpdateSpellImage(null, changedSlot);
+            spellImages[changedSlot].GetComponent<Image>().sprite = GameManager.instance.blankSlot;
         }
+        UpdateDisplayedEntry(attunedBeast);
 
     }
 
@@ -80,5 +84,37 @@ public class SaveBeaconMenu : MonoBehaviour
     public void ToggleSaveButton()
     {
         saveButton.interactable = !saveButton.interactable;
+    }
+
+    public void SpellSlotHover(int number)
+    {
+        if (number<PlayerManager.instance.data.totalBeasts)
+        {
+            UpdateDisplayedEntry(PlayerManager.instance.data.availableBeasts[number]);
+        }
+    }
+
+    public void UpdateDisplayedEntry(EnemyScriptableObject beast)
+    {
+        if (beast == null || GameManager.instance.GetBestiary(beast) == false)
+        {
+            beastName.GetComponent<TMPro.TextMeshProUGUI>().text = "???";
+            beastInformation.GetComponent<TMPro.TextMeshProUGUI>().text = "???";
+            beastImage.GetComponent<Image>().sprite = UnknownBeast;
+
+            spellName.GetComponent<TMPro.TextMeshProUGUI>().text = "???";
+            spellInformation.GetComponent<TMPro.TextMeshProUGUI>().text = "???";
+            spellImage.GetComponent<Image>().sprite = UnknownSpell;
+        }
+        else
+        {
+            beastName.GetComponent<TMPro.TextMeshProUGUI>().text = beast.EnemyName;
+            beastInformation.GetComponent<TMPro.TextMeshProUGUI>().text = beast.EnemyDescription;
+            beastImage.GetComponent<Image>().sprite = beast.EnemyImage;
+
+            spellName.GetComponent<TMPro.TextMeshProUGUI>().text = beast.SpellScriptable.SpellName;
+            spellInformation.GetComponent<TMPro.TextMeshProUGUI>().text = beast.SpellScriptable.SpellDescription;
+            spellImage.GetComponent<Image>().sprite = beast.SpellScriptable.SpellImage;
+        }
     }
 }

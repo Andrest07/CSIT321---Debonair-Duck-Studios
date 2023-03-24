@@ -27,12 +27,11 @@ public class CanvasNotification : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("CanvasNotification awake");
+
     }
 
     private void Start()
     {
-        Debug.Log("CanvasNotification start");
         if(!EventManager.Instance.HasListener<NotificationEvent>(NewNotif))
             EventManager.Instance.AddListener<NotificationEvent>(NewNotif);
         else

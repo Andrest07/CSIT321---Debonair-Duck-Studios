@@ -83,7 +83,7 @@ public class PlayerStatusEffects : MonoBehaviour {
     }
 
     private void checkSlow(){
-        Debug.Log("slow value "+ slow);
+        
         if (slow == true){
             Debug.Log(" Slow");
             playerM.playerSpeed = playerM.playerSpeed * 0.5f;
