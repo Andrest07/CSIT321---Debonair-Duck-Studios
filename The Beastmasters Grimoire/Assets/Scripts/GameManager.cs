@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
         UpdateSpellSlots();
         UpdateDisplayedSpell(0);
 
+        //load player settings
+        this.GetComponentInChildren<SettingsMenu>(true).LoadSettings();
+
         //Initialise the bestiary if it isn't intialised. Set all beast unlocks to false
         if (bestiary.Count == 0)
         {

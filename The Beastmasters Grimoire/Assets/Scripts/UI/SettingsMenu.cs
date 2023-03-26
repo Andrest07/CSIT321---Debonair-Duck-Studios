@@ -16,6 +16,7 @@ using TMPro;
 public class SettingsMenu : MonoBehaviour
 {
     //Tab system for settings menu. Variables to control button to go to different tab when clicked.
+    [Header("Tabs")]
     public GameObject audioTab;
     public GameObject videoTab;
     public GameObject controlsTab;
@@ -54,11 +55,24 @@ public class SettingsMenu : MonoBehaviour
     }
 
     // To Control Volume [Volume Tab]
-
+    [Header("Audio Settings")]
     public AudioMixer theMixer;
     public TMP_Text mastLabel, musicLabel, sfxLabel;
     public Slider mastSlider, musicSlider, sfxSlider;
     public Toggle myToggle;
+
+
+    // extras
+    [Header("Extra Settings")]
+    public Slider extrasHUD;
+    public TMP_Dropdown extrasDifficultyDropdown;
+    private int extrasDifficulty;
+    private CanvasGroup HUD;
+
+    private void Start()
+    {
+        HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+    }
 
     public void setMasterVolume()
     {
@@ -99,4 +113,44 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+
+    public void ChangeDifficulty(){ extrasDifficulty = extrasDifficultyDropdown.value; }
+
+    public void ChangeHUD() 
+    { 
+        if(HUD == null) HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+        HUD.alpha = extrasHUD.value;
+    }
+
+    public void SaveAudio()
+    {
+
+    }
+
+    public void SaveVideo()
+    {
+
+    }
+
+    public void SaveControls()
+    {
+
+    }
+
+    public void SaveExtras()
+    {
+        PlayerPrefs.SetFloat("HUDVisibility", HUD.alpha);
+        PlayerPrefs.SetInt("Difficulty", extrasDifficulty);
+    }
+
+    public void LoadSettings()
+    {
+
+        // extras
+        PlayerPrefs.GetFloat("HUDVisibility", extrasHUD.value);
+        if (HUD == null) HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+        HUD.alpha = extrasHUD.value;
+        PlayerPrefs.GetInt("Difficulty", extrasDifficulty);
+        extrasDifficultyDropdown.SetValueWithoutNotify(extrasDifficulty);
+    }
 }
