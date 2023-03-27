@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: BulakAnimator
   m_Controller: {fileID: 9100000, guid: 9c71456be00a2ba4ba58b7e74f2dc4d9, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 0bb60154a99e1a64eb37127456ecb5b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6b68059a305174e0cbb8d0a77099126f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7916df2fedfed0c40a2dde3c936e08b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aeb299e050da24d55bbeed05d456a6fb, type: 2}

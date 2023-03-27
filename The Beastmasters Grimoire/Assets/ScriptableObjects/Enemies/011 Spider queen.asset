@@ -13,20 +13,30 @@ MonoBehaviour:
   m_Name: 011 Spider Queen
   m_EditorClassIdentifier: 
   enemyName: Spider Monster
-  enemyType: 0
+  attributeType: 0
   enemyDescription: big spider throws web that can bind player
-  spellName: web Throw
-  spellObject: {fileID: 0}
-  spellType: 0
-  spellDescription: Throws web to bind the player on critical hits.
-  isRanged: 1
+  enemyImage: {fileID: 0}
+  spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  visibilityRange: 10
-  attackDistance: 7
+  isRanged: 1
+  projType: 0
+  projDamage: 1
+  projSpeed: 1
+  projLifetime: 3
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
+  visibilityRange: 5
+  attackDistance: 1
   attackCooldown: 1

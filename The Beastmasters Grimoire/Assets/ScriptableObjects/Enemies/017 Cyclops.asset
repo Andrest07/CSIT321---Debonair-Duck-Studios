@@ -37,6 +37,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 10
-  attackDistance: 7
+  visibilityRange: 7
+  attackDistance: 5
   attackCooldown: 1

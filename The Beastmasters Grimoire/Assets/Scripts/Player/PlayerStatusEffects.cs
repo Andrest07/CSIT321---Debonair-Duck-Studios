@@ -43,7 +43,7 @@ public class PlayerStatusEffects : MonoBehaviour {
     }
 
     private void Update() {
-        currentTime = Time.deltaTime;
+        currentTime += Time.deltaTime;
 
         checkBurn();
         checkSlow();
@@ -83,7 +83,7 @@ public class PlayerStatusEffects : MonoBehaviour {
     }
 
     private void checkSlow(){
-        
+        /*
         if (slow == true){
             Debug.Log(" Slow");
             playerM.playerSpeed = playerM.playerSpeed * 0.5f;
@@ -93,6 +93,17 @@ public class PlayerStatusEffects : MonoBehaviour {
             playerM.playerSpeed = playerM.playerSpeed * 2f;
             slow = false;
         }
+        */
+        if(slow = true) {
+            StartCoroutine(Slow());
+        }
+        
+    }
 
+    IEnumerator Slow(){
+        playerM.playerSpeed = playerM.playerSpeed * 0.5f;
+        yield return new WaitForSeconds(1f);
+        playerM.playerSpeed = playerM.playerSpeed * 2f;
+        slow = false;
     }
 }

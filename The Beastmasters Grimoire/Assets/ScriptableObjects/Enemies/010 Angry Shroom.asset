@@ -16,6 +16,7 @@ MonoBehaviour:
   attributeType: 0
   enemyDescription: mushroom enemy, evil looking probably red in color. with a cigar.
     like a mafia boss poison attacks
+  enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1
@@ -37,6 +38,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 10
-  attackDistance: 7
+  visibilityRange: 3
+  attackDistance: 1
   attackCooldown: 1

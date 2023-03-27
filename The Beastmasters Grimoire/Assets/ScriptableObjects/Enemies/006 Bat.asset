@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 006 Bat
   m_EditorClassIdentifier: 
   enemyName: Bat
-  attributeType: 0
+  attributeType: 5
   enemyDescription: Big black bat. shoots sonic waves reducing enemy speed. low health
     low attack. beam attack
   enemyImage: {fileID: 0}

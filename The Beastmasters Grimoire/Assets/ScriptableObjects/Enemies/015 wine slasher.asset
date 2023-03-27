@@ -13,20 +13,30 @@ MonoBehaviour:
   m_Name: 015 Wine Slasher
   m_EditorClassIdentifier: 
   enemyName: Wine monster
-  enemyType: 0
+  attributeType: 0
   enemyDescription: plant monster. slashes wines on monster
-  spellName: Wine Bind
-  spellObject: {fileID: 0}
-  spellType: 0
-  spellDescription: Binds the enemy for a few second.
-  isRanged: 0
+  enemyImage: {fileID: 0}
+  spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 3
-  captureSeconds: 5
-  visibilityRange: 10
-  attackDistance: 7
+  captureTotal: 5
+  isRanged: 0
+  projType: 0
+  projDamage: 1
+  projSpeed: 1
+  projLifetime: 3
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
+  visibilityRange: 5
+  attackDistance: 1
   attackCooldown: 1

@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: SeagAnimator
   m_Controller: {fileID: 9100000, guid: 9c71456be00a2ba4ba58b7e74f2dc4d9, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 0bb60154a99e1a64eb37127456ecb5b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2bac1d3e05c96462885e1634f407707f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7916df2fedfed0c40a2dde3c936e08b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 97db95c8af2e44f8fa5b1ffe70015404, type: 2}
