@@ -94,7 +94,7 @@ public class PlayerStatusEffects : MonoBehaviour {
             slow = false;
         }
         */
-        if(slow = true) {
+        if(slow == true) {
             StartCoroutine(Slow());
         }
         
