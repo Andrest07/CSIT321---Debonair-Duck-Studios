@@ -1,3 +1,10 @@
+/*
+AUTHOR DD/MM/YY: Nabin 13/01/23
+
+    - EDITOR DD/MM/YY CHANGES:
+    -
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,17 +20,23 @@ public class VideoSetting : MonoBehaviour
     public float defaultBrightness = 1;
 
     public int _qualityLevel;
-    public bool _isFullScreen;
+    //public bool _isFullScreen;
     public float _brightnessLevel;
     public void SetBrightness (float brightness)
     {
         _brightnessLevel = brightness;
 
     }
-    public void SetFullscreen (bool isFullscreen)
+
+    // Fullscreen toggle control method.
+    public void SetFullScreen(){
+        Screen.fullScreen = fullScreenToggle.isOn;
+    }
+    /*public void SetFullscreen (bool isFullscreen)
     {
         _isFullScreen = isFullscreen;
-    }
+    }*/
+
     public void SetQuality(int qualityIndex)
     {
         _qualityLevel = qualityIndex;
@@ -34,8 +47,10 @@ public class VideoSetting : MonoBehaviour
         PlayerPrefs.SetFloat("masterBrightness", _brightnessLevel);
         PlayerPrefs.SetInt("masterQuality", _qualityLevel);
         QualitySettings.SetQualityLevel(_qualityLevel);
-        PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0 ));
-        Screen.fullScreen = _isFullScreen;
+        
+        Screen.fullScreen = fullScreenToggle.isOn;
+        //PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0 ));
+        //Screen.fullScreen = _isFullScreen;
 
     }
 

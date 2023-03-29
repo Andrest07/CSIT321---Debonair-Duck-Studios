@@ -19642,7 +19642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 640 X 480
+  m_text: 1920 X 1080
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
   m_sharedMaterial: {fileID: 1909752705754731268, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
@@ -28494,12 +28494,12 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Low
-      m_Image: {fileID: 21300000, guid: 1a41a01850cfe4e469de359126f62258, type: 3}
-    - m_Text: Medium
-      m_Image: {fileID: 21300000, guid: 505c252acf128ad41b54a5c686bccb73, type: 3}
     - m_Text: High
       m_Image: {fileID: 21300000, guid: 8124ab81c60dbaf46a4b38df1f70187f, type: 3}
+    - m_Text: Medium
+      m_Image: {fileID: 21300000, guid: 505c252acf128ad41b54a5c686bccb73, type: 3}
+    - m_Text: Low
+      m_Image: {fileID: 21300000, guid: 1a41a01850cfe4e469de359126f62258, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -33699,11 +33699,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: 640 X 480
+    - m_Text: 1920 X 1080
       m_Image: {fileID: 0}
     - m_Text: 800 X 600
       m_Image: {fileID: 0}
-    - m_Text: 1090 X 1080
+    - m_Text: 640 X 480
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -34402,7 +34402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Low
+  m_text: High
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
   m_sharedMaterial: {fileID: 1909752705754731268, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
@@ -40361,7 +40361,6 @@ MonoBehaviour:
   fullScreenToggle: {fileID: 4037195655248889222}
   defaultBrightness: 1
   _qualityLevel: 1
-  _isFullScreen: 1
   _brightnessLevel: 0
   resolutionDropdown: {fileID: 6152574819751956806}
 --- !u!1 &7484381478456031810
@@ -41406,10 +41405,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 922478198833515930}
         m_TargetAssemblyTypeName: VideoSetting, Assembly-CSharp
-        m_MethodName: SetFullscreen
-        m_Mode: 0
+        m_MethodName: SetFullScreen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
