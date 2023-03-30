@@ -1,3 +1,9 @@
+/*
+AUTHOR DD/MM/YY: Quentin 23/03/23
+
+    - EDITOR DD/MM/YY CHANGES:
+    - Quentin 30/3/23 Changes for deleting etc
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,51 +16,84 @@ public class SaveSlotMenu : MonoBehaviour
     private SaveLoadGame saveLoad;
     private string path;
     private string saveSlot;
-    private TMPro.TMP_Text [] text;
+    private int saveSlotInt;
+
     public GameObject inputPanel;
+    public GameObject slotViewPanel;
+    public GameObject list;
 
     private void Awake()
     {
-        saveSlot = this.transform.name;
         path = Application.persistentDataPath;
-        saveLoad = GetComponentInParent<SaveLoadGame>();
-        text = GetComponentsInChildren<TMPro.TMP_Text>();
+        saveLoad = GetComponent<SaveLoadGame>();
     }
 
     private void Start()
     {
-        if (!File.Exists(path + "/Profile" + saveSlot + "/save.json"))
-        {
-            text[0].text = "Start New Game";
-            text[1].text = "";
-        }
-        else
-        {
-            PlayerProfile profile = saveLoad.GetProfile(int.Parse(saveSlot));
-            text[0].text = profile.playerName;
+        TMPro.TMP_Text [] listChildren = list.GetComponentsInChildren<TMPro.TMP_Text>();
 
-            text[1].text = TimeSpan.FromSeconds(profile.playTime).ToString();
+        for(int i=0, j=0; i<3; i++, j+=2)
+        {
+            if (!File.Exists(path + "/Profile" + i + "/save.json"))
+            {
+                listChildren[j].text = "Start New Game";
+                listChildren[j + 1].text = "";
+            }
+            else
+            {
+                PlayerProfile profile = saveLoad.GetProfile(i);
+                listChildren[j].text = profile.playerName;
+
+                listChildren[j + 1].text = TimeSpan.FromSeconds(profile.playTime).ToString();
+            }
         }
     }
 
-    public void LoadSave()
+    // set the slot to load from
+    public void SetSaveSlot(int newIndex) { 
+        saveSlotInt = newIndex;
+        saveSlot = saveSlotInt.ToString();
+    }
+
+    // opens the panel which shows save file options
+    public void ShowSlotPanel()
     {
         if (!File.Exists(path + "/Profile" + saveSlot + "/save.json"))
         {
             inputPanel.SetActive(true);
-            inputPanel.GetComponent<NewGameInput>().saveSlot = int.Parse(saveSlot);
+            inputPanel.GetComponent<NewGameInput>().saveSlot = saveSlotInt;
         }
         else
         {
-            Debug.Log("load "+ saveSlot);
-            GameManager.instance.currentProfile = new PlayerProfile(int.Parse(saveSlot), "");
-            saveLoad.Load();
+            slotViewPanel.SetActive(true);
+            PlayerProfile profile = saveLoad.GetProfile(saveSlotInt);
+            slotViewPanel.GetComponentInChildren<TMPro.TMP_Text>().text = profile.playerName + "\n\n\t" + profile.saveBeacon;
         }
+    }
+
+    // load a save
+    public void LoadSave()
+    {
+        Debug.Log("load "+ saveSlot);
+        GameManager.instance.currentProfile = new PlayerProfile(saveSlotInt, "");
+        saveLoad.Load();
     }
 
     public void StartGame()
     {
-        GameManager.instance.currentProfile = new PlayerProfile(int.Parse(saveSlot), "");
+        GameManager.instance.currentProfile = new PlayerProfile(saveSlotInt, "");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void DeleteSave()
+    {
+        if (Directory.Exists(path + "/Profile" + saveSlot))
+        {
+            Directory.Delete(path + "/Profile" + saveSlot, true);
+
+            TMPro.TMP_Text [] text = list.transform.GetChild(saveSlotInt).GetComponentsInChildren<TMPro.TMP_Text>();
+            text[0].text = "Start New Game";
+            text[1].text = "";
+        }
     }
 }

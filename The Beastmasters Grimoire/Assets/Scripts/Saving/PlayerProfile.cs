@@ -14,6 +14,7 @@ public class PlayerProfile
     public string playerName = "Player";
     public float playTime = 0;
     public string level = "TestingScene 1";
+    public string saveBeacon = "Forest Entrance";
 
     public PlayerProfile() { }
 
