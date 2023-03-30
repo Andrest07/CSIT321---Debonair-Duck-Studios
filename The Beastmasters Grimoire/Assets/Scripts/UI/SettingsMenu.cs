@@ -4,7 +4,6 @@ AUTHOR DD/MM/YY: Nabin 13/12/22
     - EDITOR DD/MM/YY CHANGES:
     - Nabin  28/12/2022  Added tab style settings script to the menu.
     - Nabin  09/02/2023  Mute option added to audio tab.
-    - Nabin 29/02/2023 
 */
 
 using System.Collections;
@@ -61,41 +60,38 @@ public class SettingsMenu : MonoBehaviour
     public TMP_Text mastLabel, musicLabel, sfxLabel;
     public Slider mastSlider, musicSlider, sfxSlider;
     public Toggle myToggle;
+
+
+    // extras
+    [Header("Extra Settings")]
+    public Slider extrasHUD;
+    public TMP_Dropdown extrasDifficultyDropdown;
+    private int extrasDifficulty;
+    private CanvasGroup HUD;
+
+    private void Start()
+    {
+        HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+    }
+
     public void setMasterVolume()
     {
         mastLabel.text = Mathf.RoundToInt (mastSlider.value + 80 ).ToString();
-        float mastValue = mastSlider.value;
-        PlayerPrefs.SetFloat("MasterVol", mastSlider.value);
-        saveAudio();
+        theMixer.SetFloat("MasterVol", mastSlider.value);
     }
+
     public void setMusicVolume()
     {
         musicLabel.text = Mathf.RoundToInt(musicSlider.value + 80).ToString();
-        float musicValue = musicSlider.value;
-        PlayerPrefs.SetFloat("MusicVol", musicSlider.value);
-        saveAudio();
+        theMixer.SetFloat("MusicVol", musicSlider.value);
     }
+
     public void setSFXVolume()
     {
         sfxLabel.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString();
-        float sfxValue = sfxSlider.value;
-        PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
-        saveAudio();
+        theMixer.SetFloat("SFXVol", sfxSlider.value);
     }
-    public void saveAudio(){
-        float mastValue = PlayerPrefs.GetFloat("MasterVol");
-        mastSlider.value = mastValue;
-        AudioListener.volume = mastValue;
 
-        float musicValue = PlayerPrefs.GetFloat("MusicVol");
-        musicSlider.value = musicValue;
-        AudioListener.volume = musicValue;
-
-        float sfxValue = PlayerPrefs.GetFloat("SFXVol");
-        sfxSlider.value = sfxValue;
-        AudioListener.volume = sfxValue;
-
-    }
     public void muteToggle()
     {
         myToggle = GetComponent<Toggle>();
@@ -104,6 +100,7 @@ public class SettingsMenu : MonoBehaviour
             myToggle.isOn = true;
         }
     }
+
     public void ToggleAudioOnValueChange(bool audioIn)
     {
         if(audioIn)
@@ -115,28 +112,29 @@ public class SettingsMenu : MonoBehaviour
             AudioListener.volume = 1;
         }
     }
-    
-    private void Start()
-    {
-        saveAudio();
-        HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
-    }
 
 
-    // extras
-    [Header("Extra Settings")]
-    public Slider extrasHUD;
-    public TMP_Dropdown extrasDifficultyDropdown;
-    private int extrasDifficulty;
-    private CanvasGroup HUD;
-
-    
     public void ChangeDifficulty(){ extrasDifficulty = extrasDifficultyDropdown.value; }
 
     public void ChangeHUD() 
     { 
         if(HUD == null) HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
         HUD.alpha = extrasHUD.value;
+    }
+
+    public void SaveAudio()
+    {
+
+    }
+
+    public void SaveVideo()
+    {
+
+    }
+
+    public void SaveControls()
+    {
+
     }
 
     public void SaveExtras()
