@@ -69,72 +69,53 @@ public class SettingsMenu : MonoBehaviour
     private int extrasDifficulty;
     private CanvasGroup HUD;
 
-    private void Start()
-    {
-        HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
-    }
-
-    public void setMasterVolume()
+     public void setMasterVolume()
     {
         mastLabel.text = Mathf.RoundToInt (mastSlider.value + 80 ).ToString();
         theMixer.SetFloat("MasterVol", mastSlider.value);
+        float mastValue = mastSlider.value;
+        PlayerPrefs.SetFloat("MasterVol", mastSlider.value);
+        saveAudio();
     }
 
     public void setMusicVolume()
     {
         musicLabel.text = Mathf.RoundToInt(musicSlider.value + 80).ToString();
         theMixer.SetFloat("MusicVol", musicSlider.value);
+        float musicValue = musicSlider.value;
+        PlayerPrefs.SetFloat("MusicVol", musicSlider.value);
+        saveAudio();
     }
 
     public void setSFXVolume()
     {
         sfxLabel.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString();
         theMixer.SetFloat("SFXVol", sfxSlider.value);
+        float sfxValue = sfxSlider.value;
+        PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
+        saveAudio();
     }
+    public void saveAudio(){
+        float mastValue = PlayerPrefs.GetFloat("MasterVol");
+        mastSlider.value = mastValue;
+        AudioListener.volume = mastValue;
 
-    public void muteToggle()
+        float musicValue = PlayerPrefs.GetFloat("MusicVol");
+        musicSlider.value = musicValue;
+        AudioListener.volume = musicValue;
+
+        float sfxValue = PlayerPrefs.GetFloat("SFXVol");
+        sfxSlider.value = sfxValue;
+        AudioListener.volume = sfxValue;
+
+    }
+ 
+ 
+  
+    private void Start()
     {
-        myToggle = GetComponent<Toggle>();
-        if(AudioListener.volume == 0)
-        {
-            myToggle.isOn = true;
-        }
-    }
-
-    public void ToggleAudioOnValueChange(bool audioIn)
-    {
-        if(audioIn)
-        {
-            AudioListener.volume = 0;
-        }
-        else 
-        {
-            AudioListener.volume = 1;
-        }
-    }
-
-
-    public void ChangeDifficulty(){ extrasDifficulty = extrasDifficultyDropdown.value; }
-
-    public void ChangeHUD() 
-    { 
-        if(HUD == null) HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
-        HUD.alpha = extrasHUD.value;
-    }
-
-    public void SaveAudio()
-    {
-
-    }
-
-    public void SaveVideo()
-    {
-
-    }
-
-    public void SaveControls()
-    {
-
+        saveAudio();
+        HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
     }
 
     public void SaveExtras()
