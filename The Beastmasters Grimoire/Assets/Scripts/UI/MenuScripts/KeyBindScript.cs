@@ -21,19 +21,21 @@ public class KeyBindScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        keys.Add("Up",(KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up", "W")));
+        keys.Add("Up", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up", "W")));
         keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
         keys.Add("Down", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "S")));
         keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
         keys.Add("Attack", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Attack", "K")));
         keys.Add("SpellCast", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SpellCast", "L")));
 
-        up.text = keys["Up"].ToString();
-        left.text = keys["Left"].ToString();
-        down.text = keys["Down"].ToString();
-        right.text = keys["Right"].ToString();
-        attack.text = keys["Attack"].ToString();
-        spellcast.text = keys["SpellCast"].ToString();
+        /* commented until fixed
+            up.text = keys["Up"].ToString();
+            left.text = keys["Left"].ToString();
+            down.text = keys["Down"].ToString();
+            right.text = keys["Right"].ToString();
+            attack.text = keys["Attack"].ToString();
+            spellcast.text = keys["SpellCast"].ToString();
+        */
     }
 
     // Update is called once per frame
@@ -71,12 +73,12 @@ public class KeyBindScript : MonoBehaviour
     //        //Do a move action. i.e. add functionality to the correct updated button by the player.
     //        Debug.Log("SpellCast");
     //    }
-        
+
     //}
-    
+
     void OnGUI()
     {
-        if (currentKey !=null)
+        if (currentKey != null)
         {
             Event e = Event.current;
             if (e.isKey)
@@ -87,14 +89,14 @@ public class KeyBindScript : MonoBehaviour
             }
         }
     }
-    public void ChangeKey (GameObject clicked)
+    public void ChangeKey(GameObject clicked)
     {
         currentKey = clicked;
     }
 
     public void SaveKeys()
     {
-        foreach(var key in keys)
+        foreach (var key in keys)
         {
             PlayerPrefs.SetString(key.Key, key.Value.ToString());
         }
