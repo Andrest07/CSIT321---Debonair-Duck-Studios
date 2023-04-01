@@ -10,18 +10,32 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneSystem : MonoBehaviour
 {
-    public GameObject[] slides;
+    private GameObject[] slides;
+    public GameObject canvas;
 
     public float[] slidesDurations;
 
     private int currentSlide = 0;
-    public float fadeMultiplier =1f;
+    public float fadeMultiplier = 1f;
     public bool playOnStart;
     public bool transitionSceneOnEnd;
     public string nextScene;
+
+    private void Awake()
+    {
+        int children = canvas.transform.childCount - 1;
+        slides = new GameObject[children];
+
+        // get slides from canvas (excluding BG slide)
+        for (int i = 0; i < children; ++i)
+            slides[i] = canvas.transform.GetChild(i + 1).gameObject;
+    }
+
     void Start()
     {
-        if(playOnStart) StartCoroutine(Cutscene());
+        if (slidesDurations.Length < slides.Length) Debug.LogError("Slides != SlidesDurations");
+
+        if (playOnStart) StartCoroutine(Cutscene());
     }
 
     public void Play(){
@@ -30,6 +44,8 @@ public class CutsceneSystem : MonoBehaviour
 
     public IEnumerator Cutscene()
     {
+        StartCoroutine(FadeIn(slides[currentSlide]));
+
         //While there are more slides
         while (currentSlide < slides.Length - 1)
         {
