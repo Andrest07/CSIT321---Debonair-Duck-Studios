@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Cheetah
   attributeType: 0
-  enemyDescription: quick on its feet. low health high damage
+  enemyDescription: quick on its feet. low health high damage. 6 legs, 2 tails.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
