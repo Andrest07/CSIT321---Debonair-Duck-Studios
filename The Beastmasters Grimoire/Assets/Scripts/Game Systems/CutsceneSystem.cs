@@ -10,8 +10,6 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public GameObject[] slides;
 
     public float[] slidesDurations;
@@ -30,28 +28,26 @@ public class CutsceneSystem : MonoBehaviour
         StartCoroutine(Cutscene());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public IEnumerator Cutscene()
     {
+        //While there are more slides
         while (currentSlide < slides.Length - 1)
         {
             //Let the current slide play for it's duration and then swap to the next slide;
             yield return new WaitForSecondsRealtime(slidesDurations[currentSlide]);
 
+            //Move to the next slide fading it in and fading out the last slide
             currentSlide++;
-
             StartCoroutine(FadeIn(slides[currentSlide]));
             StartCoroutine(FadeOut(slides[currentSlide - 1]));
         }
         yield return new WaitForSecondsRealtime(slidesDurations[currentSlide]); // Let the final slide play then load the next scene
+        //If this cutscene loads a scene, load that scene. Otherwise destroy the cutscene manager
         if(transitionSceneOnEnd) SceneManager.LoadScene(nextScene); 
         else Destroy(gameObject);
     }
 
+    //Methods for fading in and out slides.
     public IEnumerator FadeIn(GameObject slide)
     {
         while (slide.GetComponent<CanvasGroup>().alpha < 1)

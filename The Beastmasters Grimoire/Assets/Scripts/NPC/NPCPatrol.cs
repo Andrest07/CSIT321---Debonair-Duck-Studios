@@ -30,10 +30,12 @@ public class NPCPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If close enough to point move to next point
         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) GoToNextPoint();
     }
 
 
+    //Method for moving to next point
     void GoToNextPoint()
     {
         if (currentPoint == points.Length && travelOnce) this.enabled = false;

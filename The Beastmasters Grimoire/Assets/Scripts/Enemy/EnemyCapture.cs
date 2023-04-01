@@ -20,8 +20,6 @@ public class EnemyCapture : MonoBehaviour
     private float hasCaptured;
     private float healthMultiplier;
 
-
-
     private void Awake()
     {
         enemyController = GetComponent<EnemyController>();
@@ -31,19 +29,24 @@ public class EnemyCapture : MonoBehaviour
 
     public void Capture(float power)
     {
+        //Make the enemy aware of the player if they are unaware
         if (!enemyController.isAggro) enemyController.isAggro = true;
 
+        //Set the multiplier hasCaptured based on if the player has captured the beast before
         if (hasCaptured == 0)
         {
             hasCaptured = GameManager.instance.GetBestiary(enemyScriptableObject) ? 1f : 0.5f;
         }
-        healthMultiplier = enemyHealth.totalHealth / enemyHealth.currentHealth;
 
-        captureMultiplyer = (hasCaptured) * healthMultiplier; //Will be expanded with better calculations later
+        //Calculations to increase capture amount
+        healthMultiplier = enemyHealth.totalHealth / enemyHealth.currentHealth;
+        captureMultiplyer = (hasCaptured) * healthMultiplier; 
         captureAmount += captureMultiplyer * power;
 
+        //Update UI
         enemyController.UpdateCapturehBar(captureAmount);
 
+        //If fully captured then capture the beast
         if (captureAmount >= enemyScriptableObject.CaptureTotal)
         {
             GameManager.instance.SetBestiary(enemyScriptableObject);

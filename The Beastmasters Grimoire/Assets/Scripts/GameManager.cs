@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         //For Windowed game, pausing when not focused
     }
 
+    //Method for updating the amount of displayed spell slots
     public void UpdateSpellSlots()
     {
         totalBeasts = PlayerManager.instance.data.totalBeasts;
@@ -105,6 +106,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Updates the players currently selected spell to be larger and white while all others are darker and smaller
     public void UpdateDisplayedSpell(int index)
     {
         for (int i = 0; i < totalBeasts; i++)
@@ -121,6 +123,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    //Update the images in the spell slots
     public void UpdateSpellImage(EnemyScriptableObject beast, int number)
     {
         if (beast != null)
@@ -150,6 +153,7 @@ public class GameManager : MonoBehaviour
         dashIndicator.SetActive(available);
     }
 
+    //Method for pausing game
     public void Pause()
     {
         isPaused = !isPaused;

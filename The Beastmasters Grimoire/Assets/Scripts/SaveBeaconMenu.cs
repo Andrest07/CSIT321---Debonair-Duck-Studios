@@ -1,5 +1,5 @@
 /*
-AUTHOR DD/MM/YY:
+AUTHOR DD/MM/YY: Kaleb 06/03/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */
@@ -30,7 +30,6 @@ public class SaveBeaconMenu : MonoBehaviour
     public EnemyScriptableObject attunedBeast;
     public Button saveButton;
     private SaveLoadGame saveLoad;
-
 
     public void OpenMenu(GameObject beacon)
     {

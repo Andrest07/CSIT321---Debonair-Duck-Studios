@@ -22,6 +22,7 @@ public class InteractionObject : MonoBehaviour
         manager = PlayerManager.instance;
     }
 
+    //Interact is active for a single frame
     public IEnumerator Interact()
     {
         active = true;
@@ -29,6 +30,7 @@ public class InteractionObject : MonoBehaviour
         active = false;
     }
 
+    //Detect the collided object and make the interaction UI appear
     void OnTriggerEnter2D(Collider2D other)
     {
         collision = other;
@@ -42,6 +44,7 @@ public class InteractionObject : MonoBehaviour
         InteractionUI.SetActive(false);
     }
 
+    //Trigger if collided and not in dialogue, otherwise continue dialogue
     void Update()
     {
         if (collision != null && !manager.inDialogue)
@@ -57,6 +60,7 @@ public class InteractionObject : MonoBehaviour
         }
     }
 
+    //Switch functionality based on interacted objects tag
     public void Trigger()
     {
         if (collision != null && active)
@@ -84,7 +88,7 @@ public class InteractionObject : MonoBehaviour
                     }
                     break;
 
-                case "SaveBeacon":
+                case "SaveBeacon": //Opens the save beacon menu
                     if (GameManager.instance.isPaused) return;
                     GameManager.instance.GetComponent<SaveBeaconMenu>().OpenMenu(collision.transform.parent.gameObject);
                     break;

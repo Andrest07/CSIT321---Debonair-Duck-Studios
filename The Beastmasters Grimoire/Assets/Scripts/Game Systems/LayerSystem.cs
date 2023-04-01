@@ -10,9 +10,7 @@ using UnityEngine;
 public class LayerSystem : MonoBehaviour
 {
     public bool setOnce;
-
     private SpriteRenderer spriteRenderer;
-
     private float pos;
 
     // Start is called before the first frame update
@@ -24,7 +22,7 @@ public class LayerSystem : MonoBehaviour
         pos = spriteRenderer.transform.position.y - spriteRenderer.bounds.extents.y;
         spriteRenderer.sortingOrder = (int)(pos * -100);
 
-        if (!setOnce)
+        if (!setOnce) //If non static update every frame
         {
 
             StartCoroutine(Loop());

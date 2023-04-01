@@ -25,9 +25,10 @@ public class CaptureProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy" && canHit)
+        //If collided with an enemy run their capture method, set bool to false for ensuring doesn't trigger twice and destroy this gameobject
+        if (other.gameObject.tag == "Enemy" && canHit) 
         {
-            other.gameObject.GetComponent<EnemyCapture>().Capture(PlayerManager.instance.capturePower); // Will pass values eventually
+            other.gameObject.GetComponent<EnemyCapture>().Capture(PlayerManager.instance.capturePower); 
             canHit=false;
         }
         Destroy(gameObject);
