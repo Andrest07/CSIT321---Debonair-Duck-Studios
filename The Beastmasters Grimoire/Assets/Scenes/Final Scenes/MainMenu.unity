@@ -2381,7 +2381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac4df8bbd5f709478bddb84bce06b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameLevel: MystwoodIntro
+  newGameLevel: IntroCutscene
   saveLoad: {fileID: 534134516}
   continueBtn: {fileID: 268828902}
   newGameBtn: {fileID: 765595242}
