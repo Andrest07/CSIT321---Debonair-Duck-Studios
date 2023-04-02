@@ -40,7 +40,7 @@ public class TutorialScript : MonoBehaviour
     public Quest tutorialQuest;
     private QuestController questController;
 
-    private void Awake()
+    private void Start()
     {
         dialogueTrigger = GetComponents<DialogueSystemTrigger>();
         millimData = millim.GetComponent<EnemyController>().data;

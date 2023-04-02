@@ -15,12 +15,13 @@ public class ConversationTracker : MonoBehaviour
 
     private void Awake()
     {
-        hud = GameObject.Find("HUD");
+        
     }
 
     private void Start()
     {
         manager = PlayerManager.instance;
+        hud = GameObject.Find("HUD");
     }
 
     public void OnConversationStart(Transform actor)
