@@ -13,11 +13,6 @@ public class ConversationTracker : MonoBehaviour
     private PlayerManager manager;
     private GameObject hud;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         manager = PlayerManager.instance;

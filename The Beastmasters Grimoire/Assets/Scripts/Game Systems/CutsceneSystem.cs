@@ -23,11 +23,11 @@ public class CutsceneSystem : MonoBehaviour
 
     private void Awake()
     {
-        int children = canvas.transform.childCount - 1;
+        int children = canvas.transform.childCount - 2;
         slides = new GameObject[children];
 
         // get slides from canvas (excluding BG slide)
-        for (int i = 0; i < children; ++i)
+        for (int i = 0; i < children - 1; ++i)
             slides[i] = canvas.transform.GetChild(i + 1).gameObject;
     }
 
@@ -40,6 +40,12 @@ public class CutsceneSystem : MonoBehaviour
 
     public void Play(){
         StartCoroutine(Cutscene());
+    }
+
+    public void Skip()
+    {
+        StopAllCoroutines();
+        SceneManager.LoadScene(nextScene);
     }
 
     public IEnumerator Cutscene()
