@@ -16,7 +16,9 @@ public class ConversationTracker : MonoBehaviour
     {
         setHud();
     }
-    private void setHud(){
+
+    private void setHud()
+    {
         hud = GameManager.instance.transform.Find("Canvas").transform.Find("HUD").gameObject;
     }
 

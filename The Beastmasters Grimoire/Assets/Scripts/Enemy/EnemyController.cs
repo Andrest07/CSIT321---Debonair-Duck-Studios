@@ -53,6 +53,7 @@ public class EnemyController : MonoBehaviour
     {
         origin = transform.position;
         animator = GetComponent<Animator>();
+        if(!animator) animator = GetComponentInParent<Animator>();
         rigidBody2D = GetComponent<Rigidbody2D>();
 
         agent = GetComponent<NavMeshAgent>();

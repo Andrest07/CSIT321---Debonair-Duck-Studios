@@ -126,7 +126,6 @@ public class Quest : ScriptableObject
 
             if (stage.stageNumber <= currentStage)
             {
-                Debug.Log(stage.Description() + ", " + stage.stageNumber);
                 stage.active = true;
             }
             else { stage.active = false; };
