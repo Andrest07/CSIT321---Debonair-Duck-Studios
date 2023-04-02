@@ -21,6 +21,7 @@ public class CutsceneSystem : MonoBehaviour
     public bool transitionSceneOnEnd;
     public string nextScene;
 
+
     private void Awake()
     {
         int children = canvas.transform.childCount - 2;
