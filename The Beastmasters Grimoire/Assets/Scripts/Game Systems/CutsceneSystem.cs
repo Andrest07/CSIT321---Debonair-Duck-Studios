@@ -27,8 +27,8 @@ public class CutsceneSystem : MonoBehaviour
         int children = canvas.transform.childCount - 2;
         slides = new GameObject[children];
 
-        // get slides from canvas (excluding BG slide)
-        for (int i = 0; i < children - 1; ++i)
+        // get slides from canvas (excluding BG slide & skip button)
+        for (int i = 0; i < children; ++i)
             slides[i] = canvas.transform.GetChild(i + 1).gameObject;
     }
 
