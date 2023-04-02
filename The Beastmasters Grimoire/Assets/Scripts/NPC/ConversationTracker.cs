@@ -10,18 +10,20 @@ using PixelCrushers.DialogueSystem;
 
 public class ConversationTracker : MonoBehaviour
 {
-    private PlayerManager manager;
-    private GameObject hud;
+    public GameObject hud;
 
     private void Start()
     {
-        manager = PlayerManager.instance;
-        hud = GameObject.Find("HUD");
+        setHud();
+    }
+    private void setHud(){
+        hud = GameManager.instance.transform.Find("Canvas").transform.Find("HUD").gameObject;
     }
 
     public void OnConversationStart(Transform actor)
     {
-        manager.inDialogue = true;
+        if(hud==null) setHud();
+        PlayerManager.instance.inDialogue = true;
         hud.SetActive(false);
     }
 
@@ -33,7 +35,7 @@ public class ConversationTracker : MonoBehaviour
     private IEnumerator Wait()
     {
         yield return new WaitForEndOfFrame();
-        manager.inDialogue = false;
+        PlayerManager.instance.inDialogue = false;
         hud.SetActive(true);
     }
 }
