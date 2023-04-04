@@ -30,6 +30,8 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public EnemyScriptableObject enemyS;
     Vector3 moveDirection;
     Vector3 mousePos;
+    Vector3 worldPosition;
+
     private bool isLookingAtObject = true;
 
     // Start is called before the first frame update
@@ -48,8 +50,10 @@ public class Projectile : MonoBehaviour
             }
             Destroy(gameObject, enemyS.ProjLifetime);
         } else if (playerS != null) {
-            mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-            moveDirection = (mousePos - transform.position).normalized * playerS.ProjSpeed;
+            mousePos = Input.mousePosition;
+            mousePos.z = Camera.main.nearClipPlane;
+            worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+            moveDirection = (worldPosition - transform.position).normalized * playerS.ProjSpeed;
             if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet) {
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 rb  = GetComponent<Rigidbody2D>();
@@ -79,7 +83,7 @@ public class Projectile : MonoBehaviour
             }
         } else if (playerS != null){
             if (playerS.ProjHoming == true){
-                Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), mousePos).GetComponent<Transform>();
+                Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), worldPosition).GetComponent<Transform>();
                 moveDirection = (homingT.position - transform.position).normalized;
                 /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, playerS.ProjRotation * Time.deltaTime, 0.0F);
                 transform.Translate(Vector3.forward * Time.deltaTime * playerS.ProjSpeed, Space.Self);
