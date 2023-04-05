@@ -28,6 +28,6 @@ MonoBehaviour:
   projBeam: 0
   beamTelegraph: 1
   beamActual: 1
-  projAOE: 0
+  projAOE: 1
   aoeTelegraph: 1
   aoeActual: 1

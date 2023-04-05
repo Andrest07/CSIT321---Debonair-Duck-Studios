@@ -81,7 +81,7 @@ public class EnemyController : MonoBehaviour
     // Enemy attack
     public void Attack()
     {
-        if (data.IsRanged)
+        if (data.IsProj)
         {
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {

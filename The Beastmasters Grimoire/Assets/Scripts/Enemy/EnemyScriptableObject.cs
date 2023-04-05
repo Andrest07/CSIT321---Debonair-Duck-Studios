@@ -8,6 +8,7 @@
     - Andreas 21/02/23: Added additional ranged stats and separated ranged-related stats to their own category
     - Andreas 22/02/23: Added projSpeed and projLifeTime
     - Andreas 12/03/23: Added Homing, Beam and AOE categories. Tidied up the entire thing.
+    - Andreas 05/04/23: Dynamic Inspector
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ public class EnemyScriptableObject : ScriptableObject
 {
     [Header("Enemy Info")]
     [SerializeField] private string enemyName;
+    [SerializeField] private bool isProj = false;
+    [SerializeField] private SpellTypeEnum spellType;
     [SerializeField] private AttributeTypeEnum attributeType;
     [TextArea][SerializeField] private string enemyDescription;
     [SerializeField] private Sprite enemyImage;
@@ -27,39 +30,42 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField] private float health = 10f;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float meleeDamage = 1f;
-    [SerializeField] private GameObject rangedProjectile;
+    
     [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float captureTotal = 5f;
 
     [Header("Ranged Stats")]
-    [SerializeField] private bool isRanged = false;
-    //[DrawIf("isRanged", true)]
-    [SerializeField] private ProjTypeEnum projType;
-    //[DrawIf("isRanged", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
+    [SerializeField] private GameObject rangedProjectile;
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private float projDamage = 1f;
-    //[DrawIf("isRanged", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private float projSpeed = 1f;
-    //[DrawIf("isRanged", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private float projLifetime = 3f;
 
     [Header("Homing Stats")]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private bool projHoming = false;
-    //[DrawIf("projHoming", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projHoming))]
     [SerializeField] private float projRotation = 1f;
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projHoming))]
     [SerializeField] private float projFocusDistance = 1f;
 
     [Header("Beam Stats")]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private bool projBeam = false;
-    //[DrawIf("projBeam", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projBeam))]
     [SerializeField] private float beamTelegraph = 1f;
-    //[DrawIf("projBeam", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projBeam))]
     [SerializeField] private float beamActual = 1f;
 
     [Header("AOE Stats")]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private bool projAOE = false;
-    //[DrawIf("projAOE", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projAOE))]
     [SerializeField] private float aoeTelegraph = 1f;
-    //[DrawIf("projAOE", true)]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projAOE))]
     [SerializeField] private float aoeActual = 1f;
 
     [Header("Visibility Range (Blue Gizmo)")]
@@ -71,6 +77,7 @@ public class EnemyScriptableObject : ScriptableObject
 
     //Enemy Info
     public string EnemyName { get => enemyName; }
+    public SpellTypeEnum SpellType { get => spellType; }
     public AttributeTypeEnum AttributeType { get => attributeType; }
     public string EnemyDescription { get => enemyDescription; }
     public Sprite EnemyImage { get => enemyImage; }
@@ -85,8 +92,7 @@ public class EnemyScriptableObject : ScriptableObject
     public float CaptureTotal { get => captureTotal; }
     
     //Ranged Stats
-    public bool IsRanged { get => isRanged; }
-    public ProjTypeEnum ProjType { get => projType; }
+    public bool IsProj { get => isProj; }
     public float ProjDamage { get => projDamage; }
     public float ProjSpeed { get => projSpeed; }
     public float ProjLifetime { get => projLifetime; }
@@ -112,23 +118,4 @@ public class EnemyScriptableObject : ScriptableObject
     //Attack Range (Yellow Gizmo)
     public float AttackDistance { get => attackDistance; }
     public float AttackCooldown { get => attackCooldown; }
-
-    public enum AttributeTypeEnum
-    {
-        //Insert Types here Eventually,
-        Normal,
-        Fire,
-        Cold,
-        Electric,
-        Poison,
-        slowBeam
-    }
-
-    public enum ProjTypeEnum
-    {
-        //Insert Types here Eventually,
-        Bullet,
-        Beam,
-        AOE
-    }
 }

@@ -13,25 +13,30 @@ MonoBehaviour:
   m_Name: 004 Rhino
   m_EditorClassIdentifier: 
   enemyName: Rhino
-  enemyType: 0
+  attributeType: 0
   enemyDescription: Rhino, charges at you
-  spellName: Defence up
+  enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
-  spellType: 0
-  spellDescription: Increases players defence.
   health: 10
   speed: 1
   meleeDamage: 1
   rangedProjectile: {fileID: 0}
   wanderRadius: 3.03
   captureTotal: 5
-  testing: 5
   isRanged: 0
-  projHoming: 0
-  projRotation: 1
+  projType: 0
   projDamage: 1
   projSpeed: 1
   projLifetime: 3
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
   visibilityRange: 6.05
   attackDistance: 0
   attackCooldown: 1

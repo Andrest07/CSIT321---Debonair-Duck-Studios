@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
             playerH = PlayerObject.GetComponent<PlayerHealth>();
             playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
-            if (enemyS.ProjType == EnemyScriptableObject.ProjTypeEnum.Bullet) {
+            if (enemyS.SpellType == SpellTypeEnum.Bullet) {
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
             mousePos.z = Camera.main.nearClipPlane;
             worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
             moveDirection = (worldPosition - transform.position).normalized * playerS.ProjSpeed;
-            if (playerS.ProjType == SpellScriptableObject.ProjTypeEnum.Bullet) {
+            if (playerS.SpellType == SpellTypeEnum.Bullet) {
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
@@ -106,19 +106,19 @@ public class Projectile : MonoBehaviour
         if (col.gameObject.tag.Equals("Player") && enemyS != null){
             playerH.TakeDamage(enemyS.ProjDamage);
             switch(enemyS.AttributeType) {
-                case EnemyScriptableObject.AttributeTypeEnum.Fire:
+                case AttributeTypeEnum.Fire:
                     playerStatus.currBurnMeter += 4f;
                     break;
-                case EnemyScriptableObject.AttributeTypeEnum.Cold:
+                case AttributeTypeEnum.Cold:
                     playerStatus.currBurnMeter += 4f;
                     break;
-                case EnemyScriptableObject.AttributeTypeEnum.Electric:
+                case AttributeTypeEnum.Electric:
                     playerStatus.currBurnMeter += 4f;
                     break;
-                case EnemyScriptableObject.AttributeTypeEnum.Poison:
+                case AttributeTypeEnum.Poison:
                     playerStatus.currBurnMeter += 4f;
                     break;
-                case EnemyScriptableObject.AttributeTypeEnum.slowBeam:
+                case AttributeTypeEnum.slowBeam:
                     playerStatus.slow = true;
                     break;
             }
