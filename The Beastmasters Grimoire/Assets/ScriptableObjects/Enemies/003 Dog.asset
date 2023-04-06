@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 003 Dog
   m_EditorClassIdentifier: 
   enemyName: Dog
+  isProj: 1
+  spellType: 0
   attributeType: 0
   enemyDescription: 
   enemyImage: {fileID: 0}
@@ -20,11 +22,9 @@ MonoBehaviour:
   health: 20
   speed: 5
   meleeDamage: 1
-  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 1
-  projType: 0
+  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   projDamage: 1
   projSpeed: 3
   projLifetime: 10
