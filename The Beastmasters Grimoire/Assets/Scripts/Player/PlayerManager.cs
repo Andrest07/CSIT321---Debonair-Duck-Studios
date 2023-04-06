@@ -59,15 +59,19 @@ public class PlayerManager : MonoBehaviour
     public enum PlayerMode { Basic, Spellcast, Capture }
     public PlayerMode playerMode;
     public Vector3 levelSwapPosition; //The position the player will be when they swap levels.
+
     [Header("Capture Variables")]
     public GameObject captureProjectile;
     public float captureProjectileCooldown;
     public float capturePower;
+
     [Header("Other Data")]
     public GameObject fizzleEffect;
+    public GameObject book;
+    private Animator bookAnimator;
 
     //Tutorial Booleans
-    [HideInInspector] public bool canCapture = false;
+    public bool canCapture = false;
     [HideInInspector] public bool canBasic = false;
     [HideInInspector] public bool canSpellcast = false;
 
@@ -163,6 +167,7 @@ public class PlayerManager : MonoBehaviour
         gameMenuFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMenu>();
         animator.SetBool("isIdle", true);
     }
+
     void Update()
     {
         if (GameManager.instance.isPaused)
@@ -185,10 +190,19 @@ public class PlayerManager : MonoBehaviour
         }
 
 
+        // update player sprite directions
         if (animator.GetBool("isWalking") || animator.GetBool("isSprinting"))
         {
             animator.SetFloat("Move X", movementVector.x);
             animator.SetFloat("Move Y", movementVector.y);
+        }
+        else if (animator.GetBool("isCapturing"))
+        {
+            mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+
+            // Set sprite direction
+            animator.SetFloat("Move X", mousePos.x);
+            animator.SetFloat("Move Y", mousePos.y);
         }
     }
 
@@ -265,10 +279,13 @@ public class PlayerManager : MonoBehaviour
             case PlayerMode.Capture:
                 if (canCapture)
                 {
+                    if (!bookAnimator) bookAnimator = book.GetComponent<Animator>();
+
                     if (!isCapturing)
                     {
                         isCapturing = true;
                         capture = Capture(context);
+                        bookAnimator.SetBool("isFiring", true);
                         StartCoroutine(capture);
                     }
                 }
@@ -307,6 +324,7 @@ public class PlayerManager : MonoBehaviour
             animator.SetBool("isCapturing", false);
             playerMode = PlayerMode.Basic;
             canMove = true;
+            book.SetActive(false);
         }
 
         else //Otherwise go to capture mode and stop the player from moving
@@ -315,6 +333,7 @@ public class PlayerManager : MonoBehaviour
             playerMode = PlayerMode.Capture;
             canMove = false;
             playerBody.velocity = Vector2.zero;
+            book.SetActive(true);
         }
     }
 
@@ -354,7 +373,9 @@ public class PlayerManager : MonoBehaviour
 
         if (movementVector != Vector2.zero && playerMode != PlayerMode.Basic)
         {
+            // exiting capture/casting by moving
             animator.SetBool("isCapturing", false); animator.SetBool("isCasting", false);
+            book.SetActive(false);
             playerMode = PlayerMode.Basic;
             canMove = true;
         }
@@ -441,13 +462,12 @@ public class PlayerManager : MonoBehaviour
                         transform.position + mousePos.normalized,
                         Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
 
-            // Set sprite direction
-            animator.SetFloat("Move X", mousePos.x);
-            animator.SetFloat("Move Y", mousePos.y);
 
             yield return new WaitForSeconds(captureProjectileCooldown);
         }
+
         isCapturing = false;
+        bookAnimator.SetBool("isFiring", false);
         yield return null;
     }
 
