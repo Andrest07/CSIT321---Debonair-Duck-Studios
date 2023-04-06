@@ -42,8 +42,8 @@ public class CanvasNotification : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("CanvasNotification destroy");
-        EventManager.Instance.RemoveListener<NotificationEvent>(NewNotif);
+        if(EventManager.Instance != null)
+            EventManager.Instance.RemoveListener<NotificationEvent>(NewNotif);
     }
 
     public void Clear()
