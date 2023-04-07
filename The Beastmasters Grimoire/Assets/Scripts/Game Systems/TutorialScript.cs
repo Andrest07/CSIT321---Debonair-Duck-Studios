@@ -62,10 +62,9 @@ public class TutorialScript : MonoBehaviour
             {
                 DialogueManager.StartConversation(tutAttack, PlayerManager.instance.transform, this.transform);
                 captureBool = true;
+                SetModeBasic();
                 Time.timeScale = 0f;
-                PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
-                PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
-                PlayerManager.instance.canMove = true;
+
 
                 EventManager.Instance.QueueEvent(new QuestStageCheckEvent("capture millim"));
             }
@@ -76,9 +75,7 @@ public class TutorialScript : MonoBehaviour
             DialogueManager.StartConversation(tutBeacon, PlayerManager.instance.transform, this.transform);
             captured = true;
             Time.timeScale = 0f;
-            PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
-            PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
-            PlayerManager.instance.canMove = true;
+            SetModeBasic();
         }
 
         if (spellEquiped && !tutorialFinished && Time.timeScale == 1f)
@@ -142,5 +139,12 @@ public class TutorialScript : MonoBehaviour
             spellCastTutorialPopup.SetActive(true);
             GameManager.instance.GetComponent<SaveBeaconMenu>().ToggleSaveButton();
         }
+    }
+    void SetModeBasic()
+    {
+        PlayerManager.instance.animator.SetBool("isCasting", false); PlayerManager.instance.animator.SetBool("isCapturing", false);
+        PlayerManager.instance.playerMode = PlayerManager.PlayerMode.Basic;
+        PlayerManager.instance.canMove = true;
+        PlayerManager.instance.book.SetActive(false);
     }
 }
