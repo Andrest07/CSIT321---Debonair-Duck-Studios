@@ -2,7 +2,8 @@
 AUTHOR DD/MM/YY: Nabin 13/01/23
 
     - EDITOR DD/MM/YY CHANGES:
-    -
+    - Nabin 29/03/2023 Full Screen Toggle function.
+    - Nabin 30/03/2023 Resolutions Dropdown showing duplicate Resolutions fixed.
 */
 
 using System.Collections;
@@ -20,7 +21,6 @@ public class VideoSetting : MonoBehaviour
     public float defaultBrightness = 1;
 
     public int _qualityLevel;
-    //public bool _isFullScreen;
     public float _brightnessLevel;
     public void SetBrightness (float brightness)
     {
@@ -28,16 +28,10 @@ public class VideoSetting : MonoBehaviour
 
     }
 
-   
-   
     // Fullscreen toggle control method.
     public void SetFullScreen(){
         Screen.fullScreen = fullScreenToggle.isOn;
     }
-    /*public void SetFullscreen (bool isFullscreen)
-    {
-        _isFullScreen = isFullscreen;
-    }*/
 
     public void SetQuality(int qualityIndex)
     {
@@ -51,11 +45,10 @@ public class VideoSetting : MonoBehaviour
         QualitySettings.SetQualityLevel(_qualityLevel);
         
         Screen.fullScreen = fullScreenToggle.isOn;
-        //PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0 ));
-        //Screen.fullScreen = _isFullScreen;
 
     }
 
+    // Resolutions dropdown settings.
     [SerializeField]  private TMP_Dropdown resolutionDropdown;
 
     private Resolution[] resolutions;
@@ -94,60 +87,5 @@ public class VideoSetting : MonoBehaviour
         Resolution resolution = filteredResolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, true);
     } 
-
-
-// Resolutions Settings
-/*
-    public TMP_Dropdown resolutionDropdown;
-    public Resolution[] resolutions;
-
-    public void Start()
-    {
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
-
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
-        for (int i = 0; i<resolutions.Length; i++)
-        { 
-            string option = resolutions[i].width + " x " +resolutions[i].height;
-            options.Add(option);
-
-            if(resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-    }
-
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
-    
-
-    public void ResetButton(string MenuType)
-    {
-        if(MenuType == "Graphics")
-        {
-            brightnessSlider.value = defaultBrightness;
-
-            qualityDropdown.value=1;
-            QualitySettings.SetQualityLevel(1);
-            fullScreenToggle.isOn = false;
-            Screen.fullScreen = false;
-
-            Resolution currentResolution = Screen.currentResolution;
-            Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreen);
-            resolutionDropdown.value = resolutions.Length;
-            GraphicsApply();
-        }
-    } */
-    
     
 }
