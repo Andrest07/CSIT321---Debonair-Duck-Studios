@@ -161,7 +161,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 21.62, y: 12.35127}
+    oldSize: {x: 2.162, y: 1.235127}
     newSize: {x: 0.77, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -283,6 +283,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1530533067086476060, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.347
+      objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -321,15 +325,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.6314106
+      value: 0.7824274
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.6314106
+      value: 0.7824274
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5.6314106
+      value: 0.7824274
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -361,11 +365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.02
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.45
+      value: 0.28358
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

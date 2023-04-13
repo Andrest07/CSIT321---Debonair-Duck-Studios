@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beaconName: ForestGrove
   beaconScene: MystwoodForest1
-  beaconPosition: {x: 0, y: 0}
+  beaconPosition: {x: 34, y: -43}

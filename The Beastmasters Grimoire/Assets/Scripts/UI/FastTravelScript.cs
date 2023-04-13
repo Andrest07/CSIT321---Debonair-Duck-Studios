@@ -6,6 +6,7 @@ AUTHOR DD/MM/YY: Kunal 08/01/23
     - Kunal 17/01/23: used dictionary to teleport
     - Kaleb 18/01/23: Fixes
     - Kaleb 23/01/23: Scriptable object fixes
+    - Kunal 12/04/23: Fixes
 */
 using System.Collections.Generic;
 using UnityEngine;
