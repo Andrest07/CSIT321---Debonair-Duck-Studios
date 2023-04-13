@@ -63,6 +63,7 @@ public class ShowIfAttributeDrawer : PropertyDrawer
     }
     #endregion
 
+    // Checks if the conditions set are met
     private bool MeetsConditions(SerializedProperty property)
     {
         var showIfAttribute = this.attribute as ShowIfAttribute;
@@ -87,6 +88,7 @@ public class ShowIfAttributeDrawer : PropertyDrawer
             }
         }
 
+        // If there is more than one condition
         if (conditionValues.Count > 0)
         {
             bool met;

@@ -6,6 +6,8 @@
 using System;
 using UnityEngine;
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
+
+// A custom attribute class to hold the condition data
 public class ShowIfAttribute : PropertyAttribute
 {
     public ActionOnConditionFail Action {get;private set;}
