@@ -1,3 +1,4 @@
+
 /*
 AUTHOR DD/MM/YY: Kunal 08/01/23
 
@@ -16,11 +17,13 @@ public class FastTravelScript : MonoBehaviour
     private Transform playerT;
 
     public GameObject fastTravelMenu;
+    public GameObject gameMenu;
 
-    //Dictionary for storing whether teleports are unlocked 
-    public Dictionary<SaveBeaconScriptableObject, bool> beaconDictionary = new Dictionary<SaveBeaconScriptableObject, bool>();
+    
+    public Dictionary<SaveBeaconScriptableObject, Button> beaconDictionary = new Dictionary<SaveBeaconScriptableObject, Button>();
+    public Dictionary<Button, SaveBeaconScriptableObject> ButtonDictionary = new Dictionary<Button, SaveBeaconScriptableObject>();
     public SaveBeaconScriptableObject[] beacons;
-
+    public Button[] but;
 
     private bool unlocked;
 
@@ -31,19 +34,21 @@ public class FastTravelScript : MonoBehaviour
 
         //If dictionary is unitialized create it.
         if (beaconDictionary.Count == 0)
-        {
-            foreach (SaveBeaconScriptableObject beacon in beacons)
-            {
-                beaconDictionary.Add(beacon, false);
+        {  
+            for (int i = 0; i < but.Length; i++){
+                beaconDictionary.Add(beacons[i], but[i]);
+                ButtonDictionary.Add(but[i], beacons[i]);
+                but[i].interactable = false;
             }
-
         }
     }
 
 
     public void UnlockBeacon(SaveBeaconScriptableObject beacon)
     {
-        beaconDictionary[beacon] = true;
+        Button b = beaconDictionary[beacon];
+        b.interactable = true;
+        Debug.Log("Beacon Unlocked");
     }
 
     public void OpenMenu()
@@ -53,22 +58,10 @@ public class FastTravelScript : MonoBehaviour
     }
 
     public void FastTravel(SaveBeaconScriptableObject beaconData)
-    {
-        if (beaconDictionary.ContainsKey(beaconData))
-        {
-            unlocked = beaconDictionary[beaconData];
-        }
-        else
-        {
-            unlocked = false;
-        }
-
-        if (unlocked)
-        {
-            //if the beacon is in current scene then teleport
-            if (SceneManager.GetActiveScene().name == beaconData.BeaconScene)
+    {   
+        if (SceneManager.GetActiveScene().name == beaconData.BeaconScene)
             {
-                playerT.position = new Vector3(beaconData.BeaconPosition.x, beaconData.BeaconPosition.y - 0.5f, 0);
+                PlayerManager.instance.GetComponent<Transform>().position = new Vector3(beaconData.BeaconPosition.x, beaconData.BeaconPosition.y - 0.5f, 0);
             }
 
             //if beacon is in different scene then change scene
@@ -78,11 +71,7 @@ public class FastTravelScript : MonoBehaviour
                 PlayerManager.instance.levelSwapPosition = new Vector3(beaconData.BeaconPosition.x, beaconData.BeaconPosition.y - 0.5f, 0);
             }
             fastTravelMenu.SetActive(false);
+            gameMenu.SetActive(false);
             Time.timeScale = 1;
-        }
-        else
-        {
-
-        }
     }
 }
