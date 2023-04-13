@@ -87,7 +87,7 @@ public class SaveBeaconMenu : MonoBehaviour
 
     public void SpellSlotHover(int number)
     {
-        if (number<PlayerManager.instance.data.totalBeasts)
+        if (number < PlayerManager.instance.data.totalBeasts)
         {
             UpdateDisplayedEntry(PlayerManager.instance.data.availableBeasts[number]);
         }
@@ -95,9 +95,19 @@ public class SaveBeaconMenu : MonoBehaviour
 
     public void UpdateDisplayedEntry(EnemyScriptableObject beast)
     {
-        if (beast == null || GameManager.instance.GetBestiary(beast) == false)
+        if (beast == null)
         {
-            beastName.GetComponent<TMPro.TextMeshProUGUI>().text = "???";
+            beastName.GetComponent<TMPro.TextMeshProUGUI>().text = "No Spell Equiped";
+            beastInformation.GetComponent<TMPro.TextMeshProUGUI>().text = null;
+            beastImage.GetComponent<Image>().sprite = null;
+
+            spellName.GetComponent<TMPro.TextMeshProUGUI>().text = null;
+            spellInformation.GetComponent<TMPro.TextMeshProUGUI>().text = null;
+            spellImage.GetComponent<Image>().sprite = null;
+        }
+        else if (GameManager.instance.GetBestiary(beast) == false)
+        {
+            beastName.GetComponent<TMPro.TextMeshProUGUI>().text = beast.EnemyName;
             beastInformation.GetComponent<TMPro.TextMeshProUGUI>().text = "???";
             beastImage.GetComponent<Image>().sprite = UnknownBeast;
 

@@ -166,6 +166,9 @@ public class PlayerManager : MonoBehaviour
         pauseFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PauseMenuScript>();
         gameMenuFunction = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMenu>();
         animator.SetBool("isIdle", true);
+        for(int i=0;i<data.availableBeasts.Count;i++){
+            GameManager.instance.UpdateSpellImage(data.availableBeasts[i],i);
+        }
     }
 
     void Update()
