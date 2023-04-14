@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 28/11/22
+    DESCRIPTION: Data class for Capture quest stages
+
+    AUTHOR DD/MM/YY: Quentin 28/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */

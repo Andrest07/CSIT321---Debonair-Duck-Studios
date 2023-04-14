@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Andreas 29/09/22
+    DESCRIPTION: Enemy health controller
+ 
+    AUTHOR DD/MM/YY: Andreas 29/09/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Andreas 29/09/22: Repurposed Nick's script to the enemy

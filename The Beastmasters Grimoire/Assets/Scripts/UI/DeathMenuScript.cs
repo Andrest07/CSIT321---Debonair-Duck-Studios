@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kunal 03/12/22
+    DESCRIPTION: Functions for the player death menu
+
+    AUTHOR DD/MM/YY: Kunal 03/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */

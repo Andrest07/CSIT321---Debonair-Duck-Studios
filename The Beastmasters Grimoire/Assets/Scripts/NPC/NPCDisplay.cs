@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 27/12/22
+    DESCRIPTION: Displays NPC character name above the NPC object    
+
+    AUTHOR DD/MM/YY: Quentin 27/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */

@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Functions for the Main Menu
+
     AUTHOR DD/MM/YY: Nabin 13/03/23
 
     - EDITOR DD/MM/YY CHANGES:

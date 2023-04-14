@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 11/03/23
+    DESCRIPTION: NPC object patrol manager, for NPC movement
+
+    AUTHOR DD/MM/YY: Kaleb 11/03/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */

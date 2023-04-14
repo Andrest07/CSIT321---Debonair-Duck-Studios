@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kunal 05/10/22
+    DESCRIPTION: Functions for the Pause menu
+
+    AUTHOR DD/MM/YY: Kunal 05/10/22
 
     - EDITOR DD/MM/YY CHANGES:
     - Kaleb 16/10/22: PauseGame() Fixes

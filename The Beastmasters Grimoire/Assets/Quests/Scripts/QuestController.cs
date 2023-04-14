@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 22/11/22
+    DESCRIPTION: Quest controller class for adding new quests, loading quests from save file
+
+    AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 8/12/22: Added listener, notificaiton events

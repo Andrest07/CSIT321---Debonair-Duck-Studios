@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 21/3/23
+    DESCRIPTION: Dappled light animator
+
+    AUTHOR DD/MM/YY: Quentin 21/3/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */

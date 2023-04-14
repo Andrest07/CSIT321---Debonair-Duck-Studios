@@ -1,5 +1,7 @@
-/*
-AUTHOR DD/MM/YY: Quentin 3/12/22
+/*  
+    DESCRIPTION: Data class for Travel quest stages
+
+    AUTHOR DD/MM/YY: Quentin 3/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */

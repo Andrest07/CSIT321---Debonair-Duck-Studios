@@ -1,4 +1,10 @@
-using System.Collections;
+/*
+DESCRIPTION: Book glow animator
+
+AUTHOR DD/MM/YY: Quentin 12/10/22
+
+	- EDITOR DD/MM/YY CHANGES:
+*/using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

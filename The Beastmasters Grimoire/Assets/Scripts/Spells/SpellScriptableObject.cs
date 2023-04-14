@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Spell scriptable object data class
+
     AUTHOR DD/MM/YY: Andreas 02/03/23
 
     - EDITOR DD/MM/YY CHANGES:

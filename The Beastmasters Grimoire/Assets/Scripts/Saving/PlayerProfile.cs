@@ -1,11 +1,14 @@
 /*
-AUTHOR DD/MM/YY: Quentin 01/02/23
+    DESCRIPTION: Data class for player save files 
+
+    AUTHOR DD/MM/YY: Quentin 01/02/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 [System.Serializable]
 public class PlayerProfile

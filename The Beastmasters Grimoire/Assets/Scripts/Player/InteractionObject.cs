@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 02/12/22
+    DESCRIPTION: Interaction object class for managing player interaction with environment objects
+
+    AUTHOR DD/MM/YY: Kaleb 02/12/22
 
    - EDITOR DD/MM/YY CHANGES:
    - Kaleb 03/12/22: Minor fixes and changes
@@ -70,11 +72,12 @@ public class InteractionObject : MonoBehaviour
                 case "Button":
                     if (GameManager.instance.isPaused) return;
                     break;
+
                 case "Door":
                     if (GameManager.instance.isPaused) return;
                     break;
 
-                case "NPC":
+                case "NPC": // PC Case for entering dialogue
                     if (manager.inDialogue)
                     {
                         if (dialogueContinue == null) dialogueContinue = GameObject.FindGameObjectWithTag("DialogueContinue").GetComponent<PixelCrushers.DialogueSystem.StandardUIContinueButtonFastForward>();

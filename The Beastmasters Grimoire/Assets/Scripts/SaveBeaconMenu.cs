@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 06/03/23
+    DESCRIPTION: Save Beacon menu class for saving, setting spells
+
+    AUTHOR DD/MM/YY: Kaleb 06/03/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */

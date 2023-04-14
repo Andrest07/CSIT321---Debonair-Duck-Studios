@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 07/02/23
+    DESCRIPTION: Functions for the Main Menu's profile menu    
+
+    AUTHOR DD/MM/YY: Quentin 07/02/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */
@@ -67,16 +69,18 @@ public class ProfileMenu : MonoBehaviour
         }
     }
 
-
+    // start a new game 
     public void NewGame()
     {
         string name = inputField.GetComponent<TMP_InputField>().text;
 
+        // create a new directory for the save file
         if (!File.Exists(path + "/Profile" + newIndex))
             Directory.CreateDirectory(path + "/Profile" + newIndex);
 
         PlayerProfile profile = new PlayerProfile(newIndex, name);
 
+        // save the new file
         string json = JsonUtility.ToJson(profile);
         WriteFile(json, path + "/Profile" + profile.index + "/profile.json");
 

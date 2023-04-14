@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Enemy state controller Patrol state (moving and searching for player)
+
     AUTHOR DD/MM/YY: Quentin 27/09/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -27,6 +29,7 @@ public class EnemyPatrolState : EnemyStateMachine
         controller.agent.destination = controller.origin;
     }
 
+    // update state, track player and check if the object has moved out of bounds
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         TrackPlayer();
@@ -37,6 +40,7 @@ public class EnemyPatrolState : EnemyStateMachine
             outOfBounds = (Vector3.Distance(transform.position, controller.origin) >= 0.9);
         }
 
+        // flip sprite towards the direction they are moving
         if (prevPosition.x < transform.position.x != controller.facingRight)
             controller.FlipSprite();
 
@@ -47,6 +51,7 @@ public class EnemyPatrolState : EnemyStateMachine
         controller.StopCoroutine(waitCoroutine);
     }
 
+    // move evey few seconds
     private IEnumerator WaitToMove(float time)
     {
         while (true)

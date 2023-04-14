@@ -1,10 +1,9 @@
-
 /*
-AUTHOR DD/MM/YY: Kunal 26/02/23
+    DESCRIPTION: Status effects for the player
+
+    AUTHOR DD/MM/YY: Kunal 26/02/23
 
 	- EDITOR DD/MM/YY CHANGES:
-
-
 */
 using System;
 using System.Threading;

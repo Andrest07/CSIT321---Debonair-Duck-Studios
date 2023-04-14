@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 07/10/22
+    DESCRIPTION: Basic melee attack for the player
+
+    AUTHOR DD/MM/YY: Quentin 07/10/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 12/3/23 Added slashing animation
@@ -60,7 +62,7 @@ public class PlayerBasicAttack : MonoBehaviour
             enemyHealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(attackDamage,transform.position);
 
-            // create sword slashing effect
+            // create sword slashing animation effect
             if (isLeft != wasLeft)
                 swordSlash.GetComponent<SpriteRenderer>().flipX = !swordSlash.GetComponent<SpriteRenderer>().flipX;
             
@@ -72,12 +74,14 @@ public class PlayerBasicAttack : MonoBehaviour
         StartCoroutine(WaitAttack());
     }
 
+    // restrict how often the player can attack 
     private IEnumerator WaitAttack()
     {
         yield return new WaitForSeconds(attackCooldown);
         PlayerManager.instance.canAttack = true;
     }
 
+    // Gizmos for debugging
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

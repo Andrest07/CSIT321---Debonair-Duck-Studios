@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 8/12/22
+    DESCRIPTION: Displays UI notifications on the Canvas
+
+    AUTHOR DD/MM/YY: Quentin 8/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 28/2/23 Added save notifications
@@ -9,6 +11,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+
 
 public class CanvasNotification : MonoBehaviour
 {
@@ -25,13 +28,9 @@ public class CanvasNotification : MonoBehaviour
     public GameObject saveNotif;
 
 
-    private void Awake()
-    {
-
-    }
-
     private void Start()
     {
+        // Add a listener for notification events
         if(!EventManager.Instance.HasListener<NotificationEvent>(NewNotif))
             EventManager.Instance.AddListener<NotificationEvent>(NewNotif);
         else
@@ -46,6 +45,7 @@ public class CanvasNotification : MonoBehaviour
             EventManager.Instance.RemoveListener<NotificationEvent>(NewNotif);
     }
 
+    // Clear the notificaiton queue
     public void Clear()
     {
         notifQueue.Clear();
@@ -54,6 +54,7 @@ public class CanvasNotification : MonoBehaviour
         StopAllCoroutines();
     }
 
+    // Instantiate a new notificaiton and add to the queue
     private void NewNotif(NotificationEvent eventInfo)
     {
         TMP_Text[] itemText;
@@ -90,6 +91,7 @@ public class CanvasNotification : MonoBehaviour
 
     private void Update()
     {
+        // if the queue is empty and there are notifications waiting in the queue, display them
         if (clear && notifQueue.Count > 0)
         {
             clear = false;
@@ -99,6 +101,7 @@ public class CanvasNotification : MonoBehaviour
 
     IEnumerator DisplayCoroutine()
     {
+        // while there are notifs, display them one by one
         while(notifQueue.Count > 0)
         {
             if (busy) continue;
@@ -145,7 +148,7 @@ public class CanvasNotification : MonoBehaviour
         busy = false;
     }
 
-
+    // Reset CanvasNotification
     public void Reset()
     {
         StopCoroutine(DisplayCoroutine());

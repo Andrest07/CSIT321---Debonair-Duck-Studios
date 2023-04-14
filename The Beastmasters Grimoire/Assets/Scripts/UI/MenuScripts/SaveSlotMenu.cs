@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 23/03/23
+    DESCRIPTION: Functions for the Save Slot menu in the Main Menu
+
+    AUTHOR DD/MM/YY: Quentin 23/03/23
 
     - EDITOR DD/MM/YY CHANGES:
     - Quentin 30/3/23 Changes for deleting etc
@@ -32,6 +34,7 @@ public class SaveSlotMenu : MonoBehaviour
     {
         TMPro.TMP_Text [] listChildren = list.GetComponentsInChildren<TMPro.TMP_Text>();
 
+        // load save slots / show empty slots
         for(int i=0, j=0; i<3; i++, j+=2)
         {
             if (!File.Exists(path + "/Profile" + i + "/save.json"))
@@ -79,12 +82,14 @@ public class SaveSlotMenu : MonoBehaviour
         saveLoad.Load();
     }
 
+    // Start a new game
     public void StartGame()
     {
         GameManager.instance.currentProfile = new PlayerProfile(saveSlotInt, "");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    // Delete a save file
     public void DeleteSave()
     {
         if (Directory.Exists(path + "/Profile" + saveSlot))

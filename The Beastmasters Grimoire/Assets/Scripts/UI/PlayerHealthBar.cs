@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Update the UI player health bar
+
     AUTHOR DD/MM/YY: Nabin 29/09/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -23,7 +25,6 @@ public class PlayerHealthBar : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // This code is to remove 1% fill on health bar even when the health is 0.

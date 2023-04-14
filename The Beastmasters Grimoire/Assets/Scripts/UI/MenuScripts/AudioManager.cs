@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Nabin 09/01/2023
+    DESCRIPTION: Audio manager to change volume levels
+
+    AUTHOR DD/MM/YY: Nabin 09/01/2023
 
     - EDITOR DD/MM/YY CHANGES:
     - 

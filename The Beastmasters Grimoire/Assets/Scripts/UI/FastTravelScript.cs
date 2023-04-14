@@ -1,6 +1,7 @@
-
 /*
-AUTHOR DD/MM/YY: Kunal 08/01/23
+    DESCRIPTION: Functions for fast travel (move to different scenes)
+
+    AUTHOR DD/MM/YY: Kunal 08/01/23
 
     - EDITOR DD/MM/YY CHANGES:
     - Kunal 17/01/23: used dictionary to teleport

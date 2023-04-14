@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Nick 22/09/22
+    DESCRIPTION: Player health class    
+
+    AUTHOR DD/MM/YY: Nick 22/09/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Nick 22/09/22: Added TakeDamage and Death methods. Updated Regen methods.
@@ -55,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // Called when the player takes damager
     public void TakeDamage(float damage)
     {
         if (!isInvulnerable)
@@ -71,6 +74,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // Regenerate player health
     public void RegenHealth()
     {
         // If current health less than max health

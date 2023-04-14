@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Functions for projectile attacks
+ 
     AUTHOR DD/MM/YY: Andreas 10/10/22
 
     - EDITOR DD/MM/YY CHANGES:

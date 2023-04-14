@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 22/11/22
+    DESCRIPTION: Script which triggers a new quest or updates an existing quest when an object is traveled to
+
+    AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 6/12/22: Made trigger multipurpose

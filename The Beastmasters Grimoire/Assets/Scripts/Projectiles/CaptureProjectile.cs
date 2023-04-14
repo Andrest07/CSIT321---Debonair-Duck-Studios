@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 07/01/23
+    DESCRIPTION: Manages the player's capture projectile    
+
+    AUTHOR DD/MM/YY: Kaleb 07/01/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */
