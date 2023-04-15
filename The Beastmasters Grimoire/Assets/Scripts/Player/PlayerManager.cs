@@ -22,6 +22,7 @@
     - Kaleb 07/01/23 Capture Redesign
     - Quentin 9/2/23 'Data' struct for storing persistant data
     - Kaleb 09/03/23: Beast management improvements
+    - Kunal 15/04/23: Spell background image cooldown
 */
 using System.Collections;
 using System.Collections.Generic;
