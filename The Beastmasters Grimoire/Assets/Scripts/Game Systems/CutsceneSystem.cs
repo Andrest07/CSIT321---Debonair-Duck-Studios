@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 12/01/22
+    DESCRIPTION: Cutscene slideshow manager
+
+    AUTHOR DD/MM/YY: Kaleb 12/01/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */
@@ -43,6 +45,7 @@ public class CutsceneSystem : MonoBehaviour
         StartCoroutine(Cutscene());
     }
 
+    // Skip the cutscene
     public void Skip()
     {
         StopAllCoroutines();

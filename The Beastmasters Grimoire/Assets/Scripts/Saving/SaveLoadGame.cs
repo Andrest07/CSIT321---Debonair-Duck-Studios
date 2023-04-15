@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 01/02/23
+    DESCRIPTION: Class for saving / loading game state from file    
+
+    AUTHOR DD/MM/YY: Quentin 01/02/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */
@@ -10,9 +12,10 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
 
+
 public class SaveLoadGame : MonoBehaviour {
 
-    private string path;
+    private string path;    // save file path
     private PlayerManager manager;
     private GameManager gameManager;
 
@@ -27,11 +30,6 @@ public class SaveLoadGame : MonoBehaviour {
     {
         manager = PlayerManager.instance;
         gameManager = GameManager.instance;
-
-        /* TBD for testing
-        if (!File.Exists(path + "/Profile" + profile.index))
-            Directory.CreateDirectory(path + "/Profile" + profile.index);
-        */
 
 		// finish load setup after scene change from loading file
         if (gameManager.loadFromSave)
@@ -54,8 +52,6 @@ public class SaveLoadGame : MonoBehaviour {
 
         // save player data //
         json = JsonUtility.ToJson(manager.data);
-        //TBD for testing
-        //json = JsonConvert.SerializeObject(manager.data, Formatting.Indented);
 
         WriteFile(json, path + "/Profile" + index + "/save.json");
 
@@ -171,12 +167,4 @@ public class SaveLoadGame : MonoBehaviour {
 
         return json;
     }
-
-
-    //public void CreateProfile()
-    //{
-    //    string name = "profile " + profiles.Count.ToString();
-
-    //    profiles.Add(new PlayerProfile { index = profiles.Count, playerName = name });
-    //}
 }

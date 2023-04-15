@@ -13,19 +13,30 @@ MonoBehaviour:
   m_Name: 002 Frog
   m_EditorClassIdentifier: 
   enemyName: Frog
-  enemyType: 0
+  isProj: 1
+  spellType: 1
+  attributeType: 0
   enemyDescription: 
-  spellName: 
-  spellObject: {fileID: 0}
-  spellType: 0
-  spellDescription: 
-  isRanged: 0
+  enemyImage: {fileID: 0}
+  spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedDamage: 1
-  rangedProjectile: {fileID: 0}
   wanderRadius: 3
+  captureTotal: 5
+  rangedProjectile: {fileID: 829682969602616108, guid: d49f9af38bb7ed64d91dfe0f9e926fc5, type: 3}
+  projDamage: 2
+  projSpeed: 1
+  projLifetime: 1
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 1
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
   visibilityRange: 2
-  attackDistance: 1
-  attackCooldown: 2
+  attackDistance: 3
+  attackCooldown: 3

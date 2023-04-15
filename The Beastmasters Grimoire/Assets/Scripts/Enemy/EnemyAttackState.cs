@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Enemy state for attacking
+ 
     AUTHOR DD/MM/YY: Quentin 27/09/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -15,12 +17,13 @@ public class EnemyAttackState : EnemyStateMachine
         base.OnStateEnter(animator, stateInfo, layerIndex);
         controller.agent.isStopped = true;
 
+        // when entering attack state, become agro
         if (!aggroCoroutine) controller.StartCoroutine(AggroTimer());
     }
 
-
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // On update track the player to check they are still within range, face player if they moved
         TrackPlayer();
         UpdateAnimatorProperties(animator);
         FacePlayer();

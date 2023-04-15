@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 18/12/2022
+    DESCRIPTION: Change active scenes
+
+    AUTHOR DD/MM/YY: Kaleb 18/12/2022
 
 	- EDITOR DD/MM/YY CHANGES: 
 */

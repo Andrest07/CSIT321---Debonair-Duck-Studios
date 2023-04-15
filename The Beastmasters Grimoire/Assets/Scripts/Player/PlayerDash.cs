@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kunal 03/10/22
+    DESCRIPTION: Manages player dashing movement
+
+    AUTHOR DD/MM/YY: Kunal 03/10/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 03/10/22: Dash fixes

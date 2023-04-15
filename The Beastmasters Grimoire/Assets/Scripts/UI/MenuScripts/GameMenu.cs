@@ -8,12 +8,6 @@ public class GameMenu : MonoBehaviour
     public GameObject gameMenu;
     public GameObject hud;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void PauseGame()
     {
         GameManager.instance.Pause();

@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 09/03/23
+    DESCRIPTION: Tutorial popup functions
+    
+    AUTHOR DD/MM/YY: Kaleb 09/03/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */

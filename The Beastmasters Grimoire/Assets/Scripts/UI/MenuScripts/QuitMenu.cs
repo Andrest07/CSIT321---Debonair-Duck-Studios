@@ -1,5 +1,8 @@
 /*
-AUTHOR DD/MM/YY: Nabin 23/03/2023
+    DESCRIPTION: Functions for the Quit menu
+
+    AUTHOR DD/MM/YY: Nabin 23/03/2023
+
     - EDITOR DD/MM/YY CHANGES:
     - 
 */

@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 09/10/22
+    DESCRIPTION: Layering system controller for showing the correct object order relative to the y axis
+
+    AUTHOR DD/MM/YY: Kaleb 09/10/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */

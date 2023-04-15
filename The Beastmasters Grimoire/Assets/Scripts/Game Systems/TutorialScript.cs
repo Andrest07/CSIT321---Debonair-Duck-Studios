@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 05/03/23
+    DESCRIPTION: Tutorial functions for managing the introductory tutorial
+
+    AUTHOR DD/MM/YY: Kaleb 05/03/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */

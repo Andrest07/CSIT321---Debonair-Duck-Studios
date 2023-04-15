@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 06/04/23
+    DESCRIPTION: Orients the grimoire capture sprite relative to the cursor
+
+    AUTHOR DD/MM/YY: Quentin 06/04/23
 
 	- EDITOR DD/MM/YY CHANGES:
 */

@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Enemy scriptable object data class
+
     AUTHOR DD/MM/YY: Kunal 21/09/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -13,6 +15,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 [CreateAssetMenu(fileName = "New Enemy", menuName = "ScriptableObject/Enemy")]
 public class EnemyScriptableObject : ScriptableObject

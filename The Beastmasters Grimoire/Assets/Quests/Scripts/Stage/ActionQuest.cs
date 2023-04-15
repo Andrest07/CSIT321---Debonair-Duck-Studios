@@ -1,3 +1,8 @@
+/*
+    DESCRIPTION: Data class for Action Quest stages
+
+    AUTHOR DD/MM/YY: Quentin 17/03/23
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

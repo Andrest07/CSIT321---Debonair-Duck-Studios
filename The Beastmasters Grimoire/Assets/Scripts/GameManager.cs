@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 04/10/22
+    DESCRIPTION: Singleton class to manage Spells, Bestiary and menus
+
+    AUTHOR DD/MM/YY: Kaleb 04/10/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 11/12/22 Beastiary Setup

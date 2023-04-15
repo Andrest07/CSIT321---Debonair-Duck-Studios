@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Enemy state for chasing the player
+
     AUTHOR DD/MM/YY: Kunal 21/09/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -18,17 +20,20 @@ public class EnemyChaseState : EnemyStateMachine
         base.OnStateEnter(animator, stateInfo, layerIndex);
         controller.agent.isStopped = false;
 
+        // begin agro when entering the chase state
         if (!aggroCoroutine) controller.StartCoroutine(AggroTimer());
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // on update, track the player, update animator for changes, then chase the player & set sprite to face the player
         TrackPlayer();
         UpdateAnimatorProperties(animator);
         Chase();
         FacePlayer();
     }
 
+    // on exit state move back to origin
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         controller.agent.destination = controller.origin;

@@ -1,6 +1,8 @@
 /*
-AUTHOR DD/MM/YY: Andreas 18/09/22
-z
+    DESCRIPTION: Player manager class, handles keyboard input
+
+    AUTHOR DD/MM/YY: Andreas 18/09/22
+
 	- EDITOR DD/MM/YY CHANGES:
     - Andreas 18/09/22: Ported over Quentin's PlayerControls script. Ported over Kaleb's input for sprinting.
     - Kaleb 19/09/22: Added monster swapping input and functionality. Modified variables and awake method also. Input recognition added for most controls.
@@ -459,6 +461,7 @@ public class PlayerManager : MonoBehaviour
             canMove = false;
         }
     }
+
     IEnumerator Capture(InputAction.CallbackContext context)
     {
         while (context.performed && playerMode == PlayerMode.Capture)

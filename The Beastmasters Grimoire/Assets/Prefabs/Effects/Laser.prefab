@@ -272,6 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829682969602616109}
   - component: {fileID: 829682969602616106}
+  - component: {fileID: 6154150570561540727}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -315,12 +316,24 @@ MonoBehaviour:
   laserFire: {fileID: 829682969483829967}
   firePoint: {fileID: 829682969733120310}
   target: {fileID: 0}
-  timer: 3
+  delay: 3
+  firingTime: 4
   fire: 0
-  isFiring: 0
-  isAiming: 0
-  playParticles: 0
   distanceRay: 100
+--- !u!114 &6154150570561540727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829682969602616108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e30b64be6612dd4cabbb0c149e265b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerS: {fileID: 0}
+  enemyS: {fileID: 0}
 --- !u!1 &829682969733120313
 GameObject:
   m_ObjectHideFlags: 0

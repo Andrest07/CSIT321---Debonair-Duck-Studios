@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 16/11/2022
+    DESCRIPTION: Script for capturing an enemy
+
+    AUTHOR DD/MM/YY: Kaleb 16/11/2022
 
 	- EDITOR DD/MM/YY CHANGES:
     - Kaleb 13/12/22: Add beast to beastiary and mechanic revision

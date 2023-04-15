@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 22/11/22
+    DESCRIPTION: Quest and Quest stage data classes
+
+    AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 6/12/22: Minor changes, added custom editor
@@ -198,7 +200,7 @@ public class QuestCompletedEvent : UnityEvent<Quest> { }
 
 
 // -------------------------------------------
-// Custom editor
+// Custom editor for the unity inspector
 #if UNITY_EDITOR
 [CustomEditor(typeof(Quest))]
 public class QuestEditor : Editor

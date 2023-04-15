@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Functions for projectile attacks
+ 
     AUTHOR DD/MM/YY: Andreas 10/10/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -22,7 +24,7 @@ public class Projectile : MonoBehaviour
     Rigidbody2D rb;
     Quaternion rotateToTarget;
 
-    private GameObject PlayerObject;
+    private BeamEffect beamEffect;
     [HideInInspector] private Transform playerT;
     [HideInInspector] private PlayerHealth playerH;
     [HideInInspector] private PlayerStatusEffects playerStatus;
@@ -37,23 +39,34 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerObject = PlayerManager.instance.gameObject;
+        // If enemy is using the script
         if (enemyS != null){
-            playerT = PlayerObject.GetComponent<Transform>();
-            playerH = PlayerObject.GetComponent<PlayerHealth>();
-            playerStatus = PlayerObject.GetComponent<PlayerStatusEffects>();
+            playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
+            playerH = PlayerManager.instance.gameObject.GetComponent<PlayerHealth>();
+            playerStatus = PlayerManager.instance.gameObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
+
+            // If SpellType is Bullet, change direction to face player and set velocity
             if (enemyS.SpellType == SpellTypeEnum.Bullet) {
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+
+            // If SpellType is Beam, change direction to face player
+            } else if (enemyS.SpellType == SpellTypeEnum.Beam) {
+                beamEffect = GetComponent<BeamEffect>();
+                beamEffect.target = PlayerManager.instance.gameObject;
             }
             Destroy(gameObject, enemyS.ProjLifetime);
+
+        // If player is using the script
         } else if (playerS != null) {
             mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
             worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
             moveDirection = (worldPosition - transform.position).normalized * playerS.ProjSpeed;
+
+            // If SpellType is Bullet, change direction to face enemy and set velocity
             if (playerS.SpellType == SpellTypeEnum.Bullet) {
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 rb  = GetComponent<Rigidbody2D>();
@@ -65,7 +78,10 @@ public class Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
+        // If enemy is using the script
         if (enemyS != null){
+
+            //If the projectile is homing, update the direction to face the player
             if (enemyS.ProjHoming == true){
                 moveDirection = (playerT.position - transform.position).normalized;
                 /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, enemyS.ProjRotation * Time.deltaTime, 0.0F);
@@ -81,10 +97,23 @@ public class Projectile : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 transform.position += moveDirection * enemyS.ProjSpeed * Time.deltaTime;
             }
+
+        // If the projectile is homing, update the direction to face the closest enemy to mouse click location
         } else if (playerS != null){
+
+            // If the projectile is homing, update the direction to face the closest enemy to mouse click location
             if (playerS.ProjHoming == true){
-                Transform homingT = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), worldPosition).GetComponent<Transform>();
-                moveDirection = (homingT.position - transform.position).normalized;
+                try {
+                    Vector3 homingP = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), worldPosition).GetComponent<Transform>().position;
+                    moveDirection = (homingP - transform.position).normalized;
+                    transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
+                    transform.position += moveDirection * playerS.ProjSpeed * Time.deltaTime;
+                } catch {
+                    Vector3 homingP = worldPosition;
+                    moveDirection = (homingP - transform.position).normalized;
+                    transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
+                    transform.position += moveDirection * playerS.ProjSpeed * Time.deltaTime;
+                }
                 /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, playerS.ProjRotation * Time.deltaTime, 0.0F);
                 transform.Translate(Vector3.forward * Time.deltaTime * playerS.ProjSpeed, Space.Self);
                 //float angle = Mathf.Atan2(homingT.position.y-transform.position.y, homingT.position.x-transform.position.x) * Mathf.Rad2Deg;
@@ -95,14 +124,14 @@ public class Projectile : MonoBehaviour
                 if(isLookingAtObject) {
                     transform.rotation = Quaternion.LookRotation(newDirection);
                 }*/
-                transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
-                transform.position += moveDirection * playerS.ProjSpeed * Time.deltaTime;
             }
         }
     }
 
+    // If the projectile's hitbox collides with something else
     void OnTriggerEnter2D(Collider2D col)
     {
+        // If the projectile hits the player and enemy is using the script
         if (col.gameObject.tag.Equals("Player") && enemyS != null){
             playerH.TakeDamage(enemyS.ProjDamage);
             switch(enemyS.AttributeType) {
@@ -123,6 +152,8 @@ public class Projectile : MonoBehaviour
                     break;
             }
             Destroy (gameObject);
+
+        // If the projectile hits the enemy and player is using the script
         } else if (col.gameObject.tag.Equals("Enemy") && playerS != null){
             EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
             enemyH.TakeDamage(playerS.ProjDamage, transform.position);
@@ -130,6 +161,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    // Function to get the closest enemies to mouse click location
     public GameObject SortDistances(GameObject[] objects, Vector3 origin) {
         float[] distances = new float[ objects.Length ];
         for (int i = 0; i < objects.Length; i++) {

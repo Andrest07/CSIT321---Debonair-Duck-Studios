@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Nabin 13/01/23
+    DESCRIPTION: Functions for the Video Settings menu
+
+    AUTHOR DD/MM/YY: Nabin 13/01/23
 
     - EDITOR DD/MM/YY CHANGES:
     - Nabin 29/03/2023 Full Screen Toggle function.

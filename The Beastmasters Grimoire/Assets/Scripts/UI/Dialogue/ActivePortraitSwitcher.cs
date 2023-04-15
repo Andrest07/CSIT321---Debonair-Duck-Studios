@@ -1,5 +1,7 @@
-/*
-AUTHOR DD/MM/YY: Quentin 2/3/22
+/*  
+    DESCRIPTION: Changes opacity of active portrait to show who is speaking in a dialogue
+
+    AUTHOR DD/MM/YY: Quentin 02/03/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */

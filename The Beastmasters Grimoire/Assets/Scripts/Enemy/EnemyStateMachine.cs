@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Enemy state machine controller
+
     AUTHOR DD/MM/YY: Quentin 27/09/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -8,6 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class EnemyStateMachine : StateMachineBehaviour
 {
@@ -24,14 +27,14 @@ public class EnemyStateMachine : StateMachineBehaviour
         transform = controller.transform;
     }
 
-    // update animator
+    // update animator for state changes
     protected void UpdateAnimatorProperties(Animator animator)
     {
         animator.SetBool("isAttacking", inAttackRange);
         animator.SetBool("isChasing", controller.isAggro);
     }
 
-    // Check for player
+    // Check for player position
     protected void TrackPlayer()
     {
         float playerDistance = Vector3.Distance(controller.playerT.position, controller.transform.position);
@@ -65,7 +68,7 @@ public class EnemyStateMachine : StateMachineBehaviour
         }
     }
 
-    // Wait for specified seconds before changing agro status
+    // Wait for specified seconds before changing agro status (controls how long enemies remain in attack state)
     protected IEnumerator AggroTimer()
     {
         aggroCoroutine = true;

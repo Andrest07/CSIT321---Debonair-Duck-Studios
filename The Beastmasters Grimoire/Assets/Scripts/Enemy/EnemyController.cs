@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Enemy object controller (for attacking, checking collisions and updating UI bars)
+
     AUTHOR DD/MM/YY: Kunal 21/09/22
 
     - EDITOR DD/MM/YY CHANGES:
@@ -19,6 +21,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+
 public class EnemyController : MonoBehaviour
 {
     [Header("Scriptable Object")]
@@ -26,7 +29,6 @@ public class EnemyController : MonoBehaviour
 
     [Header("Gizmos")]
     public bool drawGizmos = true;
-
 
 
     // Externals
@@ -46,6 +48,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public GameObject healthBar;
     [HideInInspector] public GameObject captureBar;
     [HideInInspector] public GameObject enemyName;
+
     private bool canTakeDamage = true;
     private Rigidbody2D rigidBody2D;
 
@@ -109,8 +112,8 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // Collision events
 
+    // Collision events //
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isColliding = true;
@@ -121,17 +124,6 @@ public class EnemyController : MonoBehaviour
         }
 
     }
-
-    public void MeleeDamage()
-    {
-        playerH.TakeDamage(data.MeleeDamage);
-        float yDif = playerT.GetComponent<CapsuleCollider2D>().bounds.center.y - this.GetComponent<CapsuleCollider2D>().bounds.center.y;
-        float xDif = playerT.position.x - transform.position.x;
-        Vector2 knockbackDirection = new Vector2(xDif, yDif).normalized;
-
-        StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
-    }
-
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -144,7 +136,19 @@ public class EnemyController : MonoBehaviour
         isColliding = false;
     }
 
-    // Flip sprite
+
+    // Melee damage
+    public void MeleeDamage()
+    {
+        playerH.TakeDamage(data.MeleeDamage);
+        float yDif = playerT.GetComponent<CapsuleCollider2D>().bounds.center.y - this.GetComponent<CapsuleCollider2D>().bounds.center.y;
+        float xDif = playerT.position.x - transform.position.x;
+        Vector2 knockbackDirection = new Vector2(xDif, yDif).normalized;
+
+        StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
+    }
+
+    // Flip sprite (for moving etc)
     public void FlipSprite()
     {
         facingRight = !facingRight;
@@ -169,7 +173,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    // Gizmos
+    // Gizmos for debugging
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 21/12/22
+    DESCRIPTION: Tracks when conversations are entered and exited to control HUD visibility
+
+    AUTHOR DD/MM/YY: Quentin 21/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
 */
@@ -14,17 +16,18 @@ public class ConversationTracker : MonoBehaviour
 
     private void Start()
     {
-        setHud();
+        SetHud();
     }
 
-    private void setHud()
+    private void SetHud()
     {
         hud = GameManager.instance.transform.Find("Canvas").transform.Find("HUD").gameObject;
     }
 
     public void OnConversationStart(Transform actor)
     {
-        if(hud==null) setHud();
+        // hide HUD on conversation start
+        if(hud==null) SetHud();
         PlayerManager.instance.inDialogue = true;
         hud.SetActive(false);
     }

@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 22/11/22
+    DESCRIPTION: Quest menu UI manager
+
+    AUTHOR DD/MM/YY: Quentin 22/11/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 8/12/22 Added notification event
@@ -102,6 +104,7 @@ public class QuestMenu : MonoBehaviour
         if (q.completed) FinishQuest(q.info.questId);
     }
 
+    // Fade quest menu object to show they are finished
     public void FinishQuest(int id)
     {
         GameObject quest = questList[id];
@@ -111,7 +114,7 @@ public class QuestMenu : MonoBehaviour
         text[1].text = "Completed";
     }
 
-
+    // Open or close a group of quests
     public void ListToggle(string group)
     {
         if(group == "Main")
@@ -128,6 +131,7 @@ public class QuestMenu : MonoBehaviour
         }
     }
 
+    // display the quest description
     public void ShowDescription(QuestShowDescriptionEvent eventInfo)
     {
         //int id = int.Parse(button.transform.parent.name);

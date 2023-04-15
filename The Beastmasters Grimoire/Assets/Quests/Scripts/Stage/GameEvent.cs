@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Quentin 3/12/22
+    DESCRIPTION: Game event class for notifications and updating quests
+
+    AUTHOR DD/MM/YY: Quentin 3/12/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 8/12/22 Added notification event

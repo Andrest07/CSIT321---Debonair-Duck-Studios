@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Nabin 14/01/23
+    DESCRIPTION: Class to change keybindings 
+
+    AUTHOR DD/MM/YY: Nabin 14/01/23
 
     - EDITOR DD/MM/YY CHANGES:
     - Nabin  28/12/2022  Added tab style settings script to the menu.

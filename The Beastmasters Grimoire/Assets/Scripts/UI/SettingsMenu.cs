@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Nabin 13/12/22
+    DESCRIPTION: Functions for the Settings Menu
+
+    AUTHOR DD/MM/YY: Nabin 13/12/22
 
     - EDITOR DD/MM/YY CHANGES:
     - Nabin  28/12/2022  Added tab style settings script to the menu.

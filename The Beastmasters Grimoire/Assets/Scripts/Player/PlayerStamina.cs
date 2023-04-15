@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 15/09/22
+    DESCRIPTION: Manages player stamina for dashing and running 
+
+    AUTHOR DD/MM/YY: Kaleb 15/09/22
 
 	- EDITOR DD/MM/YY CHANGES:
     - Andreas 18/09/22: Modified PlayerControls to InputSystem.

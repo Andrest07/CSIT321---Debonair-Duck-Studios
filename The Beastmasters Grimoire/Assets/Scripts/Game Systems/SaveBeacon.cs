@@ -1,5 +1,7 @@
 /*
-AUTHOR DD/MM/YY: Kaleb 05/10/22
+    DESCRIPTION: Save beacon object functions, for detecting trigger collisions
+
+    AUTHOR DD/MM/YY: Kaleb 05/10/22
 
     - EDITOR DD/MM/YY CHANGES:
     - Kunal 03/12/22: Added checkpoint system
@@ -20,7 +22,7 @@ public class SaveBeacon : MonoBehaviour
     public SaveBeaconScriptableObject beaconData;
     private FastTravelScript FastTravel;
 
-    // Start is called before the first frame update
+   
     void Start()
     {
         //playerHealth = player.GetComponent<PlayerHealth>();

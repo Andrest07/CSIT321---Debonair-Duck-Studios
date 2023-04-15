@@ -1,4 +1,6 @@
 /*
+    DESCRIPTION: Functions for the Extra Settings menu
+
     AUTHOR DD/MM/YY: Nabin 20/02/23
 
     - EDITOR DD/MM/YY CHANGES:
