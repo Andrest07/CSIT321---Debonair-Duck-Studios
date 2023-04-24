@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private int totalBeasts;
     public bool isPaused;
+    
+    public List<Image> cooldownImage;
 
     // Variables for saving/loading
     [HideInInspector] public PlayerProfile currentProfile = new PlayerProfile();

@@ -94,8 +94,6 @@ public class PlayerManager : MonoBehaviour
         public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
 
         public List<Quest> playerQuests;
-
-        public List<Image> cooldownImage;
     }
     public Data data = new Data();
 
@@ -500,7 +498,7 @@ public class PlayerManager : MonoBehaviour
         while (data.availableBeastsCooldowns[i] >= 0)
         {
             data.availableBeastsCooldowns[i] -= Time.fixedDeltaTime;
-            data.cooldownImage[i].fillAmount = data.availableBeastsCooldowns[i]/data.availableBeasts[i].SpellScriptable.SpellCooldown;
+            GameManager.instance.cooldownImage[i].fillAmount = data.availableBeastsCooldowns[i]/data.availableBeasts[i].SpellScriptable.SpellCooldown;
             yield return new WaitForFixedUpdate();
         }
         data.availableBeastsCooldowns[i] = 0;
