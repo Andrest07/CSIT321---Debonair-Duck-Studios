@@ -48,9 +48,15 @@ public class FastTravelScript : MonoBehaviour
 
     public void UnlockBeacon(SaveBeaconScriptableObject beacon)
     {
-        Button b = beaconDictionary[beacon];
-        b.interactable = true;
-        Debug.Log("Beacon Unlocked");
+        if (beaconDictionary.ContainsKey(beacon))
+        {
+            Button b = beaconDictionary[beacon];
+            b.interactable = true;
+            Debug.Log("Beacon Unlocked");
+        }
+        else
+            Debug.LogError("Beacon unlock failed - beacon not in dictionary");
+
     }
 
     public void OpenMenu()

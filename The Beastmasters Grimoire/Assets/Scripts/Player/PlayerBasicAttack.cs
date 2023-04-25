@@ -7,6 +7,7 @@
     - Quentin 12/3/23 Added slashing animation
 */
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -41,15 +42,16 @@ public class PlayerBasicAttack : MonoBehaviour
     {
         Vector2 playerPosition = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 mousePosition = Mouse.current.position.ReadValue();
+        Vector2 pos = (mousePosition - playerPosition).normalized;
 
         // attack position relative to player
-        offsetVector = (mousePosition - playerPosition).normalized;
+        offsetVector = pos;
         offsetVector.x *= 0.4f;
         offsetVector.y *= 0.9f;
 
         // player direction
-        PlayerManager.instance.animator.SetFloat("Move X", mousePosition.x - playerPosition.x);
-        PlayerManager.instance.animator.SetFloat("Move Y", mousePosition.y - playerPosition.y);
+        PlayerManager.instance.animator.SetFloat("Move X", (float)Math.Round(pos.x));
+        PlayerManager.instance.animator.SetFloat("Move Y", (float)Math.Round(pos.y));
         isLeft = mousePosition.x - playerPosition.x < 0;
 
         // convert mouse coords to world position
@@ -72,6 +74,11 @@ public class PlayerBasicAttack : MonoBehaviour
 
         PlayerManager.instance.canMove = true;
         StartCoroutine(WaitAttack());
+    }
+
+    public void EndAttack()
+    {
+        PlayerManager.instance.animator.SetTrigger("hasAttacked");
     }
 
     // restrict how often the player can attack 

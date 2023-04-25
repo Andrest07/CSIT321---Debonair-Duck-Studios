@@ -76,7 +76,7 @@ public class PlayerManager : MonoBehaviour
 
     //Tutorial Booleans
     public bool canCapture = false;
-    [HideInInspector] public bool canBasic = false;
+    public bool canBasic = false;
     [HideInInspector] public bool canSpellcast = false;
 
     // Serializable struct for data that will be saved/loaded //
