@@ -23,6 +23,7 @@
     - Quentin 9/2/23 'Data' struct for storing persistant data
     - Kaleb 09/03/23: Beast management improvements
     - Kunal 15/04/23: Spell background image cooldown
+    - Quentin 27/4/23: Animator stuff for spell casting
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -48,6 +49,7 @@ public class PlayerManager : MonoBehaviour
     private Vector3 directionVector;
     public Vector3 mousePos;
     private IEnumerator capture;
+    private IEnumerator spellCastPause;
     private PlayerInputActions playerInputActions;
     private bool isCapturing;
     [HideInInspector] public Animator animator;
@@ -77,7 +79,7 @@ public class PlayerManager : MonoBehaviour
     //Tutorial Booleans
     public bool canCapture = false;
     public bool canBasic = false;
-    [HideInInspector] public bool canSpellcast = false;
+    public bool canSpellcast = false;
 
     // Serializable struct for data that will be saved/loaded //
     [System.Serializable]
@@ -252,6 +254,12 @@ public class PlayerManager : MonoBehaviour
             case PlayerMode.Spellcast:
                 if (canSpellcast)
                 {
+                    if (!bookAnimator) bookAnimator = book.GetComponent<Animator>();
+                    animator.SetTrigger("castSpell");
+                    book.SetActive(true);
+                    bookAnimator.SetBool("isFiring", true);
+
+
                     if (data.currentBeast == null)
                     {
                         //Create Fizzle Effect and play warning sound
@@ -266,13 +274,15 @@ public class PlayerManager : MonoBehaviour
                     }
                     else if (data.availableBeastsCooldowns[data.currentBeastIndex] <= 0)
                     {
+
                         mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
                         GameObject tempSpell = Instantiate(data.currentBeast,
                             transform.position + mousePos.normalized,
                             Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
                         tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
+
+
                         //Same as exiting spellcasting
-                        animator.SetBool("isCasting", false);
                         playerMode = PlayerMode.Basic;
                         canMove = true;
                         StartCoroutine(AbilityCooldown(data.currentBeastIndex));
@@ -281,6 +291,10 @@ public class PlayerManager : MonoBehaviour
                     {
                         //Something will happen when spells on CD
                     }
+
+                    spellCastPause = SpellCastPause(2.0f);
+                    StartCoroutine(spellCastPause);
+
                 }
                 break;
             case PlayerMode.Capture:
@@ -314,6 +328,10 @@ public class PlayerManager : MonoBehaviour
 
         else //Otherwise go to spellcasting mode and stop the player from moving
         {
+            // stop any lingering spell cast animation 
+            if(spellCastPause != null) StopCoroutine(spellCastPause);
+            ExitSpellcast();
+
             animator.SetBool("isCasting", true); animator.SetBool("isCapturing", false); animator.SetBool("isWalking", false);
             playerMode = PlayerMode.Spellcast;
             canMove = false;
@@ -502,6 +520,19 @@ public class PlayerManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         data.availableBeastsCooldowns[i] = 0;
+    }
+
+    public IEnumerator SpellCastPause(float i)
+    {
+        yield return new WaitForSeconds(i);
+        ExitSpellcast();
+    }
+
+    private void ExitSpellcast()
+    {
+        if(bookAnimator) bookAnimator.SetBool("isFiring", false);
+        animator.SetBool("isCasting", false);
+        book.SetActive(false);
     }
 
     public int UpdateAvailableBeast(EnemyScriptableObject beast, int number)

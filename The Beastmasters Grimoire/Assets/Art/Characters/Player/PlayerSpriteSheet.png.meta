@@ -272,15 +272,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdleFrontSprite
+      name: PlayerPrepareSpellSprite_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 15
-        width: 252
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 20
+        width: 271
+        height: 526
+      alignment: 9
+      pivot: {x: 0.56, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -334,6 +334,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PlayerPrepareSpellSprite_1
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 20
+        width: 297
+        height: 526
+      alignment: 9
+      pivot: {x: 0.598, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b199a3b8d65a1408ddf27b848896ce
+      internalID: -833924890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -347,17 +368,17 @@ TextureImporter:
     nameFileIdTable:
       PlayerSpriteSheet_11: -1165939905
       PlayerSpriteSheet_12: 455726754
+      PlayerPrepareSpellSprite_1: -833924890
       PlayerSpriteSheet_6: -761835885
+      PlayerPrepareSpellSprite_0: -447381039
       PlayerSpriteSheet_14: -1084325032
       PlayerSpriteSheet_3: 1015807049
-      PlayerIdleFrontSprite: -447381039
       PlayerSpriteSheet_1: -1361096417
       PlayerSpriteSheet_2: 1719815078
       PlayerSpriteSheet_4: 1748557148
       PlayerIdleBackSprite: 1386584134
       PlayerSpriteSheet_13: 2089182606
       PlayerSpriteSheet_7: -239836615
-      PlayerSpriteSheet_8: -833924890
       PlayerSpriteSheet_0: -1257048632
       PlayerSpriteSheet_5: -1032784497
   spritePackingTag: 

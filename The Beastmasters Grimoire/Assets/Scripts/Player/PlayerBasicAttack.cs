@@ -5,6 +5,7 @@
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 12/3/23 Added slashing animation
+    - Quentin 26/3/23 Modified range for new sprites
 */
 using System.Collections;
 using System;
@@ -15,7 +16,6 @@ using UnityEngine.InputSystem;
 public class PlayerBasicAttack : MonoBehaviour
 {
     [Header("Attack Stats")]
-    [SerializeField] private Vector2 attackRange = new(0.7f, 0.5f);
     [SerializeField] private float attackDamage = 2.0f;
     [SerializeField] private float attackCooldown = 2.0f;
 
@@ -27,11 +27,31 @@ public class PlayerBasicAttack : MonoBehaviour
 
     private EnemyHealth enemyHealth;
     private EnemyController enemy;
-    private Vector3 offsetVector;
+    public Vector3 offsetVector;
     private readonly int layerMask = 1 << 3;
 
-    private bool isLeft = false;
-    private bool wasLeft = false;
+    private Vector2 pos;
+    private Vector2 mousePosition;
+
+    [HideInInspector] public enum Direction { Left, Right, Front, Back };
+
+    private Vector2[] attackRanges = new Vector2[4]
+    {
+        new Vector2(0.5f, 1),   //left
+        new Vector2(0.5f, 1),   //right
+        new Vector2(2f, 1.0f),   //front
+        new Vector2(2f, 0.8f)    //back
+    };
+
+    private Vector3[] attackPositions = new Vector3[4] {
+        new Vector3(-0.6f, 0.27f, 0), //left
+        new Vector3(0.6f, 0.27f, 0), //right
+        new Vector3(0, -0.3f, 0), //front
+        new Vector3(0, 0.3f, 0) //back
+    };
+
+
+    private Direction dirForDebugging;
 
     private void Awake()
     {
@@ -41,8 +61,8 @@ public class PlayerBasicAttack : MonoBehaviour
     public void BasicAttack()
     {
         Vector2 playerPosition = Camera.main.WorldToScreenPoint(transform.position);
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 pos = (mousePosition - playerPosition).normalized;
+        mousePosition = Mouse.current.position.ReadValue();
+        pos = (mousePosition - playerPosition).normalized;
 
         // attack position relative to player
         offsetVector = pos;
@@ -52,24 +72,33 @@ public class PlayerBasicAttack : MonoBehaviour
         // player direction
         PlayerManager.instance.animator.SetFloat("Move X", (float)Math.Round(pos.x));
         PlayerManager.instance.animator.SetFloat("Move Y", (float)Math.Round(pos.y));
-        isLeft = mousePosition.x - playerPosition.x < 0;
 
         // convert mouse coords to world position
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        
+    }
+
+    public void PerformBasicAttack(Direction dir)
+    {
+        dirForDebugging = dir;
+
         // box cast to enemy layer
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position + offsetVector, attackRange, 0f, mousePosition, 0f, layerMask);
+        RaycastHit2D hit = hit = Physics2D.BoxCast(transform.position + attackPositions[(int)dir], attackRanges[(int)dir], 0f, attackPositions[(int)dir], 0f, layerMask);
+
         if (hit.collider != null)
         {
+            // reduce enemy health
             enemyHealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(attackDamage,transform.position);
+            enemyHealth.TakeDamage(attackDamage, transform.position);
 
-            // create sword slashing animation effect
-            if (isLeft != wasLeft)
-                swordSlash.GetComponent<SpriteRenderer>().flipX = !swordSlash.GetComponent<SpriteRenderer>().flipX;
-            
+            // Sword slash effect in direction of slash
+            swordSlash.GetComponent<SpriteRenderer>().flipY = (dir != Direction.Right);
+            Quaternion rotation = Quaternion.LookRotation(Vector3.forward, pos);
+            swordSlash.transform.rotation = rotation * Quaternion.Euler(0, 0, 90);
+
             Instantiate(swordSlash, hit.collider.transform);
-            wasLeft = isLeft;
+
         }
 
         PlayerManager.instance.canMove = true;
@@ -93,7 +122,7 @@ public class PlayerBasicAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!drawGizmos) return;
-        Gizmos.DrawWireCube(transform.position + offsetVector, attackRange);
+        Gizmos.DrawWireCube(transform.position + attackPositions[(int)dirForDebugging], attackRanges[(int)dirForDebugging]);
     }
 #endif
 
