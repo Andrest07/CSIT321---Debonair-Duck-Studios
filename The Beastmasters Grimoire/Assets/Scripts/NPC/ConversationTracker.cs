@@ -34,6 +34,9 @@ public class ConversationTracker : MonoBehaviour
 
     public void OnConversationEnd(Transform actor)
     {
+        DialogueManager.instance.GetComponent<ConversationControl>().skipAll = false;
+        GameManager.instance.isPaused = false;
+
         StartCoroutine(Wait());
     }
 

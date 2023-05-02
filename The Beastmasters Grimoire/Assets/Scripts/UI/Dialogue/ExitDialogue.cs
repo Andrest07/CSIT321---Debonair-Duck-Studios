@@ -13,6 +13,10 @@ public class ExitDialogue : MonoBehaviour
 {
     public void OnClick()
     {
-        DialogueManager.instance.GetComponent<ConversationControl>().SkipAll();
+
+        if (DialogueManager.instance.CurrentConversationState.HasAnyResponses)
+            DialogueManager.instance.GetComponent<ConversationControl>().SkipAll();
+        else
+            DialogueManager.instance.activeConversation.conversationController.Close();
     }
 }
