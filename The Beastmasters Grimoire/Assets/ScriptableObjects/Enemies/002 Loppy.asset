@@ -10,34 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: 010 Angry Shroom
+  m_Name: 002 Loppy
   m_EditorClassIdentifier: 
-  enemyName: Angry Shroom
+  enemyName: Loppy
+  isProj: 1
+  spellType: 1
   attributeType: 0
-  enemyDescription: mushroom enemy, evil looking probably red in color. with a cigar.
-    like a mafia boss poison attacks
+  enemyDescription: A small green beast that attacks with its long tongue. It can
+    quickly traverse large distances by jumping with its hind legs. Due to its lazy
+    nature it rarely does this.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
-  projType: 0
-  projDamage: 1
+  rangedProjectile: {fileID: 829682969602616108, guid: d49f9af38bb7ed64d91dfe0f9e926fc5, type: 3}
+  projDamage: 2
   projSpeed: 1
-  projLifetime: 3
+  projLifetime: 1
   projHoming: 0
   projRotation: 1
   projFocusDistance: 1
-  projBeam: 0
+  projBeam: 1
   beamTelegraph: 1
   beamActual: 1
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 3
-  attackDistance: 1
-  attackCooldown: 1
+  visibilityRange: 2
+  attackDistance: 3
+  attackCooldown: 3

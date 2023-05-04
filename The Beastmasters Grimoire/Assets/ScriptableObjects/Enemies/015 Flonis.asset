@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: 004 Rhino
+  m_Name: 015 Flonis
   m_EditorClassIdentifier: 
-  enemyName: Rhino
+  enemyName: Flonis
+  isProj: 0
+  spellType: 0
   attributeType: 0
-  enemyDescription: Rhino, charges at you
+  enemyDescription: A plantoid that lures adventurers with its fruit.  When its prey
+    is nearby it slashes with its thorny appendages and poisonous fruit.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 0}
-  wanderRadius: 3.03
+  wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
-  projType: 0
+  rangedProjectile: {fileID: 0}
   projDamage: 1
   projSpeed: 1
   projLifetime: 3
@@ -37,6 +38,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 6.05
-  attackDistance: 0
+  visibilityRange: 5
+  attackDistance: 1
   attackCooldown: 1

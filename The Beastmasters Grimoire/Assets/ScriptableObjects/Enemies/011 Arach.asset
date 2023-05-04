@@ -10,23 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: 005 Electric Fox
+  m_Name: 011 Arach
   m_EditorClassIdentifier: 
-  enemyName: Electric Fox
-  isProj: 1
+  enemyName: Arach
+  isProj: 0
   spellType: 0
   attributeType: 0
-  enemyDescription: Yellow Electric Fox.
+  enemyDescription: 'A large and terrifying beast known for the silk it produces.
+    The silk is incredibly strong and binds anything it wraps around
+
+'
   enemyImage: {fileID: 0}
-  spellScriptable: {fileID: 11400000, guid: 0e02004e9b38a2b48b7644dd3f1d67c4, type: 2}
+  spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
   wanderRadius: 3
   captureTotal: 5
-  rangedProjectile: {fileID: 8168317729838749010, guid: 192e3bad6bf9849d78bcb9ece4adf6cd, type: 3}
+  rangedProjectile: {fileID: 0}
   projDamage: 1
-  projSpeed: 10
+  projSpeed: 1
   projLifetime: 3
   projHoming: 0
   projRotation: 1
@@ -37,6 +40,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 5.18
-  attackDistance: 5
-  attackCooldown: 0.7
+  visibilityRange: 5
+  attackDistance: 1
+  attackCooldown: 1

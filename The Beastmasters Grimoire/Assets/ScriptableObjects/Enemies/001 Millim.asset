@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: 001 Millim
   m_EditorClassIdentifier: 
   enemyName: Millim
+  isProj: 0
+  spellType: 0
   attributeType: 0
-  enemyDescription: 'A cool bat that is very cool and has very cool powers for very
-    cool people.
-
-'
+  enemyDescription: 'A mystical winged beast that is believed to have belonged to
+    the original Beastmaster. It is a rare sentient creature that is intelligent
+    and capable of speech, however it has an attitude problem.  '
+  enemyImage: {fileID: 0}
   spellScriptable: {fileID: 11400000, guid: f4e808b0d5dca9d468a193ba89dd169f, type: 2}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 0}
   wanderRadius: 0
   captureTotal: 20
-  isRanged: 0
-  projType: 0
+  rangedProjectile: {fileID: 0}
   projDamage: 1
   projSpeed: 1
   projLifetime: 3

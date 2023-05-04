@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: 009 Goblin
+  m_Name: 008 Nimbaah
   m_EditorClassIdentifier: 
-  enemyName: Goblin
+  enemyName: Nimbaah
+  isProj: 0
+  spellType: 0
   attributeType: 0
-  enemyDescription: small green creature with a dagger. low health but high damage.
+  enemyDescription: A quick and nimble beast known for its many appendages. It prowls
+    the underbush looking for harmless beasts to consume.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
-  projType: 0
+  rangedProjectile: {fileID: 0}
   projDamage: 1
   projSpeed: 1
   projLifetime: 3
@@ -37,6 +38,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 7
+  visibilityRange: 4
   attackDistance: 1
   attackCooldown: 1

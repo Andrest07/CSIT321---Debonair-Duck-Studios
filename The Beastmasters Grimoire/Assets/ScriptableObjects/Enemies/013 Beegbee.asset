@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: 006 Bat
+  m_Name: 013 Beegbee
   m_EditorClassIdentifier: 
-  enemyName: Bat
-  attributeType: 5
-  enemyDescription: Big black bat. shoots sonic waves reducing enemy speed. low health
-    low attack. beam attack
+  enemyName: Beegbee
+  isProj: 0
+  spellType: 0
+  attributeType: 0
+  enemyDescription: bee enemy. like beedrill from pokemon. low health high attack
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
-  health: 3
-  speed: 3
+  health: 10
+  speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 1
-  projType: 0
+  rangedProjectile: {fileID: 0}
   projDamage: 1
-  projSpeed: 3
+  projSpeed: 1
   projLifetime: 3
   projHoming: 0
   projRotation: 1
@@ -38,6 +37,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 5
-  attackDistance: 4
-  attackCooldown: 1
+  visibilityRange: 4
+  attackDistance: 1
+  attackCooldown: 5

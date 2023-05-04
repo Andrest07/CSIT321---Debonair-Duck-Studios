@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
-  m_Name: 012 Gorilla
+  m_Name: 012 Cong
   m_EditorClassIdentifier: 
-  enemyName: Gorilla
+  enemyName: Cong
+  isProj: 0
+  spellType: 0
   attributeType: 0
-  enemyDescription: 'Uses its big arms to attack. '
+  enemyDescription: A large humanoid beast. It attacks using its large arms.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 1
   meleeDamage: 1
-  rangedProjectile: {fileID: 0}
   wanderRadius: 3
   captureTotal: 5
-  isRanged: 0
-  projType: 0
+  rangedProjectile: {fileID: 0}
   projDamage: 1
   projSpeed: 1
   projLifetime: 3
