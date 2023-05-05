@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8b1919bd60725d14a9f49c8d0bbd0796, type: 3}
+  m_Sprite: {fileID: -1602206565, guid: a1abe953330ea494481aa5e2b8518e37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.61, y: 0.36}
+  m_Size: {x: 2.9346728, y: 1.4575001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -142,8 +142,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0875}
-  m_Size: {x: 0.65, y: 0.2}
+  m_Offset: {x: 0.023588603, y: -0.47503614}
+  m_Size: {x: 1.9051647, y: 0.30110028}
   m_Direction: 1
 --- !u!61 &648304146407964802
 BoxCollider2D:
@@ -158,18 +158,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.009629786, y: 0.012773931}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.22, y: 2.27}
-    newSize: {x: 0.61, y: 0.36}
+    oldSize: {x: 2.9346728, y: 1.4575001}
+    newSize: {x: 2.9346728, y: 1.4575001}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.675, y: 0.375}
+  m_Size: {x: 0.76450217, y: 0.7202632}
   m_EdgeRadius: 0
 --- !u!95 &2493044921102178166
 Animator:
@@ -205,9 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: c6ac3356a9a3544d68db8fcd24f1dd6f, type: 2}
   drawGizmos: 1
-  healthBar: {fileID: 9114394782926747343}
-  captureBar: {fileID: 9114394782484541857}
-  enemyName: {fileID: 9114394781687538404}
   playerT: {fileID: 0}
   playerH: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
@@ -218,6 +215,9 @@ MonoBehaviour:
   isMoving: 0
   agent: {fileID: 0}
   isAggro: 0
+  healthBar: {fileID: 9114394782926747343}
+  captureBar: {fileID: 9114394782484541857}
+  enemyName: {fileID: 9114394781687538404}
 --- !u!114 &6498185047953973294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,6 +391,10 @@ PrefabInstance:
     - target: {fileID: 1530533067137459141, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_Name
       value: Enemy Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530533067137459141, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1530533068605631378, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchorMax.y
