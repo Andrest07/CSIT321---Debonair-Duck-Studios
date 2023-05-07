@@ -16,10 +16,8 @@ MonoBehaviour:
   isProj: 0
   spellType: 0
   attributeType: 0
-  enemyDescription: '
-
-    An extremely aggresive fungus. It is often avoided due
-    to its poisonous aura it exhumes.'
+  enemyDescription: An extremely aggresive fungus. It is often avoided due to its
+    poisonous aura it exhumes.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10

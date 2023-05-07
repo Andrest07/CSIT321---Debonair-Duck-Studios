@@ -13,6 +13,7 @@
     - Kunal 12/03/23: Added status effects.
     - Andreas 12/03/23: Reworked and fixed status effects.
     - Andreas 14/03/23: Rewritten how player vs enemy spell is handled.
+    - Quentin 7/5/23: Added case for the projectile hitting environment colliders
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -158,6 +159,11 @@ public class Projectile : MonoBehaviour
             EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
             enemyH.TakeDamage(playerS.ProjDamage, transform.position);
             Destroy (gameObject);
+        }
+        // projectile destroys when hitting enviro objects
+        else if(!col.gameObject.tag.Equals("Enemy"))
+        {
+            Destroy(gameObject);
         }
     }
 

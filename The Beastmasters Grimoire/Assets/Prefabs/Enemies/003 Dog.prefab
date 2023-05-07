@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6267477624472230332}
   - component: {fileID: 1850450042}
   m_Layer: 3
-  m_Name: 005 Needol
+  m_Name: 003 Dog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: aea28a49cd159f443b426d68552d4c98, type: 3}
+  m_Sprite: {fileID: -1347736121, guid: 4536006d14f43144a8f5f4b28fbb8b81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.712, y: 0.92}
     newSize: {x: 0.77, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,7 +180,7 @@ Animator:
   m_GameObject: {fileID: 1459143488756774989}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 32b1e58ff6d6545639b4b1f63ff329b3, type: 2}
+  m_Controller: {fileID: 22100000, guid: a2820f9b37d796846acd25cca4909bad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -202,8 +202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda29da3d73bc4566b0c4400c72d966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 0f84fdb132d3f417b97850bd6c04b8a2, type: 2}
+  data: {fileID: 11400000, guid: d2231f4b930c787458f90e90e9e2e371, type: 2}
   drawGizmos: 1
+  healthBar: {fileID: 1122583083}
+  captureBar: {fileID: 692503877}
+  enemyName: {fileID: 415503872}
   playerT: {fileID: 0}
   playerH: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
@@ -214,9 +217,6 @@ MonoBehaviour:
   isMoving: 0
   agent: {fileID: 0}
   isAggro: 0
-  healthBar: {fileID: 1122583083}
-  captureBar: {fileID: 692503877}
-  enemyName: {fileID: 415503872}
 --- !u!114 &1873445875
 MonoBehaviour:
   m_ObjectHideFlags: 0

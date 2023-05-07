@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 610878353}
   - component: {fileID: -4071049291009049175}
   m_Layer: 3
-  m_Name: 003 Rhino
+  m_Name: 004 Rhino
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
