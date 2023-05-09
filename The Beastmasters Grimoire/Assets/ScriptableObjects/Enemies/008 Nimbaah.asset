@@ -39,5 +39,5 @@ MonoBehaviour:
   aoeTelegraph: 1
   aoeActual: 1
   visibilityRange: 4
-  attackDistance: 1
+  attackDistance: 1.6
   attackCooldown: 1

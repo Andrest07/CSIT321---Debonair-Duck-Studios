@@ -48,6 +48,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public GameObject healthBar;
     [HideInInspector] public GameObject captureBar;
     [HideInInspector] public GameObject enemyName;
+    [HideInInspector] public GameObject canvas;
 
     private bool canTakeDamage = true;
     private Rigidbody2D rigidBody2D;
@@ -79,6 +80,9 @@ public class EnemyController : MonoBehaviour
         healthBar.GetComponent<Slider>().maxValue = data.Health;
         captureBar.GetComponent<Slider>().maxValue = data.CaptureTotal * 100;
         enemyName.GetComponent<TMPro.TextMeshProUGUI>().text = data.EnemyName;
+
+        canvas = transform.GetChild(0).gameObject;
+        canvas.SetActive(false);
     }
 
     // Enemy attack
@@ -167,7 +171,7 @@ public class EnemyController : MonoBehaviour
         healthBar.GetComponent<Slider>().value = health;
     }
 
-    public void UpdateCapturehBar(float capture)
+    public void UpdateCaptureBar(float capture)
     {
         captureBar.GetComponent<Slider>().value = capture * 100;
     }

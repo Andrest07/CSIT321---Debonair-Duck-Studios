@@ -101,7 +101,6 @@ public class PlayerBasicAttack : MonoBehaviour
 
         }
 
-        PlayerManager.instance.canMove = true;
         StartCoroutine(WaitAttack());
     }
 

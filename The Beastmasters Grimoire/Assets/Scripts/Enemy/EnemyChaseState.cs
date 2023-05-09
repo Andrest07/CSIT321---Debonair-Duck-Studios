@@ -22,6 +22,7 @@ public class EnemyChaseState : EnemyStateMachine
 
         // begin agro when entering the chase state
         if (!aggroCoroutine) controller.StartCoroutine(AggroTimer());
+
     }
     
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

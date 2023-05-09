@@ -27,6 +27,9 @@ public class EnemyPatrolState : EnemyStateMachine
         waitCoroutine = WaitToMove(4.0f);
         controller.StartCoroutine(waitCoroutine);
         controller.agent.destination = controller.origin;
+
+        // when non-agro hide canvas
+        controller.canvas.SetActive(false);
     }
 
     // update state, track player and check if the object has moved out of bounds
@@ -48,6 +51,8 @@ public class EnemyPatrolState : EnemyStateMachine
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // display canvas when entering attack or chase state
+        controller.canvas.SetActive(true);
         controller.StopCoroutine(waitCoroutine);
     }
 

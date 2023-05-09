@@ -24,6 +24,7 @@
     - Kaleb 09/03/23: Beast management improvements
     - Kunal 15/04/23: Spell background image cooldown
     - Quentin 27/4/23: Animator stuff for spell casting
+    - Quentin 9/5/23: Bug fixes for knockback & attacking while moving
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -81,6 +82,9 @@ public class PlayerManager : MonoBehaviour
     public bool canBasic = false;
     public bool canSpellcast = false;
 
+    private AnimatorStateInfo animatorState;
+    private Rigidbody2D rigidBody;
+
     // Serializable struct for data that will be saved/loaded //
     [System.Serializable]
     public struct Data
@@ -125,6 +129,7 @@ public class PlayerManager : MonoBehaviour
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         interactionObject = GetComponentInChildren<InteractionObject>();
         animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
 
         while (data.availableBeasts.Count > data.totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -192,8 +197,9 @@ public class PlayerManager : MonoBehaviour
     //For Movement
     private void FixedUpdate()
     {
+        animatorState = animator.GetCurrentAnimatorStateInfo(0);
 
-        if (canMove)
+        if (canMove && animatorState.IsTag("isMoving"))
         {
             playerBody.velocity = movementVector * playerSpeed;
         }
@@ -232,6 +238,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Context: RMB
     public void Attack(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused)
@@ -246,7 +253,9 @@ public class PlayerManager : MonoBehaviour
                 if (context.performed && canAttack && canBasic)
                 {
                     canAttack = false;
-                    canMove = false;
+                    movementVector = Vector3.zero;  
+                    animator.SetBool("isWalking", false);
+                    animator.SetBool("isSprinting", false);
                     animator.SetTrigger("basicAttack");
                     playerBasicAttack.BasicAttack();
                 }
@@ -314,6 +323,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Context: RMB
     public void SpellcastMode(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
@@ -339,6 +349,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Context: C
     public void CaptureMode(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
@@ -362,6 +373,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Context: F
     public void Interact(InputAction.CallbackContext context)
     {
         //if (GameManager.instance.isPaused) return;
@@ -372,6 +384,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Context: Shift
     public void Sprint(InputAction.CallbackContext context) //Button down and up sets sprinting to true and false respectively
     {
         if (GameManager.instance.isPaused) return;
@@ -392,6 +405,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Context: WASD
     public void Movement(InputAction.CallbackContext context)
     {
         movementVector = context.ReadValue<Vector2>();
@@ -407,7 +421,7 @@ public class PlayerManager : MonoBehaviour
 
         if (GameManager.instance.isPaused) return;
 
-        if (context.performed && canMove)
+        if (context.performed && canMove) 
             animator.SetBool("isWalking", true);
         else
             animator.SetBool("isWalking", false);
@@ -423,6 +437,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Context Z, X
     public void MonsterSwitch(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
@@ -501,8 +516,10 @@ public class PlayerManager : MonoBehaviour
     {
         canMove = false;
         data.playerHealth.isInvulnerable = true;
-        GetComponent<Rigidbody2D>().AddForce(dir * 10f, ForceMode2D.Impulse);
+        rigidBody.AddForce(dir * 10f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
+
+        rigidBody.velocity = Vector3.zero;
         canMove = true;
         animator.SetBool("isCasting", false); animator.SetBool("isCapturing", false);
         playerMode = PlayerMode.Basic;

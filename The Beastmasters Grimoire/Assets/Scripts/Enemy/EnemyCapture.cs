@@ -46,7 +46,7 @@ public class EnemyCapture : MonoBehaviour
         captureAmount += captureMultiplyer * power;
 
         //Update UI
-        enemyController.UpdateCapturehBar(captureAmount);
+        enemyController.UpdateCaptureBar(captureAmount);
 
         //If fully captured then capture the beast
         if (captureAmount >= enemyScriptableObject.CaptureTotal)
