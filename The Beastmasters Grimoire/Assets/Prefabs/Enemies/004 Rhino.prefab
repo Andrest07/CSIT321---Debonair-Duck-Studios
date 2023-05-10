@@ -218,6 +218,7 @@ MonoBehaviour:
   healthBar: {fileID: 9114394782926747343}
   captureBar: {fileID: 9114394782484541857}
   enemyName: {fileID: 9114394781687538404}
+  canvas: {fileID: 0}
 --- !u!114 &6498185047953973294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,10 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff83d88b601b94518bddbdfaa0b0bb97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeSpeed: 5
-  currentTime: 0
-  chargeDis: 0
-  force: 0
+  chargeSpeed: 50
 --- !u!1001 &7728562291741778943
 PrefabInstance:
   m_ObjectHideFlags: 0
