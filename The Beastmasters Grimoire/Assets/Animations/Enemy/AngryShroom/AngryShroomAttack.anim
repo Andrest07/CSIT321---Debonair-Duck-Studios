@@ -20,7 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2413806693520163455, guid: aea28a49cd159f443b426d68552d4c98, type: 3}
+      value: {fileID: 253836813, guid: 4978a7fe66b251d4cb321741e9da6455, type: 3}
+    - time: 1
+      value: {fileID: 253836813, guid: 4978a7fe66b251d4cb321741e9da6455, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,13 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2413806693520163455, guid: aea28a49cd159f443b426d68552d4c98, type: 3}
+    - {fileID: 253836813, guid: 4978a7fe66b251d4cb321741e9da6455, type: 3}
+    - {fileID: 253836813, guid: 4978a7fe66b251d4cb321741e9da6455, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -66,8 +69,15 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: ShroomCloudAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1
-    functionName: Attack
+    functionName: RadiantAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

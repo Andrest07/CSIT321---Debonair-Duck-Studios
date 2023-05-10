@@ -1,6 +1,8 @@
 
 /*
-AUTHOR DD/MM/YY: Kunal 02/03/23
+    DESCRIPTION: Charge attack for rhino enemy    
+
+    AUTHOR DD/MM/YY: Kunal 02/03/23
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 5/5/23: Modified to use nav mesh and animator
@@ -129,7 +131,13 @@ public class Rhino : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StopCharging();
+        StopAllCoroutines();
+    }
 
+    // stop charging when hitting enviro colldiers
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        StopCharging();
         StopAllCoroutines();
     }
 

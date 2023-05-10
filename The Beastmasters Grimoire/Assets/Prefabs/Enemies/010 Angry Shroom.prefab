@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1873445875}
   - component: {fileID: 6267477624472230332}
   - component: {fileID: 1850450042}
+  - component: {fileID: 1025346800}
   m_Layer: 3
   m_Name: 010 Angry Shroom
   m_TagString: Enemy
@@ -39,6 +40,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1373910239}
+  - {fileID: 7822150051768347627}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,7 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: aea28a49cd159f443b426d68552d4c98, type: 3}
+  m_Sprite: {fileID: -572323595, guid: 4978a7fe66b251d4cb321741e9da6455, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -160,8 +162,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.538274, y: 0.6076979}
+    oldSize: {x: 1.1375, y: 1.3475}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -217,6 +219,7 @@ MonoBehaviour:
   healthBar: {fileID: 1122583083}
   captureBar: {fileID: 692503877}
   enemyName: {fileID: 415503872}
+  canvas: {fileID: 0}
 --- !u!114 &1873445875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +271,18 @@ NavMeshAgent:
   m_BaseOffset: 0.46
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1025346800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459143488756774989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279857b2170f38e4697944aed5b7fd05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1530533068456302363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -353,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -396,4 +411,86 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
   m_PrefabInstance: {fileID: 1530533068456302363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5569014900965001415
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2428295993132195205}
+    m_Modifications:
+    - target: {fileID: 2433282508523890284, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508537954060, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_Name
+      value: CFXR Shroom Custom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883620193154939874, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+      propertyPath: clearBehavior
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+--- !u!4 &7822150051768347627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2433282508538045228, guid: 81dfe05866147924abd38f56a3be2cf8, type: 3}
+  m_PrefabInstance: {fileID: 5569014900965001415}
   m_PrefabAsset: {fileID: 0}

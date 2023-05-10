@@ -117,6 +117,17 @@ public class EnemyController : MonoBehaviour
     }
 
 
+    // Radiant attack
+    public void RadiantAttack()
+    {
+        if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
+        {
+            // damage player without knockback
+            if (canTakeDamage) playerH.TakeDamage(data.MeleeDamage);
+        }
+    }
+
+
     // Collision events //
     private void OnCollisionEnter2D(Collision2D collision)
     {
