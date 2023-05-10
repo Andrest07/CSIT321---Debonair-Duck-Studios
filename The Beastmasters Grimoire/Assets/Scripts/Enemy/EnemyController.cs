@@ -88,6 +88,10 @@ public class EnemyController : MonoBehaviour
     // Enemy attack
     public void Attack()
     {
+        if(data.IsProj && data.SpellType == SpellTypeEnum.Beam)
+        {
+            FireBeam();
+        }
         if (data.IsProj)
         {
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
@@ -114,6 +118,16 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    // Beam attack
+    private void FireBeam()
+    {
+        GameObject beam = Instantiate(data.RangedProjectile, transform.position, Quaternion.identity, this.transform);
+        beam.GetComponent<BeamEffect>().fire = true;
+
+        StartCoroutine(DamageTimer());
     }
 
 
@@ -162,6 +176,7 @@ public class EnemyController : MonoBehaviour
 
         StartCoroutine(PlayerManager.instance.Stun(knockbackDirection));
     }
+
 
     // Flip sprite (for moving etc)
     public void FlipSprite()

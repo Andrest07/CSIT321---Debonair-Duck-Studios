@@ -316,8 +316,8 @@ MonoBehaviour:
   laserFire: {fileID: 829682969483829967}
   firePoint: {fileID: 829682969733120310}
   target: {fileID: 0}
-  delay: 3
-  firingTime: 4
+  delay: 1
+  firingTime: 0.5
   fire: 0
   distanceRay: 100
 --- !u!114 &6154150570561540727

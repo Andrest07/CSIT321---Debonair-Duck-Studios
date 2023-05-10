@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7445145144714182142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8210195931410762014}
+  - component: {fileID: 8247836710516900435}
+  m_Layer: 3
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8210195931410762014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445145144714182142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2735451822531778617}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &8247836710516900435
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445145144714182142}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5366406, y: 0.04965347}
+  m_Size: {x: 0.78646314, y: 0.78646314}
+  m_Direction: 0
 --- !u!1 &7917238221559215613
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,7 +73,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2735451822531778617
 Transform:
   m_ObjectHideFlags: 0
@@ -39,6 +87,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8283136450232342373}
+  - {fileID: 8210195931410762014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,7 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 999795533, guid: 82a2f26e304d69d4a8b606c4fda459ff, type: 3}
+  m_Sprite: {fileID: -1520531526, guid: 0861ece7b9507c64f90ee604263d761a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,8 +190,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.035}
-  m_Size: {x: 0.65, y: 0.3}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.65904367, y: 0.3611261}
   m_Direction: 1
 --- !u!61 &648304146407964802
 BoxCollider2D:
@@ -160,8 +209,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.68636364, y: 0.39545456}
+    pivot: {x: 0.3, y: 0.5}
+    oldSize: {x: 1.2425, y: 0.83}
     newSize: {x: 0.61, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -217,6 +266,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   captureBar: {fileID: 0}
   enemyName: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!114 &6498185047953973294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,11 +327,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1530533066930140673, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1530533066930140673, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067086476060, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -357,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1530533067137459140, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -381,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1530533068605631378, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 901dee1d7c4a67b43a939790b8432bbc, type: 3}
