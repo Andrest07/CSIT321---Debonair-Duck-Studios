@@ -55,7 +55,9 @@ public class PlayerManager : MonoBehaviour
     private bool isCapturing;
     [HideInInspector] public Animator animator;
 
+    private float slowTime = 10.0f;
     private bool stopMoving = false;
+    [HideInInspector] public bool isMoving = false;
 
     [HideInInspector] public bool inDialogue = false;
     [HideInInspector] public bool inGameMenu = false;
@@ -209,7 +211,7 @@ public class PlayerManager : MonoBehaviour
         if (stopMoving)
         {
             if (playerBody.velocity == Vector2.zero) stopMoving = false;
-            else playerBody.velocity = Vector2.Lerp(playerBody.velocity, Vector2.zero, Time.deltaTime * playerSpeed);
+            else playerBody.velocity = Vector2.Lerp(playerBody.velocity, Vector2.zero, Time.deltaTime * slowTime);
         }
 
 
@@ -429,10 +431,16 @@ public class PlayerManager : MonoBehaviour
 
         if (GameManager.instance.isPaused) return;
 
-        if (context.performed && canMove) 
+        if (context.performed && canMove)
+        {
             animator.SetBool("isWalking", true);
+            isMoving = true;
+        }
         else
+        {
             animator.SetBool("isWalking", false);
+            isMoving = false;
+        }
 
 
 

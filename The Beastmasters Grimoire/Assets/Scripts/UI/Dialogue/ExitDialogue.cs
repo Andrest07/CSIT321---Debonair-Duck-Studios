@@ -13,8 +13,9 @@ public class ExitDialogue : MonoBehaviour
 {
     public void OnClick()
     {
-
-        if (DialogueManager.instance.CurrentConversationState.HasAnyResponses)
+        if(DialogueManager.instance.CurrentConversationState==null)
+            DialogueManager.instance.activeConversation.conversationController.Close();
+        else if (DialogueManager.instance.CurrentConversationState.HasAnyResponses)
             DialogueManager.instance.GetComponent<ConversationControl>().SkipAll();
         else
             DialogueManager.instance.activeConversation.conversationController.Close();

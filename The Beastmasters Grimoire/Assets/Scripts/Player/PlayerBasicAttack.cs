@@ -106,7 +106,8 @@ public class PlayerBasicAttack : MonoBehaviour
 
     public void EndAttack()
     {
-        PlayerManager.instance.animator.SetTrigger("hasAttacked");
+        if (PlayerManager.instance.isMoving) PlayerManager.instance.animator.SetBool("isWalking", true);
+        else PlayerManager.instance.animator.SetTrigger("hasAttacked");
     }
 
     // restrict how often the player can attack 
