@@ -55,6 +55,8 @@ public class PlayerManager : MonoBehaviour
     private bool isCapturing;
     [HideInInspector] public Animator animator;
 
+    private bool stopMoving = false;
+
     [HideInInspector] public bool inDialogue = false;
     [HideInInspector] public bool inGameMenu = false;
     [HideInInspector] public bool inPauseMenu = false;
@@ -204,6 +206,12 @@ public class PlayerManager : MonoBehaviour
             playerBody.velocity = movementVector * playerSpeed;
         }
 
+        if (stopMoving)
+        {
+            if (playerBody.velocity == Vector2.zero) stopMoving = false;
+            else playerBody.velocity = Vector2.Lerp(playerBody.velocity, Vector2.zero, Time.deltaTime * playerSpeed);
+        }
+
 
         // update player sprite directions
         if (animator.GetBool("isWalking") || animator.GetBool("isSprinting"))
@@ -253,7 +261,7 @@ public class PlayerManager : MonoBehaviour
                 if (context.performed && canAttack && canBasic)
                 {
                     canAttack = false;
-                    movementVector = Vector3.zero;  
+                    stopMoving = true;
                     animator.SetBool("isWalking", false);
                     animator.SetBool("isSprinting", false);
                     animator.SetTrigger("basicAttack");
