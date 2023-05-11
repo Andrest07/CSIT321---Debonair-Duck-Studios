@@ -1,7 +1,7 @@
 /*
-    DESCRIPTION: Manages the player's capture projectile    
+    DESCRIPTION: Enemy laser spell
 
-    AUTHOR DD/MM/YY: Quentin 10/05/23
+    AUTHOR DD/MM/YY: Quentin 14/03/23
 
 	- EDITOR DD/MM/YY CHANGES:
     - Quentin 10/5/23: Update for hitting the player 
@@ -15,6 +15,7 @@ using UnityEngine.InputSystem;
 public class BeamEffect : MonoBehaviour
 {
     public GameObject particles;
+    public GameObject aimParticles;
     public GameObject laserAim;
     public GameObject laserFire;
     public Transform firePoint;
@@ -23,6 +24,8 @@ public class BeamEffect : MonoBehaviour
     [Header("Delay for firing & firing time")]
     [SerializeField] private float delay = 3f;
     [SerializeField] private float firingTime = 4f;
+    private float elapsed = 0;
+    private float gracePeriod = 0.5f;
 
     [Header("Visible for testing")]
     public bool fire = false;
@@ -39,10 +42,13 @@ public class BeamEffect : MonoBehaviour
     private EnemyController enemyController;
     private bool hitsOnce = false;
 
+    private float destroySpeed = 10.0f;
+
     private void Start()
     {
         enemyController = GetComponentInParent<EnemyController>();
-        distanceRay = enemyController.data.AttackDistance;
+        if(enemyController)
+            distanceRay = enemyController.data.AttackDistance;
 
 
         lineAim = laserAim.GetComponent<LineRenderer>();
@@ -61,12 +67,14 @@ public class BeamEffect : MonoBehaviour
         // if in aiming stage
         else if (isFiring && isAiming)
         {
-            GetPlayerDirection();
+            if(elapsed < gracePeriod) GetPlayerDirection();
+
             if (Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask))
             {
                 hit = Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask);
             }
 
+            aimParticles.transform.position = hit.point;
             Draw2DRay(lineAim, firePoint.position, hit.point);
         }
         // if ready to fire
@@ -74,6 +82,7 @@ public class BeamEffect : MonoBehaviour
         {
             if (Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask))
                 hit = Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask);
+             
 
             if (Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask))
             {
@@ -83,17 +92,16 @@ public class BeamEffect : MonoBehaviour
                     PlayerManager.instance.GetComponent<PlayerHealth>().TakeDamage(enemyController.data.ProjDamage);
                     hitsOnce = true;
                 }
-
-                particles.transform.position = hit.point;
-                particles.SetActive(true);
             }
             else
             {
                 Debug.Log("doesn't hit");
-
-                particles.SetActive(false);
             }
 
+            particles.transform.position = hit.point;
+
+            transform.position = Vector2.Lerp(transform.position, hit.point, Time.deltaTime * destroySpeed);
+            
             Draw2DRay(lineFire, firePoint.position, hit.point);
         }
         
@@ -119,7 +127,7 @@ public class BeamEffect : MonoBehaviour
 
     private void GetPlayerDirection()
     {
-        direction = (PlayerManager.instance.transform.position - firePoint.position);
+        direction = (PlayerManager.instance.transform.position - firePoint.position).normalized;
     }
 
     void Draw2DRay(LineRenderer lineRenderer, Vector2 start, Vector2 end)
@@ -130,7 +138,7 @@ public class BeamEffect : MonoBehaviour
 
     private IEnumerator BeamTimer()
     {
-        float elapsed = 0;
+        elapsed = 0;
         while (elapsed < delay)
         {
             elapsed += Time.deltaTime;
@@ -143,6 +151,8 @@ public class BeamEffect : MonoBehaviour
         
         // turn on laser
         laserFire.SetActive(true);
+        aimParticles.SetActive(false);
+        particles.SetActive(true);
 
         elapsed = 0;
         while (elapsed < firingTime)
@@ -151,12 +161,12 @@ public class BeamEffect : MonoBehaviour
             yield return null;
         }
 
+
         laserFire.SetActive(false);
-        particles.SetActive(false);
 
         isFiring = false;
 
         // destroy after firing
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 2.0f);
     }
 }

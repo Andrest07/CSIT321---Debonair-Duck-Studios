@@ -73,7 +73,15 @@ public class Projectile : MonoBehaviour
                 rb  = GetComponent<Rigidbody2D>();
                 rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
             }
-            Destroy(gameObject, playerS.ProjLifetime);
+            else if(playerS.SpellType == SpellTypeEnum.Beam)
+            {
+                FireBeam();
+            }
+            else if(playerS.SpellType == SpellTypeEnum.AOE)
+            {
+            }
+
+            if(playerS.SpellType != SpellTypeEnum.Beam) Destroy(gameObject, playerS.ProjLifetime);
         }
     }
 
@@ -158,10 +166,12 @@ public class Projectile : MonoBehaviour
         } else if (col.gameObject.tag.Equals("Enemy") && playerS != null){
             EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
             enemyH.TakeDamage(playerS.ProjDamage, transform.position);
-            Destroy (gameObject);
+
+            if(playerS.SpellType != SpellTypeEnum.AOE)
+                Destroy (gameObject);
         }
         // projectile destroys when hitting enviro objects
-        else if(!col.gameObject.tag.Equals("Enemy"))
+        else if(!col.gameObject.tag.Equals("Enemy") && playerS.SpellType != SpellTypeEnum.AOE)
         {
             Destroy(gameObject);
         }
@@ -176,4 +186,15 @@ public class Projectile : MonoBehaviour
         System.Array.Sort(distances, objects);
         return objects[0];
     }
+
+
+
+
+    // Beam projectile
+    private void FireBeam()
+    {
+        BeamForPlayer beam = this.GetComponent<BeamForPlayer>();
+        beam.SetBeamStats(playerS.BeamTelegraph, playerS.BeamActual, playerS.ProjDamage);
+    }
+
 }

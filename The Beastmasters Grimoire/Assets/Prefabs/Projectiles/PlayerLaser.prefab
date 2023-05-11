@@ -280,10 +280,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 829682969602616109}
-  - component: {fileID: 829682969602616106}
   - component: {fileID: 6154150570561540727}
+  - component: {fileID: 7475089635151923919}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: PlayerLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,28 +309,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &829682969602616106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829682969602616108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bedbbe161abcd7459c9eee34535b3a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particles: {fileID: 3188127498871151851}
-  aimParticles: {fileID: 2587121477084616096}
-  laserAim: {fileID: 829682969421537864}
-  laserFire: {fileID: 829682969483829967}
-  firePoint: {fileID: 829682969733120310}
-  target: {fileID: 0}
-  delay: 1
-  firingTime: 0.5
-  fire: 0
-  distanceRay: 100
 --- !u!114 &6154150570561540727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +323,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerS: {fileID: 0}
   enemyS: {fileID: 0}
+--- !u!114 &7475089635151923919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829682969602616108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88eb2b9b95a8754b9d2cdb857c54a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 3188127498871151851}
+  aimParticles: {fileID: 2587121477084616096}
+  laserAim: {fileID: 829682969421537864}
+  laserFire: {fileID: 829682969483829967}
+  firePoint: {fileID: 829682969733120310}
+  target: {fileID: 0}
+  delay: 3
+  firingTime: 4
+  aim: 0
+  distanceRay: 3
 --- !u!1 &829682969733120313
 GameObject:
   m_ObjectHideFlags: 0

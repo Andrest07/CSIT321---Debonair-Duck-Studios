@@ -24,7 +24,7 @@ public class SpellScriptableObject : ScriptableObject
     [SerializeField] private Sprite spellImage;
 
     //[Header("Projectile Stats")]
-    
+
     [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private GameObject spellProjectile;
     [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]

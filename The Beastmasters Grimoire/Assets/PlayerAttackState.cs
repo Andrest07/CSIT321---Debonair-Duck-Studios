@@ -15,7 +15,5 @@ public class PlayerAttackState : StateMachineBehaviour
     {
         // failsafe for leaving the attack state before attacking
         PlayerManager.instance.canAttack = true;
-
-        if (PlayerManager.instance.isMoving) PlayerManager.instance.animator.SetBool("isWalking", true);
     }
 }

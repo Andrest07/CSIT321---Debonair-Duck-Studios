@@ -20,7 +20,7 @@ MonoBehaviour:
     quickly traverse large distances by jumping with its hind legs. Due to its lazy
     nature it rarely does this.
   enemyImage: {fileID: 0}
-  spellScriptable: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: 531e8c02de82b0243b62bd23ad8841fd, type: 2}
   health: 10
   speed: 1
   meleeDamage: 1

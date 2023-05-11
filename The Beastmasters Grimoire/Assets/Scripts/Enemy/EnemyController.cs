@@ -88,7 +88,7 @@ public class EnemyController : MonoBehaviour
     // Enemy attack
     public void Attack()
     {
-        if(data.IsProj && data.SpellType == SpellTypeEnum.Beam)
+        if (data.IsProj && data.SpellType == SpellTypeEnum.Beam)
         {
             FireBeam();
         }
@@ -131,7 +131,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    // Radiant attack
+    // AOE attack
     public void RadiantAttack()
     {
         if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)

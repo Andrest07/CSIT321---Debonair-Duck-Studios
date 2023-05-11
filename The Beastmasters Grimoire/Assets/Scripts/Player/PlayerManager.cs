@@ -55,6 +55,10 @@ public class PlayerManager : MonoBehaviour
     private bool isCapturing;
     [HideInInspector] public Animator animator;
 
+    [HideInInspector] public bool usingBeamSpell = false;
+    private GameObject beamRef;
+    private bool beamFired = true;
+
     private float slowTime = 10.0f;
     private bool stopMoving = false;
     [HideInInspector] public bool isMoving = false;
@@ -264,6 +268,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     canAttack = false;
                     stopMoving = true;
+                    book.SetActive(false);
                     animator.SetBool("isWalking", false);
                     animator.SetBool("isSprinting", false);
                     animator.SetTrigger("basicAttack");
@@ -293,26 +298,53 @@ public class PlayerManager : MonoBehaviour
                     }
                     else if (data.availableBeastsCooldowns[data.currentBeastIndex] <= 0)
                     {
+                        if (!usingBeamSpell && data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellType == SpellTypeEnum.Beam)
+                        {
+                            GameObject beamObject = Instantiate(data.currentBeast);
+                            beamObject.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
 
-                        mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
-                        GameObject tempSpell = Instantiate(data.currentBeast,
-                            transform.position + mousePos.normalized,
-                            Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
-                        tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
+                            beamRef = beamObject;
+                            usingBeamSpell = true;
+                            beamFired = false;
+                        }
+                        else if (usingBeamSpell)
+                        {
+                            beamRef.GetComponentInChildren<BeamForPlayer>().FireBeam();
+                            beamFired = true;
+
+                            //Same as exiting spellcasting
+                            playerMode = PlayerMode.Basic;
+                            canMove = true;
+                            StartCoroutine(AbilityCooldown(data.currentBeastIndex));
+
+                            spellCastPause = SpellCastPause(2.0f);
+                            StartCoroutine(spellCastPause);
+                        }
+                        else
+                        {
+                            mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                            GameObject tempSpell = Instantiate(data.currentBeast,
+                                transform.position + mousePos.normalized,
+                                Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
+                            tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
 
 
-                        //Same as exiting spellcasting
-                        playerMode = PlayerMode.Basic;
-                        canMove = true;
-                        StartCoroutine(AbilityCooldown(data.currentBeastIndex));
+                            //Same as exiting spellcasting
+                            playerMode = PlayerMode.Basic;
+                            canMove = true;
+                            StartCoroutine(AbilityCooldown(data.currentBeastIndex));
+                        }
                     }
                     else
                     {
                         //Something will happen when spells on CD
                     }
 
-                    spellCastPause = SpellCastPause(2.0f);
-                    StartCoroutine(spellCastPause);
+                    if (!usingBeamSpell)
+                    {
+                        spellCastPause = SpellCastPause(2.0f);
+                        StartCoroutine(spellCastPause);
+                    }
 
                 }
                 break;
@@ -344,6 +376,8 @@ public class PlayerManager : MonoBehaviour
             animator.SetBool("isCasting", false);
             playerMode = PlayerMode.Basic;
             canMove = true;
+
+            ExitSpellcast();
         }
 
         else //Otherwise go to spellcasting mode and stop the player from moving
@@ -434,6 +468,7 @@ public class PlayerManager : MonoBehaviour
         if (context.performed && canMove)
         {
             animator.SetBool("isWalking", true);
+            ExitSpellcast();
             isMoving = true;
         }
         else
@@ -453,7 +488,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // Context Z, X
+    // Context Q, E
     public void MonsterSwitch(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
@@ -561,11 +596,19 @@ public class PlayerManager : MonoBehaviour
         ExitSpellcast();
     }
 
-    private void ExitSpellcast()
+    public void ExitSpellcast()
     {
         if(bookAnimator) bookAnimator.SetBool("isFiring", false);
         animator.SetBool("isCasting", false);
         book.SetActive(false);
+
+        // if exiting spellcasting before firing beam
+        if (usingBeamSpell && !beamFired)
+        {
+            usingBeamSpell = false;
+            beamFired = true;
+            Destroy(beamRef);
+        }
     }
 
     public int UpdateAvailableBeast(EnemyScriptableObject beast, int number)
