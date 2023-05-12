@@ -19,13 +19,8 @@ MonoBehaviour:
   enemyDescription: An extremely aggresive fungus. It is often avoided due to its
     poisonous aura it exhumes.
   enemyImage: {fileID: 0}
-<<<<<<< Updated upstream
   spellScriptable: {fileID: 11400000, guid: 47b89b6f3c76e8e4cb550c5577140fd3, type: 2}
   health: 10
-=======
-  spellScriptable: {fileID: 0}
-  health: 6
->>>>>>> Stashed changes
   speed: 1
   meleeDamage: 1
   wanderRadius: 3

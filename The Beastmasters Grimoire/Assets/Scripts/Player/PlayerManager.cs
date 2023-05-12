@@ -59,7 +59,6 @@ public class PlayerManager : MonoBehaviour
     private GameObject beamRef;
     private bool beamFired = true;
 
-    private float slowTime = 10.0f;
     private bool stopMoving = false;
     [HideInInspector] public bool isMoving = false;
 
@@ -90,8 +89,6 @@ public class PlayerManager : MonoBehaviour
     public bool canBasic = false;
     public bool canSpellcast = false;
 
-    private AnimatorStateInfo animatorState;
-    private Rigidbody2D rigidBody;
 
     // Serializable struct for data that will be saved/loaded //
     [System.Serializable]
@@ -137,7 +134,6 @@ public class PlayerManager : MonoBehaviour
         playerBasicAttack = GetComponent<PlayerBasicAttack>();
         interactionObject = GetComponentInChildren<InteractionObject>();
         animator = GetComponent<Animator>();
-        rigidBody = GetComponent<Rigidbody2D>();
 
         while (data.availableBeasts.Count > data.totalBeasts) //Make sure the player does not have more available beasts then the limit
         {
@@ -205,18 +201,11 @@ public class PlayerManager : MonoBehaviour
     //For Movement
     private void FixedUpdate()
     {
-        animatorState = animator.GetCurrentAnimatorStateInfo(0);
-
-        if (canMove && animatorState.IsTag("isMoving"))
+        if (canMove)
         {
             playerBody.velocity = movementVector * playerSpeed;
         }
-
-        if (stopMoving)
-        {
-            if (playerBody.velocity == Vector2.zero) stopMoving = false;
-            else playerBody.velocity = Vector2.Lerp(playerBody.velocity, Vector2.zero, Time.deltaTime * slowTime);
-        }
+        if (stopMoving && !(animator.GetBool("isWalking") || animator.GetBool("isSprinting"))) playerBody.velocity = Vector2.zero;
 
 
         // update player sprite directions
@@ -567,10 +556,10 @@ public class PlayerManager : MonoBehaviour
     {
         canMove = false;
         data.playerHealth.isInvulnerable = true;
-        rigidBody.AddForce(dir * 10f, ForceMode2D.Impulse);
+        playerBody.AddForce(dir * 10f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
 
-        rigidBody.velocity = Vector3.zero;
+        playerBody.velocity = Vector3.zero;
         canMove = true;
         animator.SetBool("isCasting", false); animator.SetBool("isCapturing", false);
         playerMode = PlayerMode.Basic;
