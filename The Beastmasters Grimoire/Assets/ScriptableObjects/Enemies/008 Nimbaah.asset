@@ -21,10 +21,10 @@ MonoBehaviour:
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
   health: 10
-  speed: 1
+  speed: 3
   meleeDamage: 1
   wanderRadius: 3
-  captureTotal: 5
+  captureTotal: 7
   rangedProjectile: {fileID: 0}
   projDamage: 1
   projSpeed: 1

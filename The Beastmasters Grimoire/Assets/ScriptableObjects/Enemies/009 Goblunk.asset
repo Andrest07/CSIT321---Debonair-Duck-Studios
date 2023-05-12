@@ -20,11 +20,11 @@ MonoBehaviour:
     arms that it crafts itself.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 0}
-  health: 10
+  health: 15
   speed: 1
-  meleeDamage: 1
-  wanderRadius: 3
-  captureTotal: 5
+  meleeDamage: 3
+  wanderRadius: 5
+  captureTotal: 8
   rangedProjectile: {fileID: 0}
   projDamage: 1
   projSpeed: 1
@@ -40,4 +40,4 @@ MonoBehaviour:
   aoeActual: 1
   visibilityRange: 7
   attackDistance: 1
-  attackCooldown: 1
+  attackCooldown: 1.5

@@ -21,9 +21,9 @@ MonoBehaviour:
     electricity to create bolts and attack other beasts.
   enemyImage: {fileID: 0}
   spellScriptable: {fileID: 11400000, guid: 0e02004e9b38a2b48b7644dd3f1d67c4, type: 2}
-  health: 10
-  speed: 1
-  meleeDamage: 1
+  health: 7
+  speed: 3
+  meleeDamage: 2
   wanderRadius: 3
   captureTotal: 5
   rangedProjectile: {fileID: 8168317729838749010, guid: 192e3bad6bf9849d78bcb9ece4adf6cd, type: 3}
