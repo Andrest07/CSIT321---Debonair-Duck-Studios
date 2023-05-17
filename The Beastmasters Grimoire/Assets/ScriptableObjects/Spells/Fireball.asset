@@ -13,12 +13,22 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   spellName: 
-  spellObject: {fileID: 0}
+  isProj: 1
   spellType: 0
   attributeType: 0
+  spellCooldown: 2
   spellDescription: 
+  spellImage: {fileID: 21300000, guid: 2c311b8048c1b4e99b87af3b9cb613b3, type: 3}
+  spellProjectile: {fileID: 6977254816827940189, guid: 6c7d94e6e96bac24eb495dca91e6f967, type: 3}
   projDamage: 1
-  projSpeed: 1
-  projLifetime: 3
+  projSpeed: 3
+  projLifetime: 10
   projHoming: 0
   projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1

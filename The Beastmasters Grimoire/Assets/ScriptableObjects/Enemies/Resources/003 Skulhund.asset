@@ -20,13 +20,13 @@ MonoBehaviour:
     has no skin or fur and only consists of its exposed skull giving it a terrifying
     presence.
   enemyImage: {fileID: -1676744840, guid: 10888565a5138f146a97b75775356e9c, type: 3}
-  spellScriptable: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: 49dfe5706c0bb904e9028e38da1bb6cf, type: 2}
   health: 20
   speed: 5
   meleeDamage: 1
   wanderRadius: 3
   captureTotal: 4
-  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
+  rangedProjectile: {fileID: 6977254816827940189, guid: 6c7d94e6e96bac24eb495dca91e6f967, type: 3}
   projDamage: 1
   projSpeed: 3
   projLifetime: 10
