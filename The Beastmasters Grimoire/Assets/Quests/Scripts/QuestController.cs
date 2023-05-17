@@ -36,6 +36,9 @@ public class QuestController : MonoBehaviour
     {
         newQuest.Initialize();
         newQuest.questCompleted.AddListener(OnQuestCompleted);
+
+        playerManager.data.questStage.Add(0);
+        playerManager.data.questNames.Add(newQuest.name);
         playerManager.data.playerQuests.Add(newQuest);
 
         // add quest to UI
@@ -51,8 +54,23 @@ public class QuestController : MonoBehaviour
         menu = gameManager.GetComponentInChildren<QuestMenu>(true);
         menu.Reset();
 
+        int i = 0;
         foreach (Quest quest in playerManager.data.playerQuests)
         {
+            // set current stage
+            for (int s = 0; s <= PlayerManager.instance.data.questStage[i]; s++)
+            {
+                if(s == quest.stages.Count)
+                {
+                    quest.completed = true;
+                    continue;
+                }
+
+                quest.stages[s].active = true;
+                if(s< PlayerManager.instance.data.questStage[i])
+                    quest.stages[s].Complete();
+            }
+
             if (!quest.completed)
             {
                 quest.ReInitialize();

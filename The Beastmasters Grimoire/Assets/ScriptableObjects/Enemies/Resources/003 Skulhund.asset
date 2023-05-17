@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
+  m_Name: 003 Skulhund
+  m_EditorClassIdentifier: 
+  enemyName: Skulhund
+  isProj: 1
+  spellType: 0
+  attributeType: 0
+  enemyDescription: A nimble and agressive beast known for its unique head. The head
+    has no skin or fur and only consists of its exposed skull giving it a terrifying
+    presence.
+  enemyImage: {fileID: 0}
+  spellScriptable: {fileID: 0}
+  health: 20
+  speed: 5
+  meleeDamage: 1
+  wanderRadius: 3
+  captureTotal: 4
+  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
+  projDamage: 1
+  projSpeed: 3
+  projLifetime: 10
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
+  visibilityRange: 4
+  attackDistance: 4
+  attackCooldown: 0.01

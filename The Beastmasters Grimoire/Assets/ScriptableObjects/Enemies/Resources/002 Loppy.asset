@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
+  m_Name: 002 Loppy
+  m_EditorClassIdentifier: 
+  enemyName: Loppy
+  isProj: 1
+  spellType: 1
+  attributeType: 0
+  enemyDescription: A small green beast that attacks with its long tongue. It can
+    quickly traverse large distances by jumping with its hind legs. Due to its lazy
+    nature it rarely does this.
+  enemyImage: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: 531e8c02de82b0243b62bd23ad8841fd, type: 2}
+  health: 10
+  speed: 1
+  meleeDamage: 1
+  wanderRadius: 3
+  captureTotal: 5
+  rangedProjectile: {fileID: 829682969602616108, guid: d49f9af38bb7ed64d91dfe0f9e926fc5, type: 3}
+  projDamage: 2
+  projSpeed: 1
+  projLifetime: 1
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 1
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
+  visibilityRange: 2
+  attackDistance: 3
+  attackCooldown: 3

@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9058824, g: 0.8117648, b: 0.64705884, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1081,6 +1081,7 @@ MonoBehaviour:
   inputPanel: {fileID: 534134511}
   slotViewPanel: {fileID: 934523859}
   list: {fileID: 439587}
+  newGameButton: {fileID: 765595242}
 --- !u!114 &320981962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3952,7 +3953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9058824, g: 0.8117648, b: 0.64705884, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4958,7 +4959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 502.9396, y: -893.3333}
+  m_AnchoredPosition: {x: 502.9396, y: -933.7424}
   m_SizeDelta: {x: 845.8792, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &936508789
@@ -9982,7 +9983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 502.9396, y: -556.6666}
+  m_AnchoredPosition: {x: 502.9396, y: -576.8712}
   m_SizeDelta: {x: 845.8792, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1719882409

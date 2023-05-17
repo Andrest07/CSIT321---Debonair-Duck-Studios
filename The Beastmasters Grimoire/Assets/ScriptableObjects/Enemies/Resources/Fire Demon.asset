@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
+  m_Name: Fire Demon
+  m_EditorClassIdentifier: 
+  enemyName: Fire Demon
+  enemyType: 1
+  enemyDescription: Monster made up of Fire. Shoots fire balls.
+  spellName: Fireball
+  spellObject: {fileID: 8168317729838749010, guid: e8e94fc61bc8842c5b2d301981ca0169, type: 3}
+  spellType: 0
+  spellDescription: Shoots a ball of fire. can cause burn effect.
+  health: 10
+  speed: 1
+  meleeDamage: 1
+  rangedProjectile: {fileID: 8168317729838749010, guid: e8e94fc61bc8842c5b2d301981ca0169, type: 3}
+  wanderRadius: 3
+  captureTotal: 5
+  isRanged: 1
+  projHoming: 0
+  projRotation: 1
+  projDamage: 3
+  projSpeed: 2
+  projLifetime: 4
+  visibilityRange: 6
+  attackDistance: 4
+  attackCooldown: 1

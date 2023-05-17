@@ -43,6 +43,22 @@ public class SaveLoadGame : MonoBehaviour {
     {
         int index = gameManager.currentProfile.index;
 
+        // save quest log
+        int i = 0;
+        foreach (Quest q in PlayerManager.instance.data.playerQuests) {
+            PlayerManager.instance.data.questStage[i] = q.currentStage;
+            if (q.completed) PlayerManager.instance.data.questStage[i]++;
+        }
+
+        // save spells
+        if(PlayerManager.instance.data.currentBeast!=null)
+            PlayerManager.instance.data.currentBeastName = PlayerManager.instance.data.currentBeast.name;
+        foreach (EnemyScriptableObject b in PlayerManager.instance.data.availableBeasts)
+        {
+            if (b != null)
+                PlayerManager.instance.data.availableBeastNames.Add(b.name);
+        }
+
         // save player profile //
         gameManager.currentProfile.playTime += Time.realtimeSinceStartup;  // update save time
         gameManager.currentProfile.level = SceneManager.GetActiveScene().name; // save current scene
@@ -97,6 +113,28 @@ public class SaveLoadGame : MonoBehaviour {
         // Load scene
         SceneManager.LoadScene(gameManager.currentProfile.level);
 
+        // get quest scriptable objects from resources
+        PlayerManager.instance.data.playerQuests.Clear();
+        foreach (string q in PlayerManager.instance.data.questNames)
+        {
+            Quest so = Resources.Load<Quest>(q);
+            PlayerManager.instance.data.playerQuests.Add(so);
+        }
+
+        // load spells
+        int i = 0;
+        var attune = GameManager.instance.GetComponent<SaveBeaconMenu>();
+        foreach (var b in PlayerManager.instance.data.availableBeastNames)
+        {
+            PlayerManager.instance.data.availableBeasts[i] = Resources.Load<EnemyScriptableObject>(b);
+            attune.attunedBeast = PlayerManager.instance.data.availableBeasts[i];
+            attune.Attune(i);
+            i++;
+        }
+        string curbeast = PlayerManager.instance.data.availableBeasts[PlayerManager.instance.data.currentBeastIndex].SpellScriptable.name;
+        PlayerManager.instance.data.currentBeast = Resources.Load<GameObject>(curbeast);
+
+
         gameManager.loadFromSave = true;
     }
 
@@ -112,6 +150,8 @@ public class SaveLoadGame : MonoBehaviour {
             PlayerPrefs.GetFloat(index + "PlayerX"), 
             PlayerPrefs.GetFloat(index + "PlayerY"), 
             PlayerPrefs.GetFloat(index + "PlayerZ"));
+
+        PlayerManager.instance.canCapture = PlayerManager.instance.canBasic = PlayerManager.instance.canSpellcast = true;
 
         Debug.Log("loaded");
     }

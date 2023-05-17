@@ -58,11 +58,10 @@ public class Quest : ScriptableObject
 
 
     // Quest event
-    public bool completed { get; protected set; }
+    public bool completed { get; set; }
     public QuestCompletedEvent questCompleted;
 
-    //TBD for testing
-    [SerializeField] private int currentStage;
+    public int currentStage;
 
     // Quest stages
     public abstract class QuestStage : ScriptableObject
@@ -85,7 +84,7 @@ public class Quest : ScriptableObject
         // Check if stage is finished
         protected virtual void Evaluate() { }
 
-        protected void Complete()
+        public void Complete()
         {
             completed = true;
             stageCompleted.Invoke();

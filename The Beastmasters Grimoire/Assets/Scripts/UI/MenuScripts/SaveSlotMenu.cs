@@ -12,6 +12,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SaveSlotMenu : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class SaveSlotMenu : MonoBehaviour
     public GameObject inputPanel;
     public GameObject slotViewPanel;
     public GameObject list;
+    public Button newGameButton;
 
     private void Awake()
     {
@@ -99,6 +101,8 @@ public class SaveSlotMenu : MonoBehaviour
             TMPro.TMP_Text [] text = list.transform.GetChild(saveSlotInt).GetComponentsInChildren<TMPro.TMP_Text>();
             text[0].text = "Start New Game";
             text[1].text = "";
+
+            newGameButton.interactable = true;
         }
     }
 }

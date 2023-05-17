@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c58315b4f0f4575ae3040c2c6505a2, type: 3}
+  m_Name: 010 Shranger
+  m_EditorClassIdentifier: 
+  enemyName: Shranger
+  isProj: 0
+  spellType: 2
+  attributeType: 0
+  enemyDescription: An extremely aggresive fungus. It is often avoided due to its
+    poisonous aura it exhumes.
+  enemyImage: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: 47b89b6f3c76e8e4cb550c5577140fd3, type: 2}
+  health: 10
+  speed: 1
+  meleeDamage: 1
+  wanderRadius: 3
+  captureTotal: 5
+  rangedProjectile: {fileID: 0}
+  projDamage: 1
+  projSpeed: 1
+  projLifetime: 3
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 0
+  aoeTelegraph: 1
+  aoeActual: 1
+  visibilityRange: 3
+  attackDistance: 1
+  attackCooldown: 0.8
