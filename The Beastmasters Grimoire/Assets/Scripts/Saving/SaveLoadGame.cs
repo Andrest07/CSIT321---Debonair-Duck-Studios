@@ -53,10 +53,19 @@ public class SaveLoadGame : MonoBehaviour {
         // save spells
         if(PlayerManager.instance.data.currentBeast!=null)
             PlayerManager.instance.data.currentBeastName = PlayerManager.instance.data.currentBeast.name;
+        PlayerManager.instance.data.availableBeastNames.Clear();
         foreach (EnemyScriptableObject b in PlayerManager.instance.data.availableBeasts)
         {
             if (b != null)
                 PlayerManager.instance.data.availableBeastNames.Add(b.name);
+        }
+
+        // save bestiary
+        PlayerManager.instance.data.bestiaryEntries.Clear();
+        foreach (var b in GameManager.instance.bestiaryArray)
+        {
+            if(GameManager.instance.bestiary[b])
+                PlayerManager.instance.data.bestiaryEntries.Add(b.name);
         }
 
         // save player profile //
@@ -134,6 +143,13 @@ public class SaveLoadGame : MonoBehaviour {
         string curbeast = PlayerManager.instance.data.availableBeasts[PlayerManager.instance.data.currentBeastIndex].SpellScriptable.name;
         PlayerManager.instance.data.currentBeast = Resources.Load<GameObject>(curbeast);
 
+        // load bestiary
+        foreach(var b in PlayerManager.instance.data.bestiaryEntries)
+        {
+            var beast = Resources.Load<EnemyScriptableObject>(b);
+            GameManager.instance.bestiary[beast] = true;
+            attune.UpdateDisplayedEntry(beast);
+        }
 
         gameManager.loadFromSave = true;
     }
