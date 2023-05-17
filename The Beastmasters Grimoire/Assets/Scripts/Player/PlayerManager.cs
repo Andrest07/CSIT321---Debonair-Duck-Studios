@@ -104,6 +104,8 @@ public class PlayerManager : MonoBehaviour
         public int totalBeasts; //The total number of beasts the player can store
         public int currentBeastIndex; //The index of the beast the player is currently using, starts at 0 for arrays
 
+        public List<string> bestiaryEntries;
+
         public List<Quest> playerQuests;
         public List<string> questNames;
         public List<int> questStage;

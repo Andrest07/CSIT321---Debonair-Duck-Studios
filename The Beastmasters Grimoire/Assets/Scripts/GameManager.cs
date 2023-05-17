@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     public EnemyScriptableObject[] bestiaryArray;
 
-    private Dictionary<EnemyScriptableObject, bool> bestiary = new Dictionary<EnemyScriptableObject, bool>();
+    public Dictionary<EnemyScriptableObject, bool> bestiary = new Dictionary<EnemyScriptableObject, bool>();
 
     private int totalBeasts;
     public bool isPaused;
