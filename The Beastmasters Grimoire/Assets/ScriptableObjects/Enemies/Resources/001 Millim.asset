@@ -19,7 +19,7 @@ MonoBehaviour:
   enemyDescription: 'A mystical winged beast that is believed to have belonged to
     the original Beastmaster. It is a rare sentient creature that is intelligent
     and capable of speech, however it has an attitude problem.  '
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 21300000, guid: b8b4348fb10a2f54bbfb43d7c3b9fd1d, type: 3}
   spellScriptable: {fileID: 11400000, guid: f4e808b0d5dca9d468a193ba89dd169f, type: 2}
   health: 10
   speed: 1

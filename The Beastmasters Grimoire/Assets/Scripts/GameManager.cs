@@ -67,15 +67,7 @@ public class GameManager : MonoBehaviour
         this.GetComponentInChildren<SettingsMenu>(true).LoadSettings();
 
         //Initialise the bestiary if it isn't intialised. Set all beast unlocks to false
-        if (bestiary.Count == 0)
-        {
-            foreach (EnemyScriptableObject enemy in bestiaryArray)
-            {
-                bestiary.Add(enemy, false);
-            }
-
-        }
-
+        InitialiseBestiary();
     }
 
     // Update is called once per frame
@@ -88,6 +80,18 @@ public class GameManager : MonoBehaviour
     {
         isPaused = pauseStatus;
         //For Windowed game, pausing when not focused
+    }
+
+    public void InitialiseBestiary()
+    {
+        if (bestiary.Count == 0)
+        {
+            foreach (EnemyScriptableObject enemy in bestiaryArray)
+            {
+                bestiary.Add(enemy, false);
+            }
+
+        }
     }
 
     //Method for updating the amount of displayed spell slots

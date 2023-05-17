@@ -19,7 +19,7 @@ MonoBehaviour:
   enemyDescription: A small green beast that attacks with its long tongue. It can
     quickly traverse large distances by jumping with its hind legs. Due to its lazy
     nature it rarely does this.
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: -1520531526, guid: 0861ece7b9507c64f90ee604263d761a, type: 3}
   spellScriptable: {fileID: 11400000, guid: 531e8c02de82b0243b62bd23ad8841fd, type: 2}
   health: 10
   speed: 1

@@ -19,7 +19,7 @@ MonoBehaviour:
   enemyDescription: A small sneaky creature known for its electric fur. It uses this
     to defend itself by shocking any predators on contact. It can also focus this
     electricity to create bolts and attack other beasts.
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: -11851595, guid: d9887e4a3c9dd744b87dbe5d7a267120, type: 3}
   spellScriptable: {fileID: 11400000, guid: 0e02004e9b38a2b48b7644dd3f1d67c4, type: 2}
   health: 7
   speed: 3

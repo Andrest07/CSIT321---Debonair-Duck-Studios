@@ -18,7 +18,7 @@ MonoBehaviour:
   attributeType: 0
   enemyDescription: A long and slow creature. It appears harmless but is known for
     it's many dangerous teeth.
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 1647346667, guid: 86dc8a548fb604c4eb37771eb810d3bb, type: 3}
   spellScriptable: {fileID: 0}
   health: 9
   speed: 1

@@ -18,7 +18,7 @@ MonoBehaviour:
   attributeType: 0
   enemyDescription: An extremely aggresive fungus. It is often avoided due to its
     poisonous aura it exhumes.
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: -572323595, guid: 4978a7fe66b251d4cb321741e9da6455, type: 3}
   spellScriptable: {fileID: 11400000, guid: 47b89b6f3c76e8e4cb550c5577140fd3, type: 2}
   health: 10
   speed: 1

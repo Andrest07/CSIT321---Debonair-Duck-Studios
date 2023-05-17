@@ -18,7 +18,7 @@ MonoBehaviour:
   attributeType: 0
   enemyDescription: A quick and nimble beast known for its many appendages. It prowls
     the underbush looking for harmless beasts to consume.
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: -1073260013, guid: 8ef8fb54ecc46a24ea9a7e22bbea352e, type: 3}
   spellScriptable: {fileID: 0}
   health: 10
   speed: 3

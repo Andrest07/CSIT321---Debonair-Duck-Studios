@@ -108,7 +108,6 @@ public class SaveLoadGame : MonoBehaviour {
         json = ReadFile(path + "/Profile" + gameManager.currentProfile.index + "/save.json");
         JsonUtility.FromJsonOverwrite(json, manager.data);
 
-        Debug.Log(manager.data.playerQuests.Count);
 
         // load dialogue database //
         json = ReadFile(path + "/Profile" + gameManager.currentProfile.index + "/dialogue.json");
@@ -144,11 +143,14 @@ public class SaveLoadGame : MonoBehaviour {
         PlayerManager.instance.data.currentBeast = Resources.Load<GameObject>(curbeast);
 
         // load bestiary
+        // reset bestiary
+        GameManager.instance.bestiary.Clear();
+        GameManager.instance.InitialiseBestiary();
+
         foreach(var b in PlayerManager.instance.data.bestiaryEntries)
         {
             var beast = Resources.Load<EnemyScriptableObject>(b);
             GameManager.instance.bestiary[beast] = true;
-            attune.UpdateDisplayedEntry(beast);
         }
 
         gameManager.loadFromSave = true;
@@ -169,7 +171,6 @@ public class SaveLoadGame : MonoBehaviour {
 
         PlayerManager.instance.canCapture = PlayerManager.instance.canBasic = PlayerManager.instance.canSpellcast = true;
 
-        Debug.Log("loaded");
     }
 
 

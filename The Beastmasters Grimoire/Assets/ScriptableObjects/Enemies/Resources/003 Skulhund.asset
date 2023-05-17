@@ -19,7 +19,7 @@ MonoBehaviour:
   enemyDescription: A nimble and agressive beast known for its unique head. The head
     has no skin or fur and only consists of its exposed skull giving it a terrifying
     presence.
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: -1676744840, guid: 10888565a5138f146a97b75775356e9c, type: 3}
   spellScriptable: {fileID: 0}
   health: 20
   speed: 5
