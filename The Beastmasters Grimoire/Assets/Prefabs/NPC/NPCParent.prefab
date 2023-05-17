@@ -107,6 +107,30 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 354443088977845921, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 354443090176530166, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 354443090661720882, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 354443090661720882, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237384170863828709, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237384170863828709, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7181683532700091797, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
       propertyPath: m_Name
       value: Millim
@@ -153,6 +177,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7181683532700091800, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656306409997881018, guid: f7ec985255cfb454eafbd2b5945fc3fe, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
