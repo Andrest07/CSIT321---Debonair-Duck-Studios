@@ -88,6 +88,8 @@ public class PlayerBasicAttack : MonoBehaviour
 
         if (hit.collider != null)
         {
+            PlayerManager.instance.audioSources[(int)PlayerManager.audioName.SWORDHIT].Play();
+
             // reduce enemy health
             enemyHealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(attackDamage, transform.position);
@@ -98,7 +100,10 @@ public class PlayerBasicAttack : MonoBehaviour
             swordSlash.transform.rotation = rotation * Quaternion.Euler(0, 0, 90);
 
             Instantiate(swordSlash, hit.collider.transform);
-
+        }
+        else
+        {
+            PlayerManager.instance.audioSources[(int)PlayerManager.audioName.SWORDSWING].Play();
         }
 
         StartCoroutine(WaitAttack());

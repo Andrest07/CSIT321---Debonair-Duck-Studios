@@ -44,6 +44,8 @@ public class BeamEffect : MonoBehaviour
 
     private float destroySpeed = 10.0f;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         enemyController = GetComponentInParent<EnemyController>();
@@ -53,6 +55,8 @@ public class BeamEffect : MonoBehaviour
 
         lineAim = laserAim.GetComponent<LineRenderer>();
         lineFire = laserFire.GetComponent<LineRenderer> ();
+
+        audioSource = GetComponent<AudioSource> ();
     }
 
     private void FixedUpdate()
@@ -153,6 +157,8 @@ public class BeamEffect : MonoBehaviour
         laserFire.SetActive(true);
         aimParticles.SetActive(false);
         particles.SetActive(true);
+
+        audioSource.Play();
 
         elapsed = 0;
         while (elapsed < firingTime)

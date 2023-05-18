@@ -3573,15 +3573,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157924489, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1829740826, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1829740826, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_Name
@@ -3589,7 +3589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2428295993132195205, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_RootOrder
@@ -11654,15 +11654,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157924489, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1829740826, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1829740826, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_Name
@@ -11670,7 +11670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2428295993132195205, guid: e90fa542624328e4d9d0f145cf64e42e, type: 3}
       propertyPath: m_RootOrder
@@ -54501,6 +54501,10 @@ PrefabInstance:
     - target: {fileID: 7342188552462242031, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945202796275305145, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}

@@ -45,6 +45,7 @@ public class BeamForPlayer : MonoBehaviour
     private bool hitsOnce = false;
 
     private float destroySpeed = 10.0f;
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -54,6 +55,8 @@ public class BeamForPlayer : MonoBehaviour
 
         isFiring = isAiming = true;
         laserAim.SetActive(true);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SetBeamStats(float aimTime, float fireTime, float damage)
@@ -137,6 +140,8 @@ public class BeamForPlayer : MonoBehaviour
         isAiming = false;
 
         // turn on laser
+        audioSource.Play();
+
         laserFire.SetActive(true);
         particles.SetActive(true);
 

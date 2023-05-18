@@ -89,6 +89,10 @@ public class PlayerManager : MonoBehaviour
     public bool canBasic = false;
     public bool canSpellcast = false;
 
+    // Audio
+    [HideInInspector] public AudioSource[] audioSources;
+    [HideInInspector] public enum audioName { WALK, SWORDSWING, SWORDHIT, CAPTUREPROJ };
+
 
     // Serializable struct for data that will be saved/loaded //
     [System.Serializable]
@@ -148,6 +152,8 @@ public class PlayerManager : MonoBehaviour
             data.availableBeastsCooldowns.RemoveAt(data.availableBeasts.Count - 1);
         }
         //data.currentBeast = data.availableBeasts[0].SpellObject;
+
+        audioSources = GetComponentsInChildren<AudioSource>();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -546,6 +552,7 @@ public class PlayerManager : MonoBehaviour
         while (context.performed && playerMode == PlayerMode.Capture)
         {
             mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+            audioSources[(int)audioName.CAPTUREPROJ].Play();
             Instantiate(captureProjectile,
                         transform.position + mousePos.normalized,
                         Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));

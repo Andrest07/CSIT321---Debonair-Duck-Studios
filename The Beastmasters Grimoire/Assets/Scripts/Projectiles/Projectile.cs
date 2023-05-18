@@ -37,9 +37,13 @@ public class Projectile : MonoBehaviour
 
     private bool isLookingAtObject = true;
 
+    private AudioSource[] audioSources;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSources = GetComponents<AudioSource>();
+
         // If enemy is using the script
         if (enemyS != null){
             playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
@@ -140,6 +144,7 @@ public class Projectile : MonoBehaviour
     // If the projectile's hitbox collides with something else
     void OnTriggerEnter2D(Collider2D col)
     {
+
         // If the projectile hits the player and enemy is using the script
         if (col.gameObject.tag.Equals("Player") && enemyS != null){
             playerH.TakeDamage(enemyS.ProjDamage);
@@ -160,20 +165,27 @@ public class Projectile : MonoBehaviour
                     playerStatus.slow = true;
                     break;
             }
-            Destroy (gameObject);
+
+            DestroyProjectile();
+            //Destroy (gameObject);
 
         // If the projectile hits the enemy and player is using the script
         } else if (col.gameObject.tag.Equals("Enemy") && playerS != null){
             EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
             enemyH.TakeDamage(playerS.ProjDamage, transform.position);
 
-            if(playerS.SpellType != SpellTypeEnum.AOE)
-                Destroy (gameObject);
+
+            if (playerS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+            //                Destroy (gameObject);
         }
         // projectile destroys when hitting enviro objects
-        else if(!col.gameObject.tag.Equals("Enemy") && playerS.SpellType != SpellTypeEnum.AOE)
+        else if(!col.gameObject.tag.Equals("Enemy"))
         {
-            Destroy(gameObject);
+
+            if (playerS!=null && playerS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+//            Destroy(gameObject);
         }
     }
 
@@ -186,7 +198,13 @@ public class Projectile : MonoBehaviour
         System.Array.Sort(distances, objects);
         return objects[0];
     }
+    
 
+    private void DestroyProjectile()
+    {
+        this.transform.GetChild(0).gameObject.SetActive(false);
+        Destroy(gameObject, 2.0f);
+    }
 
 
 
