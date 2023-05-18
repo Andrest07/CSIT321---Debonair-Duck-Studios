@@ -91,7 +91,7 @@ public class PlayerManager : MonoBehaviour
 
     // Audio
     [HideInInspector] public AudioSource[] audioSources;
-    [HideInInspector] public enum audioName { WALK, SWORDSWING, SWORDHIT, CAPTUREPROJ };
+    [HideInInspector] public enum audioName { WALK, SWORDSWING, SWORDHIT, CAPTUREPROJ, DASH };
 
 
     // Serializable struct for data that will be saved/loaded //
@@ -536,12 +536,14 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // context: space
     public void Mobility(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
 
         if (context.performed && playerDash.canDash && movementVector != Vector2.zero)
         {
+            audioSources[(int)audioName.DASH].Play();
             playerDash.Dash(movementVector);
             canMove = false;
         }

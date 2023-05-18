@@ -25,6 +25,29 @@ public class SettingsMenu : MonoBehaviour
     public GameObject controlsTab;
     public GameObject extrasTab;
 
+
+    // To Control Volume [Volume Tab]
+    [Header("Audio Settings")]
+    public AudioMixer theMixer;
+    public TMP_Text mastLabel, musicLabel, sfxLabel;
+    public Slider mastSlider, musicSlider, sfxSlider;
+    public Toggle myToggle;
+
+    // extras
+    [Header("Extra Settings")]
+    public Slider extrasHUD;
+    public TMP_Dropdown extrasDifficultyDropdown;
+    private int extrasDifficulty;
+    public CanvasGroup HUD;
+
+
+    private void Start()
+    {
+        saveAudio();
+        HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+    }
+
+
     // Tab System 
     //Changing the settings menu screen when buttons are clicked.
     public void whenAudioButtonClicked()
@@ -57,24 +80,12 @@ public class SettingsMenu : MonoBehaviour
         videoTab.SetActive(false);
     }
 
-    // To Control Volume [Volume Tab]
-    [Header("Audio Settings")]
-    public AudioMixer theMixer;
-    public TMP_Text mastLabel, musicLabel, sfxLabel;
-    public Slider mastSlider, musicSlider, sfxSlider;
-    public Toggle myToggle;
 
-
-    // extras
-    [Header("Extra Settings")]
-    public Slider extrasHUD;
-    public TMP_Dropdown extrasDifficultyDropdown;
-    private int extrasDifficulty;
-    private CanvasGroup HUD;
+    // volume
 
      public void setMasterVolume()
     {
-        mastLabel.text = Mathf.RoundToInt (mastSlider.value + 80 ).ToString();
+        mastLabel.text = Mathf.RoundToInt(10 * mastSlider.value ).ToString();
         theMixer.SetFloat("MasterVol", mastSlider.value);
         float mastValue = mastSlider.value;
         PlayerPrefs.SetFloat("MasterVol", mastSlider.value);
@@ -83,7 +94,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void setMusicVolume()
     {
-        musicLabel.text = Mathf.RoundToInt(musicSlider.value + 80).ToString();
+        musicLabel.text = Mathf.RoundToInt(musicSlider.value * 10).ToString();
         theMixer.SetFloat("MusicVol", musicSlider.value);
         float musicValue = musicSlider.value;
         PlayerPrefs.SetFloat("MusicVol", musicSlider.value);
@@ -92,12 +103,13 @@ public class SettingsMenu : MonoBehaviour
 
     public void setSFXVolume()
     {
-        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString();
+        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value * 10).ToString();
         theMixer.SetFloat("SFXVol", sfxSlider.value);
         float sfxValue = sfxSlider.value;
         PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
         saveAudio();
     }
+
     public void saveAudio(){
         float mastValue = PlayerPrefs.GetFloat("MasterVol");
         mastSlider.value = mastValue;
@@ -113,12 +125,13 @@ public class SettingsMenu : MonoBehaviour
 
     }
  
- 
-  
-    private void Start()
+
+    
+    // extras
+    public void ChangeHUD()
     {
-        saveAudio();
-        HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+        if (HUD == null) HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+        HUD.alpha = extrasHUD.value;
     }
 
     public void SaveExtras()
@@ -129,6 +142,17 @@ public class SettingsMenu : MonoBehaviour
 
     public void LoadSettings()
     {
+        // audio
+        if (PlayerPrefs.HasKey("MasterVol"))
+            mastSlider.value = PlayerPrefs.GetFloat("MasterVol");
+
+        if (PlayerPrefs.HasKey("MusicVol"))
+            mastSlider.value = PlayerPrefs.GetFloat("MusicVol");
+
+        if (PlayerPrefs.HasKey("SFXVol"))
+            mastSlider.value = PlayerPrefs.GetFloat("SFXVol");
+
+
 
         // extras
         PlayerPrefs.GetFloat("HUDVisibility", extrasHUD.value);
