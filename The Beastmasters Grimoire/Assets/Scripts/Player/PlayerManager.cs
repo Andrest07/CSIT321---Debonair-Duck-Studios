@@ -237,6 +237,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // context: esc
     public void PauseMenu(InputAction.CallbackContext context)
     {
         if (context.performed && !inDialogue && !inGameMenu)

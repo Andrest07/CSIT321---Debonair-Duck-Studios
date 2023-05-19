@@ -14,7 +14,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    public GameObject PauseMenu;
+    public GameObject pauseMenu;
+    public GameObject settingsMenu;
     public GameObject hud;
     private PlayerManager player;
 
@@ -26,8 +27,14 @@ public class PauseMenuScript : MonoBehaviour
     public void PauseGame()
     {
         GameManager.instance.Pause();
-        PauseMenu.SetActive(GameManager.instance.isPaused);
+        pauseMenu.SetActive(GameManager.instance.isPaused);
         hud.SetActive(!GameManager.instance.isPaused);
+
+        if(hud.activeSelf)
+            settingsMenu.SetActive(false);
+
+        // mute
+        AudioListener.pause = !AudioListener.pause;
 
         player.inPauseMenu = !player.inPauseMenu;
     }

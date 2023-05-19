@@ -45,6 +45,10 @@ public class SettingsMenu : MonoBehaviour
     {
         saveAudio();
         HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+
+        mastLabel.text = Mathf.RoundToInt(mastSlider.value * 100).ToString();
+        musicLabel.text = Mathf.RoundToInt(musicSlider.value * 100).ToString();
+        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value * 100).ToString();
     }
 
 
@@ -85,27 +89,24 @@ public class SettingsMenu : MonoBehaviour
 
      public void setMasterVolume()
     {
-        mastLabel.text = Mathf.RoundToInt(10 * mastSlider.value ).ToString();
-        theMixer.SetFloat("MasterVol", mastSlider.value);
-        float mastValue = mastSlider.value;
+        mastLabel.text = Mathf.RoundToInt(mastSlider.value * 100).ToString();
+        theMixer.SetFloat("MasterVol", Mathf.Log10(mastSlider.value) * 20);
         PlayerPrefs.SetFloat("MasterVol", mastSlider.value);
         saveAudio();
     }
 
     public void setMusicVolume()
     {
-        musicLabel.text = Mathf.RoundToInt(musicSlider.value * 10).ToString();
-        theMixer.SetFloat("MusicVol", musicSlider.value);
-        float musicValue = musicSlider.value;
+        musicLabel.text = Mathf.RoundToInt(musicSlider.value * 100).ToString();
+        theMixer.SetFloat("MusicVol", Mathf.Log10(musicSlider.value) * 20);
         PlayerPrefs.SetFloat("MusicVol", musicSlider.value);
         saveAudio();
     }
 
     public void setSFXVolume()
     {
-        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value * 10).ToString();
-        theMixer.SetFloat("SFXVol", sfxSlider.value);
-        float sfxValue = sfxSlider.value;
+        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value * 100).ToString();
+        theMixer.SetFloat("SFXVol", Mathf.Log10(sfxSlider.value) * 20);
         PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
         saveAudio();
     }
@@ -122,7 +123,24 @@ public class SettingsMenu : MonoBehaviour
         float sfxValue = PlayerPrefs.GetFloat("SFXVol");
         sfxSlider.value = sfxValue;
         AudioListener.volume = sfxValue;
+    }
 
+    public void ToggleMute(Toggle toggle)
+    {
+        if (toggle.isOn)
+        {
+            mastSlider.interactable = musicSlider.interactable = sfxSlider.interactable = false;
+            theMixer.SetFloat("MasterVol", -80.0f);
+            theMixer.SetFloat("MusicVol", -80.0f);
+            theMixer.SetFloat("SFXVol", -80.0f);
+        }
+        else
+        {
+            mastSlider.interactable = musicSlider.interactable = sfxSlider.interactable = true;
+            theMixer.SetFloat("MasterVol", Mathf.Log10(sfxSlider.value) * 20);
+            theMixer.SetFloat("MusicVol", Mathf.Log10(sfxSlider.value) * 20);
+            theMixer.SetFloat("SFXVol", Mathf.Log10(sfxSlider.value) * 20);
+        }
     }
  
 
