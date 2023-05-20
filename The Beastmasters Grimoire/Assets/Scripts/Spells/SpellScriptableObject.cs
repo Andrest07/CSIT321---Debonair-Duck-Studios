@@ -17,6 +17,7 @@ public class SpellScriptableObject : ScriptableObject
     [Header("Spell Info")]
     [SerializeField] private string spellName;
     [SerializeField] private bool isProj = false;
+    [SerializeField] private bool isPassive = false;
     [SerializeField] private SpellTypeEnum spellType;
     [SerializeField] private AttributeTypeEnum attributeType;
     [SerializeField] private float spellCooldown = 2f;
@@ -25,7 +26,7 @@ public class SpellScriptableObject : ScriptableObject
 
     //[Header("Projectile Stats")]
 
-    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.Or, nameof(isProj), nameof(isPassive))]
     [SerializeField] private GameObject spellProjectile;
     [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj))]
     [SerializeField] private float projDamage = 1f;
@@ -58,6 +59,15 @@ public class SpellScriptableObject : ScriptableObject
     [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projAOE))]
     [SerializeField] private float aoeActual = 1f;
 
+
+    //[Header("Passive Stats")]
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isPassive))]
+    [SerializeField] private PassiveTypeEnum passiveType = PassiveTypeEnum.Attack;
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isPassive))]
+    [SerializeField] private float passiveBoostValue = 1f;
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isPassive))]
+    [SerializeField] private float passiveLifetime = 1f;
+
     //Spell Info
     public string SpellName { get => spellName; }
     public SpellTypeEnum SpellType {get => spellType; }
@@ -87,4 +97,10 @@ public class SpellScriptableObject : ScriptableObject
     public bool ProjAOE { get => projAOE; }
     public float AOETelegraph { get => aoeTelegraph; }
     public float AOEActual { get => aoeActual; }
+
+    // Passive Stats
+    public bool IsPassive { get => isPassive; }
+    public PassiveTypeEnum PassiveType { get => passiveType; }
+    public float PassiveBoostValue { get => passiveBoostValue; }
+    public float PassiveLifetime { get => passiveLifetime; }
 }

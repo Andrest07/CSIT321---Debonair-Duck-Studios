@@ -301,6 +301,7 @@ public class PlayerManager : MonoBehaviour
                     }
                     else if (data.availableBeastsCooldowns[data.currentBeastIndex] <= 0)
                     {
+                        // for beam spell
                         if (!usingBeamSpell && data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellType == SpellTypeEnum.Beam)
                         {
                             GameObject beamObject = Instantiate(data.currentBeast);
@@ -323,6 +324,18 @@ public class PlayerManager : MonoBehaviour
                             spellCastPause = SpellCastPause(2.0f);
                             StartCoroutine(spellCastPause);
                         }
+                        // for passive spell
+                        else if(data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellType == SpellTypeEnum.Passive)
+                        {
+                            GameObject tempSpell = Instantiate(data.currentBeast, transform);
+                            tempSpell.GetComponent<PassiveSpell>().SetValues(data.availableBeasts[data.currentBeastIndex].SpellScriptable);
+
+                            //Same as exiting spellcasting
+                            playerMode = PlayerMode.Basic;
+                            canMove = true;
+                            StartCoroutine(AbilityCooldown(data.currentBeastIndex));
+                        }
+                        // other spells
                         else
                         {
                             mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
@@ -637,4 +650,9 @@ public class PlayerManager : MonoBehaviour
         return changedNum;
     }
 
+
+    public void ModifyPlayerAttack(float boostValue)
+    {
+        playerBasicAttack.BoostAttack(boostValue);
+    }
 }

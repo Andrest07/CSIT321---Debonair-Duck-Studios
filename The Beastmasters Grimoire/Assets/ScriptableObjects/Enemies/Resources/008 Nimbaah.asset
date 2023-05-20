@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Nimbaah
   isProj: 0
-  spellType: 0
+  spellType: 4
   attributeType: 0
   enemyDescription: A quick and nimble beast known for its many appendages. It prowls
     the underbush looking for harmless beasts to consume.
   enemyImage: {fileID: -1073260013, guid: 8ef8fb54ecc46a24ea9a7e22bbea352e, type: 3}
-  spellScriptable: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: ebc6b80049238844f853b4b4ec16758c, type: 2}
   health: 10
   speed: 3
   meleeDamage: 1

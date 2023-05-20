@@ -35,8 +35,17 @@ public class PlayerStamina : MonoBehaviour
 
     private PlayerManager playerManager;
 
+    private float modifiedByBoost = 0.0f;
+
     void Start()
     {
+        // if player saved while boosting health
+        if (modifiedByBoost > 0.0f)
+        {
+            totalStamina -= modifiedByBoost;
+            modifiedByBoost = 0.0f;
+        }
+
         //Initializing values
         currentStamina = totalStamina;
         currentRegenDelay = totalRegenDelay;
@@ -109,5 +118,14 @@ public class PlayerStamina : MonoBehaviour
     {
         sprintSpeed = PlayerManager.instance.playerSpeed * sprintRate;
         walkSpeed = PlayerManager.instance.playerSpeed;
+    }
+
+    // for passive boost spells
+    public void BoostStamina(float value)
+    {
+        totalStamina += value;
+        currentStamina += value;
+
+        modifiedByBoost += value;
     }
 }

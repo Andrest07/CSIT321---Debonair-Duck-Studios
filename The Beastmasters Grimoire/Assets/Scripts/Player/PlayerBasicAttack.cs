@@ -122,6 +122,11 @@ public class PlayerBasicAttack : MonoBehaviour
         PlayerManager.instance.canAttack = true;
     }
 
+    public void BoostAttack(float val)
+    {
+        attackDamage += val;
+    }
+
     // Gizmos for debugging
 #if UNITY_EDITOR
     private void OnDrawGizmos()

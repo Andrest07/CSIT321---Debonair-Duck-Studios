@@ -36,8 +36,17 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject DeathScreen;
 
+    private float modifiedByBoost = 0.0f;
+
     void Start()
     {
+        // if player saved while boosting health
+        if(modifiedByBoost > 0.0f)
+        {
+            totalHealth -= modifiedByBoost;
+            modifiedByBoost = 0.0f;
+        }
+
         currentHealth = totalHealth; // Initial Health
         healthRegenDelayCurrent = 0; // Initial Regen Delay
     }
@@ -89,6 +98,14 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = totalHealth;
             healthRegening = false;
         }
+    }
+
+    public void BoostHealth(float value)
+    {
+        totalHealth += value;
+        currentHealth += value;
+
+        modifiedByBoost += value;
     }
 
     void Death()

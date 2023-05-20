@@ -3573,15 +3573,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157924489, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1829740826, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1829740826, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_Name
@@ -3589,7 +3589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1459143488756774989, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2428295993132195205, guid: 3f95e2055bd2c4e518a7020502922a4c, type: 3}
       propertyPath: m_RootOrder
@@ -11998,7 +11998,7 @@ Transform:
   - {fileID: 1897898578}
   - {fileID: 700233339}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &379547767
 PrefabInstance:
@@ -54446,6 +54446,18 @@ PrefabInstance:
       propertyPath: canSpellcast
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: data.currentBeast
+      value: 
+      objectReference: {fileID: 6977254816827940189, guid: 65ccb795473b77a4993406507b3e06d2, type: 3}
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: data.availableBeasts.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a79d391599224e45a40aadc363b6f40, type: 2}
+    - target: {fileID: 1695965317, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
+      propertyPath: data.availableBeasts.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 798c1e5a267d141b4b13f376c72b75b3, type: 2}
     - target: {fileID: 1338222291938608896, guid: 4ff06b6fdd73475489969cacfeace709, type: 3}
       propertyPath: m_Name
       value: PlayerObject
@@ -76172,7 +76184,7 @@ Transform:
   - {fileID: 1651385606}
   - {fileID: 789969032}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!66 &1413541932
 CompositeCollider2D:
@@ -98413,7 +98425,7 @@ PrefabInstance:
       objectReference: {fileID: 1512454574}
     - target: {fileID: 5521815846279503783, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5521815846279503783, guid: cd7a1e69dcf52644aa557a1aa66d0b71, type: 3}
       propertyPath: m_LocalPosition.x

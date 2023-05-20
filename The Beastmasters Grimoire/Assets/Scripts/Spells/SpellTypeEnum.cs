@@ -9,5 +9,6 @@ public enum SpellTypeEnum
     Bullet,
     Beam,
     AOE,
-    Dash
+    Dash,
+    Passive
 }

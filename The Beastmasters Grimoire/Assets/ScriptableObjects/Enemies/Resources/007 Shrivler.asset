@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Shrivler
   isProj: 0
-  spellType: 0
+  spellType: 4
   attributeType: 0
   enemyDescription: A long and slow creature. It appears harmless but is known for
     it's many dangerous teeth.
   enemyImage: {fileID: 1647346667, guid: 86dc8a548fb604c4eb37771eb810d3bb, type: 3}
-  spellScriptable: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: 5aaaeb3d0391f8446b639ce0d9fd6462, type: 2}
   health: 9
   speed: 1
   meleeDamage: 4
