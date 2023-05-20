@@ -53,6 +53,8 @@ public class EnemyController : MonoBehaviour
     private bool canTakeDamage = true;
     private Rigidbody2D rigidBody2D;
 
+    public bool canMoveWhileAttacking = true;
+
     private void Awake()
     {
         origin = transform.position;
@@ -92,7 +94,12 @@ public class EnemyController : MonoBehaviour
         {
             FireBeam();
         }
-        if (data.IsProj)
+        if(data.IsProj && data.SpellType == SpellTypeEnum.AOE)
+        {
+            GameObject tmp = Instantiate(data.RangedProjectile, transform);
+            tmp.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
+        }
+        else if (data.IsProj)
         {
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
             {
@@ -201,6 +208,11 @@ public class EnemyController : MonoBehaviour
     {
         captureBar.GetComponent<Slider>().value = capture * 100;
     }
+
+
+    // for AOE who don't move while attacking
+    public void StopMovement() { canMoveWhileAttacking = false; }
+    public void StartMovement() { canMoveWhileAttacking = true; }
 
 
     // Gizmos for debugging

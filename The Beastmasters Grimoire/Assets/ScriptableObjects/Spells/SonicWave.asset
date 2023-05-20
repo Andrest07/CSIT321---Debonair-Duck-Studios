@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c2d226e960b3341bc5e5b6e55074ae, type: 3}
+  m_Name: SonicWave
+  m_EditorClassIdentifier: 
+  spellName: Sonic Wave
+  isProj: 1
+  isPassive: 0
+  spellType: 2
+  attributeType: 5
+  spellCooldown: 7
+  spellDescription: A wave of sound that injures any creatures within range.
+  spellImage: {fileID: 21300000, guid: e2ecf8e6b0519f34285ea1926338eb58, type: 3}
+  spellProjectile: {fileID: 6977254816827940189, guid: 7999eb70c97a51b4d846e182b0eb3dec, type: 3}
+  projDamage: 3
+  projSpeed: 1
+  projLifetime: 4.5
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 1
+  aoeTelegraph: 1
+  aoeActual: 1
+  passiveType: 0
+  passiveBoostValue: 1
+  passiveLifetime: 1

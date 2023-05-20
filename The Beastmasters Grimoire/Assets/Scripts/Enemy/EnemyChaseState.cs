@@ -43,7 +43,8 @@ public class EnemyChaseState : EnemyStateMachine
     // Follow player
     public void Chase()
     {
-        controller.agent.destination = PlayerManager.instance.transform.position;
+        if(controller.canMoveWhileAttacking)
+            controller.agent.destination = PlayerManager.instance.transform.position;
     }
 
 }

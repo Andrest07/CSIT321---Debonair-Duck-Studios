@@ -13,32 +13,32 @@ MonoBehaviour:
   m_Name: 006 Screep
   m_EditorClassIdentifier: 
   enemyName: Screep
-  isProj: 0
-  spellType: 0
+  isProj: 1
+  spellType: 2
   attributeType: 5
   enemyDescription: A large black winged creature. It is often sad and creates a
     loud crying sound. This cry however produces sonic waves that harm any creatures
     that hear its wails.
-  enemyImage: {fileID: 21300000, guid: 76e151aeded6b43e9a225ecd1fd39816, type: 3}
-  spellScriptable: {fileID: 0}
-  health: 3
+  enemyImage: {fileID: -1916468022, guid: c20e21b5fc8ea984db065ac0aaa8c49c, type: 3}
+  spellScriptable: {fileID: 11400000, guid: ad938212d01fcd447a2b499a1c11c184, type: 2}
+  health: 10
   speed: 3
   meleeDamage: 1
   wanderRadius: 3
   captureTotal: 5
-  rangedProjectile: {fileID: 6977254816827940189, guid: 377021768c2584c45b4a470cee96bd27, type: 3}
-  projDamage: 1
+  rangedProjectile: {fileID: 6977254816827940189, guid: 7999eb70c97a51b4d846e182b0eb3dec, type: 3}
+  projDamage: 3
   projSpeed: 3
-  projLifetime: 3
+  projLifetime: 4.5
   projHoming: 0
   projRotation: 1
   projFocusDistance: 1
   projBeam: 0
   beamTelegraph: 1
   beamActual: 1
-  projAOE: 0
+  projAOE: 1
   aoeTelegraph: 1
   aoeActual: 1
-  visibilityRange: 5
-  attackDistance: 4
-  attackCooldown: 1
+  visibilityRange: 3.5
+  attackDistance: 1.6
+  attackCooldown: 7

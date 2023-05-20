@@ -24,9 +24,13 @@ public class EnemyAttackState : EnemyStateMachine
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // On update track the player to check they are still within range, face player if they moved
-        TrackPlayer();
-        UpdateAnimatorProperties(animator);
-        FacePlayer();
+
+        if (controller.canMoveWhileAttacking)
+        {
+            TrackPlayer();
+            UpdateAnimatorProperties(animator);
+            FacePlayer();
+        }
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

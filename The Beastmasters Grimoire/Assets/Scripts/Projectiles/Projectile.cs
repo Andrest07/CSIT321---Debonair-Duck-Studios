@@ -37,12 +37,11 @@ public class Projectile : MonoBehaviour
 
     private bool isLookingAtObject = true;
 
-    private AudioSource[] audioSources;
+    private bool aoeDamaged = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSources = GetComponents<AudioSource>();
 
         // If enemy is using the script
         if (enemyS != null){
@@ -62,6 +61,7 @@ public class Projectile : MonoBehaviour
                 beamEffect = GetComponent<BeamEffect>();
                 beamEffect.target = PlayerManager.instance.gameObject;
             }
+
             Destroy(gameObject, enemyS.ProjLifetime);
 
         // If player is using the script
@@ -147,8 +147,19 @@ public class Projectile : MonoBehaviour
 
         // If the projectile hits the player and enemy is using the script
         if (col.gameObject.tag.Equals("Player") && enemyS != null){
-            playerH.TakeDamage(enemyS.ProjDamage);
-            switch(enemyS.AttributeType) {
+
+            if(enemyS.SpellType == SpellTypeEnum.AOE)
+            {
+                if (!aoeDamaged)
+                {
+                    aoeDamaged = true;
+                    playerH.TakeDamage(enemyS.ProjDamage);
+                }
+            }
+            else
+                playerH.TakeDamage(enemyS.ProjDamage);
+
+            switch (enemyS.AttributeType) {
                 case AttributeTypeEnum.Fire:
                     playerStatus.currBurnMeter += 4f;
                     break;
@@ -162,17 +173,30 @@ public class Projectile : MonoBehaviour
                     playerStatus.currBurnMeter += 4f;
                     break;
                 case AttributeTypeEnum.slowBeam:
-                    playerStatus.slow = true;
+                    //playerStatus.slow = true;
                     break;
             }
 
-            DestroyProjectile();
+            if(enemyS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
             //Destroy (gameObject);
 
         // If the projectile hits the enemy and player is using the script
         } else if (col.gameObject.tag.Equals("Enemy") && playerS != null){
-            EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
-            enemyH.TakeDamage(playerS.ProjDamage, transform.position);
+            if (playerS.SpellType == SpellTypeEnum.AOE)
+            {
+                if (!aoeDamaged)
+                {
+                    aoeDamaged = true; 
+                    EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
+                    enemyH.TakeDamage(playerS.ProjDamage, transform.position);
+                }
+            }
+            else
+            {
+                EnemyHealth enemyH = col.gameObject.GetComponent<EnemyHealth>();
+                enemyH.TakeDamage(playerS.ProjDamage, transform.position);
+            }
 
 
             if (playerS.SpellType != SpellTypeEnum.AOE)
@@ -186,6 +210,31 @@ public class Projectile : MonoBehaviour
             if (playerS!=null && playerS.SpellType != SpellTypeEnum.AOE)
                 DestroyProjectile();
 //            Destroy(gameObject);
+        }
+    }
+
+
+    // for AOE
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // for enemy
+        if (collision.gameObject.tag.Equals("Player") && enemyS != null && enemyS.SpellType == SpellTypeEnum.AOE)
+        {
+            if (!aoeDamaged)
+            {
+                aoeDamaged = true;
+                playerH.TakeDamage(enemyS.ProjDamage);
+            }
+        }
+        // for player
+        else if (collision.gameObject.tag.Equals("Enemy") && playerS != null && playerS.SpellType == SpellTypeEnum.AOE)
+        {
+            if (!aoeDamaged)
+            {
+                aoeDamaged = true;
+                EnemyHealth enemyH = collision.gameObject.GetComponent<EnemyHealth>();
+                enemyH.TakeDamage(playerS.ProjDamage, transform.position);
+            }
         }
     }
 
