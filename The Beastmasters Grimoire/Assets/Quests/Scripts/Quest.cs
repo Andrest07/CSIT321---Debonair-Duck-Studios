@@ -217,7 +217,7 @@ public class QuestEditor : Editor
     {
         var newQuest = CreateInstance<Quest>();
 
-        objectPath = Application.dataPath + "/Quests/QuestObjects";
+        objectPath = Application.dataPath + "/Quests/Resources";
         newQuest.info.questId = Directory.GetFiles(objectPath, "*", SearchOption.TopDirectoryOnly).Length /2;
             
         ProjectWindowUtil.CreateAsset(newQuest, "quest"+newQuest.info.questId+".asset");

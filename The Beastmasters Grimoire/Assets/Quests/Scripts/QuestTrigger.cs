@@ -42,7 +42,20 @@ public class QuestTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        switch(triggerType){
+        if (!questGiven)
+            QuestSwitchboard(collision);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!questGiven)
+            QuestSwitchboard(collision);
+    }
+
+    private void QuestSwitchboard(Collider2D collision)
+    {
+        switch (triggerType)
+        {
             case Type.New:
                 if (collision.tag == "Player" && !questGiven)
                 {

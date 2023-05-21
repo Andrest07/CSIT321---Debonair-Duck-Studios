@@ -149,8 +149,14 @@ public class QuestMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("quest entry with id " + eventInfo.id + " not found.");
+            Debug.LogError("quest entry with id " + eventInfo.id + " not found.");
         }
+    }
+
+
+    private void OnDisable()
+    {
+        questDescriptionText.text = "Select a quest to view its details.";
     }
 
 

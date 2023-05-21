@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8417545478990801028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Screep
+  goal: 1
+  stageDescription: Capture Screep
+--- !u!114 &-7055540462347468555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Shranger
+  goal: 1
+  stageDescription: Capture Shranger
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d19ed10878d6b4e8c46b0aad58f2a4, type: 3}
+  m_Name: SideQuest01
+  m_EditorClassIdentifier: 
+  info:
+    questId: 1
+    questName: Capture beasts in the Mystwood
+    questDescription: Capture one of each beast that roams Mystwood forest.
+    questGroup: 1
+  reward:
+    exp: 5
+  currentStage: 0
+  stages:
+  - {fileID: 3187661973143327485}
+  - {fileID: 2108375979943706675}
+  - {fileID: 8043609684024676009}
+  - {fileID: 1998020419907712843}
+  - {fileID: -8417545478990801028}
+  - {fileID: 1848217954254787153}
+  - {fileID: 4617951466028522974}
+  - {fileID: -7055540462347468555}
+  hiddenStages: []
+--- !u!114 &1848217954254787153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Shrivler
+  goal: 1
+  stageDescription: Capture Shrivler
+--- !u!114 &1998020419907712843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Joltrot
+  goal: 1
+  stageDescription: Capture Joltrot
+--- !u!114 &2108375979943706675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Skullhund
+  goal: 1
+  stageDescription: Capture Skullhund
+--- !u!114 &3187661973143327485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Loppy
+  goal: 1
+  stageDescription: Capture Loppy
+--- !u!114 &4617951466028522974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Nimbaah
+  goal: 1
+  stageDescription: Capture Nimbaah
+--- !u!114 &8043609684024676009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81cbb58aa4e6c74c969052417ad9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 0
+  active: 1
+  stageCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  monster: Tromp
+  goal: 1
+  stageDescription: Capture Tromp
