@@ -1200,7 +1200,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 243.72726
-        y: 34.105583
+        y: 33
         width: 160
         height: 30
     - id: 1
@@ -1420,7 +1420,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 243
-        y: 314.1056
+        y: 313
         width: 160
         height: 30
     - id: 5
@@ -2183,13 +2183,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-<<<<<<< Updated upstream
     canvasScrollPosition: {x: 0, y: 6.0926514}
     canvasZoom: 0.9699999
-=======
-    canvasScrollPosition: {x: 1639.4863, y: 989.6789}
-    canvasZoom: 0.19149981
->>>>>>> Stashed changes
   - id: 4
     fields:
     - title: Title
@@ -3823,7 +3818,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 7
@@ -4218,11 +4213,7 @@ MonoBehaviour:
   - id: 9
     fields:
     - title: Title
-<<<<<<< Updated upstream
       value: Example Conversation
-=======
-      value: New Conversation 9
->>>>>>> Stashed changes
       type: 0
       typeString: 
     - title: Description
@@ -4230,11 +4221,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Actor
-<<<<<<< Updated upstream
       value: 1
-=======
-      value: 6
->>>>>>> Stashed changes
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
@@ -4320,22 +4307,14 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-<<<<<<< Updated upstream
         x: 30
-=======
-        x: 139
->>>>>>> Stashed changes
         y: 20
         width: 160
         height: 30
     - id: 1
       fields:
       - title: Title
-<<<<<<< Updated upstream
         value: 
-=======
-        value: Monstes Found
->>>>>>> Stashed changes
         type: 0
         typeString: 
       - title: Description
@@ -4343,19 +4322,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-<<<<<<< Updated upstream
         value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
         value: 3
-=======
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 6
->>>>>>> Stashed changes
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -4363,11 +4334,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-<<<<<<< Updated upstream
         value: There are enemies ahead. Get ready to fight.
-=======
-        value: There are monsters ahead. Get ready to fight.
->>>>>>> Stashed changes
         type: 0
         typeString: 
       - title: Sequence
@@ -4383,23 +4350,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-<<<<<<< Updated upstream
       userScript: Variable["millimWarning"] = true
-=======
-      userScript: 
->>>>>>> Stashed changes
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-<<<<<<< Updated upstream
         x: 29
         y: 112
-=======
-        x: 146
-        y: 100
->>>>>>> Stashed changes
         width: 160
         height: 30
     entryGroups: []
