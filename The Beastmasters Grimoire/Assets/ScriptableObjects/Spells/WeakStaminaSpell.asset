@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3c2d226e960b3341bc5e5b6e55074ae, type: 3}
-  m_Name: Magic Missile
+  m_Name: WeakStaminaSpell
   m_EditorClassIdentifier: 
-  spellName: Magic Missile
-  isProj: 1
-  isPassive: 0
-  spellType: 0
+  spellName: Weak Stamina Boost
+  isProj: 0
+  isPassive: 1
+  spellType: 4
   attributeType: 0
-  spellCooldown: 2
-  spellDescription: 
-  spellImage: {fileID: 21300000, guid: a43409425ba94b54eb304efdf4dacc82, type: 3}
-  spellProjectile: {fileID: 76919016255997969, guid: 3c369ad209a0af34583168054e06e124, type: 3}
+  spellCooldown: 120
+  spellDescription: Boosts your stamina by a small amount for one minute.
+  spellImage: {fileID: 21300000, guid: 4028a185ad3e62f4291293443f3c128a, type: 3}
+  spellProjectile: {fileID: 6977254816827940189, guid: 1e93ac6f8fa4e67498f7388499b04223, type: 3}
   projDamage: 1
-  projSpeed: 5
+  projSpeed: 1
   projLifetime: 3
-  projHoming: 1
-  projRotation: 1000
-  projFocusDistance: 0
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
   projBeam: 0
   beamTelegraph: 1
   beamActual: 1
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
-  passiveType: 0
-  passiveBoostValue: 1
-  passiveLifetime: 1
+  passiveType: 3
+  passiveBoostValue: 5
+  passiveLifetime: 60

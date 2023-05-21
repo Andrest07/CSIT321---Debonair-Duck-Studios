@@ -24,7 +24,7 @@ public class PassiveSpell : MonoBehaviour
                 break;
 
             case PassiveTypeEnum.Stamina:
-                PlayerManager.instance.data.playerStamina.BoostStamina(passiveBoostValue);
+                PlayerManager.instance.data.playerStamina.BoostStamina(spell.PassiveBoostValue);
                 break;
 
             case PassiveTypeEnum.Health:

@@ -14849,6 +14849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerS: {fileID: 0}
   enemyS: {fileID: 0}
+  delayDestroy: 0
 --- !u!61 &2918094492491190604
 BoxCollider2D:
   m_ObjectHideFlags: 0
