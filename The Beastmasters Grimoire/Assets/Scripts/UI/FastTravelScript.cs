@@ -20,7 +20,7 @@ public class FastTravelScript : MonoBehaviour
 
     public GameObject fastTravelMenu;
     public GameObject gameMenu;
-
+    private GameObject hud;
     
     public Dictionary<SaveBeaconScriptableObject, Button> beaconDictionary = new Dictionary<SaveBeaconScriptableObject, Button>();
     public Dictionary<Button, SaveBeaconScriptableObject> ButtonDictionary = new Dictionary<Button, SaveBeaconScriptableObject>();
@@ -31,7 +31,7 @@ public class FastTravelScript : MonoBehaviour
 
     private void Start()
     {
-
+        hud = GameObject.FindGameObjectWithTag("hud");
         playerT = PlayerManager.instance.GetComponent<Transform>();
 
         //If dictionary is unitialized create it.
@@ -79,6 +79,7 @@ public class FastTravelScript : MonoBehaviour
                 PlayerManager.instance.levelSwapPosition = new Vector3(beaconData.BeaconPosition.x, beaconData.BeaconPosition.y - 0.5f, 0);
             }
             fastTravelMenu.SetActive(false);
+            hud.SetActive(true);
             gameMenu.SetActive(false);
             Time.timeScale = 1;
     }
