@@ -31,7 +31,6 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private PlayerStatusEffects playerStatus;
     [HideInInspector] public SpellScriptableObject playerS;
     [HideInInspector] public EnemyScriptableObject enemyS;
-    public bool delayDestroy = false;
     Vector3 moveDirection;
     Vector3 mousePos;
     Vector3 worldPosition;
@@ -43,10 +42,10 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
+
         // If enemy is using the script
         if (enemyS != null){
-            
+            playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
             playerH = PlayerManager.instance.gameObject.GetComponent<PlayerHealth>();
             playerStatus = PlayerManager.instance.gameObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
@@ -61,6 +60,9 @@ public class Projectile : MonoBehaviour
             } else if (enemyS.SpellType == SpellTypeEnum.Beam) {
                 beamEffect = GetComponent<BeamEffect>();
                 beamEffect.target = PlayerManager.instance.gameObject;
+            } else if (enemyS.SpellType == SpellTypeEnum.AOE) {
+                transform.position = playerT.position;
+                // transform.rotation = Quaternion.Euler(0,0,90);
             }
 
             Destroy(gameObject, enemyS.ProjLifetime);
@@ -70,8 +72,7 @@ public class Projectile : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
             worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-            worldPosition.z =0;
-            moveDirection = (worldPosition - playerT.position).normalized * playerS.ProjSpeed;
+            moveDirection = (worldPosition - transform.position).normalized * playerS.ProjSpeed;
 
             // If SpellType is Bullet, change direction to face enemy and set velocity
             if (playerS.SpellType == SpellTypeEnum.Bullet) {
@@ -188,9 +189,8 @@ public class Projectile : MonoBehaviour
         // projectile destroys when hitting enviro objects
         else if(!col.gameObject.tag.Equals("Enemy"))
         {
-            if (playerS != null && playerS.SpellType != SpellTypeEnum.AOE)
-                DestroyProjectile();
-            else if (enemyS != null && enemyS.SpellType != SpellTypeEnum.AOE)
+
+            if (playerS!=null && playerS.SpellType != SpellTypeEnum.AOE)
                 DestroyProjectile();
 //            Destroy(gameObject);
         }
@@ -221,18 +221,6 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    // destroy on collision with environment
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (!col.gameObject.tag.Equals("Enemy") && !col.gameObject.tag.Equals("Player"))
-        {
-            if (playerS != null && playerS.SpellType != SpellTypeEnum.AOE)
-                DestroyProjectile();
-            else if (enemyS != null && enemyS.SpellType != SpellTypeEnum.AOE)
-                DestroyProjectile();
-        }
-    }
-
     // Function to get the closest enemies to mouse click location
     public GameObject SortDistances(GameObject[] objects, Vector3 origin) {
         float[] distances = new float[ objects.Length ];
@@ -246,13 +234,8 @@ public class Projectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
-        if (delayDestroy)
-        {
-            this.transform.GetChild(0).gameObject.SetActive(false);
-            Destroy(gameObject, 2.0f);
-        }
-        else 
-            Destroy(gameObject);
+        this.transform.GetChild(0).gameObject.SetActive(false);
+        Destroy(gameObject, 2.0f);
     }
 
 
