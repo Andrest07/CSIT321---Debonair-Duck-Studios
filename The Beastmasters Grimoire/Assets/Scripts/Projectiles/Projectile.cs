@@ -43,10 +43,10 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
         // If enemy is using the script
         if (enemyS != null){
-            playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
+            
             playerH = PlayerManager.instance.gameObject.GetComponent<PlayerHealth>();
             playerStatus = PlayerManager.instance.gameObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
             mousePos.z = Camera.main.nearClipPlane;
             worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
             worldPosition.z =0;
-            moveDirection = (worldPosition - transform.position).normalized * playerS.ProjSpeed;
+            moveDirection = (worldPosition - playerT.position).normalized * playerS.ProjSpeed;
 
             // If SpellType is Bullet, change direction to face enemy and set velocity
             if (playerS.SpellType == SpellTypeEnum.Bullet) {
