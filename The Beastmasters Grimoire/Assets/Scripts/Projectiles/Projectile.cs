@@ -187,8 +187,9 @@ public class Projectile : MonoBehaviour
         // projectile destroys when hitting enviro objects
         else if(!col.gameObject.tag.Equals("Enemy"))
         {
-
-            if (playerS!=null && playerS.SpellType != SpellTypeEnum.AOE)
+            if (playerS != null && playerS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+            else if (enemyS != null && enemyS.SpellType != SpellTypeEnum.AOE)
                 DestroyProjectile();
 //            Destroy(gameObject);
         }
@@ -216,6 +217,18 @@ public class Projectile : MonoBehaviour
                 EnemyHealth enemyH = collision.gameObject.GetComponent<EnemyHealth>();
                 enemyH.TakeDamage(playerS.ProjDamage, transform.position);
             }
+        }
+    }
+
+    // destroy on collision with environment
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (!col.gameObject.tag.Equals("Enemy") && !col.gameObject.tag.Equals("Player"))
+        {
+            if (playerS != null && playerS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+            else if (enemyS != null && enemyS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
         }
     }
 
