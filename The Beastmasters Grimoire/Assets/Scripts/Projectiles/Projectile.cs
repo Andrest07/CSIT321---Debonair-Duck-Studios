@@ -70,6 +70,7 @@ public class Projectile : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
             worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+            worldPosition.z =0;
             moveDirection = (worldPosition - transform.position).normalized * playerS.ProjSpeed;
 
             // If SpellType is Bullet, change direction to face enemy and set velocity

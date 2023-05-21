@@ -357,6 +357,7 @@ public class PlayerManager : MonoBehaviour
                         else
                         {
                             mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                            mousePos.z=0;
                             GameObject tempSpell = Instantiate(data.currentBeast,
                                 transform.position + mousePos.normalized,
                                 Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));

@@ -20669,7 +20669,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '  15. Golm'
+  m_text: '  14. Golm'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
   m_sharedMaterial: {fileID: 1909752705754731268, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
@@ -25814,7 +25814,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '  15. Golm'
+  m_text: '  14. Golm'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
   m_sharedMaterial: {fileID: 1909752705754731268, guid: 120de3c6916a5fc4a8081b643cef79ad, type: 2}
