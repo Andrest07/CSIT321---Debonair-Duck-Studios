@@ -1245,6 +1245,7 @@ GameObject:
   - component: {fileID: 3913734392767287040}
   - component: {fileID: 4826431367571722648}
   - component: {fileID: 4630049431855904323}
+  - component: {fileID: 4817537954349981127}
   m_Layer: 9
   m_Name: AudioSources
   m_TagString: Untagged
@@ -1276,7 +1277,7 @@ AudioSource:
   m_GameObject: {fileID: 7552784549642974551}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4923797465699286285, guid: 4bb17df93d3234f4ba40c90ff321d623, type: 2}
   m_audioClip: {fileID: 8300000, guid: 19a969f08992dda4c94df1a656138f0c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1372,7 +1373,7 @@ AudioSource:
   m_GameObject: {fileID: 7552784549642974551}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4923797465699286285, guid: 4bb17df93d3234f4ba40c90ff321d623, type: 2}
   m_audioClip: {fileID: 8300000, guid: c5d2316a74669d546b1bd3be93b94bd3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
@@ -1468,7 +1469,7 @@ AudioSource:
   m_GameObject: {fileID: 7552784549642974551}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4923797465699286285, guid: 4bb17df93d3234f4ba40c90ff321d623, type: 2}
   m_audioClip: {fileID: 8300000, guid: b9e37050fbaa90646ad6893079200d59, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1564,10 +1565,106 @@ AudioSource:
   m_GameObject: {fileID: 7552784549642974551}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4923797465699286285, guid: 4bb17df93d3234f4ba40c90ff321d623, type: 2}
   m_audioClip: {fileID: 8300000, guid: a045c7481f133c54bbe4c0625ace491c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &4817537954349981127
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552784549642974551}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4923797465699286285, guid: 4bb17df93d3234f4ba40c90ff321d623, type: 2}
+  m_audioClip: {fileID: 8300000, guid: af26a40ef256fb645a868edf0a6e34a2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

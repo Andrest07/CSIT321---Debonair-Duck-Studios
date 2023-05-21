@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Mystwood/MystwoodForest1.unity
     guid: 9141a44e596ca5c4c8dd300420f4636d
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Mystwood/MystwoodForest2.unity
+    guid: e46c0b3ff8b90724d86354e7a5cff398
   m_configObjects: {}

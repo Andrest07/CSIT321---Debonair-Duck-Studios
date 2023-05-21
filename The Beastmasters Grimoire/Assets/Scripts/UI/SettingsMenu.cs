@@ -46,9 +46,21 @@ public class SettingsMenu : MonoBehaviour
         saveAudio();
         HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
 
-        mastLabel.text = Mathf.RoundToInt(mastSlider.value * 100).ToString();
-        musicLabel.text = Mathf.RoundToInt(musicSlider.value * 100).ToString();
-        sfxLabel.text = Mathf.RoundToInt(sfxSlider.value * 100).ToString();
+        if (PlayerPrefs.HasKey("MasterVol")){
+            setMasterVolume();
+            setMusicVolume();
+            setSFXVolume();
+        }
+        else
+        {
+            mastSlider.value = 1;
+            musicSlider.value = 1;
+            sfxSlider.value = 1;
+
+            setMasterVolume();
+            setMusicVolume();
+            setSFXVolume();
+        }
     }
 
 

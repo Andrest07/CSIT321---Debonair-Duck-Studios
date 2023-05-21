@@ -4334,7 +4334,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There are enenies ahead. Get ready to fight.
+        value: There are enemies ahead. Get ready to fight.
         type: 0
         typeString: 
       - title: Sequence
@@ -4356,7 +4356,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
+        x: 29
         y: 112
         width: 160
         height: 30
