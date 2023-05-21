@@ -210,6 +210,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3336462956394386956, guid: b36d979f463ce4e83852b595414301f4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336462956394386956, guid: b36d979f463ce4e83852b595414301f4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336462957000592287, guid: b36d979f463ce4e83852b595414301f4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4927920257745848977, guid: b36d979f463ce4e83852b595414301f4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -299,6 +311,18 @@ PrefabInstance:
     - target: {fileID: 7917238221559215613, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283136449773814432, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283136449773814432, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283136451449577267, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8672578495939543498, guid: e0a3a98c7388148ed8380006a4ef438a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -402,7 +426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &945402833
 MonoBehaviour:
   m_ObjectHideFlags: 0

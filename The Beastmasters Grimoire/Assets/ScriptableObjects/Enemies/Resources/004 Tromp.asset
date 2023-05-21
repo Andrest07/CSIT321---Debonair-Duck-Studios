@@ -19,7 +19,7 @@ MonoBehaviour:
   enemyDescription: A large beast that tramples everything in its wake. Despite its
     size it is capable of quickly dashing into predators to defend itself.
   enemyImage: {fileID: -1602206565, guid: a1abe953330ea494481aa5e2b8518e37, type: 3}
-  spellScriptable: {fileID: 0}
+  spellScriptable: {fileID: 11400000, guid: 98bad6e0626194b46956cee7d04ab791, type: 2}
   health: 25
   speed: 1
   meleeDamage: 1

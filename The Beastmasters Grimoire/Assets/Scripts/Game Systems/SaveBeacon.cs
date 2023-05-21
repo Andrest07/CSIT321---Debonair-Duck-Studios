@@ -40,6 +40,7 @@ public class SaveBeacon : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {   Debug.Log("CheckPoint set");
             DeathScript.checkpointLocation = transform.position;
+            playerH.attunedBeacon = beaconData;
             GameManager.instance.GetComponent<FastTravelScript>().UnlockBeacon(beaconData); 
             //beaconData.BeaconUnlocked = true;   
             FastTravel.UnlockBeacon(beaconData);     

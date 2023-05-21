@@ -106,11 +106,19 @@ public class EnemyController : MonoBehaviour
                 // do bullet
                 if (canTakeDamage)
                 {
-                    Debug.Log("Instantiating projectile");
-                    GameObject tempBullet = Instantiate(data.RangedProjectile, transform.position, Quaternion.identity);
-                    tempBullet.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
+                    if (data.SpellType == SpellTypeEnum.Bullet) {
+                        Debug.Log("Instantiating projectile");
+                        GameObject tempProj = Instantiate(data.RangedProjectile, transform.position, Quaternion.identity);
+                        tempProj.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
 
-                    StartCoroutine(DamageTimer());
+                        StartCoroutine(DamageTimer());
+                    } else if (data.SpellType == SpellTypeEnum.AOE) {
+                        Debug.Log("Instantiating aoe");
+                        GameObject tempProj = Instantiate(data.RangedProjectile, PlayerManager.instance.GetComponent<Transform>().position, Quaternion.identity);
+                        tempProj.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
+
+                        StartCoroutine(DamageTimer());
+                    }
                 }
             }
         }

@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private PlayerStatusEffects playerStatus;
     [HideInInspector] public SpellScriptableObject playerS;
     [HideInInspector] public EnemyScriptableObject enemyS;
+    public bool delayDestroy = false;
     Vector3 moveDirection;
     Vector3 mousePos;
     Vector3 worldPosition;
@@ -42,10 +43,10 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
         // If enemy is using the script
         if (enemyS != null){
-            playerT = PlayerManager.instance.gameObject.GetComponent<Transform>();
+            
             playerH = PlayerManager.instance.gameObject.GetComponent<PlayerHealth>();
             playerStatus = PlayerManager.instance.gameObject.GetComponent<PlayerStatusEffects>();
             moveDirection = (playerT.position - transform.position).normalized * enemyS.ProjSpeed;
@@ -69,7 +70,8 @@ public class Projectile : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
             worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-            moveDirection = (worldPosition - transform.position).normalized * playerS.ProjSpeed;
+            worldPosition.z =0;
+            moveDirection = (worldPosition - playerT.position).normalized * playerS.ProjSpeed;
 
             // If SpellType is Bullet, change direction to face enemy and set velocity
             if (playerS.SpellType == SpellTypeEnum.Bullet) {
@@ -97,16 +99,6 @@ public class Projectile : MonoBehaviour
             //If the projectile is homing, update the direction to face the player
             if (enemyS.ProjHoming == true){
                 moveDirection = (playerT.position - transform.position).normalized;
-                /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, enemyS.ProjRotation * Time.deltaTime, 0.0F);
-                transform.Translate(Vector3.forward * Time.deltaTime * enemyS.ProjSpeed, Space.Self);
-                //float angle = Mathf.Atan2(playerT.position.y-transform.position.y, playerT.position.x-transform.position.x) * Mathf.Rad2Deg;
-                //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-                if(Vector3.Distance(transform.position, playerT.position) < enemyS.ProjFocusDistance) {
-                    isLookingAtObject = false;
-                }
-                if(isLookingAtObject) {
-                    transform.rotation = Quaternion.LookRotation(newDirection);
-                }*/
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 transform.position += moveDirection * enemyS.ProjSpeed * Time.deltaTime;
             }
@@ -115,7 +107,7 @@ public class Projectile : MonoBehaviour
         } else if (playerS != null){
 
             // If the projectile is homing, update the direction to face the closest enemy to mouse click location
-            if (playerS.ProjHoming == true){
+            if (playerS.ProjHoming == true && GameObject.FindGameObjectsWithTag("Enemy").Length != 0){
                 try {
                     Vector3 homingP = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), worldPosition).GetComponent<Transform>().position;
                     moveDirection = (homingP - transform.position).normalized;
@@ -127,16 +119,6 @@ public class Projectile : MonoBehaviour
                     transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                     transform.position += moveDirection * playerS.ProjSpeed * Time.deltaTime;
                 }
-                /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, playerS.ProjRotation * Time.deltaTime, 0.0F);
-                transform.Translate(Vector3.forward * Time.deltaTime * playerS.ProjSpeed, Space.Self);
-                //float angle = Mathf.Atan2(homingT.position.y-transform.position.y, homingT.position.x-transform.position.x) * Mathf.Rad2Deg;
-                //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-                if(Vector3.Distance(transform.position, homingT.position) < playerS.ProjFocusDistance) {
-                    isLookingAtObject = false;
-                }
-                if(isLookingAtObject) {
-                    transform.rotation = Quaternion.LookRotation(newDirection);
-                }*/
             }
         }
     }
@@ -200,14 +182,15 @@ public class Projectile : MonoBehaviour
 
 
             if (playerS.SpellType != SpellTypeEnum.AOE)
-                DestroyProjectile();
-            //                Destroy (gameObject);
+                Destroy (gameObject);
+                // DestroyProjectile();
         }
         // projectile destroys when hitting enviro objects
         else if(!col.gameObject.tag.Equals("Enemy"))
         {
-
-            if (playerS!=null && playerS.SpellType != SpellTypeEnum.AOE)
+            if (playerS != null && playerS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+            else if (enemyS != null && enemyS.SpellType != SpellTypeEnum.AOE)
                 DestroyProjectile();
 //            Destroy(gameObject);
         }
@@ -238,6 +221,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    // destroy on collision with environment
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (!col.gameObject.tag.Equals("Enemy") && !col.gameObject.tag.Equals("Player"))
+        {
+            if (playerS != null && playerS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+            else if (enemyS != null && enemyS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+        }
+    }
+
     // Function to get the closest enemies to mouse click location
     public GameObject SortDistances(GameObject[] objects, Vector3 origin) {
         float[] distances = new float[ objects.Length ];
@@ -251,8 +246,13 @@ public class Projectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
-        this.transform.GetChild(0).gameObject.SetActive(false);
-        Destroy(gameObject, 2.0f);
+        if (delayDestroy)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+            Destroy(gameObject, 2.0f);
+        }
+        else 
+            Destroy(gameObject);
     }
 
 

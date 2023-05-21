@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c2d226e960b3341bc5e5b6e55074ae, type: 3}
+  m_Name: ThunderStrike
+  m_EditorClassIdentifier: 
+  spellName: Thunder Strike
+  isProj: 1
+  isPassive: 0
+  spellType: 2
+  attributeType: 0
+  spellCooldown: 2
+  spellDescription: 
+  spellImage: {fileID: 21300000, guid: 664fb5ba16440fa4a89d064d7ef7ed33, type: 3}
+  spellProjectile: {fileID: 9027514048236820045, guid: c30470b04d151b64a8471f9941f8bd1e, type: 3}
+  projDamage: 2
+  projSpeed: 1
+  projLifetime: 3
+  projHoming: 0
+  projRotation: 1
+  projFocusDistance: 1
+  projBeam: 0
+  beamTelegraph: 1
+  beamActual: 1
+  projAOE: 1
+  aoeTelegraph: 1
+  aoeActual: 1
+  passiveType: 0
+  passiveBoostValue: 1
+  passiveLifetime: 1

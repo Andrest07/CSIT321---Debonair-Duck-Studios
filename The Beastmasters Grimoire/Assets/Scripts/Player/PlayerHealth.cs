@@ -34,9 +34,10 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health Booleans")]
     public bool healthRegening; // "Is player currently regenerating health?"
 
-    public GameObject DeathScreen;
-
+    public Vector3 checkpointLocation;
     private float modifiedByBoost = 0.0f;
+
+    public SaveBeaconScriptableObject attunedBeacon;
 
     void Start()
     {
@@ -110,7 +111,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
-        Time.timeScale = 0;
-        DeathScreen.SetActive(true);
+        currentHealth =totalHealth;
+        GameManager.instance.GetComponent<FastTravelScript>().FastTravel(attunedBeacon);
     }
 }

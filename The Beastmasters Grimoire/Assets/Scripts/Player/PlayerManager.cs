@@ -25,6 +25,7 @@
     - Kunal 15/04/23: Spell background image cooldown
     - Quentin 27/4/23: Animator stuff for spell casting
     - Quentin 9/5/23: Bug fixes for knockback & attacking while moving
+    - Andreas 5/21/23: AOE
 */
 using System.Collections;
 using System.Collections.Generic;
@@ -48,7 +49,8 @@ public class PlayerManager : MonoBehaviour
     private InteractionObject interactionObject;
     [HideInInspector] public Vector2 movementVector;
     private Vector3 directionVector;
-    public Vector3 mousePos;
+    private Vector3 mousePos;
+    private Vector3 worldPosition;
     private IEnumerator capture;
     private IEnumerator spellCastPause;
     private PlayerInputActions playerInputActions;
@@ -324,6 +326,22 @@ public class PlayerManager : MonoBehaviour
                             spellCastPause = SpellCastPause(2.0f);
                             StartCoroutine(spellCastPause);
                         }
+                        // for aoe spell
+                        else if (data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellType == SpellTypeEnum.AOE)
+                        {
+                            mousePos = Input.mousePosition;
+                            mousePos.z = Camera.main.nearClipPlane;
+                            worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+                            GameObject tempSpell = Instantiate(data.currentBeast,
+                                worldPosition,
+                                Quaternion.AngleAxis(-90f, Vector3.forward));
+                            tempSpell.GetComponent<Projectile>().playerS = data.availableBeasts[data.currentBeastIndex].SpellScriptable;
+                            
+                            //Same as exiting spellcasting
+                            playerMode = PlayerMode.Basic;
+                            canMove = true;
+                            StartCoroutine(AbilityCooldown(data.currentBeastIndex));
+                        }
                         // for passive spell
                         else if(data.availableBeasts[data.currentBeastIndex].SpellScriptable.SpellType == SpellTypeEnum.Passive)
                         {
@@ -339,6 +357,7 @@ public class PlayerManager : MonoBehaviour
                         else
                         {
                             mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                            mousePos.z=0;
                             GameObject tempSpell = Instantiate(data.currentBeast,
                                 transform.position + mousePos.normalized,
                                 Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));

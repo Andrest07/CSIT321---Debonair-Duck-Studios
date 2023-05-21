@@ -127,5 +127,8 @@ public class PlayerStamina : MonoBehaviour
         currentStamina += value;
 
         modifiedByBoost += value;
+
+
+        Debug.Log("boost stamina" + totalStamina);
     }
 }

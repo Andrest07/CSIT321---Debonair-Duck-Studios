@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Magic Missile
   m_EditorClassIdentifier: 
   spellName: Magic Missile
-  spellProjectile: {fileID: 76919016255997969, guid: 3c369ad209a0af34583168054e06e124, type: 3}
+  isProj: 1
+  isPassive: 0
+  spellType: 0
   attributeType: 0
   spellCooldown: 2
   spellDescription: 
-  spellImage: {fileID: 21300000, guid: fea0cfab9702d4714910fdb116ebf414, type: 3}
-  projType: 0
+  spellImage: {fileID: 21300000, guid: a43409425ba94b54eb304efdf4dacc82, type: 3}
+  spellProjectile: {fileID: 76919016255997969, guid: 3c369ad209a0af34583168054e06e124, type: 3}
   projDamage: 1
   projSpeed: 5
   projLifetime: 3
@@ -28,6 +30,9 @@ MonoBehaviour:
   projBeam: 0
   beamTelegraph: 1
   beamActual: 1
-  projAOE: 1
+  projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
+  passiveType: 0
+  passiveBoostValue: 1
+  passiveLifetime: 1
