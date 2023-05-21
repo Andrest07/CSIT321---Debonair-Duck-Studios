@@ -39,6 +39,8 @@ public class PlayerHealth : MonoBehaviour
 
     public SaveBeaconScriptableObject attunedBeacon;
 
+    public GameObject DeathScreen;
+
     void Start()
     {
         // if player saved while boosting health
@@ -110,7 +112,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     void Death()
-    {
+    {   Time.timeScale = 0;
+        DeathScreen.SetActive(true);
         currentHealth =totalHealth;
         GameManager.instance.GetComponent<FastTravelScript>().FastTravel(attunedBeacon);
     }
