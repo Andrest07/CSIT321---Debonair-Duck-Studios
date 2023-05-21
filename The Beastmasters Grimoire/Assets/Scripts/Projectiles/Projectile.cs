@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
     [HideInInspector] private PlayerStatusEffects playerStatus;
     [HideInInspector] public SpellScriptableObject playerS;
     [HideInInspector] public EnemyScriptableObject enemyS;
+    public bool delayDestroy = false;
     Vector3 moveDirection;
     Vector3 mousePos;
     Vector3 worldPosition;
@@ -231,8 +232,13 @@ public class Projectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
-        this.transform.GetChild(0).gameObject.SetActive(false);
-        Destroy(gameObject, 2.0f);
+        if (delayDestroy)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+            Destroy(gameObject, 2.0f);
+        }
+        else 
+            Destroy(gameObject);
     }
 
 

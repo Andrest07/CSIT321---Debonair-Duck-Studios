@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerS: {fileID: 0}
   enemyS: {fileID: 0}
+  delayDestroy: 1
 --- !u!82 &-4861967576899359114
 AudioSource:
   m_ObjectHideFlags: 0
