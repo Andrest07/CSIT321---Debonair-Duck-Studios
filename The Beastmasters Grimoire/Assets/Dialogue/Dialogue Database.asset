@@ -1277,7 +1277,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: Quiet! Calm down you ape.
+        value: Quiet! Calm down.
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -1570,7 +1570,7 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 7
         destinationConversationID: 3
-        destinationDialogueID: 9
+        destinationDialogueID: 10
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1582,61 +1582,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 244.19147
         y: 462.40424
-        width: 160
-        height: 30
-    - id: 9
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 6
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: '(Millim motions towards the flickering Mother Tree.) '
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 3
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 3
-        originDialogueID: 9
-        destinationConversationID: 3
-        destinationDialogueID: 10
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 243.05511
-        y: 517.5541
         width: 160
         height: 30
     - id: 10
@@ -1658,7 +1603,8 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 'Find out for yourself. '
+        value: Find out for yourself. Head to the Mother Tree in the middle of Mystwood
+          and you'll get your answers.
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -1713,8 +1659,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: "I- Wait, there has never been a tree that big??? Where did it come
-          fr- Wait\u2026 [panel=0]"
+        value: "I- Wait, the Mother Tree? What are you tal- Wait\u2026 [panel=0]"
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -1736,7 +1681,7 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 11
         destinationConversationID: 3
-        destinationDialogueID: 12
+        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1748,62 +1693,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 241.84622
         y: 647.99414
-        width: 160
-        height: 30
-    - id: 12
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 6
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: (Screen changes to an image of the MC looking upwards, seeing the
-          sheer height he fell off of.) [panel=0]
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 3
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 3
-        originDialogueID: 12
-        destinationConversationID: 3
-        destinationDialogueID: 13
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 240.78238
-        y: 712.88776
         width: 160
         height: 30
     - id: 13
@@ -1866,11 +1755,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 6
         type: 5
@@ -1882,15 +1771,15 @@ MonoBehaviour:
       - title: Menu Text
         value: Me, I saved you. Be grateful.
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -2103,7 +1992,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Actor
       - title: Menu Text
         value: Anyway, you won't survive with that empty grimoire so I shall grace
-          you with 1% of my power and be your first monster!
+          you with a small amount of my power and be your first monster!
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -2183,8 +2072,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 6.0926514}
-    canvasZoom: 0.9699999
+    canvasScrollPosition: {x: 0, y: 367.55905}
+    canvasZoom: 0.90999997
   - id: 4
     fields:
     - title: Title
@@ -2786,7 +2675,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: Okay! Now pull out the Grimoire and begin the capture ritual!
+        value: Okay! Now pull out the Grimoire and begin the capturing!
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3266,7 +3155,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: Is it even working?
+        value: Is this even working?
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3648,8 +3537,8 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 'Ah, of course! Old master had to damage the beasts before he captured
-          them! '
+        value: Of course not. (snickers) Even the old man had to weaken the monsters
+          before he could start capturing.
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3704,7 +3593,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 'Come, strike at me! '
+        value: Come, strike me! Don't worry, your puny attacks won't kill me.
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3890,7 +3779,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 29
+        x: 30
         y: 104
         width: 160
         height: 30
@@ -3913,7 +3802,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: But you must first attune the Grimoire to my energy.
+        value: But first, you must attune the Grimoire to my energy.
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -3968,7 +3857,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: Approach the stone monolith, the Pharus Node, with your Grimoire.
+        value: Approach the Pharus Node, the stone monolith, with your Grimoire.
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -4176,8 +4065,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: You must continue your adventure. Travel north of hear and seek the
-          great tree.
+        value: You have to go now. Travel north of here and seek the Mother Tree.
         type: 0
         typeString: 
       - title: Dialogue Text
@@ -4208,8 +4096,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 2}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.85000014
   - id: 9
     fields:
     - title: Title
