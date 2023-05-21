@@ -4334,7 +4334,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Watch out ahead.
+        value: There are enenies ahead. Get ready to fight.
         type: 0
         typeString: 
       - title: Sequence
