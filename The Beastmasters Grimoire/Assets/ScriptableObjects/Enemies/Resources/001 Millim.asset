@@ -30,7 +30,7 @@ MonoBehaviour:
   projDamage: 1
   projSpeed: 1
   projLifetime: 3
-  projHoming: 0
+  projHoming: 1
   projRotation: 1
   projFocusDistance: 1
   projBeam: 0

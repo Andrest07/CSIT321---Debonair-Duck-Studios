@@ -97,16 +97,6 @@ public class Projectile : MonoBehaviour
             //If the projectile is homing, update the direction to face the player
             if (enemyS.ProjHoming == true){
                 moveDirection = (playerT.position - transform.position).normalized;
-                /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, enemyS.ProjRotation * Time.deltaTime, 0.0F);
-                transform.Translate(Vector3.forward * Time.deltaTime * enemyS.ProjSpeed, Space.Self);
-                //float angle = Mathf.Atan2(playerT.position.y-transform.position.y, playerT.position.x-transform.position.x) * Mathf.Rad2Deg;
-                //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-                if(Vector3.Distance(transform.position, playerT.position) < enemyS.ProjFocusDistance) {
-                    isLookingAtObject = false;
-                }
-                if(isLookingAtObject) {
-                    transform.rotation = Quaternion.LookRotation(newDirection);
-                }*/
                 transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                 transform.position += moveDirection * enemyS.ProjSpeed * Time.deltaTime;
             }
@@ -115,7 +105,7 @@ public class Projectile : MonoBehaviour
         } else if (playerS != null){
 
             // If the projectile is homing, update the direction to face the closest enemy to mouse click location
-            if (playerS.ProjHoming == true){
+            if (playerS.ProjHoming == true && GameObject.FindGameObjectsWithTag("Enemy").Length != 0){
                 try {
                     Vector3 homingP = SortDistances(GameObject.FindGameObjectsWithTag("Enemy"), worldPosition).GetComponent<Transform>().position;
                     moveDirection = (homingP - transform.position).normalized;
@@ -127,16 +117,6 @@ public class Projectile : MonoBehaviour
                     transform.rotation = Quaternion.LookRotation(transform.forward, moveDirection);
                     transform.position += moveDirection * playerS.ProjSpeed * Time.deltaTime;
                 }
-                /*Vector3 newDirection = Vector3.RotateTowards(transform.forward, moveDirection, playerS.ProjRotation * Time.deltaTime, 0.0F);
-                transform.Translate(Vector3.forward * Time.deltaTime * playerS.ProjSpeed, Space.Self);
-                //float angle = Mathf.Atan2(homingT.position.y-transform.position.y, homingT.position.x-transform.position.x) * Mathf.Rad2Deg;
-                //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-                if(Vector3.Distance(transform.position, homingT.position) < playerS.ProjFocusDistance) {
-                    isLookingAtObject = false;
-                }
-                if(isLookingAtObject) {
-                    transform.rotation = Quaternion.LookRotation(newDirection);
-                }*/
             }
         }
     }
@@ -200,8 +180,8 @@ public class Projectile : MonoBehaviour
 
 
             if (playerS.SpellType != SpellTypeEnum.AOE)
-                DestroyProjectile();
-            //                Destroy (gameObject);
+                Destroy (gameObject);
+                // DestroyProjectile();
         }
         // projectile destroys when hitting enviro objects
         else if(!col.gameObject.tag.Equals("Enemy"))
