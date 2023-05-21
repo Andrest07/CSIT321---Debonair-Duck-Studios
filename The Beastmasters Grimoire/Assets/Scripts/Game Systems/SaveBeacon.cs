@@ -17,6 +17,7 @@ using UnityEngine.UI;
 public class SaveBeacon : MonoBehaviour
 {
     private PlayerHealth playerH;
+    public GameObject DeathScreen;
     private DeathMenuScript DeathScript;
     //[Header("Scriptable Object")]
     public SaveBeaconScriptableObject beaconData;
@@ -26,8 +27,8 @@ public class SaveBeacon : MonoBehaviour
     void Start()
     {
         //playerHealth = player.GetComponent<PlayerHealth>();
-        //DeathScreen = GameObject.Find("DeathScreen");
-        DeathScript =  GameManager.instance.GetComponent<DeathMenuScript>();
+        //DeathScreen = GameObject.FindGameObjectWithTag("DeathScreen");
+        DeathScript =  DeathScreen.GetComponent<DeathMenuScript>();
         //FastTravelMenu = GameObject.Find("FastTravelMenu");
         playerH = PlayerManager.instance.GetComponent<PlayerHealth>();
         FastTravel = GameManager.instance.GetComponent<FastTravelScript>();
@@ -37,7 +38,7 @@ public class SaveBeacon : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
+        {   Debug.Log("CheckPoint set");
             DeathScript.checkpointLocation = transform.position;
             GameManager.instance.GetComponent<FastTravelScript>().UnlockBeacon(beaconData); 
             //beaconData.BeaconUnlocked = true;   
