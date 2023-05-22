@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c2d226e960b3341bc5e5b6e55074ae, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  spellName: 
+  spellName: Fireball
   isProj: 1
+  isPassive: 0
   spellType: 0
   attributeType: 0
-  spellCooldown: 2
-  spellDescription: 
+  spellCooldown: 2.5
+  spellDescription: A slow moving flaming ball that hits hard.
   spellImage: {fileID: 21300000, guid: 2c311b8048c1b4e99b87af3b9cb613b3, type: 3}
   spellProjectile: {fileID: 6977254816827940189, guid: 6c7d94e6e96bac24eb495dca91e6f967, type: 3}
-  projDamage: 1
+  projDamage: 3
   projSpeed: 3
   projLifetime: 10
   projHoming: 0
@@ -32,3 +33,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
+  passiveType: 0
+  passiveBoostValue: 1
+  passiveLifetime: 1

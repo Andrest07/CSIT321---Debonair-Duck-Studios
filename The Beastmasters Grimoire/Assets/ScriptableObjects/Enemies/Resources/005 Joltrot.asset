@@ -20,12 +20,12 @@ MonoBehaviour:
     to defend itself by shocking any predators on contact. It can also focus this
     electricity to create bolts and attack other beasts.
   enemyImage: {fileID: -11851595, guid: d9887e4a3c9dd744b87dbe5d7a267120, type: 3}
-  spellScriptable: {fileID: 11400000, guid: 0e02004e9b38a2b48b7644dd3f1d67c4, type: 2}
+  spellScriptable: {fileID: 11400000, guid: a972fadad27d33c4f9bb9e4883416d42, type: 2}
   health: 7
   speed: 3
   meleeDamage: 2
   wanderRadius: 3
-  captureTotal: 5
+  captureTotal: 10
   rangedProjectile: {fileID: 9027514048236820045, guid: c30470b04d151b64a8471f9941f8bd1e, type: 3}
   projDamage: 1
   projSpeed: 10
@@ -40,5 +40,5 @@ MonoBehaviour:
   aoeTelegraph: 1
   aoeActual: 1
   visibilityRange: 5.18
-  attackDistance: 5
-  attackCooldown: 2
+  attackDistance: 4
+  attackCooldown: 5

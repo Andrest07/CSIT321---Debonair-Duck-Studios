@@ -60,7 +60,7 @@ public class TutorialScript : MonoBehaviour
     {
         if (!captureBool)
         {
-            if (millim.GetComponent<EnemyCapture>().captureAmount >= 4)
+            if (millim.GetComponent<EnemyCapture>().captureAmount >= 3)
             {
                 DialogueManager.StartConversation(tutAttack, PlayerManager.instance.transform, this.transform);
                 captureBool = true;

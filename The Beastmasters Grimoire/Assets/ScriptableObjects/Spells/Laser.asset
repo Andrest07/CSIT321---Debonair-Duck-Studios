@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Laser
   isProj: 1
+  isPassive: 0
   spellType: 1
   attributeType: 2
   spellCooldown: 3
-  spellDescription: 
+  spellDescription: Aim the laser and cast the spell again to attack with a scalding
+    beam of water.
   spellImage: {fileID: 21300000, guid: ea5c1cbd571448e47b4ea67e372ba609, type: 3}
   spellProjectile: {fileID: 829682969602616108, guid: ec8da0f6dfe77bd49ac53bee360debe4, type: 3}
-  projDamage: 2
+  projDamage: 3
   projSpeed: 1
   projLifetime: 3
   projHoming: 0
@@ -32,3 +34,6 @@ MonoBehaviour:
   projAOE: 0
   aoeTelegraph: 1
   aoeActual: 1
+  passiveType: 0
+  passiveBoostValue: 1
+  passiveLifetime: 1

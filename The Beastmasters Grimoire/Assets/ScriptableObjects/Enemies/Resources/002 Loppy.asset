@@ -25,7 +25,7 @@ MonoBehaviour:
   speed: 1
   meleeDamage: 1
   wanderRadius: 3
-  captureTotal: 5
+  captureTotal: 8
   rangedProjectile: {fileID: 829682969602616108, guid: d49f9af38bb7ed64d91dfe0f9e926fc5, type: 3}
   projDamage: 2
   projSpeed: 1
