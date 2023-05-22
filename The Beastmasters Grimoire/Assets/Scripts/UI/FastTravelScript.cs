@@ -31,7 +31,7 @@ public class FastTravelScript : MonoBehaviour
 
     private void Start()
     {
-        hud = GameObject.FindGameObjectWithTag("hud");
+        hud = GameManager.instance.transform.Find("Canvas").transform.Find("HUD").gameObject;
         playerT = PlayerManager.instance.GetComponent<Transform>();
 
         //If dictionary is unitialized create it.
