@@ -136,11 +136,11 @@ public class GameManager : MonoBehaviour
     {
         if (beast != null)
         {
-            spellSlots[number].GetComponent<Image>().sprite = beast.SpellScriptable.SpellImage;
+            spellSlots[number].transform.Find("Spell").GetComponent<Image>().sprite = beast.SpellScriptable.SpellImage;
         }
         else
         {
-            spellSlots[number].GetComponent<Image>().sprite = blankSlot;
+            spellSlots[number].transform.Find("Spell").GetComponent<Image>().sprite = blankSlot;
         }
     }
 
