@@ -94,11 +94,6 @@ public class EnemyController : MonoBehaviour
         {
             FireBeam();
         }
-        if(data.IsProj && data.SpellType == SpellTypeEnum.AOE)
-        {
-            GameObject tmp = Instantiate(data.RangedProjectile, transform);
-            tmp.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
-        }
         else if (data.IsProj)
         {
             if (Vector3.Distance(transform.position, playerT.position) <= data.AttackDistance)
