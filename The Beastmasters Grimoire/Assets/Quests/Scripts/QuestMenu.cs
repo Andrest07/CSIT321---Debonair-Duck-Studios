@@ -57,27 +57,8 @@ public class QuestMenu : MonoBehaviour
     }
 
     public void Initalize(Quest q)
-    { /*
-        // add quest to log
-        TMP_Text[] itemText;
-        GameObject newItem = Instantiate(questItem, this.transform, false);
-        newItem.name = q.info.questId.ToString();
-        itemText = newItem.GetComponentsInChildren<TMP_Text>();
-        itemText[0].text = q.info.questName;
-        itemText[1].text = q.stages[0].Description();
-
-        questList.Add(q.info.questId, newItem);
-
-        if (q.info.questGroup == Quest.Group.Main)
-            newItem.transform.SetParent(mainObject.transform);
-        
-        else if (q.info.questGroup == Quest.Group.Side)
-            newItem.transform.SetParent(sideObject.transform);
-        
-        else
-            newItem.transform.SetParent(errandObject.transform); */
+    { 
         AddQuest(q);
-
     }
 
     public void AddQuest(Quest q)

@@ -9107,6 +9107,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 3503476557537355337}
   settingsMenu: {fileID: 1792386801391826459}
   hud: {fileID: 1971578401401381992}
+  saveBeaconMenu: {fileID: 1529471845650815320}
 --- !u!114 &1005983721033641765
 MonoBehaviour:
   m_ObjectHideFlags: 0

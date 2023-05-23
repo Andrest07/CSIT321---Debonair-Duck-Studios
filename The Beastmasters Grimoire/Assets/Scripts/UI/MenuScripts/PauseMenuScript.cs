@@ -17,6 +17,7 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public GameObject hud;
+    public GameObject saveBeaconMenu;
     private PlayerManager player;
 
     private void Start()
@@ -26,6 +27,18 @@ public class PauseMenuScript : MonoBehaviour
 
     public void PauseGame()
     {
+        // if in save beacon menu
+        if (saveBeaconMenu.activeSelf)
+        {
+            saveBeaconMenu.transform.GetChild(1).gameObject.SetActive(true);
+            for (int i=2; i<saveBeaconMenu.transform.childCount; i++)
+                saveBeaconMenu.transform.GetChild(i).gameObject.SetActive(false);
+            saveBeaconMenu.SetActive(false);
+
+            Time.timeScale = 1f;
+            return;
+        }
+
         GameManager.instance.Pause();
         pauseMenu.SetActive(GameManager.instance.isPaused);
         hud.SetActive(!GameManager.instance.isPaused);
@@ -34,7 +47,8 @@ public class PauseMenuScript : MonoBehaviour
             settingsMenu.SetActive(false);
 
         // mute
-        AudioListener.pause = !AudioListener.pause;
+        //AudioListener.pause = !AudioListener.pause;
+        AudioListener.pause = !hud.activeSelf;
 
         player.inPauseMenu = !player.inPauseMenu;
     }

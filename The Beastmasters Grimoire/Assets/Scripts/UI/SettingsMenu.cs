@@ -7,6 +7,7 @@
     - Nabin  28/12/2022  Added tab style settings script to the menu.
     - Nabin  09/02/2023  Mute option added to audio tab.
     - Nabin  30/03/2023  Audio setting made persistence using PlayerPrefs.
+    - Quentin 21/5/2023  Modified for loading, extra settings and modidied audio slider calculations
 */
 
 using System.Collections;

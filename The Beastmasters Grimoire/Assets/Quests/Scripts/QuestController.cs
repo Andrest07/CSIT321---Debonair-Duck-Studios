@@ -17,10 +17,6 @@ public class QuestController : MonoBehaviour
     private PlayerManager playerManager;
     private GameManager gameManager;
 
-    private void Awake()
-    {
-        //menu = GameObject.Find("Canvas").GetComponentInChildren<QuestMenu>(true);
-    }
 
     private void Start()
     {

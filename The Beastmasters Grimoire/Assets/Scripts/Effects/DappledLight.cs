@@ -37,8 +37,9 @@ public class DappledLight : MonoBehaviour
         float timeY = Time.time % cycleDuration.y;
         timeY /= cycleDuration.y;
 
+        // get the curve value at the point in time
         float newX = pathX.Evaluate(timeX + timeOffset.x) * magnitudeXY.x;
-        float newY = pathY.Evaluate(timeX + timeOffset.y) * magnitudeXY.y;
+        float newY = pathY.Evaluate(timeY + timeOffset.y) * magnitudeXY.y;
 
         transform.position = origin + new Vector2(newX, newY);
     }
