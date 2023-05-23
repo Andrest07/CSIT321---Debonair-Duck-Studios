@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private int totalBeasts;
     public bool isPaused;
+
+    public AudioSource paperSound;
     
     public List<Image> cooldownImage;
 

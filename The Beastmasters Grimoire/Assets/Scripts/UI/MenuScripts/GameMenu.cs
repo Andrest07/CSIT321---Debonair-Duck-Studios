@@ -34,7 +34,7 @@ public class GameMenu : MonoBehaviour
         hud.SetActive(!GameManager.instance.isPaused);
 
         // mute
-        AudioListener.pause = !AudioListener.pause;
+        //AudioListener.pause = !AudioListener.pause;
     }
 
     public void UpdateDisplayedEntry(EnemyScriptableObject beast)
