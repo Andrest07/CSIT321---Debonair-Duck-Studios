@@ -1,3 +1,10 @@
+/*
+    DESCRIPTION: Save Beacon scriptable object
+
+    AUTHOR DD/MM/YY: Kaleb 12/03/23
+
+	- EDITOR DD/MM/YY CHANGES:
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
