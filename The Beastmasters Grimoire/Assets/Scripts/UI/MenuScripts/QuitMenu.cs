@@ -15,5 +15,8 @@ public class QuitMenu : MonoBehaviour
 {
     public void onClick(){
         SceneManager.LoadScene("MainMenu");
+        GameManager.instance.isPaused = false;
+        Time.timeScale = 1;
+        GameManager.instance.gameObject.transform.Find("Canvas").transform.Find("HUD").gameObject.SetActive(true);
     }
 }

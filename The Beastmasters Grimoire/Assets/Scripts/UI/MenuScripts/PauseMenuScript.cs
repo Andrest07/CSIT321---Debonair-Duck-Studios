@@ -19,6 +19,7 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject hud;
     public GameObject saveBeaconMenu;
     private PlayerManager player;
+    public GameObject exitConfirm;
 
     private void Start()
     {
@@ -43,8 +44,10 @@ public class PauseMenuScript : MonoBehaviour
         pauseMenu.SetActive(GameManager.instance.isPaused);
         hud.SetActive(!GameManager.instance.isPaused);
 
-        if(hud.activeSelf)
+        if(hud.activeSelf){
             settingsMenu.SetActive(false);
+            exitConfirm.SetActive(false);
+        }
 
         // mute
         //AudioListener.pause = !AudioListener.pause;
