@@ -139,8 +139,12 @@ public class SaveLoadGame : MonoBehaviour {
             attune.Attune(i);
             i++;
         }
-        string curbeast = PlayerManager.instance.data.availableBeasts[PlayerManager.instance.data.currentBeastIndex].SpellScriptable.name;
-        PlayerManager.instance.data.currentBeast = Resources.Load<GameObject>(curbeast);
+
+        if (PlayerManager.instance.data.availableBeasts[PlayerManager.instance.data.currentBeastIndex] != null)
+        {
+            string curbeast = PlayerManager.instance.data.availableBeasts[PlayerManager.instance.data.currentBeastIndex].SpellScriptable.name;
+            PlayerManager.instance.data.currentBeast = Resources.Load<GameObject>(curbeast);
+        }
 
         // load bestiary
         // reset bestiary
