@@ -78,7 +78,9 @@ public class BeamEffect : MonoBehaviour
                 hit = Physics2D.Raycast(firePoint.position, direction * distanceRay, distanceRay, layerMask);
             }
 
+            // move partical system to location
             aimParticles.transform.position = hit.point;
+            // draw ray
             Draw2DRay(lineAim, firePoint.position, hit.point);
         }
         // if ready to fire

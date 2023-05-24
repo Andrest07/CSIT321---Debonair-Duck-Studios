@@ -44,10 +44,11 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        saveAudio();
         HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+        LoadSettings();
 
         if (PlayerPrefs.HasKey("MasterVol")){
+            saveAudio();
             setMasterVolume();
             setMusicVolume();
             setSFXVolume();
@@ -127,15 +128,12 @@ public class SettingsMenu : MonoBehaviour
     public void saveAudio(){
         float mastValue = PlayerPrefs.GetFloat("MasterVol");
         mastSlider.value = mastValue;
-        AudioListener.volume = mastValue;
 
         float musicValue = PlayerPrefs.GetFloat("MusicVol");
         musicSlider.value = musicValue;
-        AudioListener.volume = musicValue;
 
         float sfxValue = PlayerPrefs.GetFloat("SFXVol");
         sfxSlider.value = sfxValue;
-        AudioListener.volume = sfxValue;
     }
 
     public void ToggleMute(Toggle toggle)
@@ -150,8 +148,8 @@ public class SettingsMenu : MonoBehaviour
         else
         {
             mastSlider.interactable = musicSlider.interactable = sfxSlider.interactable = true;
-            theMixer.SetFloat("MasterVol", Mathf.Log10(sfxSlider.value) * 20);
-            theMixer.SetFloat("MusicVol", Mathf.Log10(sfxSlider.value) * 20);
+            theMixer.SetFloat("MasterVol", Mathf.Log10(mastSlider.value) * 20);
+            theMixer.SetFloat("MusicVol", Mathf.Log10(musicSlider.value) * 20);
             theMixer.SetFloat("SFXVol", Mathf.Log10(sfxSlider.value) * 20);
         }
     }
@@ -175,21 +173,38 @@ public class SettingsMenu : MonoBehaviour
     {
         // audio
         if (PlayerPrefs.HasKey("MasterVol"))
-            mastSlider.value = PlayerPrefs.GetFloat("MasterVol");
+        {
+            //mastSlider.value = PlayerPrefs.GetFloat("MasterVol");
+            theMixer.SetFloat("MasterVol", Mathf.Log10(PlayerPrefs.GetFloat("MasterVol")) * 20);
+        }
 
         if (PlayerPrefs.HasKey("MusicVol"))
-            mastSlider.value = PlayerPrefs.GetFloat("MusicVol");
+        {
+            //mastSlider.value = PlayerPrefs.GetFloat("MusicVol");
+            theMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVol")) * 20);
+            
+        }
 
         if (PlayerPrefs.HasKey("SFXVol"))
-            mastSlider.value = PlayerPrefs.GetFloat("SFXVol");
+        {
+            //mastSlider.value = PlayerPrefs.GetFloat("SFXVol");
+            theMixer.SetFloat("SFXVol", Mathf.Log10(PlayerPrefs.GetFloat("SFXVol")) * 20);
+        }
 
 
 
         // extras
-        PlayerPrefs.GetFloat("HUDVisibility", extrasHUD.value);
-        if (HUD == null) HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
-        HUD.alpha = extrasHUD.value;
-        PlayerPrefs.GetInt("Difficulty", extrasDifficulty);
-        extrasDifficultyDropdown.SetValueWithoutNotify(extrasDifficulty);
+        if (PlayerPrefs.HasKey("HUDVisibility"))
+        {
+            PlayerPrefs.GetFloat("HUDVisibility", extrasHUD.value);
+            if (HUD == null) HUD = transform.parent.GetChild(2).GetComponent<CanvasGroup>();
+            HUD.alpha = extrasHUD.value;
+        }
+
+        if (PlayerPrefs.HasKey("HUDVisibility"))
+        {
+            PlayerPrefs.GetInt("Difficulty", extrasDifficulty);
+            extrasDifficultyDropdown.SetValueWithoutNotify(extrasDifficulty);
+        }
     }
 }
