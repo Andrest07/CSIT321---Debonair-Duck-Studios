@@ -70,6 +70,8 @@ public class GameManager : MonoBehaviour
 
         //Initialise the bestiary if it isn't intialised. Set all beast unlocks to false
         InitialiseBestiary();
+
+        StartCoroutine(LateStartAudioMixer());
     }
 
     // Update is called once per frame
@@ -168,5 +170,13 @@ public class GameManager : MonoBehaviour
     {
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
+    }
+
+
+    IEnumerator LateStartAudioMixer()
+    {
+        yield return new WaitForEndOfFrame();
+
+        this.GetComponentInChildren<SettingsMenu>(true).LoadSettings();
     }
 }
