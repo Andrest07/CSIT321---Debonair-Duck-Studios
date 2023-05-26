@@ -153,11 +153,11 @@ public class BeamEffect : MonoBehaviour
 
         // turn off aiming
         laserAim.SetActive(false);
+        aimParticles.SetActive(false);
         isAiming = false;
         
         // turn on laser
         laserFire.SetActive(true);
-        aimParticles.SetActive(false);
         particles.SetActive(true);
 
         audioSource.Play();

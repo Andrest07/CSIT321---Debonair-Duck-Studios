@@ -36,6 +36,7 @@ public class SaveBeaconMenu : MonoBehaviour
     public void OpenMenu(GameObject beacon)
     {
         attunedBeacon = beacon;
+        GameManager.instance.currentProfile.saveBeacon = beacon.name;
         saveBeaconMenu.SetActive(true);
 
         saveLoad = attunedBeacon.GetComponent<SaveLoadGame>();

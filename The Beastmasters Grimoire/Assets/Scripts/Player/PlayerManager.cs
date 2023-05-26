@@ -284,7 +284,12 @@ public class PlayerManager : MonoBehaviour
                 if (canSpellcast)
                 {
                     if (!bookAnimator) bookAnimator = book.GetComponent<Animator>();
-                    animator.SetTrigger("castSpell");
+
+                    mousePos = (Vector3)Mouse.current.position.ReadValue() - Camera.main.WorldToScreenPoint(transform.position);
+                    animator.SetFloat("Move X", mousePos.x);
+                    animator.SetFloat("Move Y", mousePos.y);
+                    animator.SetBool("castSpell", true);
+
                     book.SetActive(true);
                     bookAnimator.SetBool("isFiring", true);
 
@@ -298,6 +303,7 @@ public class PlayerManager : MonoBehaviour
                             Quaternion.AngleAxis(Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f, Vector3.forward));
                         //Same as exiting spellcasting
                         animator.SetBool("isCasting", false);
+                        animator.SetBool("castSpell", false);
                         playerMode = PlayerMode.Basic;
                         canMove = true;
                     }
@@ -313,6 +319,7 @@ public class PlayerManager : MonoBehaviour
                             usingBeamSpell = true;
                             beamFired = false;
                         }
+                        // using beam 2nd click for firing
                         else if (usingBeamSpell)
                         {
                             beamRef.GetComponentInChildren<BeamForPlayer>().FireBeam();
@@ -523,7 +530,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // Context Q, E
+    // Context: Q, E
     public void MonsterSwitch(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPaused) return;
@@ -638,6 +645,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(bookAnimator) bookAnimator.SetBool("isFiring", false);
         animator.SetBool("isCasting", false);
+        animator.SetBool("castSpell", false);
         book.SetActive(false);
 
         // if exiting spellcasting before firing beam

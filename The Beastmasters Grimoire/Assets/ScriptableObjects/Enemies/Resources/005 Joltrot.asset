@@ -41,4 +41,4 @@ MonoBehaviour:
   aoeActual: 1
   visibilityRange: 5.18
   attackDistance: 4
-  attackCooldown: 5
+  attackCooldown: 3

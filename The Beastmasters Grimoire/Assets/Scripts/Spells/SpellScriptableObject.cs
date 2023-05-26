@@ -58,6 +58,8 @@ public class SpellScriptableObject : ScriptableObject
     [SerializeField] private float aoeTelegraph = 1f;
     [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projAOE))]
     [SerializeField] private float aoeActual = 1f;
+    [ShowIf(ActionOnConditionFail.DontDraw, ConditionOperator.And, nameof(isProj), nameof(projAOE))]
+    [SerializeField] private bool aoeCenterEnemy = false;
 
 
     //[Header("Passive Stats")]
@@ -97,6 +99,7 @@ public class SpellScriptableObject : ScriptableObject
     public bool ProjAOE { get => projAOE; }
     public float AOETelegraph { get => aoeTelegraph; }
     public float AOEActual { get => aoeActual; }
+    public bool AOECenterEnemy { get => aoeCenterEnemy; }
 
     // Passive Stats
     public bool IsPassive { get => isPassive; }

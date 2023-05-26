@@ -61,7 +61,8 @@ public class Projectile : MonoBehaviour
                 beamEffect = GetComponent<BeamEffect>();
                 beamEffect.target = PlayerManager.instance.gameObject;
             } else if (enemyS.SpellType == SpellTypeEnum.AOE) {
-                transform.position = playerT.position;
+                if(!enemyS.SpellScriptable.AOECenterEnemy)
+                    transform.position = playerT.position;
                 // transform.rotation = Quaternion.Euler(0,0,90);
             }
 
@@ -222,6 +223,19 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    // destroy on collision with environment
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (!col.gameObject.tag.Equals("Enemy") && !col.gameObject.tag.Equals("Player"))
+        {
+            if (playerS != null && playerS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+            else if (enemyS != null && enemyS.SpellType != SpellTypeEnum.AOE)
+                DestroyProjectile();
+        }
+    }
+
+
     // Function to get the closest enemies to mouse click location
     public GameObject SortDistances(GameObject[] objects, Vector3 origin) {
         float[] distances = new float[ objects.Length ];
@@ -235,7 +249,8 @@ public class Projectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
-        this.transform.GetChild(0).gameObject.SetActive(false);
+        if(transform.childCount>0)
+            this.transform.GetChild(0).gameObject.SetActive(false);
         Destroy(gameObject, 2.0f);
     }
 

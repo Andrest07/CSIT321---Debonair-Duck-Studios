@@ -97,18 +97,11 @@ public class BeamForPlayer : MonoBehaviour
         // if ready to fire
         else if (isFiring)
         {
-            if (Physics2D.Raycast(firingOrigin, direction , distanceRay, layerMask))
-                hit = Physics2D.Raycast(firingOrigin, direction , distanceRay, layerMask);
-
-
-            if (Physics2D.Raycast(firingOrigin, direction , distanceRay, layerMask))
+            // if hits anything else
+            if (Physics2D.Raycast(firingOrigin, direction, distanceRay, ~ignoreLayer))
             {
-                Debug.Log("hits");
-                if (!hitsOnce)
-                {
-                    hit.collider.GetComponent<EnemyHealth>().TakeDamage(attackDamage, transform.position);
-                    hitsOnce = true;
-                }
+                hit = Physics2D.Raycast(firingOrigin, direction, distanceRay, ~ignoreLayer);
+                Debug.Log("hits other");
 
                 particles.transform.position = hit.point;
                 Draw2DRay(lineFire, firingOrigin, hit.point);
@@ -122,6 +115,19 @@ public class BeamForPlayer : MonoBehaviour
             }
 
 
+            // if hits an enemy
+            if (!hitsOnce && Physics2D.Raycast(firingOrigin, direction , distanceRay, layerMask))
+            {
+                Debug.Log("hits enemy");
+
+                hit.collider.GetComponent<EnemyHealth>().TakeDamage(attackDamage, transform.position);
+                hitsOnce = true;
+            }
+
+
+            laserFire.SetActive(true);
+            particles.SetActive(true);
+
             transform.position = Vector2.Lerp(transform.position, hit.point, Time.deltaTime * destroySpeed);
 
         }
@@ -129,7 +135,7 @@ public class BeamForPlayer : MonoBehaviour
     }
 
     
-    // Fire beam for player click
+    // Fire beam for player 2nd click
     public void FireBeam()
     {
         firingOrigin = firePoint.position;
@@ -141,9 +147,6 @@ public class BeamForPlayer : MonoBehaviour
 
         // turn on laser
         audioSource.Play();
-
-        laserFire.SetActive(true);
-        particles.SetActive(true);
 
         StartCoroutine(BeamTimer());
     }

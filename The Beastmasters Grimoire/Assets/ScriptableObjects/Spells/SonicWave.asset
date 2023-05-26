@@ -33,6 +33,7 @@ MonoBehaviour:
   projAOE: 1
   aoeTelegraph: 1
   aoeActual: 1
+  aoeCenterEnemy: 1
   passiveType: 0
   passiveBoostValue: 1
   passiveLifetime: 1

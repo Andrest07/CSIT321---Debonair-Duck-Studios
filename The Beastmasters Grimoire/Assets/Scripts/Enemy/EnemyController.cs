@@ -109,7 +109,12 @@ public class EnemyController : MonoBehaviour
                         StartCoroutine(DamageTimer());
                     } else if (data.SpellType == SpellTypeEnum.AOE) {
                         Debug.Log("Instantiating aoe");
-                        GameObject tempProj = Instantiate(data.RangedProjectile, playerT.position, Quaternion.AngleAxis(-90f, Vector3.forward));
+                        GameObject tempProj;
+                        if (data.SpellScriptable.AOECenterEnemy)
+                            tempProj = Instantiate(data.RangedProjectile, transform);
+                        else
+                            tempProj = Instantiate(data.RangedProjectile, playerT.position, Quaternion.AngleAxis(-90f, Vector3.forward));
+
                         tempProj.GetComponent<Projectile>().enemyS = this.GetComponent<EnemyController>().data;
 
                         StartCoroutine(DamageTimer());
