@@ -177,6 +177,16 @@ public class Quest : ScriptableObject
         }
     }
 
+    public void CheckLoadedQuest()
+    {
+        bool stageCompleted = true;
+        foreach (var s in stages.Where(s => s.stageNumber == currentStage))
+        {
+            if (!s.completed) { stageCompleted = false; break; }
+        }
+        completed = ((stageCompleted && stages.All(s => s.completed)) == true);
+    }
+
     public override string ToString()
     {
         string fullDesc = info.questDescription + "\n\n";

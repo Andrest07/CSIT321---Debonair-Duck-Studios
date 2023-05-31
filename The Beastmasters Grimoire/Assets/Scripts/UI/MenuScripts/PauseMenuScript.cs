@@ -53,9 +53,7 @@ public class PauseMenuScript : MonoBehaviour
         //AudioListener.pause = !AudioListener.pause;
         //AudioListener.pause = !hud.activeSelf;
 
-        player.inPauseMenu = !player.inPauseMenu;
     }
-
 
     public void QuitGame()
     {

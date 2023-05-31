@@ -248,11 +248,11 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // context: tab
     public void GameMenu(InputAction.CallbackContext context)
     {
         if (context.performed && !inDialogue && !inPauseMenu)
         {
-            inGameMenu = !inGameMenu;
             gameMenuFunction.PauseGame();
         }
     }

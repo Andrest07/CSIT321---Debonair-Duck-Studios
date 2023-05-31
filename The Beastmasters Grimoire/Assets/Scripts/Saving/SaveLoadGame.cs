@@ -45,9 +45,13 @@ public class SaveLoadGame : MonoBehaviour {
 
         // save quest log
         int i = 0;
+        PlayerManager.instance.data.questStage.Clear();
         foreach (Quest q in PlayerManager.instance.data.playerQuests) {
-            PlayerManager.instance.data.questStage[i] = q.currentStage;
-            if (q.completed) PlayerManager.instance.data.questStage[i]++;
+            foreach(var s in q.stages)
+            {
+                if (s.completed) PlayerManager.instance.data.questStage.Add(1);
+                else PlayerManager.instance.data.questStage.Add(0);
+            }
         }
 
         // save spells
@@ -129,6 +133,7 @@ public class SaveLoadGame : MonoBehaviour {
             PlayerManager.instance.data.playerQuests.Add(so);
         }
 
+
         // load spells
         int i = 0;
         var attune = GameManager.instance.GetComponent<SaveBeaconMenu>();
@@ -175,6 +180,9 @@ public class SaveLoadGame : MonoBehaviour {
 
         PlayerManager.instance.canCapture = PlayerManager.instance.canBasic = PlayerManager.instance.canSpellcast = true;
 
+
+        gameManager.isPaused = true;
+        gameManager.Pause();
     }
 
 

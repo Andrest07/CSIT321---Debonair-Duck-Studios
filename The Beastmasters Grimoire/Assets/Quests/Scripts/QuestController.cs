@@ -54,6 +54,8 @@ public class QuestController : MonoBehaviour
         foreach (Quest quest in playerManager.data.playerQuests)
         {
             // set current stage
+
+            /*
             for (int s = 0; s <= PlayerManager.instance.data.questStage[i]; s++)
             {
                 if(s == quest.stages.Count)
@@ -65,7 +67,16 @@ public class QuestController : MonoBehaviour
                 quest.stages[s].active = true;
                 if(s< PlayerManager.instance.data.questStage[i])
                     quest.stages[s].Complete();
+            }*/
+
+            foreach(var stage in quest.stages)
+            {
+                if (PlayerManager.instance.data.questStage[i] == 1)
+                    stage.Complete();
+                i++;
             }
+
+            quest.CheckLoadedQuest();
 
             if (!quest.completed)
             {
